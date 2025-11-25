@@ -68,4 +68,4 @@ Pet‑проект по реализации моделей Word2Vec (CBOW и Sk
    jupyter notebook Pet-proj_Word2Wec.ipynb
 
 ## 🏷 Topics
-`NLP` ` Word2Vec` `Embeddings` `Text Analysis` `Python` `Keras` `Visualization`
+`NLP` ` Word2Vec` `Embeddings` `Text Analysis` `Python` `Keras` `Visualization` `gensim` `literature` `pca` `tsne` `machine-learning` `semantic-analysis`
