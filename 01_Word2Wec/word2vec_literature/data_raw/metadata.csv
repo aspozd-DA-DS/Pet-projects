@@ -1,0 +1,7 @@
+author,file,source,size_chars,size_kb
+shakespeare,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_raw\shakespeare\shakespeare.txt,https://www.gutenberg.org/files/100/100-0.txt,5359443,5295.62
+dostoevsky,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_raw\dostoevsky\dostoevsky.txt,https://www.gutenberg.org/files/600/600-0.txt,263859,260.54
+kafka,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_raw\kafka\kafka.txt,https://www.gutenberg.org/files/7849/7849-0.txt,475989,464.91
+asimov_youth,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_raw\asimov_youth\asimov_youth.txt,https://www.gutenberg.org/cache/epub/31547/pg31547.txt,78673,76.93
+asimov_magnificent_possession,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_raw\asimov_magnificent_possession\asimov_magnificent_possession.txt,https://www.gutenberg.org/ebooks/76871.txt.utf-8,56751,56.62
+asimov_lets_get_together,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_raw\asimov_lets_get_together\asimov_lets_get_together.txt,https://www.gutenberg.org/cache/epub/68377/pg68377.txt,55106,53.92

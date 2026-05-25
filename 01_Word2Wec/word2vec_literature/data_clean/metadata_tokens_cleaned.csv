@@ -1,0 +1,5 @@
+author,file_tokens,num_tokens,vocab_size,num_sentences,avg_sentence_len,language,unique_ratio_%
+dostoevsky,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\dostoevsky_tokens_cleaned.txt,16669,3559,2249,19.62,en,21.35
+kafka,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\kafka_tokens_cleaned.txt,32134,3339,3814,21.95,en,10.39
+asimov,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\asimov_tokens_cleaned.txt,37600,2895,4074,15.62,en,7.7
+shakespeare_balanced,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\shakespeare_balanced_tokens_cleaned.txt,43487,6267,9737,9.27,en,14.41

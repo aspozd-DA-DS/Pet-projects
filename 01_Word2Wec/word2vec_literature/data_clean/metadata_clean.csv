@@ -1,0 +1,9 @@
+author,file_clean,size_chars,size_words,words_estimate,language,balanced
+shakespeare,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\shakespeare.txt,5359342,963460,893223,en,no
+dostoevsky,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\dostoevsky.txt,244174,44132,40695,en,no
+kafka,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\kafka.txt,456443,83728,76073,en,no
+asimov_youth,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\asimov_youth.txt,58945,10081,9824,en,no
+asimov_magnificent_possession,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\asimov_magnificent_possession.txt,36986,6129,6164,en,no
+asimov_lets_get_together,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\asimov_lets_get_together.txt,35240,5806,5873,en,no
+asimov,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\asimov.txt,391277,63632,65212,en,no
+shakespeare_balanced,E:\projects\My_project\03_Word2Wec\word2vec_literature\data_clean\shakespeare_balanced.txt,499657,90223,83276,en,yes
