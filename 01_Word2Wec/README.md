@@ -82,7 +82,7 @@ Pet‑проект по реализации моделей Word2Vec (CBOW и Sk
 ├── `Pet-proj_Word2Wec.ipynb` — основной ноутбук с полным анализом, выполненный локально  
 ├── `Pet-proj_Word2Wec.pdf` — экспорт в PDF  
 ├── `\word2vec_literature` — данные для проекта
-└── `README.md` — эта документация
+├── `README.md` — эта документация
 
 ---
 
