@@ -1,0 +1,2855 @@
+Worlds Within Worlds:
+
+                      The Story of Nuclear Energy
+
+                                Volume 2
+
+      Mass and Energy · The Neutron · The Structure of the Nucleus
+
+
+
+
+
+                            by Isaac Asimov
+
+
+
+
+
+          U. S. Energy Research and Development Administration
+
+                        Office of Public Affairs
+
+                         Washington, D.C. 20545
+
+
+
+           Library of Congress Catalog Card Number: 75-189477
+
+                                  1972
+
+
+
+_Nothing in the history of mankind has opened our eyes to the
+
+possibilities of science as has the development of atomic power. In the
+
+last 200 years, people have seen the coming of the steam engine, the
+
+steamboat, the railroad locomotive, the automobile, the airplane, radio,
+
+motion pictures, television, the machine age in general. Yet none of it
+
+seemed quite so fantastic, quite so unbelievable, as what man has done
+
+since 1939 with the atom ... there seem to be almost no limits to what
+
+may lie ahead: inexhaustible energy, new worlds, ever-widening knowledge
+
+of the physical universe._
+
+                                                            Isaac Asimov
+
+
+
+                [Illustration: Photograph of night sky]
+
+
+
+
+
+
+
+
+
+The U. S. Energy Research and Development Administration publishes a
+
+series of booklets for the general public.
+
+
+
+Please write to the following address for a title list or for
+
+information on a specific subject:
+
+
+
+  USERDA—Technical Information Center
+
+  P. O. Box 62
+
+  Oak Ridge, Tennessee 37830
+
+
+
+                      [Illustration: Isaac Asimov]
+
+
+
+
+
+
+
+
+
+ISAAC ASIMOV received his academic degrees from Columbia University and
+
+is Associate Professor of Biochemistry at the Boston University School
+
+of Medicine. He is a prolific author who has written over 150 books in
+
+the past 20 years, including about 20 science fiction works, and books
+
+for children. His many excellent science books for the public cover
+
+subjects in mathematics, physics, astronomy, chemistry, and biology,
+
+such as _The Genetic Code_, _Inside the Atom_, _Building Blocks of the
+
+Universe_, _Understanding Physics_, _The New Intelligent Man’s Guide to
+
+Science_, and _Asimov’s Biographical Encyclopedia of Science and
+
+Technology_.
+
+
+
+In 1965 Dr. Asimov received the James T. Grady Award of the American
+
+Chemical Society for his major contribution in reporting science
+
+progress to the public.
+
+
+
+                [Illustration: Photograph of night sky]
+
+
+
+CONTENTS
+
+
+
+
+
+                                VOLUME 1
+
+  Introduction                                                          5
+
+  Atomic Weights                                                        6
+
+  Electricity                                                          11
+
+      Units of Electricity                                             11
+
+      Cathode Rays                                                     13
+
+      Radioactivity                                                    17
+
+      The Structure of the Atom                                        25
+
+      Atomic Numbers                                                   30
+
+      Isotopes                                                         35
+
+  Energy                                                               47
+
+      The Law of Conservation of Energy                                47
+
+      Chemical Energy                                                  50
+
+      Electrons and Energy                                             54
+
+      The Energy of the Sun                                            55
+
+      The Energy of Radioactivity                                      57
+
+
+
+
+
+                                 VOLUME 2
+
+  Mass and Energy                                                      69
+
+  The Structure of the Nucleus                                         75
+
+      The Proton                                                       75
+
+      The Proton-Electron Theory                                       76
+
+      Protons in Nuclei                                                80
+
+      Nuclear Bombardment                                              82
+
+      Particle Accelerators                                            86
+
+  The Neutron                                                          92
+
+      Nuclear Spin                                                     92
+
+      Discovery of the Neutron                                         95
+
+      The Proton-Neutron Theory                                        98
+
+      The Nuclear Interaction                                         101
+
+      Neutron Bombardment                                             107
+
+
+
+
+
+                                 VOLUME 3
+
+  Nuclear Fission                                                     117
+
+      New Elements                                                    117
+
+      The Discovery of Fission                                        122
+
+      The Nuclear Chain Reaction                                      127
+
+      The Nuclear Bomb                                                131
+
+      Nuclear Reactors                                                141
+
+  Nuclear Fusion                                                      147
+
+      The Energy of the Sun                                           147
+
+      Thermonuclear Bombs                                             149
+
+      Controlled Fusion                                               151
+
+  Beyond Fusion                                                       159
+
+      Antimatter                                                      159
+
+      The Unknown                                                     164
+
+  Reading List                                                        166
+
+
+
+[Illustration: _A field-ion microscope view of atoms in a crystal. Each
+
+tiny white dot is a single atom, and each ring system is a crystal facet
+
+or plane. The picture is magnified 1,500,000 times._]
+
+
+
+
+
+
+
+
+
+                            MASS AND ENERGY
+
+
+
+
+
+In 1900 it began to dawn on physicists that there was a vast store of
+
+energy within the atom; a store no one earlier had imagined existed. The
+
+sheer size of the energy store in the atom—millions of times that known
+
+to exist in the form of chemical energy—seemed unbelievable at first.
+
+Yet that size quickly came to make sense as a result of a line of
+
+research that seemed, at the beginning, to have nothing to do with
+
+energy.
+
+
+
+Suppose a ball were thrown forward at a velocity of 20 kilometers per
+
+hour by a man on top of a flatcar that is moving forward at 20
+
+kilometers an hour. To someone watching from the roadside the ball would
+
+appear to be travelling at 40 kilometers an hour. The velocity of the
+
+thrower is added to the velocity of the ball.
+
+
+
+If the ball were thrown forward at 20 kilometers an hour by a man on top
+
+of a flatcar that is moving backward at 20 kilometers an hour, then the
+
+ball (to someone watching from the roadside) would seem to be not moving
+
+at all after it left the hand of the thrower. It would just drop to the
+
+ground.
+
+
+
+There seemed no reason in the 19th century to suppose that light didn’t
+
+behave in the same fashion. It was known to travel at the enormous speed
+
+of just a trifle under 300,000 kilometers per second, while earth moved
+
+in its orbit about the sun at a speed of about 30 kilometers per second.
+
+Surely if a beam of light beginning at some earth-bound source shone in
+
+the direction of earth’s travel, it ought to move at a speed of 300,030
+
+kilometers per second. If it shone in the opposite direction, against
+
+earth’s motion, it ought to move at a speed of 299,970 kilometers per
+
+second.
+
+
+
+Could such a small difference in an enormous speed be detected?
+
+
+
+[Illustration: _Albert A. Michelson_]
+
+
+
+The German-American physicist Albert Abraham Michelson (1852-1931) had
+
+invented a delicate instrument, the interferometer, that could compare
+
+the velocities of different beams of light with great precision. In 1887
+
+he and a co-worker, the American chemist Edward Williams Morley
+
+(1838-1923), tried to measure the comparative speeds of light, using
+
+beams headed in different directions. Some of this work was performed at
+
+the U. S. Naval Academy and some at the Case Institute.
+
+
+
+The results of the Michelson-Morley experiment were unexpected. It
+
+showed no difference in the measured speed of light. No matter what the
+
+direction of the beam—whether it went in the direction of the earth’s
+
+movement, or against it, or at any angle to it—the speed of light always
+
+appeared to be exactly the same.
+
+
+
+To explain this, the German-Swiss-American scientist Albert Einstein
+
+(1879-1955) advanced his “special theory of relativity” in 1905.
+
+According to Einstein’s view, speeds could not merely be added. A ball
+
+thrown forward at 20 kilometers an hour by a man moving at 20 kilometers
+
+an hour in the same direction would not seem to be going 40 kilometers
+
+an hour to an observer at the roadside. It would seem to be going very
+
+slightly less than 40 kilometers an hour; so slightly less that the
+
+difference couldn’t be measured.
+
+
+
+However, as speeds grew higher and higher, the discrepancy in the
+
+addition grew greater and greater (according to a formula Einstein
+
+derived) until, at velocities of tens of thousands of kilometers per
+
+hour, that discrepancy could be easily measured. At the speed of light,
+
+which Einstein showed was a limiting velocity that an observer would
+
+never reach, the discrepancy became so great that the speed of the light
+
+source, however great, added or subtracted zero to or from the speed of
+
+light.
+
+
+
+Accompanying this were all sorts of other effects. It could be shown by
+
+Einstein’s reasoning that no object possessing mass could move faster
+
+than the speed of light. What’s more, as an object moved faster and
+
+faster, its length in the direction of motion (as measured by a
+
+stationary observer) grew shorter and shorter, while its mass grew
+
+greater and greater. At 260,000 kilometers per second, its length in the
+
+direction of movement was only half what it was at rest, and its mass
+
+was twice what it was. As the speed of light was approached, its length
+
+would approach zero in the direction of motion, while its mass would
+
+approach the infinite.
+
+
+
+Could this really be so? Ordinary objects never moved so fast as to make
+
+their lengths and masses show any measurable change. What about
+
+subatomic particles, however, which moved at tens of thousands of
+
+kilometers per second? The German physicist Alfred Heinrich Bucherer
+
+(1863-1927) reported in 1908 that speeding electrons did gain in mass
+
+just the amount predicted by Einstein’s theory. The increased mass with
+
+energy has been confirmed with great precision in recent years.
+
+Einstein’s special theory of relativity has met many experimental tests
+
+exactly ever since and it is generally accepted by physicists today.
+
+
+
+Einstein’s theory gave rise to something else as well. Einstein deduced
+
+that mass was a form of energy. He worked out a relationship (the
+
+“mass-energy equivalence”) that is expressed as follows:
+
+
+
+                              _E_ = _mc_²
+
+
+
+where _E_ represents energy, _m_ is mass, and _c_ is the speed of light.
+
+
+
+If mass is measured in grams and the speed of light is measured in
+
+centimeters per second, then the equation will yield the energy in a
+
+unit called “ergs”. It turns out that 1 gram of mass is equal to
+
+900,000,000,000,000,000,000 (900 billion billion) ergs of energy. The
+
+erg is a very small unit of energy, but 900 billion billion of them
+
+mount up.
+
+
+
+The energy equivalent of 1 gram of mass (and remember that a gram, in
+
+ordinary units, is only ¹/₂₈ of an ounce) would keep a 100-watt light
+
+bulb burning for 35,000 years.
+
+
+
+ [Illustration: ENERGY CREATED compared to MATTER (OR MASS) DESTROYED]
+
+
+
+It is this vast difference between the tiny quantity of mass and the
+
+huge amount of energy to which it is equivalent that obscured the
+
+relationship over the years. When a chemical reaction liberates energy,
+
+the mass of the materials undergoing the reaction decreases slightly—but
+
+_very_ slightly.
+
+
+
+Suppose, for instance, a gallon of gasoline is burned. The gallon of
+
+gasoline has a mass of 2800 grams and combines with about 10,000 grams
+
+of oxygen to form carbon dioxide and water, yielding 1.35 million
+
+billion ergs. That’s a lot of energy and it will drive an automobile for
+
+some 25 to 30 kilometers. But by Einstein’s equation all that energy is
+
+equivalent to only a little over a millionth of a gram. You start with
+
+12,800 grams of reacting materials and you end with 12,800 grams minus a
+
+millionth of a gram or so that was given off as energy.
+
+
+
+No instrument known to the chemists of the 19th century could have
+
+detected so tiny a loss of mass in such a large total. No wonder, then,
+
+that from Lavoisier on, scientists thought that the law of conservation
+
+of mass held exactly.
+
+
+
+Radioactive changes gave off much more energy per atom than chemical
+
+changes did, and the percentage loss in mass was correspondingly
+
+greater. The loss of mass in radioactive changes was found to match the
+
+production of energy in just the way Einstein predicted.
+
+
+
+It was no longer quite accurate to talk about the conservation of mass
+
+after 1905 (even though mass was just about conserved in ordinary
+
+chemical reactions so that the law could continue to be used by chemists
+
+without trouble). Instead, it is more proper to speak of the
+
+conservation of energy, and to remember that mass was one form of energy
+
+and a very concentrated form.
+
+
+
+The mass-energy equivalence fully explained why the atom should contain
+
+so great a store of energy. Indeed, the surprise was that radioactive
+
+changes gave off as little energy as they did. When a uranium atom broke
+
+down through a series of steps to a lead atom, it produced a million
+
+times as much energy as that same atom would release if it were involved
+
+in even the most violent of chemical changes. Nevertheless, that
+
+enormous energy change in the radioactive breakdown represented only
+
+about one-half of 1% of the total energy to which the mass of the
+
+uranium atom was equivalent.
+
+
+
+Once Rutherford worked out the nuclear theory of the atom, it became
+
+clear from the mass-energy equivalence that the source of the energy of
+
+radioactivity was likely to be in the atomic nucleus where almost all
+
+the mass of the atom was to be found.
+
+
+
+The attention of physicists therefore turned to the nucleus.
+
+
+
+
+
+
+
+
+
+                      THE STRUCTURE OF THE NUCLEUS
+
+
+
+
+
+The Proton
+
+
+
+As early as 1886 Eugen Goldstein, who was working with cathode rays,
+
+also studied rays that moved in the opposite direction. Since the
+
+cathode rays (electrons) were negatively charged, rays moving in the
+
+opposite direction would have to be positively charged. In 1907 J. J.
+
+Thomson called them “positive rays”.
+
+
+
+Once Rutherford worked out the nuclear structure of the atom, it seemed
+
+clear that the positive rays were atomic nuclei from which a number of
+
+electrons had been knocked away. These nuclei came in different sizes.
+
+
+
+Were the nuclei single particles—a different one for every isotope of
+
+every element? Or were they all built up out of numbers of still smaller
+
+particles of a very limited number of varieties? Might it be that the
+
+nuclei owed their positive electrical charge to the fact that they
+
+contained particles just like the electron, but ones that carried a
+
+positive charge rather than a negative one?
+
+
+
+All attempts to discover this “positive electron” in the nuclei failed,
+
+however. The smallest nucleus found was that produced by knocking the
+
+single electron off a hydrogen atom in one way or another. This hydrogen
+
+nucleus had a single positive charge, one that was exactly equal in size
+
+to the negative charge on the electron. The hydrogen nucleus, however,
+
+was much more massive than an electron. The hydrogen nucleus with its
+
+single positive charge was approximately 1837 times as massive as the
+
+electron with its single negative charge.
+
+
+
+Was it possible to knock the positive charge loose from the mass of the
+
+hydrogen nucleus? Nothing physicists did could manage to do that. In
+
+1914 Rutherford decided the attempt should be given up. He suggested
+
+that the hydrogen nucleus, for all its high mass, should be considered
+
+the unit of positive electrical charge, just as the electron was the
+
+unit of negative electrical charge. He called the hydrogen nucleus a
+
+“proton” from the Greek word for “first” because it was the nucleus of
+
+the first element.
+
+
+
+[Illustration: _One proton balances 1837 electrons._]
+
+
+
+Why the proton should be so much more massive than the electron is still
+
+one of the unanswered mysteries of physics.
+
+
+
+
+
+The Proton-Electron Theory
+
+
+
+What about the nuclei of elements other than hydrogen?
+
+
+
+All the other elements had nuclei more massive than that of hydrogen and
+
+the natural first guess was that these were made up of some appropriate
+
+number of protons closely packed together. The helium nucleus, which had
+
+a mass four times as great as that of hydrogen, might be made up of 4
+
+protons; the oxygen nucleus with a mass number of 16 might be made up of
+
+16 protons and so on.
+
+
+
+This guess, however, ran into immediate difficulties. A helium nucleus
+
+might have a mass number of 4 but it had an electric charge of +2. If it
+
+were made up of 4 protons, it ought to have an electric charge of +4. In
+
+the same way, an oxygen nucleus made up of 16 protons ought to have a
+
+charge of +16, but in actual fact it had one of +8.
+
+
+
+Could it be that something was cancelling part of the positive electric
+
+charge? The only thing that could do so would be a negative electric
+
+charge[1] and these were to be found only on electrons as far as anyone
+
+knew in 1914. It seemed reasonable, then, to suppose that a nucleus
+
+would contain about half as many electrons in addition to the protons.
+
+The electrons were so light, they wouldn’t affect the mass much, and
+
+they would succeed in cancelling some of the positive charge.
+
+
+
+Thus, according to this early theory, _now known to be incorrect_, the
+
+helium nucleus contained not only 4 protons, but 2 electrons in
+
+addition. The helium nucleus would then have a mass number of 4 and an
+
+electric charge (atomic number) of 4 - 2, or 2. This was in accordance
+
+with observation.
+
+
+
+This “proton-electron theory” of nuclear structure accounted for
+
+isotopes very nicely. While oxygen-16 had a nucleus made up of 16
+
+protons and 8 electrons, oxygen-17 had one of 17 protons and 9
+
+electrons, and oxygen-18 had one of 18 protons and 10 electrons. The
+
+mass numbers were 16, 17, and 18, respectively, but the atomic number
+
+was 16 - 8, 17 - 9, and 18 - 10, or 8 in each case.
+
+
+
+Again, uranium-238 has a nucleus built up, according to this theory, of
+
+238 protons and 146 electrons, while uranium-235 has one built up of 235
+
+protons and 143 electrons. In these cases the atomic number is,
+
+respectively, 238 - 146 and 235 - 143, or 92 in each case. The nucleus
+
+of the 2 isotopes is, however, of different structure and it is not
+
+surprising therefore that the radioactive properties of the
+
+two—properties that involve the nucleus—should be different and that the
+
+half-life of uranium-238 should be six times as long as that of
+
+uranium-235.
+
+
+
+The presence of electrons in the nucleus not only explained the
+
+existence of isotopes, but seemed justified by two further
+
+considerations.
+
+
+
+First, it is well known that similar charges repel each other and that
+
+the repulsion is stronger the closer together the similar charges are
+
+forced. Dozens of positively charged particles squeezed into the tiny
+
+volume of an atomic nucleus couldn’t possibly remain together for more
+
+than a tiny fraction of a second. Electrical repulsion would send them
+
+flying apart at once.
+
+
+
+On the other hand, opposite charges attract, and a proton and an
+
+electron would attract each other as strongly as 2 protons (or 2
+
+electrons) would repel each other. It was thought possible that the
+
+presence of electrons in a collection of protons might somehow limit the
+
+repulsive force and stabilize the nucleus.
+
+
+
+Second, there are radioactive decays in which beta particles are sent
+
+flying out of the atom. From the energy involved they could come only
+
+out of the nucleus. Since beta particles are electrons and since they
+
+come from the nucleus, it seemed to follow that there must be electrons
+
+within the nucleus to begin with.
+
+
+
+The proton-electron theory of nuclear structure also seemed to account
+
+neatly for many of the facts of radioactivity.
+
+
+
+Why radioactivity at all, for instance? The more complex a nucleus is,
+
+the more protons must be squeezed together and the harder, it would
+
+seem, it must be to keep them together. _More and more electrons seemed
+
+to be required._ Finally, when the total number of protons was 84 or
+
+more, no amount of electrons seemed sufficient to stabilize the nucleus.
+
+
+
+The manner of breakup fits the theory, too. Suppose a nucleus gives off
+
+an alpha particle. The alpha particle is a helium nucleus made up, by
+
+this theory, of 4 protons and 2 electrons. If a nucleus loses an alpha
+
+particle, its mass number should decline by 4 and its atomic number by 4
+
+- 2, or 2. And, indeed, when uranium-238 (atomic number 92) gives off an
+
+alpha particle, it becomes thorium-234 (atomic number 90).
+
+
+
+Suppose a beta particle is emitted. A beta particle is an electron and
+
+if a nucleus loses an electron, its mass number is almost unchanged. (An
+
+electron is so light that in comparison with the nucleus, we can ignore
+
+its mass.) On the other hand, a unit negative charge is gone. One of the
+
+protons in the nucleus, which had previously been masked by an electron,
+
+is now unmasked. Its positive charge is added to the rest and the atomic
+
+number goes up by one. Thus, thorium-234 (atomic number 90) gives up a
+
+beta particle and becomes protactinium-234 (atomic number 91).
+
+
+
+If a gamma ray is given off, that gamma ray has no charge and the
+
+equivalent of very little mass. That means that neither the mass number
+
+nor the atomic number of the nucleus is changed, although its energy
+
+content is altered.
+
+
+
+Even more elaborate changes can be taken into account. In the long run,
+
+uranium-238, having gone through many changes, becomes lead-206. Those
+
+changes include the emission of 8 alpha particles and 6 beta particles.
+
+The 8 alpha particles involve a loss of 8 × 4, or 32 in mass number,
+
+while the 6 beta particles contribute nothing in this respect. And,
+
+indeed, the mass number of uranium-238 declines by 32 in reaching
+
+lead-206. On the other hand the 8 alpha particles involve a decrease in
+
+atomic number of 8 × 2, or 16, while the 6 beta particles involve an
+
+increase in atomic number of 6 × 1, or 6. The total change is a decrease
+
+of 16 - 6, or 10. And indeed, uranium (atomic number 92) changes to lead
+
+(atomic number 82).
+
+
+
+It is useful to go into such detail concerning the proton-electron
+
+theory of nuclear structure and to describe how attractive it seemed.
+
+The theory appeared solid and unshakable and, indeed, physicists used it
+
+with considerable satisfaction for 15 years.
+
+
+
+—And yet, as we shall see, it was wrong; and that should point a moral.
+
+Even the best seeming of theories may be wrong in some details and
+
+require an overhaul.
+
+
+
+
+
+Protons in Nuclei
+
+
+
+Let us, nevertheless, go on to describe some of the progress made in the
+
+1920s in terms of the proton-electron theory that was then accepted.
+
+
+
+Since a nucleus is made up of a whole number of protons, its mass ought
+
+to be a whole number if the mass of a single proton is considered 1.
+
+(The presence of electrons would add some mass but in order to simplify
+
+matters, let us ignore that.)
+
+
+
+When isotopes were first discovered this indeed seemed to be so.
+
+However, Aston and his mass spectrometer kept measuring the mass of
+
+different nuclei more and more closely during the 1920s and found that
+
+they differed very slightly from whole numbers. Yet a fixed number of
+
+protons turned out to have different masses if they were first
+
+considered separately and then as part of a nucleus.
+
+
+
+Using modern standards, the mass of a proton is 1.007825. Twelve
+
+separate protons would have a total mass of twelve times that, or
+
+12.0939. On the other hand, if the 12 protons are packed together into a
+
+carbon-12 nucleus, the mass is 12 so that the mass of the individual
+
+protons is 1.000000 apiece. What happens to this difference of 0.007825
+
+between the proton in isolation and the proton as part of a carbon-12
+
+nucleus?
+
+
+
+According to Einstein’s special theory of relativity, the missing mass
+
+would have to appear in the form of energy. If 12 hydrogen nuclei
+
+(protons) plus 6 electrons are packed together to form a carbon nucleus,
+
+a considerable quantity of energy would have to be given off.
+
+
+
+In general, Aston found that as one went on to more and more complicated
+
+nuclei, a larger fraction of the mass would have to appear as energy
+
+(though not in a perfectly regular way) until it reached a maximum in
+
+the neighborhood of iron.
+
+
+
+Iron-56, the most common of the iron isotopes, has a mass number of
+
+55.9349. Each of its 56 protons, therefore, has a mass of 0.9988.
+
+
+
+For nuclei more complicated than those of iron, the protons in the
+
+nucleus begin to grow more massive again. Uranium-238 nuclei, for
+
+instance, have a mass of 238.0506, so that each of the 238 protons they
+
+contain has a mass of 1.0002.
+
+
+
+By 1927 Aston had made it clear that it is the middle elements in the
+
+neighborhood of iron that are most closely and economically packed. If a
+
+very massive nucleus is broken up into somewhat lighter nuclei, the
+
+proton packing would be tighter and some mass would be converted into
+
+energy. Similarly, if very light nuclei were joined together into
+
+somewhat more massive nuclei, some mass would be converted into energy.
+
+
+
+This demonstration that energy was released in any shift away from
+
+either extreme of the list of atoms according to atomic number fits the
+
+case of radioactivity, where very massive nuclei break down to somewhat
+
+less massive ones.
+
+
+
+Consider that uranium-238 gives up 8 alpha particles and 6 beta
+
+particles to become lead-206. The uranium-238 nucleus has a mass of
+
+238.0506; each alpha particle has one of 4.0026 for a total of 32.0208;
+
+each beta particle has a mass of 0.00154 for a total of 0.00924; and the
+
+lead-206 nucleus has one of 205.9745.
+
+
+
+This means that the uranium-238 nucleus (mass: 238.0506) changes into 8
+
+alpha particles, 6 beta particles, and a lead-206 nucleus (total mass:
+
+238.0045). The starting mass is 0.0461 greater than the final mass and
+
+it is this missing mass that has been converted into energy and is
+
+responsible for the gamma rays and for the velocity with which alpha
+
+particles and beta particles are discharged.
+
+
+
+
+
+Nuclear Bombardment
+
+
+
+Once scientists realized that there was energy which became available
+
+when one kind of nucleus was changed into another, an important question
+
+arose as to whether such a change could be brought about and regulated
+
+by man and whether this might not be made the source of useful power of
+
+a kind and amount undreamed of earlier.
+
+
+
+Chemical energy was easy to initiate and control, since that involved
+
+the shifts of electrons on the outskirts of the atoms. Raising the
+
+temperature of a system, for instance, caused atoms to move more quickly
+
+and smash against each other harder, and that in itself was sufficient
+
+to force electrons to shift and to initiate a chemical reaction that
+
+would not take place at lower temperatures.
+
+
+
+To shift the protons within the nucleus (“nuclear reactions”) and make
+
+nuclear energy available was a harder problem by far. The particles
+
+involved were much more massive than electrons and correspondingly
+
+harder to move. What’s more, they were buried deep within the atom. No
+
+temperatures available to the physicists of the 1920s could force atoms
+
+to smash together hard enough to reach and shake the nucleus.
+
+
+
+In fact, the only objects that were known to reach the nucleus were
+
+speeding subatomic particles. As early as 1906, for instance, Rutherford
+
+had used the speeding alpha particles given off by a radioactive
+
+substance to bombard matter and to show that sometimes these alpha
+
+particles were deflected by atomic nuclei. It was, in fact, by such an
+
+experiment that he first demonstrated the existence of such nuclei.
+
+
+
+Rutherford had continued his experiments with bombardment. An alpha
+
+particle striking a nucleus would knock it free of the atom to which it
+
+belonged and send it shooting forward (like one billiard ball hitting
+
+another). The nucleus that shot ahead would strike a film of chemical
+
+that scintillated (sparkled) under the impact. In a rough way, one could
+
+tell the kind of nucleus that struck from the nature of the sparkling.
+
+
+
+In 1919 Rutherford bombarded nitrogen gas with alpha particles and found
+
+that he obtained the kind of sparkling he associated with the
+
+bombardment of hydrogen gas. When he bombarded hydrogen, the alpha
+
+particles struck hydrogen nuclei (protons) and shot them forward. To get
+
+hydrogen-sparkling out of the bombardment of nitrogen, Rutherford felt,
+
+he must have knocked protons out of the nitrogen nuclei. Indeed, as was
+
+later found, he had converted nitrogen nuclei into oxygen nuclei.
+
+
+
+This was the first time in history that the atomic nucleus was altered
+
+by deliberate human act.
+
+
+
+Rutherford continued his experiments and by 1924 had shown that alpha
+
+particles could be used to knock protons out of the nuclei of almost all
+
+elements up to potassium (atomic number 19).
+
+
+
+There were, however, limitations to the use of natural alpha particles
+
+as the bombarding agent.
+
+
+
+First, the alpha particles used in bombardment were positively charged
+
+and so were the atomic nuclei. This meant that the alpha particles and
+
+the atomic nuclei repelled each other and much of the energy of the
+
+alpha particles was used in overcoming the repulsion. For more and more
+
+massive nuclei, the positive charge grew higher and the repulsion
+
+stronger until for elements beyond potassium, no collision could be
+
+forced, even with the most energetic naturally occurring alpha
+
+particles.
+
+
+
+[Illustration: _Man-made transmutation._]
+
+
+
+  Nitrogen-14 (7N,7P) + Helium-4 (2N,2P) (Alpha particle)
+
+  → Oxygen-17 (9N,8P) + Hydrogen-1 (1P)
+
+  Neutron=N, Proton=P
+
+
+
+Second, the alpha particles that are sprayed toward the target cannot be
+
+aimed directly at the nuclei. An alpha particle strikes a nucleus only
+
+if, by chance, they come together. The nuclei that serve as their
+
+targets are so unimaginably small that most of the bombarding particles
+
+are sure to miss. In Rutherford’s first bombardment of nitrogen, it was
+
+calculated that only 1 alpha particle out of 300,000 managed to strike a
+
+nitrogen nucleus.
+
+
+
+The result of these considerations is clear. There is energy to be
+
+gained out of nuclear reactions, but there is also energy that must be
+
+expended to cause these nuclear reactions. In the case of nuclear
+
+bombardment by subatomic particles (the only way, apparently, in which
+
+nuclear reactions can be brought about), the energy expended seems to be
+
+many times the energy to be extracted. This is because so many subatomic
+
+particles use up their energy in ionizing atoms, knocking electrons
+
+away, and never initiate nuclear reactions at all.
+
+
+
+It was as though the only way you could light a candle would be to
+
+strike 300,000 matches, one after the other. If that were so, candles
+
+would be impractical.
+
+
+
+In fact, the most dramatic result of alpha particle bombardment had
+
+nothing to do with energy production, but rather the reverse. New nuclei
+
+were produced that had _more_ energy than the starting nuclei, so that
+
+energy was absorbed by the nuclear reaction rather than given off.
+
+
+
+This came about first in 1934, when a French husband-and-wife team of
+
+physicists, Frédéric Joliot-Curie (1900-1958) and Irène Joliot-Curie
+
+(1897-1956) were bombarding aluminum-27 (atomic number 13) with alpha
+
+particles. The result was to combine part of the alpha particle with the
+
+aluminum-27 nucleus to form a new nucleus with an atomic number two
+
+units higher—15—and a mass number three units higher—30.
+
+
+
+The element with atomic number 15 is phosphorus so that phosphorus-30
+
+was formed. The only isotope of phosphorus that occurs in nature,
+
+however, is phosphorus-31. Phosphorus-30 was the first man-made
+
+nucleus—the first to be manufactured by nuclear reactions in the
+
+laboratory.
+
+
+
+[Illustration: _Frédéric and Irène Joliot-Curie_]
+
+
+
+The reason phosphorus-30 did not occur in nature was that its energy
+
+content was too high to allow it to be stable. Its energy content
+
+drained away through the emission of particles that allowed the nucleus
+
+to change over into a stable one, silicon-30 (atomic number 14). This
+
+was an example of “artificial radioactivity”.
+
+
+
+Since 1934, over a thousand kinds of nuclei that do not occur in nature
+
+have been formed in the laboratory through various kinds of
+
+bombardment-induced nuclear reactions. Every single one of them proved
+
+to be radioactive.
+
+
+
+
+
+Particle Accelerators
+
+
+
+Was there nothing that could be done to make nuclear bombardment more
+
+efficient and increase the chance of obtaining useful energy out of
+
+nuclear reactions?
+
+
+
+In 1928 the Russian-American physicist George Gamow (1904-1968)
+
+suggested that protons might be used as bombarding agents in place of
+
+alpha particles. Protons were only one-fourth as massive as alpha
+
+particles and the collision might be correspondingly less effective; on
+
+the other hand, protons had only half the positive charge of alpha
+
+particles and would not be as strongly repelled by the nuclei. Then,
+
+too, protons were much more easily available than alpha particles. To
+
+get a supply of protons one only had to ionize the very common hydrogen
+
+atoms, i.e., get rid of the single electron of the hydrogen atom, and a
+
+single proton is left.
+
+
+
+[Illustration: _Artificial radioactivity._]
+
+
+
+  Aluminum-27 (14N,13P) + Helium-4 (2N,2P) (Alpha particle)
+
+  → (16N,15P)
+
+  → N + Phosphorus-30 (Radioactive) (15N,15P)
+
+  → Positron + Silicon-30
+
+  Neutron=N, Proton=P
+
+
+
+Of course, protons obtained by the ionization of hydrogen atoms have
+
+very little energy, but could energy be imparted to them? Protons carry
+
+a positive charge and a force can therefore be exerted upon them by an
+
+electric or magnetic field. In a device that makes use of such fields,
+
+protons can be accelerated (made to go faster and faster), and thus gain
+
+more and more energy. In the end, if enough energy is gained, the proton
+
+could do more damage than the alpha particle, despite the former’s
+
+smaller mass. Combine that with the smaller repulsion involved and the
+
+greater ease of obtaining protons—and the weight of convenience and
+
+usefulness would swing far in the direction of the proton.
+
+
+
+Physicists began to try to design “particle accelerators” and the first
+
+practical device of this sort was produced in 1929 by the two British
+
+physicists John Douglas Cockcroft (1897-1967) and Ernest Thomas Sinton
+
+Walton (1903-    ). Their device, called an “electrostatic accelerator”,
+
+produced protons that were sufficiently energetic to initiate nuclear
+
+reactions. In 1931 they used their accelerated protons to disrupt the
+
+nucleus of lithium-7. It was the first nuclear reaction to be brought
+
+about by man-made bombarding particles.
+
+
+
+Other types of particle accelerators were also being developed at this
+
+time. The most famous was the one built in 1930 by the American
+
+physicist Ernest Orlando Lawrence (1901-1958). In this device a magnet
+
+was used to make the protons move in gradually expanding circles,
+
+gaining energy with each lap until they finally moved out beyond the
+
+influence of the magnet and then hurtled out of the instrument in a
+
+straight line at maximum energy. This instrument was called a
+
+“cyclotron”.
+
+
+
+[Illustration: _Inventors of one of the first accelerators, Ernest T. S.
+
+Walton, left, and John D. Cockcroft, right, with Lord Ernest Rutherford
+
+at Cambridge University in the early 1930s._]
+
+
+
+[Illustration: _The bombardment of lithium-7 with protons was the first
+
+nuclear reaction caused by man-made particles._]
+
+
+
+  Lithium-7 (4N,3P) + Hydrogen-1 (Proton)
+
+  → Helium-4 (2N,2P) (Alpha particle) + Helium-4 (2N,2P) (Alpha
+
+          particle)
+
+  Neutron=N, Proton=P
+
+
+
+The cyclotron was rapidly improved, using larger magnets and
+
+increasingly sophisticated design. There are now, at this time of
+
+writing, “proton synchrotrons” (descendants of that first cyclotron)
+
+that produce particles with over a million times the energy of those
+
+produced by Lawrence’s first cyclotron. Of course, the first cyclotron
+
+was only a quarter of a meter wide, while the largest today has a
+
+diameter of some 2000 meters.
+
+
+
+As particle accelerators grew larger, more efficient, and more powerful,
+
+they became ever more useful in studying the structure of the nucleus
+
+and the nature of the subatomic particles themselves. They did not
+
+serve, however, to bring the dream of useful nuclear energy any closer.
+
+Though they brought about the liberation of vastly more nuclear energy
+
+than Rutherford’s initial bombardments could, they also consumed a great
+
+deal more energy in the process.
+
+
+
+It is not surprising that Rutherford, the pioneer in nuclear
+
+bombardment, was pessimistic. To the end of his days (he died in 1937)
+
+he maintained that it would be forever impossible to tap the energy of
+
+the nucleus for use by man. Hopes that “nuclear power” might some day
+
+run the world’s industries were, in his view, an idle dream.
+
+
+
+[Illustration: _Ernest O. Lawrence holds a model of the first cyclotron
+
+in 1930, a year after its conception._]
+
+
+
+
+
+
+
+
+
+                              THE NEUTRON
+
+
+
+
+
+Nuclear Spin
+
+
+
+What Rutherford did not (and could not) take into account were the
+
+consequences of a completely new type of nuclear bombardment involving a
+
+type of particle unknown in the 1920s (though Rutherford speculated
+
+about the possibility of its existence).
+
+
+
+The beginnings of the new path came about through the reluctant
+
+realization that there was a flaw in the apparently firmly grounded
+
+proton-electron picture of nuclear structure.
+
+
+
+The flaw involved the “nuclear spin”. In 1924 the Austrian physicist
+
+Wolfgang Pauli (1900-1958) worked out a theory that treated protons and
+
+electrons as though they were spinning on their axes. This spin could be
+
+in either direction (or, as we would say in earthly terms, from
+
+west-to-east, or from east-to-west). Quantum theory has shown that a
+
+natural unit exists for what is called the angular momentum of this
+
+spin. Measured in terms of this natural unit of spin, the proton and the
+
+electron have spin ½. If the particle spun in one direction it was +½,
+
+if in the other it was -½.
+
+
+
+When subatomic particles came together to form an atomic nucleus, each
+
+kept its original spin, and the nuclear spin was then equal to the total
+
+angular momentum of the individual particles that made it up.
+
+
+
+For instance, suppose the helium nucleus is made up of 4 protons and 2
+
+electrons, as was thought in the 1920s. Of the 4 protons, suppose that
+
+two had a spin of +½ and two of -½. Suppose also that of the 2
+
+electrons, one had a spin of +½ and one of -½. All the spins would
+
+cancel each other. The total angular momentum would be zero.
+
+
+
+Of course, it is also possible that all 6 particles were spinning in the
+
+same direction; all +½ or all -½. In that case the nuclear spin would be
+
+3, either in one direction or the other. If 5 particles were spinning in
+
+one direction and 1 in the other, then the total spin would be 2, in one
+
+direction or the other.
+
+
+
+[Illustration: _Wolfgang Pauli lecturing in Copenhagen in April 1929._]
+
+
+
+In short if you have an even number of particles in a nucleus, each with
+
+a spin of +½ or -½, then the total spin is either zero or a whole
+
+number, no matter what combination of positive and negative spins you
+
+choose. (The total spin is always written as a positive number.)
+
+
+
+On the other hand, suppose you have lithium-7, which was thought to be
+
+made up of 7 protons and 4 electrons. If the 7 protons were all +½ and
+
+the 4 electrons were all -½ in their spins, the nuclear spin would be
+
+⁷/₂ - ⁴/₂ = ³/₂.
+
+
+
+If you have an odd number of particles in the nucleus, you will find
+
+that any combination of positive and negative spins will _never_ give
+
+you either zero or a whole number as a sum. The sum will always include
+
+a fraction.
+
+
+
+Consequently, if one measures the spin of a particular atomic nucleus
+
+one can tell at once whether that nucleus contains an even number of
+
+particles or an odd number.
+
+
+
+This quickly raised a problem. The nuclear spin of the common isotope,
+
+nitrogen-14, was measured accurately over and over again and turned out
+
+to be 1. There seemed no doubt about that and it could therefore be
+
+concluded that there were an even number of particles in the nitrogen-14
+
+nucleus.
+
+
+
+And yet, by the proton-electron theory of nuclear structure, the
+
+nitrogen-14 nucleus, with a mass number of 14 and an atomic number of 7,
+
+had to be made up of 14 protons and 7 electrons for a total of 21
+
+particles altogether—an odd number.
+
+
+
+The nuclear spin of nitrogen-14 indicated “even number” and the
+
+proton-electron theory indicated “odd number”. One or the other had to
+
+be wrong, but which? The nuclear spin was a matter of actual
+
+measurement, which could be repeated over and over and on which all
+
+agreed. The proton-electron theory was only a theory. It was therefore
+
+the latter that was questioned.
+
+
+
+What was to be done?
+
+
+
+Suppose it is wrong to count protons and electrons inside the nucleus as
+
+separate particles. Was it possible that an electron and a proton,
+
+forced into the close confinement of the atomic nucleus might, by the
+
+force of mutual attraction, become so intimately connected as to count
+
+as a single particle. One of the first to suggest this, as far back as
+
+1920, was Rutherford.
+
+
+
+Such a proton-electron combination would be electrically neutral and in
+
+1921 the American chemist William Draper Harkins (1873-1951) used the
+
+term “neutron” as a name for it.
+
+
+
+If we look at the nitrogen-14 nucleus in this way then it is made up,
+
+not of 14 protons and 7 electrons, but of 7 protons and 7
+
+proton-electron combinations. Instead of a total of 21 particles, there
+
+would be a total of 14; instead of an odd number, there would be an even
+
+number. The structure would now account for the nuclear spin.
+
+
+
+But could such a revised theory of nuclear structure be made to seem
+
+plausible? The proton-electron theory seemed to make sense because both
+
+protons and electrons were known to exist separately and could be
+
+detected. If an intimate proton-electron combination could also exist,
+
+ought it not exist (or be made to exist) outside the nucleus and ought
+
+it not be detected as an isolated particle?
+
+
+
+
+
+Discovery of the Neutron
+
+
+
+Throughout the 1920s scientists searched for the neutron but without
+
+success.
+
+
+
+One of the troubles was that the particle was electrically neutral.
+
+Subatomic particles could be detected in a variety of ways, but every
+
+single way (right down to the present time) makes use of their electric
+
+charge. The electric charge of a speeding subatomic particle either
+
+repels electrons or attracts them. In either case, electrons are knocked
+
+off atoms that are encountered by the speeding subatomic particle.
+
+
+
+The atoms with electrons knocked off are now positively charged ions.
+
+Droplets of water vapor can form about these ions, or a bubble of gas
+
+can form, or a spark of light can be seen. The droplets, the bubbles,
+
+and the light can all be detected one way or another and the path of the
+
+subatomic particle could be followed by the trail of ions it left
+
+behind. Gamma rays, though they carry no charge, are a wave form capable
+
+of ionizing atoms.
+
+
+
+All the particles and rays that can leave a detectable track of ions
+
+behind are called “ionizing radiation” and these are easy to detect.
+
+
+
+The hypothetical proton-electron combination, however, which was neither
+
+a wave form nor a charged particle was not expected to be able to ionize
+
+atoms. It would wander among the atoms without either attracting or
+
+repelling electrons and would therefore leave the atomic structure
+
+intact. Its pathway could not be followed. In short, then, the neutron
+
+was, so to speak, invisible, and the search for it seemed a lost cause.
+
+And until it was found, the proton-electron theory of nuclear structure,
+
+whatever its obvious deficiencies with respect to nuclear spin, remained
+
+the only one to work with.
+
+
+
+Then came 1930. The German physicist Walther Wilhelm Georg Bothe
+
+(1891-1957) and a co-worker, H. Becker, were bombarding the light metal,
+
+beryllium, with alpha particles. Ordinarily, they might expect protons
+
+to be knocked out of it, but in this case no protons appeared. They
+
+detected some sort of radiation because something was creating certain
+
+effects while the alpha particles were bombarding the beryllium but not
+
+after the bombardment ceased.
+
+
+
+[Illustration: _Walther W. G. Bothe_]
+
+
+
+To try to determine something about the properties of this radiation,
+
+Bothe and Becker tried putting objects in the way of the radiation. They
+
+found the radiation to be remarkably penetrating. It even passed through
+
+several centimeters of lead. The only form of radiation that was known
+
+at that time to come out of bombarded matter with the capacity of
+
+penetrating a thick layer of lead was gamma rays. Bothe and Becker,
+
+therefore, decided they had produced gamma rays and reported this.
+
+
+
+In 1932 the Joliot-Curies repeated the Bothe-Becker work and got the
+
+same results. However, among the objects they placed in the path of the
+
+new radiation, they included paraffin, which is made up of the light
+
+atoms of carbon and hydrogen. To their surprise, protons were knocked
+
+out of the paraffin.
+
+
+
+Gamma rays had never been observed to do this, but the Joliot-Curies
+
+could not think what else the radiation might be. They simply reported
+
+that they had discovered gamma rays to be capable of a new kind of
+
+action.
+
+
+
+[Illustration: _James Chadwick_]
+
+
+
+Not so the English physicist James Chadwick (1891-    ). In that same
+
+year he maintained that a gamma ray, which possessed no mass, simply
+
+lacked the momentum to hurl a proton out of its place in the atom. Even
+
+an electron was too light to do so. (It would be like trying to knock a
+
+baseball off the ground and into the air by hitting it with a ping-pong
+
+ball.)
+
+
+
+Any radiation capable of knocking a proton out of an atom had to consist
+
+of particles that were themselves pretty massive. And if one argued like
+
+that, then it seemed that the radiation first observed by Bothe and
+
+Becker had to be the long-sought-for proton-electron combination.
+
+Chadwick used Harkins’ term, neutron, for it and made it official. He
+
+gets the credit for the discovery of the neutron.
+
+
+
+Chadwick managed to work out the mass of the neutron from his
+
+experiments and by 1934 it was quite clear that the neutron was more
+
+massive than the proton. The best modern data have the mass of the
+
+proton set at 1.007825, and that of the neutron just a trifle greater at
+
+1.008665.
+
+
+
+The fact that the neutron was just about as massive as the proton was to
+
+be expected if the neutron were a proton-electron combination. It was
+
+also not surprising that the isolated neutron eventually breaks up,
+
+giving up an electron and becoming a proton. Out of any large number of
+
+neutrons, half have turned into protons in about 12 minutes.
+
+
+
+Nevertheless, although in some ways we can explain the neutron by
+
+speaking of it as though it were a proton-electron combination, it
+
+really is not. A neutron has a spin of ½ while a proton-electron
+
+combination would have a spin of either 0 or 1. The neutron, therefore,
+
+must be treated as a single uncharged particle.
+
+
+
+
+
+The Proton-Neutron Theory
+
+
+
+As soon as the neutron was discovered, the German physicist Werner Karl
+
+Heisenberg (1901-    ) revived the notion that the nucleus must be made
+
+up of protons and neutrons, rather than protons and electrons. It was
+
+very easy to switch from the latter theory to the former, if one simply
+
+remembered to pair the electrons thought to be in the nucleus with
+
+protons and give the name neutrons to these combinations.
+
+
+
+Thus, the helium-4 nucleus, rather than being made up of 4 protons and 2
+
+electrons, was made up of 2 protons and 2 proton-electron combinations;
+
+or 2 protons and 2 neutrons. In the same way the oxygen-16 nucleus
+
+instead of being made up of 16 protons and 8 electrons, would be made up
+
+of 8 protons and 8 neutrons.
+
+
+
+The proton-neutron theory would account for mass numbers and atomic
+
+numbers perfectly well. If a nucleus was made up of _x_ protons and _y_
+
+neutrons, then the atomic number was equal to _x_ and the mass number to
+
+_x_ + _y_. (It is now possible to define the mass number of a nucleus in
+
+modern terms. It is the number of protons plus neutrons in the nucleus.)
+
+
+
+[Illustration: _Werner Heisenberg_]
+
+
+
+The proton-neutron theory of nuclear structure could account for
+
+isotopes perfectly well, too. Consider the 3 oxygen isotopes, oxygen-16,
+
+oxygen-17, and oxygen-18. The first would have a nucleus made up of 8
+
+protons and 8 neutrons; the second, one of 8 protons and 9 neutrons; and
+
+the third, one of 8 protons and 10 neutrons. In each case the atomic
+
+number is 8. The mass numbers however would be 16, 17, and 18,
+
+respectively.
+
+
+
+In the same way uranium-238 would have a nucleus built of 92 protons and
+
+146 neutrons, while uranium-235 would have one of 92 protons and 143
+
+neutrons.
+
+
+
+By the new theory, can we suppose that it is neutrons rather than
+
+electrons that somehow hold the protons together against their mutual
+
+repulsion, and that more and more neutrons are required to do this as
+
+the nucleus grows more massive? At first the number of neutrons required
+
+is roughly equal to the number of protons. The helium-4 nucleus contains
+
+2 protons and 2 neutrons, the carbon-12 nucleus contains 6 protons and 6
+
+neutrons, the oxygen-16 nucleus contains 8 protons and 8 neutrons, and
+
+so on.
+
+
+
+For more complicated nuclei, additional neutrons are needed. In
+
+vanadium-51, the nucleus contains 23 protons and 28 neutrons, five more
+
+than an equal amount. In bismuth-209, it is 83 protons and 126 neutrons,
+
+43 more than an equal amount. For still more massive nuclei containing a
+
+larger number of protons, no amount of neutrons is sufficient to keep
+
+the assembly stable. The more massive nuclei are all radioactive.
+
+
+
+The manner of radioactive breakdown fits the theory, too. Suppose a
+
+nucleus gives off an alpha particle. The alpha particle is a helium
+
+nucleus made up of 2 protons and 2 neutrons. If a nucleus loses an alpha
+
+particle, its mass number should decline by 4 and its atomic number by
+
+2, and that is what happens.
+
+
+
+Suppose a nucleus gives off a beta particle. For a moment, that might
+
+seem puzzling. If the nucleus contains only protons and neutrons and no
+
+electrons, where does the beta particle come from? Suppose we consider
+
+the neutrons as proton-electron combinations. Within many nuclei, the
+
+neutrons are quite stable and do not break up as they do in isolation.
+
+In the case of certain nuclei, however, they do break up.
+
+
+
+Thus the thorium-234 nucleus is made up of 90 protons and 144 neutrons.
+
+One of these neutrons might be viewed as breaking up to liberate an
+
+electron and leaving behind an unbound proton. If a beta particle leaves
+
+then, the number of neutrons decreases by one and the number of protons
+
+increases by one. The thorium-234 nucleus (90 protons, 144 neutrons)
+
+becomes a protactinium-234 nucleus (91 protons, 143 neutrons).
+
+
+
+In short, the proton-neutron theory of nuclear structure could explain
+
+all the observed facts just as well as the proton-electron theory, and
+
+could explain the nuclear spins, which the proton-electron theory could
+
+not. What’s more, the isolated neutron had been discovered.
+
+
+
+The proton-neutron theory was therefore accepted and remains accepted to
+
+this day.
+
+
+
+
+
+The Nuclear Interaction
+
+
+
+In one place, and only one, did the proton-neutron theory seem a little
+
+weaker than the proton-electron theory. The electrons in the nucleus
+
+were thought to act as a kind of glue holding together the protons.
+
+
+
+But the electrons were gone. There were no negative charges at all
+
+inside the nucleus, only the positive charges of the proton, plus the
+
+uncharged neutron. As many as 83 positive charges were to be found (in
+
+the bismuth-209 nucleus) squeezed together and yet not breaking apart.
+
+
+
+In the absence of electrons, what kept the protons clinging together?
+
+
+
+Was it possible that the electrical repulsion between 2 protons is
+
+replaced by an attraction if those protons were pushed together closely
+
+enough? Can there be both an attraction _and_ a repulsion, with the
+
+former the more important at very short range? If this were so, that
+
+hypothetical attraction would have to have two properties. First, it
+
+would have to be extremely strong—strong enough to overcome the
+
+repulsion of two positive charges at very close quarters. Secondly, it
+
+would have to be short-range, for no attractive force between protons of
+
+any kind was ever detected outside the nucleus.
+
+
+
+In addition, this short-range attraction would have to involve the
+
+neutron. The hydrogen-1 nucleus was made up of a single proton, but all
+
+nuclei containing more than 1 proton had to contain neutrons also to be
+
+stable, and only certain numbers of neutrons.
+
+
+
+Until the discovery of the neutron, only two kinds of forces, or
+
+“interactions”, were known in the universe. These were the
+
+“gravitational interaction” and the “electromagnetic interaction”. The
+
+electromagnetic interaction was much the stronger of the two—trillions
+
+and trillions and trillions of times as strong as the gravitational
+
+attraction.
+
+
+
+The electromagnetic attraction, however, includes both attraction
+
+(between opposite electric charges or between opposite magnetic poles)
+
+and repulsion (between like electric charges or magnetic poles). In
+
+ordinary bodies, the attractions and repulsions usually cancel each
+
+other entirely or nearly entirely, leaving very little of one or the
+
+other to be detected as surplus. The gravitational interaction, however,
+
+includes only attraction and this increases with mass. By the time you
+
+have gigantic masses such as the earth or the sun, the gravitational
+
+interaction between them and other bodies is also gigantic.
+
+
+
+Both the gravitational and electromagnetic interactions are long-range.
+
+The intensity of each interaction declines with distance but only as the
+
+square of the distance. If the distance between earth and sun were
+
+doubled, the gravitational interaction would still be one-fourth what it
+
+is now. If the distance were increased ten times, the interaction would
+
+still be 1/(10 × 10) or 1/100 what it is now. It is for this reason that
+
+gravitational and electromagnetic interactions can make themselves felt
+
+over millions of miles of space.
+
+
+
+But now, with the acceptance of the proton-neutron theory of nuclear
+
+structure, physicists began to suspect the existence of a third
+
+interaction—a “nuclear interaction”—much stronger than the
+
+electromagnetic interaction, perhaps 130 times as strong. Furthermore,
+
+the nuclear interaction had to decline very rapidly with distance much
+
+more rapidly than the electromagnetic interaction did.
+
+
+
+In that case, protons in virtual contact, as within the nucleus, would
+
+attract each other, but if the distance between them was increased
+
+sufficiently to place one outside the nucleus, the nuclear interaction
+
+would decrease in intensity to less than the electromagnetic repulsion.
+
+The proton would now be repelled by the positive charge of the nucleus
+
+and would go flying away. That is why atomic nuclei have to be so small;
+
+it is only when they are so tiny that the nuclear interaction can hold
+
+them together.
+
+
+
+In 1932 Heisenberg tried to work out how these interactions might come
+
+into being. He suggested that attractions and repulsions were the result
+
+of particles being constantly and rapidly exchanged by the bodies
+
+experiencing the attractions and repulsions. Under some conditions,
+
+these “exchange particles” moving back and forth very rapidly between 2
+
+bodies might force those bodies apart; under other conditions they might
+
+pull those bodies together.
+
+
+
+In the case of the electromagnetic interaction, the exchange particles
+
+seemed to be “photons”, wave packets that made up gamma rays, X rays, or
+
+even ordinary light (all of which are examples of “electromagnetic
+
+radiation”). The gravitational interaction would be the result of
+
+exchange particles called “gravitons”. (In 1969, there were reports that
+
+gravitons had actually been detected.)
+
+
+
+Both the photon and the graviton have zero mass and there is a
+
+connection between that and the fact that electromagnetic interaction
+
+and gravitational interaction decline only slowly with distance. For a
+
+nuclear interaction, which declines very rapidly with distance, the
+
+exchange particle (if any) would have to have mass.
+
+
+
+In 1935 the Japanese physicist Hideki Yukawa (1907-    ) worked out in
+
+considerable detail the theory of such exchange particles in order to
+
+decide what kind of properties the one involved in the nuclear
+
+interaction would have. He decided it ought to have a mass about 250
+
+times that of an electron, which would make it about ¹/₇ as massive as a
+
+proton. Since this mass is intermediate between that of an electron and
+
+proton, such particles eventually came to be called “mesons” from a
+
+Greek word meaning “intermediate”.
+
+
+
+Once Yukawa published his theory, the search was on for the hypothetical
+
+mesons. Ideally, if they existed within the nucleus, shooting back and
+
+forth between protons and neutrons, there ought to be some way of
+
+knocking them out of the nucleus and studying them in isolation.
+
+Unfortunately, the bombarding particles at the disposal of physicists in
+
+the 1930s possessed far too little energy to knock mesons out of nuclei,
+
+assuming they were there in the first place.
+
+
+
+There was one way out. In 1911 the Austrian physicist Victor Francis
+
+Hess (1883-1964) had discovered that earth was bombarded from every side
+
+by “cosmic rays”. These consisted of speeding atomic nuclei (“cosmic
+
+particles”) of enormous energies—in some cases, billions of times as
+
+intense as any energies available through particles produced by mankind.
+
+If a cosmic particle of sufficient energy struck an atomic nucleus in
+
+the atmosphere, it might knock mesons out of it.
+
+
+
+In 1936 the American physicists Carl David Anderson (1905-    ) and Seth
+
+Henry Neddermeyer (1907-    ), studying the results of cosmic-particle
+
+bombardment of matter, detected the existence of particles of
+
+intermediate mass. This particle turned out to be lighter than Yukawa
+
+had predicted; it was only about 207 times as massive as an electron.
+
+Much worse, it lacked other properties that Yukawa had predicted. It did
+
+not interact with the nucleus in the manner expected.
+
+
+
+[Illustration: _Hideki Yukawa_]
+
+
+
+[Illustration: _Victor F. Hess_]
+
+
+
+[Illustration: _C. D. Anderson_]
+
+
+
+In 1947, however, the English physicist Cecil Frank Powell (1903-1969)
+
+and his co-workers, also studying cosmic-particle bombardment, located
+
+another intermediate-sized body, which had the right mass and all the
+
+other appropriate properties to fit Yukawa’s theories.
+
+
+
+Anderson’s particle was called a “mu-meson”, soon abbreviated to “muon”.
+
+Powell’s particle was called a “pi-meson”, soon abbreviated to “pion”.
+
+With the discovery of the pion, Yukawa’s theory was nailed down and any
+
+lingering doubt as to the validity of the proton-neutron theory
+
+vanished.
+
+
+
+[Illustration: _C. F. Powell_]
+
+
+
+(Actually, it turns out that there are two forces. The one with the pion
+
+as exchange particle is the “strong nuclear interaction”. Another,
+
+involved in beta particle emission, for instance, is a “weak
+
+interaction”, much weaker than the electromagnetic but stronger than the
+
+gravitational.)
+
+
+
+The working out of the details of the strong nuclear interaction
+
+explains further the vast energies to be found resulting from nuclear
+
+reactions. Ordinary chemical reactions, with the electron shifts that
+
+accompany them, involve the electromagnetic interaction only. Nuclear
+
+energy, with the shifts of the particles inside the nucleus, involves
+
+the much stronger nuclear interaction.
+
+
+
+
+
+Neutron Bombardment
+
+
+
+As soon as neutrons were discovered, it seemed to physicists that they
+
+had another possible bombarding particle of extraordinary properties.
+
+Since the neutron lacked any electric charge, it could not be repelled
+
+by either electrons on the outside of the atoms or by the nuclei at the
+
+center. The neutron was completely indifferent to the electromagnetic
+
+attraction and it just moved along in a straight line. If it happened to
+
+be headed toward a nucleus it would strike it no matter how heavy a
+
+charge that nucleus might have and very often it would, as a result,
+
+induce a nuclear reaction where a proton would not have been able to.
+
+
+
+[Illustration: _J. Robert Oppenheimer_]
+
+
+
+To be sure, it seemed just at first that there was a disadvantage to the
+
+neutron’s lack of charge. It could not be accelerated directly by any
+
+device since that always depended on electromagnetic interaction to
+
+which the neutron was impervious.
+
+
+
+There was one way of getting around this and this was explained in 1935
+
+by the American physicist J. Robert Oppenheimer (1904-1967) and by his
+
+student Melba Phillips.
+
+
+
+Use is made here of the nucleus of the hydrogen-2 (deuterium) nucleus.
+
+That nucleus, often called a “deuteron”, is made up of 1 proton plus 1
+
+neutron and has a mass number of 2 and an atomic number of 1. Since it
+
+has a unit positive charge, it can be accelerated just as an isolated
+
+proton can be.
+
+
+
+Suppose, then, that a deuteron is accelerated to a high energy and is
+
+aimed right at a positively charged nucleus. That nucleus repels the
+
+deuteron, and it particularly repels the proton part. The nuclear
+
+interaction that holds together a single proton and a single neutron is
+
+comparatively weak as nuclear interactions go, and the repulsion of the
+
+nucleus that the deuteron is approaching may force the proton out of the
+
+deuteron altogether. The proton veers off, but the neutron, unaffected,
+
+keeps right on going and, with all the energy it had gained as part of
+
+the deuteron acceleration, smashes into the nucleus.
+
+
+
+Within a few months of their discovery, energetic neutrons were being
+
+used to bring about nuclear reactions.
+
+
+
+Actually, though, physicists didn’t have to worry about making neutrons
+
+energetic. This was a hangover from their work with positively charged
+
+particles such as protons and alpha particles. These charged particles
+
+had to be energetic to overcome the repulsion of the nucleus and to
+
+smash into it with enough force to break it up.
+
+
+
+Neutrons, however, didn’t have to overcome any repulsion. No matter how
+
+little energy they had, if they were correctly aimed (and some always
+
+were, through sheer chance) they would approach and strike the nucleus.
+
+
+
+In fact, the more slowly they travelled, the longer they would stay in
+
+the vicinity of a nucleus and the more likely they were to be captured
+
+by some nearby nucleus through the attraction of the nuclear
+
+interaction. The influence of the nucleus in capturing the neutron was
+
+greater the slower the neutron, so that it was almost as though the
+
+nucleus were larger and easier to hit for a slow neutron than a fast
+
+one. Eventually, physicists began to speak of “nuclear cross sections”
+
+and to say that particular nuclei had a cross section of such and such a
+
+size for this bombarding particle or that.
+
+
+
+The effectiveness of slow neutrons was discovered in 1934 by the
+
+Italian-American physicist Enrico Fermi (1901-1954).
+
+
+
+Of course, there was the difficulty that neutrons couldn’t be slowed
+
+down once they were formed, and as formed they generally had too much
+
+energy (according to the new way of looking at things). At least they
+
+couldn’t be slowed down by electromagnetic methods—but there were other
+
+ways.
+
+
+
+A neutron didn’t always enter a nucleus that it encountered. Sometimes,
+
+if it struck the nucleus a hard, glancing blow, it bounced off. If the
+
+nucleus struck by the neutron is many times as massive as the neutron,
+
+the neutron bounced off with all its speed practically intact. On the
+
+other hand, if the neutron hits a nucleus not very much more massive
+
+than itself, the nucleus rebounds and absorbs some of the energy, so
+
+that the neutron bounces away with less energy than it had. If the
+
+neutron rebounds from a number of comparatively light nuclei, it
+
+eventually loses virtually all its energy and finally moves about quite
+
+slowly, possessing no more energy than the atoms that surround it.
+
+
+
+(You can encounter this situation in ordinary life in the case of
+
+billiard balls. A billiard ball, colliding with a cannon ball, will just
+
+bounce, moving just as rapidly afterward as before, though in a
+
+different direction. If a billiard ball strikes another billiard ball,
+
+it will set the target ball moving and bounce off itself with less
+
+speed.)
+
+
+
+The energy of the molecules in the atmosphere depends on temperature.
+
+Neutrons that match that energy and have the ordinary quantity to be
+
+expected at room temperature are called “thermal” (from a Greek word
+
+meaning “heat”) neutrons. The comparatively light nuclei against which
+
+the neutrons bounce and slow down are “moderators” because they moderate
+
+the neutron’s energy.
+
+
+
+Fermi and his co-workers were the first to moderate neutrons, produce
+
+thermal neutrons, and use them, in 1935, to bombard nuclei. He quickly
+
+noted how large nuclear cross sections became when thermal neutrons were
+
+the bombarding particles.
+
+
+
+It might seem that hope could now rise in connection with the practical
+
+use of energy derived from nuclear reactions. Neutrons could bring about
+
+nuclear reactions, even when they themselves possessed very little
+
+energy, so output might conceivably be more than input for each neutron
+
+that struck. Furthermore because of the large cross sections involved,
+
+thermal neutrons missed far less frequently than high-energy charged
+
+particles did.
+
+
+
+But there was a catch. Before neutrons could be used, however low-energy
+
+and however sure to hit, they had to be produced; and in order to
+
+produce neutrons they had to be knocked out of nuclei by bombardment
+
+with high-energy protons or some other such method. The energy formed by
+
+the neutrons was at first never more than the tiniest fraction of the
+
+energies that went into forming the neutrons in the first place.
+
+
+
+It was as though you could indeed light a candle with a single match,
+
+but you still had to look through 300,000 useless pieces of wood before
+
+you found a match. The candle would still be impractical.
+
+
+
+Even with the existence of neutron bombardment, involving low energy and
+
+high cross section, Rutherford could, with justice, feel right down to
+
+the time of his death that nuclear energy would never be made available
+
+for practical use.
+
+
+
+And yet, among the experiments that Fermi was trying in 1934 was that of
+
+sending his neutrons crashing into uranium atoms. Rutherford had no way
+
+of telling (and neither had Fermi) that this, finally, was the route to
+
+the unimaginable.
+
+
+
+
+
+
+
+
+
+                               FOOTNOTES
+
+
+
+
+
+[1]The attempt to work out the structure of the nucleus resulted in a
+
+    _false_, but useful, theory that persisted throughout the 1920s. The
+
+    great advances in nuclear science in this decade were made in the
+
+    light of this false theory and, for the sake of historical accuracy,
+
+    they are so presented here. The theory now believed correct will be
+
+    presented shortly, and you will see how matters can be changed from
+
+    the earlier concept to the later one.
+
+
+
+
+
+Quotation Credit
+
+
+
+  Inside front cover    Copyright © by Abelard-Shuman, Ltd., New York.
+
+                        Reprinted by permission from _Inside the Atom_,
+
+                        Isaac Asimov, 1966.
+
+
+
+
+
+Photo Credits
+
+
+
+  Cover                 Thorne Films
+
+  Page facing inside    The “Horsehead” Nebula in Orion, Hale
+
+  front cover           Observatories.
+
+  Author’s Photo        Jay K. Klein
+
+  Contents pages        Lick Observatory
+
+  68                    Dr. Erwin W. Mueller, The Pennsylvania State
+
+                        University
+
+  70                    Yerkes Observatory
+
+  86                    From _Discovery of the Elements_, Mary E. Weeks,
+
+                        Chemical Education Publishing Company, 1968.
+
+  89                    The Central Press Photos, Ltd., and Sir John
+
+                        Cockcroft
+
+  91                    Ernest Orlando Lawrence Livermore Laboratory
+
+  93                    Samuel A. Goudsmit
+
+  96 & 97               Nobel Institute
+
+  99                    Copyright © 1965 by Barbara Lovett Cline,
+
+                        reprinted from her volume _The Questioners:
+
+                        Physicists and the Quantum Theory_ by permission
+
+                        of Thomas Y. Crowell, Inc., New York.
+
+  105 & 106             Nobel Institute
+
+  107                   Alan W. Richards
+
+
+
+                     ★ U.S. GOVERNMENT PRINTING OFFICE: 1975——640—285/14
+
+
+
+
+
+
+
+
+
+                         A word about ERDA....
+
+
+
+
+
+The mission of the U. S. Energy Research & Development Administration
+
+(ERDA) is to develop all energy sources, to make the Nation basically
+
+self-sufficient in energy, and to protect public health and welfare and
+
+the environment. ERDA programs are divided into six major categories:
+
+
+
+· CONSERVATION OF ENERGY—More efficient use of existing energy sources,
+
+development of alternate fuels and engines for automobiles to reduce
+
+dependence on petroleum, and elimination of wasteful habits of energy
+
+consumption.
+
+
+
+· FOSSIL ENERGY—Expansion of coal production and the development of
+
+technologies for converting coal to synthetic gas and liquid fuels,
+
+improvement of oil drilling methods and of techniques for converting
+
+shale deposits to usable oil.
+
+
+
+· SOLAR, GEOTHERMAL, AND ADVANCED ENERGY SYSTEMS—Research on solar
+
+energy to heat, cool, and eventually electrify buildings, on conversion
+
+of underground heat sources to gas and electricity, and on fusion
+
+reactors for the generation of electricity.
+
+
+
+· ENVIRONMENT AND SAFETY—Investigation of health, safety, and
+
+environmental effects of the development of energy technologies, and
+
+research on management of wastes from energy production.
+
+
+
+· NUCLEAR ENERGY—Expanding medical, industrial and research applications
+
+and upgrading reactor technologies for the generation of electricity,
+
+particularly using the breeder concept.
+
+
+
+· NATIONAL SECURITY—Production and administration of nuclear materials
+
+serving both civilian and military needs.
+
+
+
+ERDA programs are carried out by contract and cooperation with industry,
+
+university communities, and other government agencies. For more
+
+information, write to USERDA—Technical Information Center, P. O. Box 62,
+
+Oak Ridge, Tennessee 37830.
+
+
+
+    [Illustration: ENERGY RESEARCH & DEVELOPMENT ADMINISTRATION USA]
+
+
+
+                             United States
+
+             Energy Research and Development Administration
+
+                        Office of Public Affairs
+
+                         Washington, D.C. 20545
+
+
+
+
+
+
+
+
+
+                          Transcriber’s Notes
+
+
+
+
+
+--Retained publication information from the printed edition: this eBook
+
+  is public-domain in the country of publication.
+
+
+
+--In the text version only, underlined or italicized text is delimited
+
+  by _underscores_.
+
+
+
+--Where possible, UTF superscript and subscript numbers are used; some
+
+  e-reader fonts may not support these characters.
+
+
+
+--In the text versions only, other superscript text is preceded by caret
+
+  and delimited by ^{brackets}.
+
+
+
+--In the text versions only, other subscripted text is preceded by
+
+  underscore and delimited by _{brackets}.

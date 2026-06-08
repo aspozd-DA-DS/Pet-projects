@@ -1,0 +1,14 @@
+author,file,source,size_chars,size_kb
+shakespeare,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\shakespeare\shakespeare.txt,https://www.gutenberg.org/files/100/100-0.txt,5359443,5295.62
+dostoevsky_notes_fu,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\dostoevsky_notes_fu\dostoevsky_notes_fu.txt,https://www.gutenberg.org/files/600/600-0.txt,263859,260.54
+dostoevsky_poor_folk,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\dostoevsky_poor_folk\dostoevsky_poor_folk.txt,https://www.gutenberg.org/cache/epub/2302/pg2302.txt,316399,310.34
+kafka_trial,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\kafka_trial\kafka_trial.txt,https://www.gutenberg.org/files/7849/7849-0.txt,475989,464.91
+asimov_youth,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\asimov_youth\asimov_youth.txt,https://www.gutenberg.org/cache/epub/31547/pg31547.txt,78673,76.93
+asimov_magnificent_possession,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\asimov_magnificent_possession\asimov_magnificent_possession.txt,https://www.gutenberg.org/cache/epub/76871/pg76871.txt,56750,56.62
+asimov_lets_get_together,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\asimov_lets_get_together\asimov_lets_get_together.txt,https://www.gutenberg.org/cache/epub/68377/pg68377.txt,55105,53.92
+asimov_worlds_within_worlds_v1,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\asimov_worlds_within_worlds_v1\asimov_worlds_within_worlds_v1.txt,https://www.gutenberg.org/cache/epub/49819/pg49819.txt,97994,96.43
+asimov_worlds_within_worlds_v2,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\asimov_worlds_within_worlds_v2\asimov_worlds_within_worlds_v2.txt,https://www.gutenberg.org/cache/epub/49820/pg49820.txt,92670,90.98
+asimov_worlds_within_worlds_v3,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\asimov_worlds_within_worlds_v3\asimov_worlds_within_worlds_v3.txt,https://www.gutenberg.org/cache/epub/49821/pg49821.txt,113519,111.46
+asimov_worlds_genetic_eff_rad,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\asimov_worlds_genetic_eff_rad\asimov_worlds_genetic_eff_rad.txt,https://www.gutenberg.org/cache/epub/55738/pg55738.txt,114247,111.91
+asimov_worlds_everest,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\asimov_worlds_everest\asimov_worlds_everest.txt,https://www.gutenberg.org/cache/epub/77254/pg77254.txt,27491,27.21
+asimov_worlds_silly_asses,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_raw\asimov_worlds_silly_asses\asimov_worlds_silly_asses.txt,https://www.gutenberg.org/cache/epub/78751/pg78751.txt,22623,22.28

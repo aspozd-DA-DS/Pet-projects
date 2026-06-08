@@ -1,0 +1,5 @@
+author,file_clean,size_chars,size_words,words_estimate,language,balanced
+asimov,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_clean\asimov.txt,480297,76203,80049,en,no
+dostoevsky,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_clean\dostoevsky.txt,540873,98285,90145,en,no
+kafka,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_clean\kafka.txt,456443,83728,76073,en,no
+shakespeare_balanced,E:\projects\My_project\03_Word2Vec\word2vec_literature_gpu\data_clean\shakespeare_balanced.txt,499657,90223,83276,en,yes

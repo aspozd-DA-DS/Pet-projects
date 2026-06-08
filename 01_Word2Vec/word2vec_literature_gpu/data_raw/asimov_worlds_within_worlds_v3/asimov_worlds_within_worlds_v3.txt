@@ -1,0 +1,2260 @@
+﻿The Project Gutenberg eBook of Worlds Within Worlds: The Story of Nuclear Energy, Volume 3 (of 3)
+    
+This eBook is for the use of anyone anywhere in the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this eBook or online
+at www.gutenberg.org. If you are not located in the United States,
+you will have to check the laws of the country where you are located
+before using this eBook.
+
+Title: Worlds Within Worlds: The Story of Nuclear Energy, Volume 3 (of 3)
+
+Author: Isaac Asimov
+
+
+        
+Release date: August 30, 2015 [eBook #49821]
+                Most recently updated: October 24, 2024
+
+Language: English
+
+Other information and formats: www.gutenberg.org/ebooks/49821
+
+Credits: Produced by Stephen Hutcheson, Dave Morgan and the Online
+        Distributed Proofreading Team at http://www.pgdp.net
+
+
+*** START OF THE PROJECT GUTENBERG EBOOK WORLDS WITHIN WORLDS: THE STORY OF NUCLEAR ENERGY, VOLUME 3 (OF 3) ***
+
+                         Worlds Within Worlds:
+                      The Story of Nuclear Energy
+                                Volume 3
+            Nuclear Fission · Nuclear Fusion · Beyond Fusion
+
+
+                            by Isaac Asimov
+
+
+                 United States Atomic Energy Commission
+                     Office of Information Services
+
+           Library of Congress Catalog Card Number 75-189477
+                                  1972
+
+_Nothing in the history of mankind has opened our eyes to the
+possibilities of science as has the development of atomic power. In the
+last 200 years, people have seen the coming of the steam engine, the
+steamboat, the railroad locomotive, the automobile, the airplane, radio,
+motion pictures, television, the machine age in general. Yet none of it
+seemed quite so fantastic, quite so unbelievable, as what man has done
+since 1939 with the atom ... there seem to be almost no limits to what
+may lie ahead: inexhaustible energy, new worlds, ever-widening knowledge
+of the physical universe._
+                                                            Isaac Asimov
+
+                [Illustration: Photograph of night sky]
+
+
+
+
+Nuclear energy is playing a vital role in the life of every man, woman,
+and child in the United States today. In the years ahead it will affect
+increasingly all the peoples of the earth. It is essential that all
+Americans gain an understanding of this vital force if they are to
+discharge thoughtfully their responsibilities as citizens and if they
+are to realize fully the myriad benefits that nuclear energy offers
+them.
+
+The United States Atomic Energy Commission provides this booklet to help
+you achieve such understanding.
+
+
+
+
+  UNITED STATES ATOMIC ENERGY COMMISSION
+
+  Dr. James R. Schlesinger, Chairman
+  James T. Ramey
+  Dr. Clarence E. Larson
+  William O. Doub
+  Dr. Dixy Lee Ray
+
+                      [Illustration: Isaac Asimov]
+
+
+
+
+ISAAC ASIMOV received his academic degrees from Columbia University and
+is Associate Professor of Biochemistry at the Boston University School
+of Medicine. He is a prolific author who has written over 100 books in
+the past 18 years, including about 20 science fiction works, and books
+for children. His many excellent science books for the public cover
+subjects in mathematics, physics, astronomy, chemistry, and biology,
+such as _The Genetic Code_, _Inside the Atom_, _Building Blocks of the
+Universe_, _Understanding Physics_, _The New Intelligent Man’s Guide to
+Science_, and _Asimov’s Biographical Encyclopedia of Science and
+Technology_. In 1965 Dr. Asimov received the James T. Grady Award of the
+American Chemical Society for his major contribution in reporting
+science progress to the public.
+
+                [Illustration: Photograph of night sky]
+
+CONTENTS
+
+
+                                VOLUME 1
+  Introduction                                                          5
+  Atomic Weights                                                        6
+  Electricity                                                          11
+      Units of Electricity                                             11
+      Cathode Rays                                                     13
+      Radioactivity                                                    17
+      The Structure of the Atom                                        25
+      Atomic Numbers                                                   30
+      Isotopes                                                         35
+  Energy                                                               47
+      The Law of Conservation of Energy                                47
+      Chemical Energy                                                  50
+      Electrons and Energy                                             54
+      The Energy of the Sun                                            55
+      The Energy of Radioactivity                                      57
+
+
+                                 VOLUME 2
+  Mass and Energy                                                      69
+  The Structure of the Nucleus                                         75
+      The Proton                                                       75
+      The Proton-Electron Theory                                       76
+      Protons in Nuclei                                                80
+      Nuclear Bombardment                                              82
+      Particle Accelerators                                            86
+  The Neutron                                                          92
+      Nuclear Spin                                                     92
+      Discovery of the Neutron                                         95
+      The Proton-Neutron Theory                                        98
+      The Nuclear Interaction                                         101
+      Neutron Bombardment                                             107
+
+
+                                 VOLUME 3
+  Nuclear Fission                                                     117
+      New Elements                                                    117
+      The Discovery of Fission                                        122
+      The Nuclear Chain Reaction                                      127
+      The Nuclear Bomb                                                131
+      Nuclear Reactors                                                141
+  Nuclear Fusion                                                      146
+      The Energy of the Sun                                           146
+      Thermonuclear Bombs                                             148
+      Controlled Fusion                                               150
+  Beyond Fusion                                                       158
+      Antimatter                                                      158
+      The Unknown                                                     163
+  Reading List                                                        165
+
+[Illustration: _Enrico Fermi (left) and Niels Bohr discuss physics as
+they stroll along the Appian Way outside Rome in 1931._]
+
+
+
+
+                            NUCLEAR FISSION
+
+
+New Elements
+
+In 1934 Enrico Fermi began his first experiments involving the
+bombardment of uranium with neutrons—experiments that were to change the
+face of the world.
+
+Fermi had found that slow neutrons, which had very little energy, were
+easily absorbed by atomic nuclei—more easily than fast neutrons were
+absorbed, and certainly more easily than charged particles were.
+
+Often what happened was that the neutron was simply absorbed by the
+nucleus. Since the neutron has a mass number of 1 and an atomic number
+of 0 (because it is uncharged), a nucleus that absorbs a neutron remains
+an isotope of the same element, but increases its mass number.
+
+For instance, suppose that neutrons are used to bombard hydrogen-1,
+which then captures one of the neutrons. From a single proton, it will
+become a proton plus a neutron; from hydrogen-1, it will become
+hydrogen-2. A new nucleus formed in this way will be at a higher energy
+and that energy is emitted in the form of a gamma ray.
+
+Sometimes the more massive isotope that is formed through neutron
+absorption is stable, as hydrogen-2 is. Sometimes it is not, but is
+radioactive instead. Because it has added a neutron, it has too many
+neutrons for stability. The best way of adjusting the matter is to emit
+a beta particle (electron). This converts one of the neutrons into a
+proton. The mass number stays the same but the atomic number increases
+by one.
+
+The element rhodium, for example, which has an atomic number of 45, has
+only 1 stable isotope, with a mass number of 103. If rhodium-103 (45
+protons, 58 neutrons) absorbs a neutron, it becomes rhodium-104 (45
+protons, 59 neutrons), which is not stable. Rhodium-104 emits a beta
+particle, changing a neutron to a proton so that the nuclear combination
+becomes 46 protons and 58 neutrons. This is palladium-104, which is
+stable.
+
+[Illustration: _Fermi’s laboratory in Rome in 1930._]
+
+As another example, indium-115 (49 protons, 66 neutrons) absorbs a
+neutron and becomes indium-116 (49 protons, 67 neutrons), which gives
+off a beta particle and becomes tin-116 (50 protons, 66 neutrons), which
+is stable.
+
+There are over 100 isotopes that will absorb neutrons and end by
+becoming an isotope of an element one higher in the atomic number scale.
+Fermi observed a number of these cases.
+
+Having done so, he was bound to ask what would happen if uranium were
+bombarded with neutrons. Would its isotopes also be raised in atomic
+number—in this case from 92 to 93? If that were so it would be very
+exciting, for uranium had the highest atomic number in the entire scale.
+Nobody had ever discovered any sample of element number 93, but perhaps
+it could be formed in the laboratory.
+
+In 1934, therefore, Fermi bombarded uranium with neutrons in the hope of
+obtaining atoms of element 93. Neutrons were absorbed and whatever was
+formed did give off beta particles, so element 93 should be there.
+However, four different kinds of beta particles (different in their
+energy content) were given off and the matter grew very confusing. Fermi
+could not definitely identify the presence of atoms of element 93 and
+neither could anyone else for several years. Other things turned up,
+however, which were even more significant.
+
+Before going on to these other things, however, it should be mentioned
+that undoubtedly element 93 was formed even though Fermi couldn’t
+clearly demonstrate the fact. In 1939 the American physicists Edwin
+Mattison McMillan (1907-    ) and Philip Hauge Abelson (1913-    ),
+after bombarding uranium atoms with slow neutrons, were able to identify
+element 93. Since uranium had originally been named for the planet,
+Uranus, the new element beyond uranium was eventually named for the
+planet Neptune, which lay beyond Uranus. Element 93 is therefore called
+“neptunium”.
+
+[Illustration: _Lise Meitner_]
+
+[Illustration: _Emilio Segrè_]
+
+[Illustration: _Edwin M. McMillan_]
+
+[Illustration: _Otto R. Frisch_]
+
+[Illustration: _Glenn T. Seaborg_]
+
+[Illustration: _Philip H. Abelson_]
+
+What happened was exactly what was expected. Uranium-238 (92 protons,
+146 neutrons) added a neutron to become uranium-239 (92 protons, 147
+neutrons), which emitted a beta particle to become neptunium-239 (93
+protons, 146 neutrons).
+
+In fact, neptunium-239 also emitted a beta particle so it ought to
+become an isotope of an element even higher in the atomic number scale.
+This one, element 94, was named “plutonium” after Pluto, the planet
+beyond Neptune. The isotope, plutonium-239, formed from neptunium-239,
+was only feebly radioactive, however, and it was not clearly identified
+until 1941.
+
+The actual discovery of the element plutonium came the year before,
+however, when neptunium-238 was formed. It emitted a beta particle and
+became plutonium-238, an isotope that was radioactive enough to be
+easily detected and identified by Glenn Theodore Seaborg (1912-    ),
+and his co-workers, who completed McMillan’s experiments when he was
+called away to other defense research.
+
+Neptunium and plutonium were the first “transuranium elements” to be
+produced in the laboratory, but they weren’t the last. Over the next 30
+years, isotopes were formed that contained more and more protons in the
+nucleus and therefore had higher and higher atomic numbers. At the
+moment of writing, isotopes of every element up to and including element
+105 have been formed.
+
+A number of these new elements have been named for some of the
+scientists important in the history of nuclear research. Element 96 is
+“curium”, named for Pierre and Marie Curie; element 99 is “einsteinium”
+for Albert Einstein; and element 100 is “fermium” for Enrico Fermi.
+
+Element 101 is “mendelevium” for the Russian chemist Dmitri Mendeléev,
+who early in 1869 was the first to arrange the elements in a reasonable
+and useful order. Element 103 is “lawrencium” for Ernest O. Lawrence.
+“Rutherfordium” for Ernest Rutherford has been proposed for element 104.
+
+And “hahnium” for Otto Hahn (1879-1968), a German physical chemist whose
+contribution we will come to shortly, has been proposed for element 105.
+
+Neptunium, however, was not the first new element to be created in the
+laboratory. In the early 1930s, there were still 2 elements with fairly
+low atomic numbers that had never been discovered. These were the
+elements with atomic numbers 43 and 61.
+
+In 1937, though, molybdenum (atomic number 42) had been bombarded with
+neutrons in Lawrence’s laboratory in the United States. It might contain
+small quantities of element 43 as a result. The Italian physicist Emilio
+Segrè (1905-    ), who had worked with Fermi, obtained a sample of the
+bombarded molybdenum and indeed obtained indications of the presence of
+element 43. It was the first new element to be manufactured by
+artificial means and was called “technetium” from the Greek word for
+“artificial”.
+
+The technetium isotope that was formed was radioactive. Indeed, all the
+technetium isotopes are radioactive. Element 61, discovered in 1945 and
+named “promethium”, also has no stable isotopes. Technetium and
+promethium are the only elements with atomic numbers less than 84 that
+do not have even a single stable isotope.
+
+
+The Discovery of Fission
+
+But let us get back to the bombardment of uranium with neutrons research
+that Fermi had begun. After he had reported his work, other physicists
+repeated it and also got a variety of beta particles and were also
+unable to decide what was going on.
+
+[Illustration: _Lise Meitner and Otto Hahn in their laboratory in the
+1930s._]
+
+One way to tackle the problem was to add to the system some stable
+element that was chemically similar to the tiny traces of radioactive
+isotopes that might be produced through the bombardment of uranium.
+Afterwards the stable element could probably be separated out of the
+mixture and the trace of radioactivity would, it was hoped, be carried
+along with it. The stable element would be a “carrier”.
+
+Among those working on the problem were Otto Hahn and his Austrian
+co-worker, the physicist Lise Meitner (1878-1968). Among the potential
+carriers they added to the system was the element, barium, which has an
+atomic number of 56. They found that a considerable quantity of the
+radioactivity did indeed accompany the barium when they separated that
+element out of the system.
+
+A natural conclusion was that the isotopes producing the radioactivity
+belonged to an element that was chemically very similar to barium.
+Suspicion fell at once on radium (atomic number 88), which was very like
+barium indeed as far as chemical properties were concerned.
+
+Lise Meitner, who was Jewish, found it difficult to work in Germany,
+however, for it was then under the rule of the strongly anti-Semitic
+Nazi regime. In March 1938 Germany occupied Austria, which became part
+of the German realm. Meitner was no longer protected by her Austrian
+citizenship and had to flee the country and go to Stockholm, Sweden.
+Hahn remained in Germany and continued working on the problem with the
+German physical chemist Fritz Strassman (1902-    ).
+
+Although the supposed radium, which possessed the radioactivity, was
+very like barium in chemical properties, the two were not entirely
+identical. There were ways of separating them, and Hahn and Strassman
+busied themselves in trying to accomplish this in order to isolate the
+radioactive isotopes, concentrate them, and study them in detail. Over
+and over again, however, they failed to separate the barium and the
+supposed radium.
+
+Slowly, it began to seem to Hahn that the failure to separate the barium
+and the radioactivity meant that the isotopes to which the radioactivity
+belonged had to be so much like barium as to be nothing else _but_
+barium. He hesitated to say so, however, because it seemed unbelievable.
+
+If the radioactive isotopes included radium, that was conceivable.
+Radium had an atomic number of 88, only four less than uranium’s 92. You
+could imagine that a neutron being absorbed by a uranium nucleus might
+make the latter so unstable as to cause it to emit 2 alpha particles and
+become radium. Barium, however, had an atomic number of 56, only a
+little over half that of uranium. How could a uranium nucleus be made to
+turn into a barium nucleus unless it more or less broke in half? Nothing
+like that had ever been observed before and Hahn hesitated to suggest
+it.
+
+While he was nerving himself to do so, however, Lise Meitner, in
+Stockholm, receiving reports of what was being done in Hahn’s laboratory
+and thinking about it, decided that unheard-of or not, there was only
+one explanation. The uranium nucleus _was_ breaking in half.
+
+Actually, when one stopped to think of it (after getting over the
+initial shock) it wasn’t so unbelievable at that. The nuclear force is
+so short-range, it barely reaches from end to end of a large nucleus
+like that of uranium. Left to itself, it holds together most of the
+time, but with the added energy of an entering neutron, we might imagine
+shock waves going through it and turning the nucleus into something like
+a quivering drop of liquid. Sometimes the uranium nucleus recovers,
+keeps the neutron, and then goes on to beta-particle emission. And
+sometimes the nucleus stretches to the point where the nuclear force
+doesn’t quite hold it together. It becomes a dumbbell shape and then the
+electromagnetic repulsion of the two halves (both positively charged)
+breaks it apart altogether.
+
+It doesn’t break into equal halves. Nor does it always break at exactly
+the same place, so that there were a number of different fragments
+possible (which was why there was so much confusion). Still, one of the
+more common ways in which it might break would be into barium and
+krypton. (Their respective atomic numbers, 56 and 36, would add up to
+92.)
+
+Meitner and her nephew, Otto Robert Frisch (1904-    ), who was in
+Copenhagen, Denmark, prepared a paper suggesting that this was what was
+happening. It was published in January 1939. Frisch passed it on to the
+Danish physicist Niels Bohr (1885-1962) with whom he was working. The
+American biologist William Archibald Arnold (1904-    ), who was also
+working in Copenhagen at the time, suggested that the splitting of the
+uranium nucleus into halves be called “fission”, the term used for the
+division-in-two of living cells. The name stuck.
+
+In January 1939, just about the time Meitner and Frisch’s paper was
+published, Bohr had arrived in the United States to attend a conference
+of physicists. He carried the news of fission with him. The other
+physicists attending the conference heard the news and in a high state
+of excitement at once set about studying the problem. Within a matter of
+weeks, the fact of uranium fission was confirmed over and over.
+
+One striking fact about uranium fission was the large amount of energy
+it released. In general, when a very massive nucleus is converted to a
+less massive one, energy is released because of the change in the mass
+defect, as Aston had shown in the 1920s. When the uranium nucleus breaks
+down through the ordinary radioactive processes to become a less massive
+lead nucleus, energy is given off accordingly. When, however, it breaks
+in two to become the much less massive nuclei of barium and krypton (or
+others in that neighborhood) much more energy is given off.
+
+It quickly turned out that uranium fission gave off something like ten
+times as much nuclear energy per nucleus than did any other nuclear
+reaction known at the time.
+
+Even so, the quantity of energy released by uranium fission was only a
+tiny fraction of the energy that went into the preparation of the
+neutrons used to bring about the fission, if each neutron that struck a
+uranium atom brought about a single fission of that 1 atom.
+
+Under those conditions, Rutherford’s suspicion that mankind would never
+be able to tap nuclear energy probably still remained true. (He had been
+dead for 2 years at the time of the discovery of fission.)
+
+However, those were not the conditions.
+
+
+The Nuclear Chain Reaction
+
+Earlier in this history, we discussed chain reactions involving chemical
+energy. A small bit of energy can ignite a chemical reaction that would
+produce more than enough energy to ignite a neighboring section of the
+system, which would in turn produce still more—and so on, and so on. In
+this way the flame of a single match could start a fire in a leaf that
+would burn down an entire forest, and the energy given off by the
+burning forest would be enormously higher than the initial energy of the
+match flame.
+
+Might there not be such a thing as a “nuclear chain reaction”? Could one
+initiate a nuclear reaction that would produce something that would
+initiate more of the same that would produce something that would
+initiate still more of the same and so on?
+
+In that case, a nuclear reaction, once started, would continue of its
+own accord, and in return for the trifling investment that would serve
+to start it—a single neutron, perhaps—a vast amount of breakdowns would
+result with the delivery of a vast amount of energy. Even if it were
+necessary to expend quite a bit of energy to produce the 1 neutron that
+would start the chain reaction, one would end with an enormous profit.
+
+What’s more, since the nuclear reaction would spread from nucleus to
+nucleus with millionths-of-a-second intervals, there would be, in a very
+brief time, so many nuclei breaking down that there would be a vast
+explosion. The explosion was sure to be millions of times as powerful as
+ordinary chemical explosions involving the same quantity of exploding
+material, since the latter used only the electromagnetic interaction,
+while the former used the much stronger nuclear interaction.
+
+The first to think seriously of such a nuclear chain reaction was the
+Hungarian physicist Leo Szilard (1898-1964). He was working in Germany
+in 1933 when Adolf Hitler came to power and, since he was Jewish, he
+felt it would be wise to leave Germany. He went to Great Britain and
+there, in 1934, he considered certain new types of nuclear reactions
+that had been discovered.
+
+In these, it sometimes happened that a fast neutron might strike a
+nucleus with sufficient energy to cause it to emit 2 neutrons. In that
+way the nucleus, absorbing 1 neutron and emitting 2, would become a
+lighter isotope of the same element.
+
+But what would happen if each of the 2 neutrons that emerged from the
+original target nucleus struck new nuclei and forced the emission of a
+pair of neutrons from each. There would now be a total of 4 neutrons
+flying about and if each struck new nuclei there would next be 8
+neutrons and so on. From the initial investment of a single neutron
+there might soon be countless billions initiating nuclear reactions.
+
+Szilard, fearing the inevitability of war and fearing further that the
+brutal leaders of Germany might seek and use such a nuclear chain
+reaction as a weapon in warfare, secretly applied for a patent on a
+device intending to make use of such a nuclear chain reaction. He hoped
+to turn it over to the British Government, which might then use its
+possession as a way of restraining the Nazis and keeping the peace.
+
+However, it wouldn’t have worked. It took the impact of a very energetic
+neutron to bring about the emission of 2 neutrons. The neutrons that
+then emerged from the nucleus simply didn’t have enough energy to keep
+things going. (It was like trying to make wet wood catch fire.)
+
+But what about uranium fission? Uranium fission was initiated by slow
+neutrons. What if uranium fission also produced neutrons as well as
+being initiated by a neutron? Would not the neutrons produced serve to
+initiate new fissions that would produce new neutrons and so on
+endlessly?
+
+It seemed very likely that fission produced neutrons and indeed, Fermi,
+at the conference where fission was first discussed, suggested it at
+once. Massive nuclei possessed more neutrons per proton than less
+massive ones did. If a massive nucleus was broken up into 2 considerably
+less massive ones, there would be a surplus of neutrons. Suppose, for
+instance, uranium-238 broke down into barium-138 and krypton-86.
+Barium-138 contains 82 neutrons and krypton-86 50 neutrons for a total
+of 132. The uranium-238 nucleus, however, contains 146 neutrons.
+
+The uranium fission process was studied at once to see if neutrons were
+actually given off and a number of different physicists, including
+Szilard, found that they were.
+
+Now Szilard was faced with a nuclear chain reaction he was certain would
+work. Only slow neutrons were involved and the individual nuclear
+breakdowns were far more energetic than anything else that had yet been
+discovered. If a chain reaction could be started in a sizable piece of
+uranium, unimaginable quantities of energy would be produced. Just 1
+gram of uranium, undergoing complete fission, would deliver the energy
+derived from the total burning of 3 tons of coal and would deliver that
+energy in a tiny fraction of a second.
+
+Szilard, who had come to the United States in 1937, clearly visualized
+the tremendous explosive force of something that would have to be called
+a “nuclear bomb”. Szilard dreaded the possibility that Hitler might
+obtain the use of such a bomb through the agency of Germany’s nuclear
+scientists.
+
+Partly through Szilard’s efforts, physicists in the United States and in
+other Western nations opposed to Hitler began a program of voluntary
+secrecy in 1940, to avoid passing along any hints to Germany. What’s
+more, Szilard enlisted the services of two other Hungarian refugees, the
+physicists Eugene Paul Wigner (1902-    ) and Edward Teller (1908-    )
+and all approached Einstein, who had also fled Germany and come to
+America.
+
+[Illustration: _Leo Szilard_]
+
+[Illustration: _Eugene P. Wigner_]
+
+Einstein was the most prestigious scientist then living and it was
+thought a letter from him to the President of the United States would be
+most persuasive. Einstein signed such a letter, which explained the
+possibility of a nuclear bomb and urged that the United States not allow
+a potential enemy to come into possession of it first.
+
+Largely as a result of this letter, a huge research team was put
+together in the United States, to which other Western nations also
+contributed, with but one aim—to develop the nuclear bomb.
+
+
+The Nuclear Bomb
+
+Although the theory of the nuclear bomb seemed clear and simple, a great
+many practical difficulties stood in the way. In the first place, if
+only uranium atoms underwent fission a supply of uranium had at least to
+be obtained in pure form, for if the neutrons struck nuclei of elements
+other than uranium, they would simply be absorbed and removed from the
+system, ending the possibility of a chain reaction. This alone was a
+heavy task, since there had been so little use for uranium in quantity
+that there was almost no supply in existence and no experience in how to
+purify it.
+
+Secondly, the supply of uranium might have to be a large one, for
+neutrons didn’t necessarily enter the first uranium atom they
+approached. They moved about here and there, making glancing collisions,
+and travelling quite a distance, perhaps, before striking head-on and
+entering a nucleus. If in that time they had passed outside the lump of
+uranium, they were useless.
+
+[Illustration: Franklin D. Roosevelt]
+
+  Albert Einstein
+  Old Grove Rd.
+  Nassau Point
+  Peconic, Long Island
+
+  August 2nd, 1939
+
+  F.D. Roosevelt,
+  President of the United States,
+  White House
+  Washington, D.C.
+
+Sir:
+
+Some recent work by E. Fermi and L. Szilard, which has been communicated
+to me in manuscript, leads me to expect that the element uranium may be
+turned into a new and important source of energy in the immediate
+future. Certain aspects of the situation which has arisen seem to call
+for watchfulness and, if necessary, quick action on the part of the
+Administration. I believe therefore that it is my duty to bring to your
+attention the following facts and recommendations:
+
+In the course of the last four months it has been made probable—through
+the work of Joliot in France as well as Fermi and Szilard in
+America—that it may become possible to set up a nuclear chain reaction
+in a large mass of uranium, by which vast amounts of power and large
+quantities of new radium-like elements would be generated. Now it
+appears almost certain that this could be achieved in the immediate
+future.
+
+This new phenomenon would also lead to the construction of bombs, and it
+is conceivable—though much less certain—that extremely powerful bombs of
+a new type may thus be constructed. A single bomb of this type, carried
+by boat and exploded in a port, might very well destroy the whole port
+together with some of the surrounding territory. However, such bombs
+might very well prove to be too heavy for transportation by air.
+
+[Illustration: _Albert Einstein_]
+
+  The United States has only very poor ores of uranium in moderate
+  quantities. There is some good ore in Canada and the former
+  Czechoslovakia, while the most important source of uranium is Belgian
+  Congo.
+
+  In view of this situation you may think it desirable to have some
+  permanent contact maintained between the Administration and the group
+  of physicists working on chain reactions in America. One possible way
+  of achieving this might be for you to entrust with this task a person
+  who has your confidence and who could perhaps serve in an inofficial
+  capacity. His task might comprise the following:
+
+  a) to approach Government Departments, keep them informed of the
+  further development, and put forward recommendations for Government
+  action, giving particular attention to the problem of securing a
+  supply of uranium ore for the United States;
+
+  b) to speed up the experimental work, which is at present being
+  carried on within the limits of the budgets of University
+  laboratories, by providing funds, if such funds be required, through
+  his contacts with private persons who are willing to make
+  contributions for this cause, and perhaps also by obtaining the
+  co-operation of industrial laboratories which have the necessary
+  equipment.
+
+  I understand that Germany has actually stopped the sale of uranium
+  from the Czechoslovakian mines which she has taken over. That she
+  should have taken such early action might perhaps be understood on the
+  ground that the son of the German Under-Secretary of State, von
+  Weizsäcker, is attached to the Kaiser-Wilhelm-Institut in Berlin where
+  some of the American work on uranium is now being repeated.
+
+  Yours very truly,
+
+                        [Illustration: /signed/]
+
+(Albert Einstein)
+
+As the quantity of uranium within which the fission chain reaction was
+initiated grew larger, more and more of the neutrons produced found a
+mark and the fission reaction would die out more and more slowly.
+Finally, at some particular size—the “critical size”—the fission
+reaction did not die at all, but maintained itself, with enough of the
+neutrons produced finding their mark to keep the nuclear reaction
+proceeding at a steady rate. At any greater size the nuclear reaction
+would accelerate and there would be an explosion.
+
+It wasn’t even necessary to send neutrons into the uranium to start the
+process. In 1941 the Russian physicist Georgii Nikolaevich Flerov
+(1913-    ) found that every once in a while a uranium atom would
+undergo fission without the introduction of a neutron. Occasionally the
+random quivering of a nucleus would bring about a shape that the nuclear
+interaction could not bring back to normal and the nucleus would then
+break apart. In a gram of ordinary uranium, there is a nucleus
+undergoing such “spontaneous fission” every 2 minutes on the average.
+Therefore, enough uranium need only be brought together to surpass
+critical size and it will explode within seconds, for the first nucleus
+that undergoes spontaneous fission will start the chain reaction.
+
+First estimates made it seem that the quantity of uranium needed to
+reach critical size was extraordinarily great. Fully 99.3% of the metal
+is uranium-238, however, and, as soon as fission was discovered, Bohr
+pointed out that there were theoretical reasons for supposing that it
+was the uranium-235 isotope (making up only 0.7% of the whole) that was
+the one undergoing fission. Investigation proved him right. Indeed, the
+uranium-238 nucleus tended to absorb slow neutrons without fission, and
+to go on to beta-particle production that formed isotopes of neptunium
+and plutonium. In this way uranium-238 actually interfered with the
+chain reaction.
+
+In any quantity of uranium, the more uranium-235 present and the less
+uranium-238, the more easily the chain reaction would proceed and the
+lower the critical size needed. Vast efforts were therefore made to
+separate the 2 isotopes and prepare uranium with a higher than normal
+concentration of uranium-235 (“enriched uranium”).
+
+Of course, there was no great desire for a fearful explosion to get out
+of hand while the chain reaction was being studied. Before any bomb
+could be constructed, the mechanism of the chain reaction would have to
+be studied. Could a chain reaction capable of producing energy (for
+useful purposes as well as for bombs) be established? To test this, a
+quantity of uranium was gathered in the hope that a _controlled_ chain
+reaction of uranium fission could be established. For that purpose,
+control rods of a substance that would easily absorb neutrons and slow
+the chain reaction were used. The metal, cadmium, served admirably for
+this purpose.
+
+Then, too, the neutrons released by fission were pretty energetic. They
+tended to travel too far too soon and get outside the lump of uranium
+too easily. To produce a chain reaction that could be studied with some
+safety, the presence of a moderator was needed. This was a supply of
+small nuclei that did not absorb neutrons readily, but absorbed some of
+the energy of collision and slowed down any neutron that struck it.
+Nuclei such as hydrogen-2, beryllium-9, or carbon-12 were useful
+moderators. When the neutrons produced by fission were slowed, they
+travelled a smaller distance before being absorbed in their turn and the
+critical size would again be reduced.
+
+Toward the end of 1942 the initial stage of the project reached a
+climax. Blocks of graphite containing uranium metal and uranium oxide
+were piled up in huge quantities (enriched uranium was not yet
+available) in order to approach critical size. This took place under the
+stands of a football stadium at the University of Chicago, with Enrico
+Fermi (who had come to the United States in 1938) in charge.[1]
+
+The large structure was called an “atomic pile” at first because of the
+blocks of graphite being piled up. The proper name for such a device,
+and the one that was eventually adopted, was, however, “nuclear
+reactor”.
+
+On December 2, 1942, calculations showed that the nuclear reactor was
+large enough to have reached critical size. The only thing preventing
+the chain reaction from sustaining itself was the cadmium rods that were
+inserted here and there in the pile and that were soaking up neutrons.
+
+[Illustration: _Cutaway model of the West Stands of Stagg Field showing
+the first pile in the squash court beneath it._]
+
+[Illustration: _The exterior of the building._]
+
+[Illustration: _Graphite layers form the base of the pile, left. On the
+right is the seventh layer of graphite and edges of the sixth layer
+containing 3¼-inch pseudospheres of black uranium oxide. Beginning with
+layer 6, alternate courses of graphite containing uranium metal and/or
+uranium oxide fuel were separated by layers of solid graphite blocks._]
+
+[Illustration: _Tenth layer of graphite blocks containing pseudospheres
+of black and brown uranium oxide. The brown briquets, slightly richer in
+uranium, were concentrated in the central area. On the right is the
+nineteenth layer of graphite covering layer 18 containing slugs of
+uranium oxide._]
+
+One by one the cadmium rods were pulled out. The number of uranium atoms
+undergoing fission each second rose and, finally, at 3:45 p.m., the
+uranium fission became self-sustaining. It kept going on its own (with
+the cadmium rods ready to be pushed in if it looked as though it were
+getting out of hand—something calculations showed was not likely).
+
+News of this success was announced to Washington by a cautious telephone
+call from Arthur Holly Compton (1892-1962) to James Bryant Conant
+(1893-    ). “The Italian navigator has landed in the new world”, said
+Compton. Conant asked, “How were the natives?”, and the answer was,
+“Very friendly”.
+
+This was the day and moment when the world entered the “nuclear age”.
+For the first time, mankind had constructed a device in which the
+nuclear energy being given off was greater than the energy poured in.
+Mankind had tapped the reservoirs of nuclear energy and could put it to
+use. Had Rutherford lived but 6 more years, he would have seen how wrong
+he was to think it could never be done.
+
+The people of earth remained unaware of what had taken place in Chicago
+and physicists continued to work toward the development of the nuclear
+bomb.
+
+Enriched uranium was successfully prepared. Critical sizes were brought
+low enough to make a nuclear bomb small enough to be carried by plane to
+some target. Suppose one had 2 slabs of enriched uranium, each below
+critical size, but which were above critical size if combined. And
+suppose an explosive device were added that, at some desired moment,
+could be set off in such a way that it would drive 1 slab of enriched
+uranium against the other. There would be an instant explosion of
+devastating power. Or suppose the enriched uranium were arranged in
+loosely packed pieces to begin with so that the flying neutrons were in
+open air too often to maintain the chain reaction. A properly arranged
+explosion might compress the uranium into a dense ball. Neutron
+absorption would become more efficient and again, an explosion would
+follow.
+
+[Illustration: _Nuclear Fission of Uranium: A neutron hits the nucleus
+of an atom of uranium. The neutron splits the nucleus into two parts and
+creates huge amounts of energy in the form of heat. At the same time
+other neutrons are released from the splitting nucleus and these
+continue the fission process in a chain reaction._]
+
+On July 16, 1945, a device that would result in a nuclear explosion was
+set up near Alamogordo, New Mexico, with nervous physicists watching
+from a safe distance. It worked perfectly; the explosion was tremendous.
+
+By that time Nazi Germany had been defeated, but Japan was still
+fighting. Two more devices were prepared. After a warning, one was
+exploded over the Japanese city of Hiroshima on August 6, 1945, and the
+other over Nagasaki 2 days later. The Japanese government surrendered
+and World War II came to an end.
+
+It was with the blast over Hiroshima that the world came to know it was
+in the nuclear age and that the ferocious weapon of the nuclear bomb
+existed. (The popular name for it at the time was “atomic bomb” or
+“A-bomb”.)
+
+During the war, German scientists may have been trying to develop a
+nuclear bomb, but, if so, they had not yet succeeded at the time Germany
+met its final defeat. Soviet physicists, under Igor Vasilievich
+Kurchatov (1903-1960), were also working on the problem. The dislocation
+of the war, which inflicted much more damage on the Soviet Union than on
+the United States, kept the Soviet effort from succeeding while it was
+on. However, since the Soviets were among the victors, they were able to
+continue after the war.
+
+In 1949 the Soviets exploded their first nuclear bomb. In 1952 the
+British did the same; in 1960, the French; and in 1964, the Chinese.
+
+Although many nuclear bombs have been exploded for test purposes, the
+two over Hiroshima and Nagasaki have been the only ones used in time of
+war.
+
+Nor need nuclear bombs be considered as having destructive potential
+only. There is the possibility that, with proper precautions, they might
+be used to make excavations, blast out harbors or canals, break up
+underground rock formations to recover oil or other resources, and in
+other ways do the work of chemical explosives with far greater speed and
+economy. It has even been suggested that a series of nuclear bomb
+explosions might be used to hurl space vehicles forward in voyages away
+from earth.
+
+
+Nuclear Reactors
+
+The development of the nuclear chain reaction was not in the direction
+of bombs only. Nuclear reactors designed for the controlled production
+of useful energy multiplied in number and in efficiency since Fermi’s
+first “pile”. Many nations now possess them, and they are used for a
+variety of purposes.[2]
+
+[Illustration: _The USS_ Nautilus, _the world’s first nuclear powered
+submarine, in New York harbor_.]
+
+In 1954 the first nuclear submarine the USS _Nautilus_ was launched by
+the United States. Its power was obtained entirely from a nuclear
+reactor, and it was not necessary for it to rise to the surface at short
+intervals in order to recharge its batteries. Nuclear submarines have
+crossed the Arctic Ocean under the ice cover, and have circumnavigated
+the globe without surfacing.
+
+In 1959 both the Soviet Union and the United States launched
+nuclear-powered surface vessels. The Soviet ship was the icebreaker,
+_Lenin_, and the American ship was a merchant vessel, the NS _Savannah_.
+
+In the 1950s nuclear reactors were also used as the source of power for
+the production of electricity for civilian use. The Soviet Union built a
+small station of this sort in 1954, which had a capacity of 5,000
+kilowatts. The British built one of 92,000 kilowatt capacity, which they
+called Calder Hall. The first American nuclear reactor for civilian use
+began operation at Shippingport, Pennsylvania, in 1958. It was the first
+really full-scale civilian nuclear power plant in the world.
+
+The world appeared to have far greater sources of energy than had been
+expected. The “fossil fuels”—coal, oil and natural gas—were being used
+at such a rate that many speculated that the gas and oil would be gone
+in decades and the coal in centuries. Was it possible that uranium might
+now serve as a new source that would last indefinitely?
+
+It was rather disappointing that it was uranium-235 which underwent
+fission, because that isotope made up only 0.7% of the uranium that
+existed. If uranium-235 were all we had and all we ever could have, the
+energy supply of the world would still be rather too limited.
+
+There were other possible “nuclear fuels”, however. There was
+plutonium-239, which would also fission under neutron bombardment. It
+had an ordinary half-life (for a radioactive change in which it gave off
+alpha particles) of 24,300 years, which is long enough to make it easy
+to handle.
+
+But how can plutonium-239 be formed in sufficient quantities to be
+useful? After all, it doesn’t occur in nature. Surprisingly, that turned
+out to be easy. Uranium-238 atoms will absorb many of the neutrons that
+are constantly leaking out of the reactor and will become first
+neptunium-239 and then plutonium-239. The plutonium, being a different
+element from the uranium, can be separated from uranium and obtained in
+useful quantities.
+
+Such a device is called a “breeder reactor” because it breeds fuel.
+Indeed, it can be so designed to produce more plutonium-239 than the
+uranium-235 it uses up, so that you actually end up with more nuclear
+fuel than you started with. In this way, all the uranium on earth (and
+not just uranium-235) can be considered potential nuclear fuel.
+
+[Illustration: _The Shippingport Atomic Power Station, the first
+full-scale, nuclear-electric station built exclusively for civilian
+needs, provides electricity for the homes and factories of the greater
+Pittsburgh area. The pressurized-water reactor, which now has a
+90,000-net-electrical-kilowatt capacity, began commercial operation in
+1957. The reactor is in the large building in the center._]
+
+[Illustration: _The lights of downtown Pittsburgh._]
+
+The first breeder reactor was completed at Arco, Idaho, in August 1951,
+and on December 20 produced the very first electricity on earth to come
+from nuclear power. Nevertheless, breeder reactors for commercial use
+are still a matter for the future.[3]
+
+Another isotope capable of fissioning under neutron bombardment is
+uranium-233. It does not occur in nature, but was formed in the
+laboratory by Seaborg and others in 1942. It has a half-life of 162,000
+years. It can be formed from naturally occurring thorium-232.
+Thorium-232 will absorb a neutron to become thorium-233. Then 2 beta
+particles are given off so that the thorium-233 becomes first
+protactinium-233 and then uranium-233.
+
+If a thorium shell surrounds a nuclear reactor, fissionable uranium-233
+is formed within it and is easily separated from the thorium. In this
+way, thorium is also added to the list of earth’s potential nuclear
+fuels.[4]
+
+If all the uranium and thorium in the earth’s crust (including the thin
+scattering of those elements through granite, for instance) were
+available for use, we might get up to 100 times as much energy from it
+as from all the coal and oil on the planet. Unfortunately, it is very
+unlikely that we will ever be able to make use of all the uranium and
+thorium. It is widely and thinly spread through the crustal rocks and
+much of it could not be extracted without using up more energy than
+would be supplied by it once isolated.
+
+Another problem rests with the nature of the fission reaction. When the
+uranium-235 nucleus (or plutonium-239 or uranium-233) undergoes fission,
+it breaks up into any of a large number of middle-sized nuclei that are
+radioactive—much more intensely radioactive than the original fuel. (It
+was from among these “fission products” that isotopes of element 61 were
+first obtained in 1945. Coming from the nuclear fire, it reminded its
+discoverers of Prometheus, who stole fire from the sun in the Greek
+myths, and so it was called “promethium”.)
+
+The fission products still contain energy and some of them can be used
+in lightweight “nuclear batteries”. Such nuclear batteries were first
+built in 1954. Some batteries, using plutonium-238 rather than fission
+products, have been put to use in powering artificial satellites over
+long periods.
+
+Unfortunately, only a small proportion of the fission products can be
+put to profitable use. Most must be disposed of. They are dangerous
+because the radiations they give off are deadly and cannot be detected
+by the ordinary senses. They are very difficult to dispose of safely,
+and they must not be allowed to get into the environment, especially
+since some of them remain dangerous for decades or even centuries.
+
+[Illustration: _The Experimental Breeder Reactor No. 2 building complex
+in Idaho. The reactor is in the dome-shaped structure._]
+
+
+
+
+                             NUCLEAR FUSION
+
+
+The Energy of the Sun
+
+As it happens, though, nuclear fission is not the only route to useful
+nuclear energy.
+
+Aston’s studies in the 1920s had shown that it was the middle-sized
+nuclei that were most tightly packed. Energy would be given off if
+middle-sized nuclei were produced from either extreme. Not only would
+energy be formed by the breakup of particularly massive nuclei through
+fission, but also through the combination of small nuclei to form larger
+ones (“nuclear fusion”).
+
+In fact, from Aston’s studies it could be seen that, mass for mass,
+nuclear fusion would produce far more energy than nuclear fission. This
+was particularly true in the conversion of hydrogen to helium; that is,
+the conversion of the individual protons of 4 separate hydrogen nuclei
+into the 2-proton—2-neutron structure of the helium nucleus. A gram of
+hydrogen, undergoing fusion to helium, would deliver some fifteen times
+as much energy as a gram of uranium undergoing fission.
+
+As early as 1920, the English astronomer Arthur Stanley Eddington
+(1882-1944) had speculated that the sun’s energy might be derived from
+the interaction of subatomic particles. Some sort of nuclear reaction
+seemed, by then, to be the most reasonable way of accounting for the
+vast energies constantly being produced by the sun.
+
+The speculation became more plausible with each year. Eddington himself
+studied the structure of stars, and by 1926 had produced convincing
+theoretical reasons for supposing that the center of the sun was at
+enormous densities and temperatures. A temperature of some 15,000,000 to
+20,000,000°C seemed to characterize the sun’s center.
+
+At such temperatures, atoms could not exist in earthly fashion. Held
+together by the sun’s strong gravitational field, they collided with
+such energy that all or almost all their electrons were stripped off,
+and little more than bare nuclei were left. These bare nuclei could
+approach each other much more closely than whole atoms could (which was
+why the center of the sun was so much more dense than earthly matter
+could be). The bare nuclei, smashing together at central-sun
+temperatures, could cling together and form more complex nuclei. Nuclear
+reactions brought about by such intense heat (millions of degrees) are
+called “thermonuclear reactions”.
+
+As the 1920s progressed further studies of the chemical structure of the
+sun showed it to be even richer in hydrogen than had been thought. In
+1929 the American astronomer Henry Norris Russell (1877-1957) reported
+evidence that the sun was 60% hydrogen in volume. (Even this was too
+conservative; 80% is considered more nearly correct now.) If the sun’s
+energy were based on nuclear reactions at all, then it had to be the
+result of hydrogen fusion. Nothing else was present in sufficient
+quantity to be useful as a fuel.
+
+More and more was learned about the exact manner in which nuclei
+interacted and about the quantity of energy given off in particular
+nuclear reactions. It became possible to calculate what might be going
+on inside the sun by considering the densities and temperatures present,
+the kind and number of different nuclei available, and the quantity of
+energy that must be produced. In 1938 the German-American physicist Hans
+Albrecht Bethe (1906-    ) and the German astronomer Carl Friedrich von
+Weizsäcker (1912-    ) independently worked out the possible reactions,
+and hydrogen fusion was shown to be a thoroughly practical way of
+keeping the sun going.
+
+Thanks to the high rate of energy production by thermonuclear reactions
+and to the vast quantity of hydrogen in the sun, not only has it been
+possible for the sun to have been radiating energy for the last
+5,000,000,000 years or so, but it will continue to radiate energy in the
+present fashion for at least 5,000,000,000 years into the future.
+
+[Illustration: _Hans Bethe_]
+
+Even so, the sheer quantity of what is going on in the sun is staggering
+in earthly terms. In the sun 650,000,000 tons of hydrogen are converted
+into helium every second, and in the process each second sees the
+disappearance of 4,600,000 tons of mass.
+
+
+Thermonuclear Bombs
+
+Could thermonuclear reactions be made to take place on earth? The
+conditions that exist in the center of the sun would be extremely
+difficult to duplicate on the earth, so there was a natural search for
+any kind of nuclear fusion that would produce similar energies to those
+going on in the sun but which would be easier to bring about.
+
+There are 3 hydrogen isotopes known to exist. Ordinary hydrogen is
+almost entirely hydrogen-1, with a nucleus made up of a single proton.
+Small quantities of hydrogen-2 (deuterium) with a nucleus made up of a
+proton plus a neutron also exist and such atoms are perfectly stable.
+
+In 1934 Rutherford, along with the Australian physicist Marcus Laurence
+Elwin Oliphant (1901-    ) and the Austrian chemist Paul Harteck
+(1902-    ) sent hydrogen-2 nuclei flying into hydrogen-2 targets and
+formed hydrogen-3 (also called “tritium” from the Greek word for
+“third”) with a nucleus made up of a proton plus 2 neutrons. Hydrogen-3
+is mildly radioactive.
+
+Hydrogen-2 fuses to helium more easily than hydrogen-1 does and, all
+things being equal, hydrogen-2 will do so at lower temperatures than
+hydrogen-1. Hydrogen-3 requires lower temperatures still. But even for
+hydrogen-3 it still takes millions of degrees.
+
+Hydrogen-3, although the easiest to be forced to undergo fusion, exists
+only in tiny quantities.
+
+Hydrogen-2, therefore, is the one to pin hopes on especially in
+conjunction with hydrogen-3. Only 1 atom out of every 6000 hydrogen
+atoms is hydrogen-2, but that is enough. There exists a vast ocean on
+earth that is made up almost entirely of water molecules and in each
+water molecule 2 hydrogen atoms are present. Even if only 1 in 6000 of
+these hydrogen atoms is deuterium that still means there are about
+35,000 billion tons of deuterium in the ocean.
+
+What’s more, it isn’t necessary to dig for that deuterium or to drill
+for it. If ocean water is allowed to run through separation plants, the
+deuterium can be extracted without very much trouble. In fact, for the
+energy you could get out of it, deuterium from the oceans, extracted by
+present methods and without allowing for future improvement, would be
+only one-hundredth as expensive as coal.
+
+The deuterium in the world’s ocean, if allowed to undergo fusion little
+by little, would supply mankind with enough energy to keep us going at
+the present rate for 500,000,000,000 years. To be sure, to make
+deuterium fusion practical, it may be necessary to make use of rarer
+substances such as the light metal lithium. This will place a sharper
+limit on the energy supply but even if we are careful, fusion would
+probably supply mankind with energy for as long as mankind will exist.
+
+Then, too, there would seem to be no danger of hydrogen fusion plants
+running out of control. Only small quantities of deuterium would be in
+the process of fusion at any one time. If anything at all went wrong,
+the deuterium supply could be automatically cut off and the fusion
+process, with so little involved, would then stop instantly. Moreover,
+there would be less reason to worry about atomic wastes, for the most
+dangerous products—hydrogen-3 and neutrons—could be easily taken care
+of.
+
+It seems ideal, but there is a catch. However clear the theory, before a
+fusion power station can be established some practical method must be
+found to start the fusion process, which means finding some way for
+attaining temperatures in the millions of degrees.
+
+One method for obtaining the necessary temperature was known by 1945. An
+exploding fission bomb would do it. If, somehow, the necessary
+hydrogen-2 was combined with a fission bomb, the explosion would set off
+a fusion reaction that would greatly multiply the energy released. You
+would have in effect a “thermonuclear bomb”. (To the general public,
+this was commonly known as a “hydrogen bomb” or an “H-bomb”.)
+
+In 1952 the first fusion device was exploded by the United States in the
+Marshall Islands. Within months, the Soviet Union had exploded one of
+its own and in time thermonuclear bombs thousands of times as powerful
+as the first fission bomb over Hiroshima were built and exploded.
+
+All thermonuclear bombs have been exploded only for test purposes. Even
+testing seems to be dangerous, however, at least if it is carried on in
+the open atmosphere. The radioactivity liberated spreads over the world
+and may do slow but cumulative damage.
+
+
+Controlled Fusion
+
+However effective a fusion bomb may be in liberating vast quantities of
+energy, it is not what one has in mind when speaking of a fusion power
+station. The energy of a fusion bomb is released all at once and its
+only function is that of utter destruction. What is wanted is the
+production of fusion energy at a low and steady rate—a rate that is
+under the control of human operators.
+
+The sun, for instance, is a vast fusion furnace 866,000 miles across,
+but it is a controlled one—even though that control is exerted by the
+impersonal laws of nature. It releases energy at a very steady and very
+slow rate. (The rate is not slow in human terms, of course, but stars
+sometimes do release their energy in a much more cataclysmic fashion.
+The result is a “supernova” in which for a short time a single star will
+increase its radiation to as much as a trillion times its normal level.)
+
+The sun (or any star) going at its normal rate is controlled and steady
+in its output because of the advantage of huge mass. An enormous mass,
+composed mainly of hydrogen, compresses itself, through its equally
+enormous gravitational field, into huge densities and temperatures at
+its center, thus igniting the fusion reaction—while the same
+gravitational field keeps the sun together against its tendency to
+expand.
+
+There is, as far as scientists know, no conceivable way of concentrating
+a high gravitational field in the absence of the required mass, and the
+creation of controlled fusion on earth must therefore be done without
+the aid of gravity. Without a huge gravitational force we cannot
+simultaneously bring about sun-center densities and sun-center
+temperatures; one or the other must go.
+
+On the whole, it would take much less energy to aim at the temperatures
+than at the densities and would be much more feasible. For this reason,
+physicists have been attempting, all through the nuclear age, to heat
+thin wisps of hydrogen to enormous temperature. Since the gas is thin,
+the nuclei are farther apart and collide with each other far fewer times
+per second. To achieve fusion ignition, therefore, temperatures must be
+considerably higher than those at the center of the sun. In 1944 Fermi
+calculated that it might take a temperature of 50,000,000° to ignite a
+hydrogen-3 fusion with hydrogen-2 under earthly conditions, and
+400,000,000° to ignite hydrogen-2 fusion alone. To ignite hydrogen-1
+fusion, which is what goes on in the sun (at a mere 15,000,000°),
+physicists would have to raise their sights to beyond the billion-degree
+mark.
+
+[Illustration: _A supernova photographed on March 10, 1935._]
+
+[Illustration: _The same star on May 6._]
+
+This would make it seem almost essential to use hydrogen-3 in one
+fashion or another. Even if it can’t be prepared in quantity to begin
+with, it might be formed by neutron bombardment of lithium, with the
+neutrons being formed by the fusion reaction. In this way, you would
+start with lithium and hydrogen-2 plus a little hydrogen-3. The
+hydrogen-3 is formed as fast as it is used up. Although in the end
+hydrogen is converted to helium in a controlled fusion reaction as in
+the sun, the individual steps in the reaction under human control are
+quite different from those in the sun.
+
+Still, even the temperatures required for hydrogen-3 represent an
+enormous problem, particularly since the temperature must not only be
+reached, but must be held for a period of time. (You can pass a piece of
+paper rapidly through a candle flame without lighting it. It must be
+held in the flame for a short period to give it a chance to heat and
+ignite.)
+
+The English physicist John David Lawson (1923-    ) worked out the
+requirements in 1957. The time depended on the density of the gas. The
+denser the gas, the shorter the period over which the temperature had to
+be maintained. If the gas is about one hundred-thousand times as dense
+as air, the proper temperature must be held, under the most favorable
+conditions, for about one thousandth of a second.
+
+There are a number of different ways in which a quantity of hydrogen can
+be heated to very high temperatures—through electric currents, through
+magnetic fields, through laser beams and so on. As the temperature goes
+up into the tens of thousands of degrees, the hydrogen atoms (or any
+atoms) are broken up into free electrons and bare nuclei. Such a mixture
+of charged particles is called a “plasma”. Ever since physicists have
+begun to try to work with very hot gases, with fusion energy in mind,
+they have had to study the properties of such “plasma”, and a whole new
+science of “plasma physics” has come into existence.
+
+But if you do heat a gas to very high temperatures, it will tend to
+expand and thin out to uselessness. How can such a super-hot gas be
+confined in a fixed volume without an enormous gravitational field to
+hold it together?
+
+An obvious answer would be to place it in a container, but no ordinary
+container of matter will serve to hold the hot gas. You may think this
+is because the temperature of the gas will simply melt or vaporize
+whatever matter encloses it. This is not so. Although the gas is at a
+very high temperature, it is so thin that it has very little total heat.
+It does not have enough heat to melt the solid walls of a container.
+What happens instead is that the hot plasma cools down the moment it
+touches the solid walls and the entire attempt to heat it is ruined.
+
+What’s more, if you try to invest the enormous energies required to keep
+the plasma hot despite the cooling effect of the container walls, then
+the walls will gradually heat and melt. Nor must one wait for the walls
+to melt and the plasma to escape before finding the attempt at fusion
+ruined. Even as the walls heat up they liberate some of their own atoms
+into the plasma and introduce impurities that will prevent the fusion
+reaction.
+
+Any material container is therefore out of the question.
+
+Fortunately, there is a nonmaterial way of confining plasma. Since
+plasma consists of a mixture of electrically charged particles, it can
+experience electromagnetic interactions. Instead of keeping the plasma
+in a material container, you can surround it by a magnetic field that is
+designed to keep it in place. Such a magnetic field is not affected by
+any heat, however great, and cannot be a source of material impurity.
+
+In 1934, the American physicist Willard Harrison Bennett (1903-    ) had
+worked out a theory dealing with the behavior of magnetic fields
+enclosing plasma. It came to be called the “pinch effect” because the
+magnetic field pinched the gas together and held it in place.
+
+The first attempt to make use of the pinch effect for confining plasma,
+with eventual ignition of fusion in mind, was in 1951 by the English
+physicist Alan Alfred Ware (1924-    ). Other physicists followed, not
+only in Great Britain, but in the United States and the Soviet Union as
+well.
+
+The first use of the pinch effect was to confine the plasma in a
+cylinder. This, however, could not be made to work. The situation was
+too unstable. The plasma was held momentarily, then writhed and broke
+up.
+
+[Illustration: _Plasma in a magnetic field._]
+
+[Illustration: _Enormous machines and complex equipment, such as the
+Scyllac machine shown above, are required for nuclear fusion research._]
+
+Attempts were made to remove the instability. The field was so designed
+as to be stronger at the ends of the cylinder than elsewhere. The
+particles in the plasma would stream toward one end or another and would
+then bounce back producing a so-called “magnetic mirror”.
+
+In 1951 the American physicist Lyman Spitzer, Jr. (1914-    ) had worked
+out the theoretical benefits to be derived from a container twisted into
+a figure-eight shape. Eventually, such devices were built and called
+“stellarators” from the Latin word for “star”, because it was hoped that
+it would produce the conditions that would allow the sort of fusion
+reactions that went on in stars.
+
+All through the 1950s and 1960s, physicists have been slowly inching
+toward their goal, reaching higher and higher temperatures and holding
+them for longer and longer periods in denser and denser gases.
+
+In 1969 the Soviet Union used a device called “Tokamak-3” (a Russian
+abbreviation for their phrase for “electric-magnetic”) to keep a supply
+of hydrogen-2, a millionth as dense as air, in place while heating it to
+tens of millions of degrees for a hundredth of a second.
+
+A little denser, a little hotter, a little longer—and controlled fusion
+might become possible.[5]
+
+
+
+
+                             BEYOND FUSION
+
+
+Antimatter
+
+Is there anything that lies beyond fusion?
+
+When hydrogen undergoes fusion and becomes helium, only 0.7% of the
+original mass of the hydrogen is converted to energy. Is it possible to
+take a quantity of mass and convert all of it, every bit, to energy?
+Surely that would be the ultimate energy source. Mass for mass, that
+would deliver 140 times as much energy as hydrogen fusion would; it
+would be as far beyond hydrogen fusion as hydrogen fusion is beyond
+uranium fission.
+
+And, as a matter of fact, total annihilation of matter is conceivable
+under some circumstances.
+
+In 1928 the English physicist Paul Adrien Maurice Dirac (1902-    )
+presented a treatment of the electron’s properties that made it appear
+as though there ought also to exist a particle exactly like the electron
+in every respect except that it would be opposite in charge. It would
+carry a positive electric charge exactly as large as the electron’s
+negative one.
+
+If the electron is a particle, this suggested positively charged twin
+would be an “antiparticle”. (The prefix comes from a Greek word meaning
+“opposite”.)
+
+[Illustration: _P. A. M. Dirac_]
+
+[Illustration: _The first picture of the positron (left) was taken in a
+Wilson cloud chamber. On the right is C. D. Anderson, the discoverer of
+the positron._]
+
+The proton is _not_ the electron’s antiparticle. Though a proton carries
+the necessary positive charge that is exactly as large as the negative
+charge of the electron, the proton has a much larger mass than the
+electron has. Dirac’s theory required that the antiparticle have the
+same mass as the particle to which it corresponded.
+
+In 1932 C. D. Anderson was studying the impact of cosmic particles on
+lead. In the process, he discovered signs of a particle that left tracks
+exactly like those of an electron, but tracks that curved the wrong way
+in a magnetic field. This was a sure sign that it had an electric charge
+opposite to that of the electron. He had, in short, discovered the
+electron’s antiparticle and this came to be called the “positron”.
+
+Positrons were soon detected elsewhere too. Some radioactive isotopes,
+formed in the laboratory by the Joliot-Curies and by others, were found
+to emit positive beta particles—positrons rather than electrons. When an
+ordinary beta particle, or electron, was emitted from a nucleus, a
+neutron within the nucleus was converted to a proton. When a positive
+beta particle, a positron, was emitted, the reverse happened—a proton
+was converted to a neutron.
+
+A positron, however, does not endure long after formation. All about it
+were atoms containing electrons. It could not move for more than a
+millionth of a second or so before it encountered one of those
+electrons. When it did, there was an attraction between the two, since
+they were of opposite electric charge. Briefly they might circle each
+other (to form a combination called “positronium”) but only very
+briefly. Then they collided and, since they were opposites, each
+cancelled the other.
+
+The process whereby an electron and a positron met and cancelled is
+called “mutual annihilation”. Not everything was gone, though. The mass,
+in disappearing, was converted into the equivalent amount of energy,
+which made its appearance in the form of one or more gamma rays.
+
+(It works the other way, too. A gamma ray of sufficient energy can be
+transformed into an electron and a positron. This phenomenon, called
+“pair production”, was observed as early as 1930 but was only properly
+understood after the discovery of the positron.)
+
+Of course, the mass of electrons and positrons is very small and the
+amount of energy released per electron is not enormously high. Still,
+Dirac’s original theory of antiparticles was not confined to electrons.
+By his theory, any particle ought to have some corresponding
+antiparticle. Corresponding to the proton, for instance, there ought to
+be an “antiproton”. This would be just as massive as the proton and
+would carry a negative charge just as large as the proton’s positive
+charge.
+
+An antiproton, however, is 1836 times as massive as a positron. It would
+take gamma rays or cosmic particles with 1836 times as much energy to
+form the proton-antiproton pair as would suffice for the
+electron-positron pair. Cosmic particles of the necessary energies
+existed but they were rare and the chance of someone being present with
+a particle detector just as a rare super-energetic cosmic particle
+happened to form a proton-antiproton pair was very small.
+
+[Illustration: _The Bevatron began operation in 1954._]
+
+Physicists had to wait until they had succeeded in designing particle
+accelerators that would produce enough energy to allow the creation of
+proton-antiproton pairs. This came about in the early 1950s when a
+device called the “Cosmotron” was built at Brookhaven National
+Laboratory in Long Island in 1952 and another called the “Bevatron” at
+the University of California in Berkeley in 1954.
+
+Using the Bevatron in 1956, Segrè (the discoverer of technetium who had,
+by that time, emigrated to the United States), the American physicist
+Owen Chamberlain (1920-    ), and others succeeded in detecting the
+antiproton.
+
+The antiproton was as unlikely to last as long as the positron was. It
+was surrounded by myriads of proton-containing nuclei and in a tiny
+fraction of a second it would encounter one. The antiproton and the
+proton also underwent mutual annihilation, but having 1836 times the
+mass, they produced 1836 times the energy that was produced in the case
+of an electron and a positron.
+
+There was even an “antineutron”, a particle reported in 1956 by the
+Italian-American physicist Oreste Piccioni (1915-    ) and his
+co-workers. Since the neutron has no charge, the antineutron has no
+charge either, and one might wonder how the antineutron would differ
+from the neutron then. Actually, both have a small magnetic field. In
+the neutron the magnetic field is pointed in one direction with
+reference to the neutron’s spin; in the antineutron it is pointed in the
+other.
+
+[Illustration: _Bubble chamber photograph of an antiproton
+annihilation._]
+
+In 1965 the American physicist Leon Max Lederman (1922-    ) and his
+co-workers produced a combination of an antiproton and an antineutron
+that together formed an “antideuteron”, which is the nucleus of
+antihydrogen-2.
+
+This is good enough to demonstrate that if antiparticles existed by
+themselves without the interfering presence of ordinary particles, they
+could form “antimatter”, which would be precisely identical with
+ordinary matter in every way except for the fact that electric charges
+and magnetic fields would be turned around.
+
+If antimatter were available to us, and if we could control the manner
+in which it united with matter, we would have a source of energy much
+greater and, perhaps, simpler to produce than would be involved in
+hydrogen fusion.
+
+To be sure, there is no antimatter on earth, except for the
+submicroscopic amounts that are formed by the input of tremendous
+energies. Nor does anyone know of any conceivable way of forming
+antimatter at less energy than that produced by mutual annihilation, so
+that we might say that mankind can never make an energy profit out of
+it—except that with the memory of Rutherford’s prediction that nuclear
+energy of any kind could never be tapped, one hesitates to be
+pessimistic about anything.
+
+
+The Unknown
+
+Physical theory makes it seem that particles and antiparticles ought to
+exist in the universe in equal quantities. Yet on earth (and, we can be
+quite certain, in the rest of the solar system and even, very likely, in
+the rest of the galaxy) protons, neutrons, and electrons are common,
+while antiprotons, antineutrons, and positrons are exceedingly rare.
+
+Could it be that when the universe was first formed there were indeed
+equal quantities of particles and antiparticles but that they were
+somehow segregated, perhaps into galaxies and “antigalaxies”? If so,
+there might occasionally be collisions of a galaxy and an antigalaxy
+with the evolution of vast quantities of energy as mutual annihilation
+on a cosmic scale takes place.
+
+There are, in fact, places in the heavens where radiation is unusually
+high in quantity and in energy. Can we be witnessing such enormous
+mutual annihilation?
+
+Indeed, it is not altogether inconceivable that we may still have new
+types of forces and new sources of energy to discover. Until about 1900,
+no one suspected the existence of nuclear energy. Are we quite sure now
+that nuclear energy brings us to the end, and that there is not a form
+of energy more subtle still, and greater?
+
+In 1962, for instance, certain puzzling objects called “quasars” were
+discovered far out in space, a billion light-years or more away from us.
+Each one shines from 10 to 100 times as brilliantly as an entire
+ordinary galaxy does, and yet may be no more than a hundred-thousandth
+as wide as a galaxy.
+
+This is something like finding an object 10 miles across that delivers
+as much total light as 100 suns.
+
+It is very hard to understand where all that energy comes from and why
+it should be concentrated into so tiny a volume. Astronomers have tried
+to explain it in terms of the four interactions now known, but is it
+possible that there is a fifth greater than any of the four?
+
+If so, it is not impossible that eventually man’s restless brain may
+come to understand and even utilize it.
+
+
+
+
+                               FOOTNOTES
+
+
+[1]See _The First Reactor_, another booklet in this series.
+
+[2]See _Nuclear Reactors_ and _Nuclear Power Plants_, companion booklets
+    in this series.
+
+[3]See _Breeder Reactors_, another booklet in this series.
+
+[4]See _Thorium—and the Third Fuel_, another booklet in this series.
+
+[5]See _Controlled Nuclear Fusion_, another booklet in this series.
+
+
+
+
+                            QUOTATION CREDIT
+
+
+  Inside front cover    Copyright © by Abelard-Shuman, Ltd., New York.
+                        Reprinted by permission from _Inside the Atom_,
+                        Isaac Asimov, 1966.
+
+
+
+
+                              READING LIST
+
+
+Basic Books
+
+  _Basic Laws of Matter_ (revised edition), Harrie S. W. Massey and
+  Arthur R. Quinton, Herald Books, Bronxville, New York, 1965, 178 pp.,
+  $3.75. Grades 7-9. A nontechnical presentation of atoms and the laws
+  governing their behavior.
+
+  _Biography of Physics_, George Gamow, Harper & Row, Publishers, New
+  York, 1961, 338 pp., $6.50 (hardback); $2.75 (paperback). Grades 9-12.
+  A history of theoretical physics.
+
+  _Discoverer of X Rays: Wilhelm Conrad Roentgen_, Arnulf K. Esterer,
+  Julian Messner, New York, 1968, 191 pp., $3.50. Grades 7-10. This
+  interesting biography includes a brief, but very helpful, pronouncing
+  gazetteer of the German, Swiss, and Dutch names in the text.
+
+  _Ernest Rutherford: Architect of the Atom_, Peter Kelman and A. Harris
+  Stone, Prentice-Hall, Inc., Englewood Cliffs, New Jersey, 1969, 72
+  pp., $3.95. Grades 5-7. A well-done biography of this famous atomic
+  scientist. Many of the drawings illustrate theoretical ideas very well
+  for the elementary grades. A glossary is included.
+
+  _Enrico Fermi: Atomic Pioneer_, Doris Faber, Prentice-Hall, Inc.,
+  Englewood Cliffs, New Jersey, 1966, 86 pp., $3.95. Grades 5-8. A
+  biography of the man who built the first reactor.
+
+  _Giant of the Atom: Ernest Rutherford_, Robin McKown, Julian Messner,
+  New York, 1962, 191 pp., $3.50. Grades 7-12. The life and
+  accomplishments of a great physicist.
+
+  _The History of the Atomic Bomb_, Michael Blow, American Heritage
+  Publishing Company, Inc., New York, 1968, 150 pp., $5.95. Grades 5-9.
+  This sumptuously illustrated history provides an informative
+  explanation of nuclear physics in addition to comprehensive coverage
+  of the bomb’s development and use.
+
+  _Inside the Atom_, Isaac Asimov, Abelard-Schuman, Ltd., New York,
+  1966, 197 pp., $4.00. Grades 7-10. This comprehensive, well-written
+  text explains nuclear energy and its applications.
+
+  _Madame Curie: A Biography_, Eve Curie, translated by Vincent Sheean,
+  Doubleday and Company, Inc., New York, 1937, 385 pp., $5.95
+  (hardback); $0.95 (paperback). Grades 9-12. This superb biography,
+  which won the 1937 National Book Award for Nonfiction, illustrates
+  dramatically the full spectrum of Marie Curie’s life.
+
+  _Men Who Mastered the Atom_, Robert Silverberg, G. P. Putnam’s Sons,
+  New York, 1965, 193 pp., $3.49. Grades 7-9. Atomic energy history is
+  told through the work of pioneer scientists from Thales to present-day
+  researchers.
+
+  _The Neutron Story_, Donald J. Hughes, Doubleday and Company, Inc.,
+  New York, 1959, 158 pp., out of print. Grades 7-9. A substantial and
+  interesting account of neutron physics.
+
+  _Niels Bohr: The Man Who Mapped the Atom_, Robert Silverberg, MacRae
+  Smith Company, Philadelphia, Pennsylvania, 1965, 189 pp., $3.95.
+  Grades 8-12. An exciting, suspenseful, and humorous biography of one
+  of the pioneers in atomic energy. Includes a glossary and references.
+
+  _The Questioners: Physicists and the Quantum Theory_, Barbara Lovett
+  Cline, Crowell Collier and MacMillan, Inc., New York, 1965, 274 pp.,
+  $5.00 (hardback); available in paperback with the title _Men Who Made
+  A New Physics: Physicists and the Quantum Theory_, New American
+  Library, Inc., New York, $0.75. Grades 9-12. An exceptionally
+  well-delineated and personable account of the development of the
+  quantum theory by physicists in the first quarter of this century.
+
+  _The Restless Atom_, Alfred Romer, Doubleday and Company, Inc., New
+  York, 1960, 198 pp., $1.25. Grades 9-12. A stimulating nonmathematical
+  account of the classic early experiments that advanced knowledge about
+  atomic particles.
+
+  _Roads to Discovery_, Ralph E. Lapp, Harper and Row, Publishers, New
+  York, 1960, 191 pp., out of print. Grades 10-12. Historical survey of
+  nuclear physics beginning with Roentgen’s discovery of X rays and
+  concluding with the discoveries of the rare elements.
+
+  _Secret of the Mysterious Rays: The Discovery of Nuclear Energy_,
+  Vivian Grey, Basic Books, Inc., Publishers, New York, 1966, 120 pp.,
+  $3.95. Grades 4-8. This outstanding history of nuclear research from
+  Roentgen to Fermi is dramatically presented. The uncertainty of the
+  unknown, the accidental discovery and the often lengthy and tedious
+  research are woven in this story of scientists from around the world
+  who pooled their knowledge and experience to unlock “the secrets of
+  the mysterious rays”.
+
+  _Wilhelm Roentgen and the Discovery of X Rays_, Bern Dibner, Franklin
+  Watts, Inc., New York, 1968, 149 pp., $2.95. Grades 5-8. This detailed
+  biography, illustrated with line drawings, historical photographs, and
+  papers, is a fine addition to Watts’ “Immortals of Science” Series.
+
+  _Working with Atoms_, Otto R. Frisch, Basic Books, Inc., New York,
+  1965, 96 pp., $4.95. Grades 9-12. Dr. Frisch presents a history of
+  nuclear energy research and provides experiments for the reader. He
+  gives a personal account of the pioneering work in which he and Lise
+  Meitner explained the splitting of uranium and introduced the term
+  “nuclear fission”.
+
+
+Advanced Books
+
+  _An American Genius: The Life of Ernest Orlando Lawrence_, Herbert
+  Childs, E. P. Dutton and Company, Inc., New York, 1968, 576 pp.,
+  $12.95. This well-written, scientifically accurate, and very
+  interesting biography captures the excitement of Lawrence’s life.
+  Ernest Lawrence was the inventor of the cyclotron, a major member of
+  the wartime atomic energy development, and the director of the
+  Lawrence Radiation Laboratory.
+
+  _The Atom and Its Nucleus_, George Gamow, Prentice-Hall, Inc.,
+  Englewood Cliffs, New Jersey, 1961, 153 pp., $1.25. A popular-level
+  discussion of nuclear structure and the applications of nuclear
+  energy.
+
+  _Atomic Energy for Military Purposes_, Henry D. Smyth, Princeton
+  University Press, Princeton, New Jersey, 1945, 308 pp., $4.00. A
+  complete account of the wartime project that developed the first
+  nuclear weapons and of the considerations that prompted their use.
+
+  _Atomic Quest_, Arthur H. Compton, Oxford University Press, Inc., New
+  York, 1956, 370 pp., $7.95. A personal narrative of the research that
+  led to the release of atomic energy on a useful scale by a scientist
+  who played a principal part in the atomic bomb project during World
+  War II.
+
+  _The Atomists_ (_1805-1933_), Basil Schonland, Oxford University
+  Press, Inc., New York, 1968, 198 pp., $5.60. This book, which can be
+  understood by anyone who has had a high school physics course,
+  presents atomic theory development from Dalton through Bohr. It
+  achieves a good balance between popular treatments and highly
+  technical works without slighting the technical aspects.
+
+  _Atoms in the Family: My Life with Enrico Fermi_, Laura Fermi, Chicago
+  University Press, Chicago, Illinois, 1954, 267 pp., $5.00 (hardback);
+  $2.45 (paperback). Laura Fermi writes about her husband, Enrico Fermi,
+  the physicist who led the group that built the first nuclear reactor.
+
+  _The Born-Einstein Letters: The Correspondence Between Albert Einstein
+  and Max and Hedwig Born from 1916 to 1955_, commentaries by Max Born,
+  translated by Irene Born, Walker and Company, 1971, 240 pp., $8.50.
+  These interesting letters reveal the scientific and personal lives of
+  these two atomic scientists.
+
+  _Einstein: His Life and Times_, Philipp Frank, Alfred A. Knopf, Inc.,
+  New York, 1953, 298 pp., $6.95. A brilliant biography that reveals the
+  richness of Einstein’s life and work and the tremendous impact he made
+  upon physics.
+
+  _Enrico Fermi, Physicist_, Emilio Segrè, Chicago University Press,
+  Chicago, Illinois, 1970, 288 pp., $6.95. This biography tells of
+  Enrico Fermi’s intellectual history, achievements, and his scientific
+  style. The scientific problems faced or solved by Fermi are explained
+  in layman’s terms. Emilio Segrè was a friend and scientific
+  collaborator who worked with Fermi for many years.
+
+  _An Introduction to Physical Science: The World of Atoms_ (second
+  edition), John J. G. McCue, The Ronald Press Company, New York, 1963,
+  775 pp., $9.50. This textbook was written for college humanities
+  students.
+
+  _J. J. Thomson: Discoverer of the Electron_, George Thomson, Doubleday
+  and Company, Inc., New York, 1966, 240 pp., $1.45. This biography,
+  written by J. J. Thomson’s son, describes his research at the famed
+  Cavendish Laboratory in Cambridge, England.
+
+  _John Dalton and the Atom_, Frank Greenaway, Cornell University Press,
+  Ithaca, New York, 1966, 256 pp., $7.50. A biography for the general
+  reader and the high school science student. Dalton is famous for his
+  development of chemical combinations based on atomic theory. This
+  provided the basis for modern structural theories of chemistry.
+
+  _John Dalton and the Atomic Theory: The Biography of a Natural
+  Philosopher_, Elizabeth C. Patterson, Doubleday and Company, Inc., New
+  York, 1970, 320 pp., $6.95 (hardback); $1.95 (paperback). The drama of
+  Dalton’s life—his rigorous self-teaching, scientific work, and
+  struggle to overcome class barriers in 19th century England—is well
+  presented. Quotations from letters, diaries, and published works give
+  a clear picture of Dalton’s atomic theory research and his time.
+
+  _Man-made Transuranium Elements_, Glenn T. Seaborg, Prentice Hall,
+  Inc., Englewood Cliffs, New Jersey, 1963, 120 pp., $6.95 (hardback);
+  $2.95 (paperback). The discovery, properties, and applications of
+  elements heavier than uranium are considered in this book, which is
+  designed as an introduction to the subject. Glenn Seaborg was
+  co-discoverer of nine of the twelve transuranium elements.
+
+  _The Nature of Matter: Physical Theory from Thales to Fermi_, Ginestra
+  Amaldi, translated by Peter Astbury, Chicago University Press,
+  Chicago, Illinois, 1966, 332 pp., $5.95. A nontechnical history of
+  atomic energy.
+
+  _Niels Bohr: His Life and Work as Seen by His Friends and Colleagues_,
+  S. Rozental (Editor), John Wiley and Sons, Inc., New York, 1967, 355
+  pp., $5.95. An articulate and scholarly biography by the friends and
+  co-workers of this outstanding atomic pioneer.
+
+  _Niels Bohr: The Man, His Science, and the World They Changed_, Ruth
+  Moore, Alfred A. Knopf, Inc., New York, 1966, 436 pp., $7.95. An
+  interesting biography of one of the pioneers in the study of the
+  internal structure of the atom.
+
+  _Otto Hahn: My Life_, Otto Hahn, translated by Ernest Kaiser and
+  Eithne Wilkins, Herder and Herder, Inc., New York, 1970, 240 pp.,
+  $6.50. Autobiography of the man who discovered that the atom could be
+  split.
+
+  _Otto Hahn: A Scientific Autobiography_, Otto Hahn, Willy Ley, editor
+  and translator, Charles Scribner’s Sons, New York, 1966, 320 pp.,
+  $9.95. Otto Hahn, winner of the 1944 Nobel Prize for his work in
+  atomic fission, reviews the pioneer days in which a new science was
+  created, and the role he played in its development.
+
+  _Physics and Beyond: Encounters and Conversations_, Werner Heisenberg,
+  translated by Arthur J. Pomerans, Harper and Row, Publishers, New
+  York, 1970, 247 pp., $7.95. Werner Heisenberg, a Nobel Prize
+  physicist, presents his autobiography in the form of conversations
+  with such men as Max Planck, Albert Einstein, Niels Bohr, Ernest
+  Rutherford, Otto Hahn, and Enrico Fermi.
+
+  _Physics for Poets_, Robert H. March, McGraw-Hill Book Company, New.
+  York, 1970, 302 pp., $7.50. A physics textbook for nonscience
+  students. The book covers certain developments of classical mechanics,
+  relativity, and atomic and quantum physics. With this book the author
+  won the 1971 American Institute of Physics—U. S. Steel Foundation
+  Science Writing Award in Physics and Astronomy.
+
+  _Sourcebook on Atomic Energy_ (third edition), Samuel Glasstone, Van
+  Nostrand Reinhold Company, New York, 1967, 883 pp., $15.00. An
+  excellent standard reference work, written for both scientists and the
+  general public.
+
+  _The Swift Years: The Robert Oppenheimer Story_, Peter Michelmore,
+  Dodd, Mead and Company, New York, 1969, 273 pp., $6.95. Oppenheimer’s
+  complex personality is delineated in this well-written biography. In
+  the bibliography is a list of books that Oppenheimer felt “had done
+  the most to shape his vocational attitude and philosophy of life”.
+
+  _The World of the Atom_, 2 volumes, Henry A. Boorse and Lloyd Motz
+  (Eds.), Basic Books, Inc., Publishers, New York, 1966, 1873 pp.,
+  $35.00. Contains the actual text of landmark documents in the history
+  of atomic physics, each preceded by commentary that places it in the
+  context of the discoverer’s personal life and in the conditions
+  prevailing in science and in society in his time.
+
+
+
+
+                             Photo Credits
+
+
+  Page facing inside    The “Horsehead” Nebula in Orion. Hale
+  cover                 Observatories.
+  Author’s Photo        Jay K. Klein
+  Contents page         Lick Observatory
+  116                   Samuel A. Goudsmit
+  118                   From _Atoms in the Family: My Life With Enrico
+                        Fermi_, Laura Fermi, 1954. Copyright © by the
+                        University of Chicago Press.
+  120                   Top row, left, Institut fur Radium-forschung und
+                        Kemphysik, right, Lotte Meitner-Graff, middle
+                        row, left, Nobel Institute, right, Ernest Orlando
+                        Lawrence Berkeley Laboratory; bottom row, right,
+                        Ernest Orlando Lawrence Berkeley Laboratory,
+                        left, P. H. Abelson.
+  123                   Addison-Wesley Publishing Company
+  130                   Top, Ike Verne; bottom, Oak Ridge National
+                        Laboratory.
+  132 & 133             Letter and Roosevelt picture from the Franklin D.
+                        Roosevelt Library; Johan Hagemeyer.
+  136 & 137             Argonne National Laboratory
+  141                   U. S. Navy
+  143                   Right, Westinghouse Electric Corporation
+  145                   Argonne National Laboratory
+  152                   Lick Observatory
+  155                   Gulf Energy and Environmental Systems
+  156                   Los Alamos Scientific Laboratory
+  158                   Nobel Institute
+  159                   Left, C. D. Anderson; right, Nobel Institute.
+  161                   Ernest Orlando Lawrence Berkeley Laboratory
+
+                    ★ U. S. GOVERNMENT PRINTING OFFICE: 1972 - 747-189/2
+
+
+The U. S. Atomic Energy Commission publishes this series of information
+booklets for the general public. These booklets explain the many uses of
+nuclear energy.
+
+The booklets are listed below by subject category.
+
+
+General Interest
+
+  WAS-009 Atomic Energy and Your World
+  WAS-002 A Bibliography of Basic Books on Atomic Energy
+  WAS-004 Computers
+  WAS-008 Electricity and Man
+  WAS-006 Nuclear Terms, A Glossary
+  WAS-013 Secrets of the Past: Nuclear Energy Applications in Art and
+          Archaeology
+
+
+The Environment
+
+  WAS-414 Nature’s Invisible Rays
+  WAS-204 Nuclear Power and the Environment
+
+
+Biology
+
+  WAS-102 Atoms in Agriculture
+  WAS-105 The Genetic Effects of Radiation
+  WAS-107 Radioisotopes in Medicine
+  WAS-109 Your Body and Radiation
+
+
+Physics
+
+  WAS-401 Accelerators
+  WAS-403 Controlled Nuclear Fusion
+  WAS-404 Direct Conversion of Energy
+  WAS-416 Inner Space: The Structure of the Atom
+  WAS-406 Lasers
+  WAS-407 Microstructure of Matter
+  WAS-411 Power from Radioisotopes
+
+
+Chemistry
+
+  WAS-303 The Atomic Fingerprint: Neutron Activation Analysis
+  WAS-302 Cryogenics, The Uncommon Cold
+  WAS-306 Radioisotopes in Industry
+
+
+Nuclear Reactors
+
+  WAS-502 Atomic Power Safety
+  WAS-513 Breeder Reactors
+  WAS-503 The First Reactor
+  WAS-505 Nuclear Power Plants
+  WAS-507 Nuclear Reactors
+  WAS-508 Radioactive Wastes
+
+
+Members of the general public may obtain free, single copies of six
+titles of their choice. Librarians and teachers may obtain free a
+complete set of the booklets. These requests should be made on school or
+library stationery. Those wishing to obtain larger quantities may
+purchase them if stocks are available. Orders for booklets and inquiries
+on prices and availability should be directed to:
+
+USAEC—Technical Information Center, P. O. Box 62, Oak Ridge, TN 37830
+
+Comments are invited regarding this booklet and others in the series.
+
+   [Illustration: UNITED STATES OF AMERICA ATOMIC ENERGY COMMISSION]
+
+                     U. S. ATOMIC ENERGY COMMISSION
+                     Office of Information Services
+
+
+
+
+                          Transcriber’s Notes
+
+
+--Retained publication information from the printed edition: this eBook
+  is public-domain in the country of publication.
+
+--Some captions describing separately placed images were split, removing
+  redundant relative clauses like “Above” or “To the right is...”
+
+--In the text version only, underlined or italicized text is delimited
+  by _underscores_.
+
+--Where possible, UTF superscript and subscript numbers are used; some
+  e-reader fonts may not support these characters.
+
+--In the text versions only, other superscript text is preceded by caret
+  and delimited by ^{brackets}.
+
+--In the text versions only, other subscripted text is preceded by
+  underscore and delimited by _{brackets}.
+
+--The Table of Contents lists pages and illustrations in all three
+  volumes:
+
+--Volume 1
+
+--Volume 2
+
+--Volume 3
+
+--These links can be made to function on local copies of the files.
+
+
+
+
+
+
+
+
+
+*** END OF THE PROJECT GUTENBERG EBOOK WORLDS WITHIN WORLDS: THE STORY OF NUCLEAR ENERGY, VOLUME 3 (OF 3) ***
+
+
+    
+
+Updated editions will replace the previous one—the old editions will
+be renamed.
+
+Creating the works from print editions not protected by U.S. copyright
+law means that no one owns a United States copyright in these works,
+so the Foundation (and you!) can copy and distribute it in the United
+States without permission and without paying copyright
+royalties. Special rules, set forth in the General Terms of Use part
+of this license, apply to copying and distributing Project
+Gutenberg™ electronic works to protect the PROJECT GUTENBERG™
+concept and trademark. Project Gutenberg is a registered trademark,
+and may not be used if you charge for an eBook, except by following
+the terms of the trademark license, including paying royalties for use
+of the Project Gutenberg trademark. If you do not charge anything for
+copies of this eBook, complying with the trademark license is very
+easy. You may use this eBook for nearly any purpose such as creation
+of derivative works, reports, performances and research. Project
+Gutenberg eBooks may be modified and printed and given away—you may
+do practically ANYTHING in the United States with eBooks not protected
+by U.S. copyright law. Redistribution is subject to the trademark
+license, especially commercial redistribution.
+
+
+START: FULL LICENSE
+
+THE FULL PROJECT GUTENBERG™ LICENSE
+
+PLEASE READ THIS BEFORE YOU DISTRIBUTE OR USE THIS WORK
+
+To protect the Project Gutenberg™ mission of promoting the free
+distribution of electronic works, by using or distributing this work
+(or any other work associated in any way with the phrase “Project
+Gutenberg”), you agree to comply with all the terms of the Full
+Project Gutenberg License available with this file or online at
+www.gutenberg.org/license.
+
+Section 1. General Terms of Use and Redistributing Project Gutenberg
+electronic works
+
+1.A. By reading or using any part of this Project Gutenberg
+electronic work, you indicate that you have read, understand, agree to
+and accept all the terms of this license and intellectual property
+(trademark/copyright) agreement. If you do not agree to abide by all
+the terms of this agreement, you must cease using and return or
+destroy all copies of Project Gutenberg electronic works in your
+possession. If you paid a fee for obtaining a copy of or access to a
+Project Gutenberg electronic work and you do not agree to be bound
+by the terms of this agreement, you may obtain a refund from the person
+or entity to whom you paid the fee as set forth in paragraph 1.E.8.
+
+1.B. “Project Gutenberg” is a registered trademark. It may only be
+used on or associated in any way with an electronic work by people who
+agree to be bound by the terms of this agreement. There are a few
+things that you can do with most Project Gutenberg electronic works
+even without complying with the full terms of this agreement. See
+paragraph 1.C below. There are a lot of things you can do with Project
+Gutenberg electronic works if you follow the terms of this
+agreement and help preserve free future access to Project Gutenberg
+electronic works. See paragraph 1.E below.
+
+1.C. The Project Gutenberg Literary Archive Foundation (“the
+Foundation” or PGLAF), owns a compilation copyright in the collection
+of Project Gutenberg electronic works. Nearly all the individual
+works in the collection are in the public domain in the United
+States. If an individual work is unprotected by copyright law in the
+United States and you are located in the United States, we do not
+claim a right to prevent you from copying, distributing, performing,
+displaying or creating derivative works based on the work as long as
+all references to Project Gutenberg are removed. Of course, we hope
+that you will support the Project Gutenberg mission of promoting
+free access to electronic works by freely sharing Project Gutenberg
+works in compliance with the terms of this agreement for keeping the
+Project Gutenberg name associated with the work. You can easily
+comply with the terms of this agreement by keeping this work in the
+same format with its attached full Project Gutenberg License when
+you share it without charge with others.
+
+1.D. The copyright laws of the place where you are located also govern
+what you can do with this work. Copyright laws in most countries are
+in a constant state of change. If you are outside the United States,
+check the laws of your country in addition to the terms of this
+agreement before downloading, copying, displaying, performing,
+distributing or creating derivative works based on this work or any
+other Project Gutenberg work. The Foundation makes no
+representations concerning the copyright status of any work in any
+country other than the United States.
+
+1.E. Unless you have removed all references to Project Gutenberg:
+
+1.E.1. The following sentence, with active links to, or other
+immediate access to, the full Project Gutenberg License must appear
+prominently whenever any copy of a Project Gutenberg work (any work
+on which the phrase “Project Gutenberg” appears, or with which the
+phrase “Project Gutenberg” is associated) is accessed, displayed,
+performed, viewed, copied or distributed:
+
+    This eBook is for the use of anyone anywhere in the United States and most
+    other parts of the world at no cost and with almost no restrictions
+    whatsoever. You may copy it, give it away or re-use it under the terms
+    of the Project Gutenberg™ License included with this eBook or online
+    at www.gutenberg.org. If you
+    are not located in the United States, you will have to check the laws
+    of the country where you are located before using this eBook.
+  
+1.E.2. If an individual Project Gutenberg electronic work is
+derived from texts not protected by U.S. copyright law (does not
+contain a notice indicating that it is posted with permission of the
+copyright holder), the work can be copied and distributed to anyone in
+the United States without paying any fees or charges. If you are
+redistributing or providing access to a work with the phrase “Project
+Gutenberg” associated with or appearing on the work, you must comply
+either with the requirements of paragraphs 1.E.1 through 1.E.7 or
+obtain permission for the use of the work and the Project Gutenberg
+trademark as set forth in paragraphs 1.E.8 or 1.E.9.
+
+1.E.3. If an individual Project Gutenberg electronic work is posted
+with the permission of the copyright holder, your use and distribution
+must comply with both paragraphs 1.E.1 through 1.E.7 and any
+additional terms imposed by the copyright holder. Additional terms
+will be linked to the Project Gutenberg License for all works
+posted with the permission of the copyright holder found at the
+beginning of this work.
+
+1.E.4. Do not unlink or detach or remove the full Project Gutenberg
+License terms from this work, or any files containing a part of this
+work or any other work associated with Project Gutenberg.
+
+1.E.5. Do not copy, display, perform, distribute or redistribute this
+electronic work, or any part of this electronic work, without
+prominently displaying the sentence set forth in paragraph 1.E.1 with
+active links or immediate access to the full terms of the Project
+Gutenberg License.
+
+1.E.6. You may convert to and distribute this work in any binary,
+compressed, marked up, nonproprietary or proprietary form, including
+any word processing or hypertext form. However, if you provide access
+to or distribute copies of a Project Gutenberg work in a format
+other than “Plain Vanilla ASCII” or other format used in the official
+version posted on the official Project Gutenberg website
+(www.gutenberg.org), you must, at no additional cost, fee or expense
+to the user, provide a copy, a means of exporting a copy, or a means
+of obtaining a copy upon request, of the work in its original “Plain
+Vanilla ASCII” or other form. Any alternate format must include the
+full Project Gutenberg License as specified in paragraph 1.E.1.
+
+1.E.7. Do not charge a fee for access to, viewing, displaying,
+performing, copying or distributing any Project Gutenberg works
+unless you comply with paragraph 1.E.8 or 1.E.9.
+
+1.E.8. You may charge a reasonable fee for copies of or providing
+access to or distributing Project Gutenberg electronic works
+provided that:
+
+    • You pay a royalty fee of 20% of the gross profits you derive from
+        the use of Project Gutenberg works calculated using the method
+        you already use to calculate your applicable taxes. The fee is owed
+        to the owner of the Project Gutenberg trademark, but he has
+        agreed to donate royalties under this paragraph to the Project
+        Gutenberg Literary Archive Foundation. Royalty payments must be paid
+        within 60 days following each date on which you prepare (or are
+        legally required to prepare) your periodic tax returns. Royalty
+        payments should be clearly marked as such and sent to the Project
+        Gutenberg Literary Archive Foundation at the address specified in
+        Section 4, “Information about donations to the Project Gutenberg
+        Literary Archive Foundation.”
+    
+    • You provide a full refund of any money paid by a user who notifies
+        you in writing (or by e-mail) within 30 days of receipt that s/he
+        does not agree to the terms of the full Project Gutenberg™
+        License. You must require such a user to return or destroy all
+        copies of the works possessed in a physical medium and discontinue
+        all use of and all access to other copies of Project Gutenberg™
+        works.
+    
+    • You provide, in accordance with paragraph 1.F.3, a full refund of
+        any money paid for a work or a replacement copy, if a defect in the
+        electronic work is discovered and reported to you within 90 days of
+        receipt of the work.
+    
+    • You comply with all other terms of this agreement for free
+        distribution of Project Gutenberg™ works.
+    
+
+1.E.9. If you wish to charge a fee or distribute a Project
+Gutenberg™ electronic work or group of works on different terms than
+are set forth in this agreement, you must obtain permission in writing
+from the Project Gutenberg Literary Archive Foundation, the manager of
+the Project Gutenberg™ trademark. Contact the Foundation as set
+forth in Section 3 below.
+
+1.F.
+
+1.F.1. Project Gutenberg volunteers and employees expend considerable
+effort to identify, do copyright research on, transcribe and proofread
+works not protected by U.S. copyright law in creating the Project
+Gutenberg™ collection. Despite these efforts, Project Gutenberg™
+electronic works, and the medium on which they may be stored, may
+contain “Defects,” such as, but not limited to, incomplete, inaccurate
+or corrupt data, transcription errors, a copyright or other
+intellectual property infringement, a defective or damaged disk or
+other medium, a computer virus, or computer codes that damage or
+cannot be read by your equipment.
+
+1.F.2. LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the “Right
+of Replacement or Refund” described in paragraph 1.F.3, the Project
+Gutenberg Literary Archive Foundation, the owner of the Project
+Gutenberg™ trademark, and any other party distributing a Project
+Gutenberg™ electronic work under this agreement, disclaim all
+liability to you for damages, costs and expenses, including legal
+fees. YOU AGREE THAT YOU HAVE NO REMEDIES FOR NEGLIGENCE, STRICT
+LIABILITY, BREACH OF WARRANTY OR BREACH OF CONTRACT EXCEPT THOSE
+PROVIDED IN PARAGRAPH 1.F.3. YOU AGREE THAT THE FOUNDATION, THE
+TRADEMARK OWNER, AND ANY DISTRIBUTOR UNDER THIS AGREEMENT WILL NOT BE
+LIABLE TO YOU FOR ACTUAL, DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE OR
+INCIDENTAL DAMAGES EVEN IF YOU GIVE NOTICE OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+1.F.3. LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
+defect in this electronic work within 90 days of receiving it, you can
+receive a refund of the money (if any) you paid for it by sending a
+written explanation to the person you received the work from. If you
+received the work on a physical medium, you must return the medium
+with your written explanation. The person or entity that provided you
+with the defective work may elect to provide a replacement copy in
+lieu of a refund. If you received the work electronically, the person
+or entity providing it to you may choose to give you a second
+opportunity to receive the work electronically in lieu of a refund. If
+the second copy is also defective, you may demand a refund in writing
+without further opportunities to fix the problem.
+
+1.F.4. Except for the limited right of replacement or refund set forth
+in paragraph 1.F.3, this work is provided to you ‘AS-IS’, WITH NO
+OTHER WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PURPOSE.
+
+1.F.5. Some states do not allow disclaimers of certain implied
+warranties or the exclusion or limitation of certain types of
+damages. If any disclaimer or limitation set forth in this agreement
+violates the law of the state applicable to this agreement, the
+agreement shall be interpreted to make the maximum disclaimer or
+limitation permitted by the applicable state law. The invalidity or
+unenforceability of any provision of this agreement shall not void the
+remaining provisions.
+
+1.F.6. INDEMNITY - You agree to indemnify and hold the Foundation, the
+trademark owner, any agent or employee of the Foundation, anyone
+providing copies of Project Gutenberg™ electronic works in
+accordance with this agreement, and any volunteers associated with the
+production, promotion and distribution of Project Gutenberg™
+electronic works, harmless from all liability, costs and expenses,
+including legal fees, that arise directly or indirectly from any of
+the following which you do or cause to occur: (a) distribution of this
+or any Project Gutenberg work, (b) alteration, modification, or
+additions or deletions to any Project Gutenberg work, and (c) any
+Defect you cause.
+
+Section 2. Information about the Mission of Project Gutenberg
+
+Project Gutenberg is synonymous with the free distribution of
+electronic works in formats readable by the widest variety of
+computers including obsolete, old, middle-aged and new computers. It
+exists because of the efforts of hundreds of volunteers and donations
+from people in all walks of life.
+
+Volunteers and financial support to provide volunteers with the
+assistance they need are critical to reaching Project Gutenberg’s
+goals and ensuring that the Project Gutenberg collection will
+remain freely available for generations to come. In 2001, the Project
+Gutenberg Literary Archive Foundation was created to provide a secure
+and permanent future for Project Gutenberg and future
+generations. To learn more about the Project Gutenberg Literary
+Archive Foundation and how your efforts and donations can help, see
+Sections 3 and 4 and the Foundation information page at www.gutenberg.org.
+
+Section 3. Information about the Project Gutenberg Literary Archive Foundation
+
+The Project Gutenberg Literary Archive Foundation is a non-profit
+501(c)(3) educational corporation organized under the laws of the
+state of Mississippi and granted tax exempt status by the Internal
+Revenue Service. The Foundation’s EIN or federal tax identification
+number is 64-6221541. Contributions to the Project Gutenberg Literary
+Archive Foundation are tax deductible to the full extent permitted by
+U.S. federal laws and your state’s laws.
+
+The Foundation’s business office is located at 41 Watchung Plaza #516,
+Montclair NJ 07042, USA, +1 (862) 621-9288. Email contact links and up
+to date contact information can be found at the Foundation’s website
+and official page at www.gutenberg.org/contact
+
+Section 4. Information about Donations to the Project Gutenberg
+Literary Archive Foundation
+
+Project Gutenberg™ depends upon and cannot survive without widespread
+public support and donations to carry out its mission of
+increasing the number of public domain and licensed works that can be
+freely distributed in machine-readable form accessible by the widest
+array of equipment including outdated equipment. Many small donations
+($1 to $5,000) are particularly important to maintaining tax exempt
+status with the IRS.
+
+The Foundation is committed to complying with the laws regulating
+charities and charitable donations in all 50 states of the United
+States. Compliance requirements are not uniform and it takes a
+considerable effort, much paperwork and many fees to meet and keep up
+with these requirements. We do not solicit donations in locations
+where we have not received written confirmation of compliance. To SEND
+DONATIONS or determine the status of compliance for any particular state
+visit www.gutenberg.org/donate.
+
+While we cannot and do not solicit contributions from states where we
+have not met the solicitation requirements, we know of no prohibition
+against accepting unsolicited donations from donors in such states who
+approach us with offers to donate.
+
+International donations are gratefully accepted, but we cannot make
+any statements concerning tax treatment of donations received from
+outside the United States. U.S. laws alone swamp our small staff.
+
+Please check the Project Gutenberg web pages for current donation
+methods and addresses. Donations are accepted in a number of other
+ways including checks, online payments and credit card donations. To
+donate, please visit: www.gutenberg.org/donate.
+
+Section 5. General Information About Project Gutenberg electronic works
+
+Professor Michael S. Hart was the originator of the Project
+Gutenberg concept of a library of electronic works that could be
+freely shared with anyone. For forty years, he produced and
+distributed Project Gutenberg eBooks with only a loose network of
+volunteer support.
+
+Project Gutenberg eBooks are often created from several printed
+editions, all of which are confirmed as not protected by copyright in
+the U.S. unless a copyright notice is included. Thus, we do not
+necessarily keep eBooks in compliance with any particular paper
+edition.
+
+Most people start at our website which has the main PG search
+facility: www.gutenberg.org.
+
+This website includes information about Project Gutenberg,
+including how to make donations to the Project Gutenberg Literary
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.

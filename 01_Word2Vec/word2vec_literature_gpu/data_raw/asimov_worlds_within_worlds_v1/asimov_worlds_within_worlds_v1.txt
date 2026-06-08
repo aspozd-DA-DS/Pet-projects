@@ -1,0 +1,1930 @@
+﻿The Project Gutenberg eBook of Worlds Within Worlds: The Story of Nuclear Energy, Volume 1 (of 3)
+    
+This eBook is for the use of anyone anywhere in the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this eBook or online
+at www.gutenberg.org. If you are not located in the United States,
+you will have to check the laws of the country where you are located
+before using this eBook.
+
+Title: Worlds Within Worlds: The Story of Nuclear Energy, Volume 1 (of 3)
+
+Author: Isaac Asimov
+
+
+        
+Release date: August 30, 2015 [eBook #49819]
+                Most recently updated: October 24, 2024
+
+Language: English
+
+Other information and formats: www.gutenberg.org/ebooks/49819
+
+Credits: Produced by Stephen Hutcheson, Dave Morgan and the Online
+        Distributed Proofreading Team at http://www.pgdp.net
+
+
+*** START OF THE PROJECT GUTENBERG EBOOK WORLDS WITHIN WORLDS: THE STORY OF NUCLEAR ENERGY, VOLUME 1 (OF 3) ***
+
+                         Worlds Within Worlds:
+                      The Story of Nuclear Energy
+                                Volume 1
+                 Atomic Weights · Energy · Electricity
+
+
+                            by Isaac Asimov
+
+
+          U. S. Energy Research and Development Administration
+                        Office of Public Affairs
+                         Washington, D.C. 20545
+
+           Library of Congress Catalog Card Number: 75-189477
+                                  1972
+
+_Nothing in the history of mankind has opened our eyes to the
+possibilities of science as has the development of atomic power. In the
+last 200 years, people have seen the coming of the steam engine, the
+steamboat, the railroad locomotive, the automobile, the airplane, radio,
+motion pictures, television, the machine age in general. Yet none of it
+seemed quite so fantastic, quite so unbelievable, as what man has done
+since 1939 with the atom ... there seem to be almost no limits to what
+may lie ahead: inexhaustible energy, new worlds, ever-widening knowledge
+of the physical universe._
+                                                            Isaac Asimov
+
+                [Illustration: Photograph of night sky]
+
+
+
+
+The U. S. Energy Research and Development Administration publishes a
+series of booklets for the general public.
+
+Please write to the following address for a title list or for
+information on a specific subject:
+
+  USERDA—Technical Information Center
+  P. O. Box 62
+  Oak Ridge, Tennessee 37830
+
+                      [Illustration: Isaac Asimov]
+
+
+
+
+ISAAC ASIMOV received his academic degrees from Columbia University and
+is Associate Professor of Biochemistry at the Boston University School
+of Medicine. He is a prolific author who has written over 150 books in
+the past 20 years, including about 20 science fiction works, and books
+for children. His many excellent science books for the public cover
+subjects in mathematics, physics, astronomy, chemistry, and biology,
+such as _The Genetic Code_, _Inside the Atom_, _Building Blocks of the
+Universe_, _Understanding Physics_, _The New Intelligent Man’s Guide to
+Science_, and _Asimov’s Biographical Encyclopedia of Science and
+Technology_.
+
+In 1965 Dr. Asimov received the James T. Grady Award of the American
+Chemical Society for his major contribution in reporting science
+progress to the public.
+
+                [Illustration: Photograph of night sky]
+
+
+                                VOLUME 1
+  Introduction                                                          5
+  Atomic Weights                                                        6
+  Electricity                                                          11
+      Units of Electricity                                             11
+      Cathode Rays                                                     13
+      Radioactivity                                                    17
+      The Structure of the Atom                                        25
+      Atomic Numbers                                                   30
+      Isotopes                                                         35
+  Energy                                                               47
+      The Law of Conservation of Energy                                47
+      Chemical Energy                                                  50
+      Electrons and Energy                                             54
+      The Energy of the Sun                                            55
+      The Energy of Radioactivity                                      57
+
+
+                                 VOLUME 2
+  Mass and Energy                                                      69
+  The Structure of the Nucleus                                         75
+      The Proton                                                       75
+      The Proton-Electron Theory                                       76
+      Protons in Nuclei                                                80
+      Nuclear Bombardment                                              82
+      Particle Accelerators                                            86
+  The Neutron                                                          92
+      Nuclear Spin                                                     92
+      Discovery of the Neutron                                         95
+      The Proton-Neutron Theory                                        98
+      The Nuclear Interaction                                         101
+      Neutron Bombardment                                             107
+
+
+                                 VOLUME 3
+  Nuclear Fission                                                     117
+      New Elements                                                    117
+      The Discovery of Fission                                        122
+      The Nuclear Chain Reaction                                      127
+      The Nuclear Bomb                                                131
+      Nuclear Reactors                                                141
+  Nuclear Fusion                                                      147
+      The Energy of the Sun                                           147
+      Thermonuclear Bombs                                             149
+      Controlled Fusion                                               151
+  Beyond Fusion                                                       159
+      Antimatter                                                      159
+      The Unknown                                                     164
+  Reading List                                                        166
+
+[Illustration: _A total eclipse of the sun._]
+
+
+
+
+                              INTRODUCTION
+
+
+In a way, nuclear energy has been serving man as long as he has existed.
+It has served all of life; it has flooded the earth for billions of
+years. The sun, you see, is a vast nuclear engine, and the warmth and
+light that the sun radiates is the product of nuclear energy.
+
+In order for man to learn to produce and control nuclear energy himself,
+however (something that did not take place until this century), three
+lines of investigation—atoms, electricity, and energy—had to develop and
+meet.
+
+We will begin with atoms.
+
+
+
+
+                             ATOMIC WEIGHTS
+
+
+As long ago as ancient Greek times, there were men who suspected that
+all matter consisted of tiny particles which were far too small to see.
+Under ordinary circumstances, they could not be divided into anything
+smaller, and they were called “atoms” from a Greek word meaning
+“indivisible”.
+
+It was not until 1808, however, that this “atomic theory” was really put
+on a firm foundation. In that year the English chemist John Dalton
+(1766-1844) published a book in which he discussed atoms in detail.
+Every element, he suggested, was made up of its own type of atoms. The
+atoms of one element were different from the atoms of every other
+element. The chief difference between the various atoms lay in their
+mass, or weight.[1]
+
+Dalton was the first to try to determine what these masses might be. He
+could not work out the actual masses in ounces or grams, for atoms were
+far too tiny to weigh with any of his instruments. He could, however,
+determine their relative weights; that is, how much more massive one
+kind of atom might be than another.
+
+For instance, he found that a quantity of hydrogen gas invariably
+combined with eight times its own mass of oxygen gas to form water. He
+guessed that water consisted of combinations of 1 atom of hydrogen with
+1 atom of oxygen. (A combination of atoms is called a “molecule” from a
+Greek word meaning “a small mass”, and so hydrogen and oxygen atoms can
+be said to combine to form a “water molecule”.)
+
+[Illustration: _John Dalton_]
+
+To account for the difference in the masses of the combining gases,
+Dalton decided that the oxygen atom was eight times as massive as the
+hydrogen atom. If he set the mass of the hydrogen atom at 1 (just for
+convenience) then the mass of the oxygen atom ought to be set at 8.
+These comparative, or relative, numbers were said to be “atomic
+weights”, so that what Dalton was suggesting was that the atomic weight
+of hydrogen was 1 and the atomic weight of oxygen was 8. By noting the
+quantity of other elements that combined with a fixed mass of oxygen or
+of hydrogen, Dalton could work out the atomic weights of these elements
+as well.
+
+Dalton’s idea was right, but his details were wrong in some cases. For
+instance, on closer examination it turned out that the water molecule
+was composed of 1 oxygen atom and 2 hydrogen atoms. For this reason, the
+water molecule may be written H₂O, where H is the chemical symbol for a
+hydrogen atom, and O for an oxygen atom.
+
+It is still a fact that a quantity of hydrogen combines with eight times
+its mass of oxygen, so the single oxygen atom must be eight times as
+massive as the 2 hydrogen atoms taken together. The oxygen atom must
+therefore be sixteen times as massive as a single hydrogen atom. If the
+atomic weight of hydrogen is 1, then the atomic weight of oxygen is 16.
+
+At first it seemed that the atomic weights of the various elements were
+whole numbers and that hydrogen was the lightest one. It made particular
+sense, then, to consider the atomic weight of hydrogen as 1, because
+that made all the other atomic weights as small as possible and
+therefore easy to handle.
+
+The Swedish chemist Jöns Jakob Berzelius (1779-1848) continued Dalton’s
+work and found that elements did not combine in quite such simple
+ratios. A given quantity of hydrogen actually combined with a little bit
+less than eight times its mass of oxygen. Therefore if the atomic weight
+of hydrogen were considered to be 1, the atomic weight of oxygen would
+have to be not 16, but 15.87.
+
+[Illustration: _Jöns Jakob Berzelius_]
+
+As it happens, oxygen combines with more elements (and more easily) than
+hydrogen does. The ratio of its atomic weight to that of other elements
+is also more often a whole number. In working out the atomic weight of
+elements it was therefore more convenient to set the atomic weight of
+oxygen at a whole number than that of hydrogen. Berzelius did this, for
+instance, in the table of atomic weights he published in 1828. At first
+he called the atomic weight of oxygen 100. Then he decided to make the
+atomic weights as small as possible, without allowing any atomic weight
+to be less than 1. For that reason, he set the atomic weight of oxygen
+at exactly 16 and in that case, the atomic weight of hydrogen had to be
+placed just a trifle higher than 1. The atomic weight of hydrogen became
+1.008. This system was retained for nearly a century and a half.
+
+Throughout the 19th century, chemists kept on working out atomic weights
+more and more carefully. By the start of the 20th century, most elements
+had their atomic weights worked out to two decimal places, sometimes
+three.
+
+A number of elements had atomic weights that were nearly whole numbers
+on the “oxygen = 16” standard. The atomic weight of aluminum was just
+about 27, that of calcium almost 40, that of carbon almost 12, that of
+gold almost 197, and so on.
+
+On the other hand, some elements had atomic weights that were far
+removed from whole numbers. The atomic weight of chlorine was close to
+35.5, that of copper to 63.5, that of iron to 55.8, that of silver to
+107.9, and so on.
+
+Throughout the 19th century, chemists did not know why so many atomic
+weights were whole numbers, while others weren’t. They simply made their
+measurements and recorded what they found. For an explanation, they had
+to wait for a line of investigation into electricity to come to
+fruition.
+
+
+
+
+                              ELECTRICITY
+
+
+Units of Electricity
+
+Through the 18th century, scientists had been fascinated by the
+properties of electricity. Electricity seemed, at the time, to be a very
+fine fluid that could extend through ordinary matter without taking up
+any room.
+
+Electricity did more than radiate through matter, however. It also
+produced important changes in matter. In the first years of the 19th
+century, it was found that a current of electricity could cause
+different atoms or different groups of atoms to move in opposite
+directions through a liquid in which they were dissolved.
+
+The English scientist Michael Faraday (1791-1867) noted in 1832 that a
+given quantity of electricity seemed to liberate the same number of
+atoms of a variety of different elements. In some cases, though, it
+liberated just half the expected number of atoms; or even, in a few
+cases, just a third.
+
+Scientists began to speculate that electricity, like matter, might
+consist of tiny units. When electricity broke up a molecule, perhaps a
+unit of electricity attached itself to each atom. In that case, the same
+quantity of electricity, containing the same number of units, would
+liberate the same number of atoms.
+
+In the case of some elements, each atom could attach 2 units of
+electricity to itself, or perhaps even 3. When that happened a given
+quantity of electricity would liberate only one-half, or only one-third,
+the usual number of atoms. (Thus, 18 units of electricity would liberate
+18 atoms if distributed 1 to an atom; only 9 atoms if distributed 2 to
+an atom; and only 6 atoms if distributed 3 to an atom.)
+
+It was understood at the time that electricity existed in two varieties,
+which were called positive and negative. It appeared that if an atom
+attached a positive unit of electricity to itself it would be pulled in
+one direction through the solution by the voltage. If it attached a
+negative unit of electricity to itself it would be pulled in the other
+direction.
+
+[Illustration: _Michael Faraday_]
+
+The units of electricity were a great deal more difficult to study than
+the atomic units of matter, and throughout the 19th century they
+remained elusive. In 1891, though, the Irish physicist George Johnstone
+Stoney (1826-1911) suggested that the supposed unit of electricity be
+given a name at least. He called the unit an “electron”.
+
+
+Cathode Rays
+
+An electric current flows through a closed circuit of some conducting
+material, such as metal wires. It starts at one pole of a battery, or of
+some other electricity generating device, and ends at the other. The two
+poles are the positive pole or “anode” and the negative pole or
+“cathode”.
+
+If there is a break in the circuit, the current will usually not flow at
+all. If, however, the break is not a large one, and the current is under
+a high driving force (which is called the “voltage”), then the current
+may leap across the break. If two ends of a wire, making up part of a
+broken circuit, are brought close to each other with nothing but air
+between, a spark may leap across the narrowing gap before they actually
+meet and, while it persists, the current will flow despite the break.
+
+The light of the spark, and the crackling sound it makes, are the
+results of the electric current interacting with molecules of air and
+heating them. Neither the light nor the sound is the electricity itself.
+In order to detect the electricity, the current ought to be forced
+across a gap containing nothing, not even air.
+
+In order to do that, wires would have to be sealed into a glass tube
+from which all (or almost all) the air was withdrawn. This was not easy
+to do and it was not until 1854 that Heinrich Geissler (1814-1879), a
+German glass-blower and inventor, accomplished this feat. The wires
+sealed into such a “Geissler tube” could be attached to the poles of an
+electric generator, and if enough voltage was built up, the current
+would leap across the vacuum.
+
+[Illustration: _A Geissler tube._ labelled: Current source]
+
+Such experiments were first performed by the German physicist Julius
+Plücker (1801-1868). In 1858 he noticed that when the current flowed
+across the vacuum there was a greenish glow about the wire that was
+attached to the cathode of the generator. Others studied this glow and
+finally the German physicist Eugen Goldstein (1850-1931) decided in 1876
+that there were rays of some sort beginning at the wire attached to the
+negatively charged cathode and ending at the part of the tube opposite
+the cathode. He called them “cathode rays”.
+
+These cathode rays, it seemed, might well be the electric current
+itself, freed from the metal wires that usually carried it. If so,
+determining the nature of the cathode rays might reveal a great deal
+about the nature of the electric current. Were cathode rays something
+like light and were they made up of tiny waves? Or were they a stream of
+particles possessing mass?
+
+There were physicists on each side of the question. By 1885, however,
+the English physicist William Crookes (1832-1919) showed that cathode
+rays could be made to turn a small wheel when they struck that wheel on
+one side. This seemed to show that the cathode rays possessed mass and
+were a stream of atom-like particles, rather than a beam of mass-less
+light. Furthermore, Crookes showed that the cathode rays could be pushed
+sideways in the presence of a magnet. (This effect, when current flows
+in a wire, is what makes a motor work.) This meant that, unlike either
+light or ordinary atoms, the cathode rays carried an electric charge.
+
+[Illustration: _J. J. Thomson in his laboratory. On his right are early
+X-ray pictures._]
+
+This view of the cathode rays as consisting of a stream of electrically
+charged particles was confirmed by another English physicist, Joseph
+John Thomson (1856-1940). In 1897 he showed that the cathode rays could
+also be made to take a curved path in the presence of electrically
+charged objects. The particles making up the cathode rays were charged
+with negative electricity, judging from the direction in which they were
+made to curve by electrically charged objects.
+
+Thomson had no hesitation in maintaining that these particles carried
+the units of electricity that Faraday’s work had hinted at. Eventually,
+Stoney’s name for the units of electricity was applied to the particles
+that carried those units. The cathode rays, in other words, were
+considered to be made up of streams of electrons and Thomson is usually
+given credit for having discovered the electron.
+
+The extent to which cathode rays curved in the presence of a magnet or
+electrically charged objects depended on the size of the electric charge
+on the electrons and on the mass of the electrons. Ordinary atoms could
+be made to carry an electric charge and by comparing their behavior with
+those of electrons, some of the properties of electrons could be
+determined.
+
+There were, for instance, good reasons to suppose that the electron
+carried a charge of the same size as one that a hydrogen atom could be
+made to carry. The electrons, however, were much easier to pull out of
+their straight-line path than the charged hydrogen atom was. The
+conclusion drawn from this was that the electron had much less mass than
+the hydrogen atom.
+
+Thomson was able to show, indeed, that the electron was much lighter
+than the hydrogen atom, which was the lightest of all the atoms.
+Nowadays we know the relationship quite exactly. We know that it would
+take 1837.11 electrons to possess the mass of a single hydrogen atom.
+The electron is therefore a “subatomic particle”; the first of this sort
+to be discovered.
+
+In 1897, then, two types of mass-containing particles were known. There
+were the atoms, which made up ordinary matter, and the electrons, which
+made up electric current.
+
+
+Radioactivity
+
+Was there a connection between these two sets of particles—atoms and
+electrons? In 1897, when the electron was discovered, a line of research
+that was to tie the two kinds of particles together had already begun.
+
+In 1895 the German physicist Wilhelm Konrad Roentgen (1845-1923) was
+working with cathode rays. He found that if he made the cathode rays
+strike the glass at the other end of the tube, a kind of radiation was
+produced. This radiation was capable of penetrating glass and other
+matter. Roentgen had no idea as to the nature of the radiation, and so
+called it “X rays”. This name, containing “X” for “unknown”, was
+retained even after physicists worked out the nature of X rays and found
+them to be light-like radiation made up of waves much shorter than those
+of ordinary light.
+
+[Illustration: _Antoine Henri Becquerel._]
+
+At once, physicists became fascinated with X rays and began searching
+for them everywhere. One of those involved in the search was the French
+physicist Antoine Henri Becquerel (1852-1908). A certain compound,
+potassium uranyl sulfate, glowed after being exposed to sunlight and
+Becquerel wondered if this glow, like the glow on the glass in
+Roentgen’s X-ray tube, contained X rays.
+
+                 [Illustration: Roentgen’s laboratory]
+
+[Illustration: _Wilhelm Roentgen and his laboratory at the University of
+Würzburg._]
+
+It did, but while investigating the problem in 1896, Becquerel found
+that the compound was giving off invisible penetrating X-ray-like
+radiation continually, whether it was exposed to sunlight or not. The
+radiation was detected because it would fog a photographic plate just as
+light would. What’s more, the radiation would fog the plate, even if the
+plate were wrapped in black paper, so that it could penetrate matter
+just as X rays could.
+
+Others, in addition to Becquerel, were soon investigating the new
+phenomenon. In 1898 the Polish (later French) physicist Marie Sklodowska
+Curie (1867-1934) showed that it was the uranium atom that was the
+source of the radiation, and that any compound containing the uranium
+atom would give off these penetrating rays.
+
+Until then, uranium had not been of much interest to chemists. It was a
+comparatively rare metal that was first discovered in 1789 by the German
+chemist Martin Heinrich Klaproth (1743-1817). It had no particular uses
+and remained an obscure element. As chemists learned to work out the
+atomic weights of the various elements, they found, however, that, of
+the elements then known, uranium had the highest atomic weight of
+all—238.
+
+Once uranium was discovered to be an endless source of radiation, it
+gained interest that has risen ever since. Madame Curie gave the name
+“radioactivity” to this phenomenon of continuously giving off rays.
+Uranium was the first element found to be radioactive.
+
+It did not remain alone, however. It was soon shown that thorium was
+also radioactive. Thorium, which had been discovered in 1829 by
+Berzelius, was made up of atoms that were the second most massive known
+at the time. Thorium’s atomic weight is 232.
+
+But what was the mysterious radiation emitted by uranium and thorium?
+
+Almost at once it was learned that whatever the radiation was, it was
+not uniform in properties. In 1899 Becquerel (and others) showed that,
+in the presence of a magnet, some of the radiation swerved in a
+particular direction. Later it was found that a portion of it swerved in
+the opposite direction. Still another part didn’t swerve at all but
+moved on in a straight line.
+
+The conclusion was that uranium and thorium gave off three kinds of
+radiation. One carried a positive charge of electricity, one a negative
+charge, and one no charge at all. The New Zealand-born physicist Ernest
+Rutherford (1871-1937) called the first two kinds of radiation “alpha
+rays” and “beta rays”, after the first two letters of the Greek
+alphabet. The third was soon called “gamma rays” after the third letter.
+
+[Illustration: _Ernest Rutherford_]
+
+[Illustration: _Marie Curie and her two daughters, Eve (left) and Irene,
+in 1908._]
+
+[Illustration: _Pierre Curie during a class lecture in 1906, the year of
+his death._]
+
+The gamma rays eventually turned out to be another light-like form of
+radiation, with waves even shorter than those of X rays. The alpha rays
+and beta rays, which carried electric charges, seemed to be streams of
+charged particles (“alpha particles” and “beta particles”) just as the
+cathode rays had turned out to be.
+
+In 1900, indeed, Becquerel studied the beta particles and found them to
+be identical in mass and charge with electrons. They _were_ electrons.
+
+By 1906 Rutherford had worked out the nature of the alpha particles.
+They carried a positive electric charge that was twice as great as the
+electron’s negative charge. If an electron carried a charge that could
+be symbolized as -, then the charge of the alpha particle was ++.
+Furthermore, the alpha particle was much more massive than the electron.
+It was, indeed, as massive as a helium atom (the second lightest known
+atom) and four times as massive as a hydrogen atom. Nevertheless, the
+alpha particle can penetrate matter in a way in which atoms cannot, so
+that it seems much smaller in diameter than atoms are. The alpha
+particle, despite its mass, is another subatomic particle.
+
+Here, then, is the meeting point of electrons and of atoms—the particles
+of electricity and of matter.
+
+Ever since Dalton had first advanced the atomic theory over a century
+earlier, chemists had assumed that atoms were the fundamental units of
+matter. They had assumed atoms were as small as anything could be and
+that they could not possibly be broken up into anything smaller. The
+discovery of the electron, however, had shown that some particles, at
+least, might be far smaller than any atom. Then, the investigations into
+radioactivity had shown that atoms of uranium and thorium spontaneously
+broke up into smaller particles, including electrons and alpha
+particles.
+
+It would seem, then, that atoms of these elements and, presumably, of
+all elements, were made up of still smaller particles and that among
+these particles were electrons. The atom had a structure and physicists
+became interested in discovering exactly what that structure was.
+
+
+The Structure of the Atom
+
+Since radioactive atoms gave off either positively charged particles or
+negatively charged particles, it seemed reasonable to assume that atoms
+generally were made up of both types of electricity. Furthermore, since
+the atoms in matter generally carried no charge at all, the normal
+“neutral atom” must be made up of equal quantities of positive charge
+and negative charge.
+
+It turned out that only radioactive atoms, such as those of uranium and
+thorium, gave off positively charged alpha particles. Many atoms,
+however, that were not radioactive, could be made to give off electrons.
+In 1899 Thomson showed that certain perfectly normal metals with no
+trace of radioactivity gave off electrons when exposed to ultraviolet
+light. (This is called the “photoelectric effect”.)
+
+It was possible to suppose, then, that the main structure of the atom
+was positively charged and generally immovable, and that there were also
+present light electrons, which could easily be detached. Thomson had
+suggested, as early as 1898, that the atom was a ball of matter carrying
+a positive charge and that individual electrons were stuck throughout
+its substance, like raisins in pound cake.
+
+If something like the Thomson view were correct then the number of
+electrons, each with one unit of negative electricity, would depend on
+the total size of the positive charge carried by the atom. If the charge
+were +5, there would have to be 5 electrons present to balance that. The
+total charge would then be 0 and the atom as a whole would be
+electrically neutral.
+
+If, in such a case, an electron were removed, the atomic charge of +5
+would be balanced by only 4 electrons with a total charge of -4. In that
+case, the net charge of the atom as a whole would be +1. On the other
+hand, if an extra electron were forced onto the atom, the charge of +5
+would be balanced by 6 electrons with a total charge of -6, and the net
+charge of the atom as a whole would be -1.
+
+Such electrically charged atoms were called “ions” and their existence
+had been suspected since Faraday’s day. Faraday had known that atoms had
+to travel through a solution under the influence of an electric field to
+account for the way in which metals and gases appeared at the cathode
+and anode. It was he who first used the term, ion, from a Greek word
+meaning “traveller”. The word had been suggested to him by the English
+scholar, William Whewell (1794-1866). In 1884 the Swedish chemist Svante
+August Arrhenius (1859-1927) had first worked out a detailed theory
+based on the suggestion that these ions were atoms or groups of atoms
+that carried an electric charge.
+
+[Illustration: _Svante A. Arrhenius_]
+
+By the close of the 19th century, then, Arrhenius’s suggestion seemed
+correct. There were positive ions made up of atoms or groups of atoms,
+from which one or more of the electrons within the atoms had been
+removed. There were negative ions made up of single atoms or of groups
+of atoms, to which one or more extra electrons had been added.
+
+                            [Illustration: ]
+
+  Neutral atom
+    Each unit of positive charge is balanced by a unit of negative
+          charge
+    In this case, total charge = +2 -2 = 0
+  Ionized atom:
+    If an electron is removed, the balance is destroyed
+    In this case, total charge = +2 -1 = +1
+
+Although Thomson’s model of the atom explained the existence of ions and
+the fact that atoms could give off electrons or absorb them, it was not
+satisfactory in all ways. Further investigations yielded results not
+compatible with the raisins-in-the-pound-cake notion.
+
+In 1906 Rutherford began to study what happened when massive subatomic
+particles, such as alpha particles, passed through matter. When alpha
+particles passed through a thin film of gold, for instance, they raced
+through, for the most part, as though nothing were there. The alpha
+particles seemed to push the light electrons aside and to act as though
+the positively charged main body of the atom that Thomson had pictured
+was not solid, but was soft and spongy.
+
+The only trouble was that every once in a while an alpha particle seemed
+to strike something in the gold film and bounce to one side. Sometimes
+it even bounced directly backward. It was as though somewhere in each
+atom there was something at least as massive as the alpha particle.
+
+How large was this massive portion of the atom? It couldn’t be very
+large for if it were the alpha particles would hit it frequently.
+Instead, the alpha particles made very few hits. This meant the massive
+portion was very small and that most alpha particles tore through the
+atom without coming anywhere near it.
+
+[Illustration: _Rutherford’s alpha particle bombardment apparatus. A
+piece of radium in the lead box (B) emits alpha particles that go
+through the gold foil (F). These particles are scattered at different
+angles onto the fluorescent screen (S), where the flashes caused by each
+impact are seen through the microscope (M). Below, alpha particles are
+shown bouncing off a nucleus in the gold foil._]
+
+[Illustration: ]
+
+By 1911 Rutherford announced his results to the world. He suggested that
+just about all the mass of the atom was concentrated into a very tiny,
+positively charged “nucleus” at its center. The diameter of the nucleus
+was only about 1/10,000 the diameter of the atom. All the rest of the
+atom was filled with the very light electrons.
+
+[Illustration: _Hans Geiger (left) and Ernest Rutherford at Manchester
+University about 1910._]
+
+According to Rutherford’s notion, the atom consisted of a single tiny
+positively charged lead shot at the center of a foam of electrons. It
+was Thomson’s notion in reverse. Still, the nucleus carried a positive
+charge of a particular size and was balanced by negatively charged
+electrons. Rutherford’s model of the atom explained the existence of
+ions just as easily as Thomson’s did and it explained more besides.
+
+For instance, if all the electrons are removed so that only the nucleus
+remains, this nucleus is as massive as an atom but is so tiny in size
+that it can penetrate matter. The alpha particle would be a bare atomic
+nucleus from this point of view.
+
+Rutherford’s model of the “nuclear atom” is still accepted today.
+
+
+Atomic Numbers
+
+Since the atom consisted of a positively charged nucleus at the center,
+and a number of negatively charged electrons outside, the next step was
+to find the exact size of the nuclear charge and the exact number of
+electrons for the different varieties of atoms.
+
+The answer came through a line of research that began with the English
+physicist Charles Glover Barkla (1877-1944). In 1911 he noted that when
+X rays passed through atoms, some were absorbed and some bounced back.
+Those that bounced back had a certain ability to penetrate other matter.
+When the X rays struck atoms of high atomic weight, the X rays that
+bounced back were particularly penetrating. In fact, each different type
+of atom seemed associated with reflected X rays of a particular
+penetrating power, so Barkla called these “characteristic X rays”.
+
+In 1913 another English physicist, Henry Gwyn-Jeffreys Moseley
+(1887-1915), went into the matter more thoroughly. He measured the exact
+wavelength of the characteristic X rays by reflecting them from certain
+crystals. In crystals, atoms are arranged in regular order and at known
+distances from each other. X rays reflecting from (or more accurately,
+diffracting from) crystals are bent out of their path by the rows of
+atoms. The longer their waves, the more they are bent. From the degree
+of bending the wavelength of the waves can be determined.
+
+[Illustration: _Charles Glover Barkla_]
+
+[Illustration: _Henry Gwyn-Jeffreys Moseley_]
+
+Moseley found that the greater the atomic weight of an atom, the shorter
+the waves of the characteristic X rays associated with it and the more
+penetrating those X rays were. There was such a close connection, in
+fact, that Moseley could arrange the elements in order according to the
+wavelength of the characteristic X rays.
+
+For some 40 years prior to this, the elements had been listed in order
+of atomic weight. This was useful especially since the Russian chemist
+Dmitri I. Mendeléev (1834-1907) had arranged them in a “periodic table”
+based on the atomic weight order in such a way that elements of similar
+properties were grouped together. The elements in this table were
+sometimes numbered consecutively (“atomic number”) but this was
+inconvenient since, when new elements were discovered, the list of
+atomic numbers might have to be reorganized.
+
+[Illustration: _Dmitri Mendeléev and Bohuslav Brauner in Prague in 1900.
+Brauner was a professor of chemistry at the Bohemian University in
+Prague._]
+
+The Danish physicist Niels Bohr (1885-1962) had just advanced a theory
+of atomic structure that made it reasonable to suppose that the
+wavelength of the characteristic X rays depended on the size of the
+nuclear charge of the atoms making up a particular element. Moseley
+therefore suggested that these X rays be used to determine the size of
+the positive charge on its nucleus. The atomic number could then be set
+equal to that charge and be made independent of new discoveries of
+elements.
+
+Hydrogen, for instance, has an atomic number of 1. Its nucleus carries a
+unit positive charge, +1, and the hydrogen atom possesses 1 electron to
+balance this. Helium, with an atomic number of 2, has a nuclear charge
+of +2 and 2 electrons, with a total charge of -2, to balance it. (The
+alpha particle released by radioactive atoms is identical with a helium
+nucleus.)
+
+The atomic number increases as one goes up the line of atoms. Oxygen
+atoms, for instance, have an atomic number of 8 and iron atoms have one
+of 26. At the upper end, thorium is 90 and uranium is 92. Each uranium
+atom has a nucleus bearing a charge of +92 and contains 92 electrons to
+balance this.
+
+Once the notion of the atomic number was worked out, it became possible
+to tell for certain whether any elements remained as yet undiscovered
+and, if so, where in the list they might be.
+
+Thus, when Moseley first presented scientists with the atomic number it
+turned out that there were still 7 elements that were not discovered. At
+least elements with atomic numbers of 43, 61, 72, 75, 85, 87, and 91
+were still not known. By 1945, all seven had been discovered.
+
+It quickly turned out that the atomic number was more fundamental and
+more characteristic of a particular element than was the atomic weight.
+
+[Illustration: _Niels Bohr_]
+
+[Illustration: _Bohr’s study._]
+
+Since Dalton’s time it had been assumed that all the atoms of a
+particular element were of equal atomic weight and that atoms of two
+different elements were always of different atomic weight. The first
+inkling and the first proof that this might not be so came through the
+study of radioactivity.
+
+  [Illustration: showing Helium atom, Hydrogen atom; Nucleus, Proton,
+                      Neutron, Electron labelled]
+
+
+Isotopes
+
+In 1902 Rutherford and his co-worker Frederick Soddy (1877-1956) showed
+that when uranium atoms gave off alpha particles, a new kind of atom was
+formed that was not uranium at all. It was this new atom that was
+eventually found to give off a beta particle, and then another atom of
+still another element was formed. This work of Rutherford and Soddy
+began a line of investigation that by 1907 had shown that there was a
+whole radioactive chain of elements, each one breaking down to the next
+in line by giving off either an alpha particle or a beta particle, until
+finally a lead atom was formed that was not radioactive.
+
+[Illustration: _Frederick Soddy_]
+
+There was, in short, a “radioactive series” beginning with uranium
+(atomic number 92) and ending with lead (atomic number 82). The same was
+true of thorium (atomic number 90), which began a series that also ended
+with lead. Still a third element, actinium (atomic number 89) was, at
+that time, the first known member of a series that also ended in lead.
+
+The various atoms formed in these three radioactive series were not all
+different in every way. When the uranium atom gives off an alpha
+particle, it forms an atom originally called “uranium X₁”. On close
+investigation, it turned out that this uranium X₁ had the chemical
+properties of thorium. Uranium X₁, had, however, radioactive properties
+different from ordinary thorium.
+
+Uranium X₁ broke down so rapidly, giving off beta particles as it did
+so, that half of any given quantity would have broken down in 24 days.
+Another way of saying this (which was introduced by Rutherford) was that
+the “half-life” of uranium X₁, is 24 days. Ordinary thorium, however,
+gives off alpha particles, not beta particles, and does so at such a
+slow rate, that its half-life is 14 billion years!
+
+Uranium X₁, and ordinary thorium were in the same place in the list of
+elements by chemical standards, and yet there was clearly something
+different about the two.
+
+Here is another case. In 1913 the British chemist Alexander Fleck
+(1889-    ) studied “radium B” and “radium D”, the names given to two
+different kinds of atoms in the uranium radioactive series. He also
+studied “thorium B” in the thorium radioactive series and “actinium B”
+in the actinium radioactive series. All four are chemically the same as
+ordinary lead; all four are in the same place in the list of elements.
+Yet each is different from the radioactive standpoint. Though all give
+off beta particles, radium B has a half-life of 27 minutes, radium D one
+of 19 years, thorium B one of 11 hours, and actinium B one of 36
+minutes.
+
+In 1913 Soddy called atoms that were in the same place in the list of
+elements, but which had different radioactive properties, “isotopes”,
+from Greek words meaning “same place”.
+
+At first, it seemed that the only difference between isotopes might be
+in their radioactive properties and that only radioactive atoms were
+involved. Quickly that proved not to be so.
+
+It proved that it was possible to have several forms of the same element
+that were all different even though none of them were radioactive. The
+uranium series, the thorium series, and the actinium series all ended in
+lead. In each case the lead formed was stable (not radioactive). Were
+the lead atoms identical in every case? Soddy had worked out the way in
+which atomic weights altered every time an alpha particle or a beta
+particle was given off by an atom. Working through the three radioactive
+series he decided that the lead atoms had different atomic weights in
+each case.
+
+The uranium series ought to end with lead atoms that had an atomic
+weight of 206. The thorium series ought to end in lead atoms with an
+atomic weight of 208 and the actinium series in lead atoms with an
+atomic weight of 207.
+
+If this were so, there would be 3 lead isotopes that would differ not in
+radioactive properties, but in atomic weight. The isotopes could be
+referred to as lead-206, lead-207, and lead-208. If we use the chemical
+symbol for lead (Pb), we could write the isotopes, ²⁰⁶Pb, ²⁰⁷Pb, and
+²⁰⁸Pb. (We read the symbol ²⁰⁶Pb as lead-206.) Atomic weight
+measurements made in 1914 by Soddy and others supported that theory.
+
+All 3 lead isotopes had the same atomic number of 82. The atoms of all 3
+isotopes had nuclei with an electric charge of +82 and all 3 had 82
+electrons in the atom to balance that positive nuclear charge. The
+difference was in the mass of the nucleus only.
+
+[Illustration: _Isotopes of two elements._]
+
+  Atomic number, 1
+    Hydrogen-1: Mass number, 1; 1 Proton, 1 Electron
+    Hydrogen-2: Mass number, 2; 1 Proton, 1 Neutron, 1 Electron
+  Atomic number, 2
+    Helium-3: Mass number, 3; 2 Protons, 1 Neutron, 2 Electrons
+    Helium-4: Mass number, 4; 2 Protons, 2 Neutrons, 2 Electrons
+
+But what of ordinary lead that existed in the rocks far removed from any
+radioactive substances and that had presumably been stable through all
+the history of earth? Its atomic weight was 207.2.
+
+Was the stable lead that had no connection with radioactivity made up of
+atoms of still another isotope, one with a fractional atomic weight? Or
+could stable lead be made up of a mixture of isotopes, each of a
+different whole-number atomic weight and was the overall atomic weight a
+fraction only because it was an average?
+
+It was at the moment difficult to tell in the case of lead, but an
+answer came in connection with another element, the rare gas neon
+(atomic symbol Ne), which has an atomic weight of 20.2.
+
+Was that fractional atomic weight something that was possessed by all
+neon atoms without exception or was it the average of some lightweight
+atoms and some heavyweight ones? It would be a matter of crucial
+importance if isotopes of neon could be found, for neon had nothing to
+do with any of the radioactive series. If neon had isotopes then any
+element might have them.
+
+In 1912 Thomson was working on neon. He sent a stream of cathode-ray
+electrons through neon gas. The electrons smashed into the neon atoms
+and knocked an electron off some of them. That left a neon ion carrying
+a single positive charge—an ion that could be written Ne⁺.
+
+The neon ions move in the electric field as electrons do, but in the
+opposite direction since they have an opposite charge. In the combined
+presence of a magnet and of an electric field, the neon ions move in a
+curved path. If all the neon ions had the same mass, all would follow
+the same curve. If some were more massive than others, the more massive
+ones would curve less.
+
+The neon ions ended on a photographic plate, which was darkened at the
+point of landing. There were two regions of darkening, because there
+were neon ions of two different masses that curved in two different
+degrees and ended in two different places. Thomson showed, from the
+amount of curving, that there was a neon isotope with an atomic weight
+of 20 and one with an atomic weight of 22—²⁰Ne and ²²Ne.
+
+What’s more, from the intensity of darkening, it could be seen that
+ordinary neon was made up of atoms that were roughly 90% ²⁰Ne and 10%
+²²Ne. The overall atomic weight of neon, 20.2, was the average atomic
+weight of these 2 isotopes.
+
+Thomson’s instrument was the first one capable of separating isotopes
+and such instruments came to be called “mass spectrometers”. The first
+to use the name was the English physicist Francis William Aston
+(1877-1945), who built the first efficient instrument of this type in
+1919.
+
+He used it to study as many elements as he could. He and those who
+followed him located many isotopes and determined the frequency of their
+occurrence with considerable precision. It turned out, for instance,
+that neon is actually 90.9% ²⁰Ne, and 8.8% ²²Ne. Very small quantities
+of still a third isotope, ²¹Ne, are also present, making up 0.3%.
+
+As for ordinary lead in nonradioactive rocks, it is made up of 23.6%
+²⁰⁶Pb, 22.6% ²⁰⁷Pb, and 52.3% ²⁰⁸Pb. There is still a fourth isotope,
+²⁰⁴Pb, which makes up the remaining 1.5% and which is not the product of
+any radioactive series at all.
+
+The isotopes always have atomic weights that are close to, but not
+quite, whole numbers. Any atomic weight of an element that departs
+appreciably from an integer does so only because it is an average of
+different isotopes. For instance, the atomic weight of chlorine
+(chemical symbol Cl) is 35.5, but this is because it is made up of a
+mixture of 2 isotopes. About one quarter of chlorine’s atoms are ³⁷Cl
+and about three-quarters are ³⁵Cl.
+
+[Illustration: _Francis W. Aston_]
+
+[Illustration: _Mass spectrograph as used by Thomson and Aston to
+measure the atomic weight of neon._]
+
+To avoid confusion, the average mass of the isotopes that make up a
+particular element is still called the atomic weight of that element.
+The integer closest to the mass of the individual isotope is spoken of
+as the “mass number” of that isotope. Thus, chlorine is made up of
+isotopes with mass numbers 35 and 37, but the atomic weight of chlorine
+as it is found in nature is 35.5 (or, to be more accurate, 35.453).
+
+In the same way, ordinary lead is made up of isotopes with mass numbers
+204, 206, 207, and 208, and its atomic weight is 207.19; neon is made up
+of isotopes with mass numbers 20, 21, and 22, and its atomic weight is
+20.183, and so on.
+
+If the atomic weight of some element happens to be very close to a whole
+number to begin with, it may consist of a single kind of atom. For
+instance, the gas fluorine (chemical symbol F) has an atomic weight of
+nearly 19, while that of the metal sodium (chemical symbol Na) is nearly
+23. As it turns out, all the atoms of fluorine are of the single variety
+¹⁹F, while all the atoms of sodium are ²³Na.
+
+Sometimes the atomic weight of an element, as it occurs in nature, is
+nearly a whole number and yet it is made up of more than 1 isotope. In
+that case, one of the isotopes makes up very nearly all of it, while the
+others are present in such minor quantities that the average is hardly
+affected.
+
+Helium, for instance (atomic symbol He) has an atomic weight of just
+about 4 and, indeed, almost all the atoms making it up are ⁴He. However,
+0.0001% of the atoms, or one out of a million, are ³He. Again, 99.6% of
+all the nitrogen atoms (atomic symbol N) are ¹⁴N, but 0.4% are ¹⁵N.
+Then, 98.9% of all carbon atoms (atomic symbol C) are ¹²C, but 1.1% are
+¹³C. It is not surprising that the atomic weights of nitrogen and carbon
+are just about 14 and 12, respectively.
+
+[Illustration: _Harold Urey_]
+
+Even hydrogen does not escape. Its atomic weight is just about 1 and
+most of its atoms are ¹H. The American chemist Harold Clayton Urey
+(1893-    ) detected the existence of a more massive isotope, ²H. This
+isotope has almost twice the mass of the lighter one. No other isotopes
+of a particular atom differ in mass by so large a factor. For that
+reason ²H and ¹H differ in ordinary chemical properties more than
+isotopes usually do and Urey therefore gave ²H the special name of
+“deuterium” from a Greek word meaning “second”.
+
+[Illustration: _W. F. Giauque_]
+
+In 1929 the American chemist William Francis Giauque (1895-    ) found
+that oxygen was composed of more than 1 isotope. Its atomic weight had
+been set arbitrarily at 16.0000 so it was a relief that 99.76% of its
+atoms were ¹⁶O. However, 0.20% were ¹⁸O, and 0.04% were ¹⁷O.
+
+As you see, ¹⁶O must have a mass number of slightly less than 16.0000
+and it must be the more massive isotopes ¹⁷O and ¹⁸O that pull the
+average up to 16.0000. Disregarding this, chemists clung to a standard
+atomic weight of 16.000 for oxygen as it appeared in nature, preferring
+not to concern themselves with the separate isotopes.
+
+Physicists, however, felt uneasy at using an average as standard for
+they were more interested in working with individual isotopes. They
+preferred to set ¹⁶O at 16.0000 so that the average atomic weight of
+oxygen was 16.0044 and all other atomic weights rose in proportion.
+Atomic weights determined by this system were “physical atomic weights”.
+
+Finally, in 1961, a compromise was struck. Chemists and physicists alike
+decided to consider the atomic weight of ¹²C as exactly 12 and to use
+that as a standard. By this system, the atomic weight of oxygen became
+15.9994, which is only very slightly less than 16.
+
+The radioactive elements did not escape this new view either. The atomic
+weight of uranium (chemical symbol U) is just about 238 and, indeed,
+most of its atoms are ²³⁸U. In 1935, however, the Canadian-American
+physicist, Arthur Jeffrey Dempster (1886-1950), found that 0.7% of its
+atoms were a lighter isotope, ²³⁵U.
+
+These differed considerably in radioactive properties. The common
+uranium isotope, ²³⁸U, had a half-life of 4500 million years, while ²³⁵U
+had a half-life of only 700 million years. Furthermore ²³⁵U broke down
+in three stages to actinium. It was ²³⁵U, not actinium itself, that was
+the beginning of the actinium radioactive series.
+
+As for thorium (atomic symbol Th) with an atomic weight of 232, it did
+indeed turn out that in the naturally occurring element virtually all
+the atoms were ²³²Th.
+
+
+
+
+                                 ENERGY
+
+
+The Law of Conservation of Energy
+
+We have now gone as far as we conveniently can in considering the
+intertwining strands of the atom and of electricity. It is time to turn
+to the third strand—energy.
+
+To physicists the concept of “work” is that of exerting a force on a
+body and making it move through some distance. To lift a weight against
+the pull of gravity is work. To drive a nail into wood against the
+friction of its fibers is work.
+
+Anything capable of performing work is said to possess “energy” from
+Greek words meaning “work within”. There are various forms of energy.
+Any moving mass possesses energy by virtue of its motion. That is, a
+moving hammer will drive a nail into wood, while the same hammer held
+motionlessly against the nailhead will not do so. Heat is a form of
+energy, since it will expand steam that will force wheels into motion
+that can then do work. Electricity, magnetism, sound, and light can be
+made to perform work and are forms of energy.
+
+The forms of energy are so many and so various that scientists were
+eager to find some rule that covered them all and would therefore serve
+as a unifying bond. It did not seem impossible that such a rule might
+exist, since one had been found in connection with matter that appeared
+in even greater variety than energy did.
+
+All matter, whatever its form and shape, possessed mass, and in the
+1770s, the French chemist Antoine Laurent Lavoisier (1743-1794)
+discovered that the quantity of mass was constant. If a system of matter
+were isolated and made to undergo complicated chemical reactions,
+everything about it might change, but not its mass. A solid might turn
+into a gas; a single substance might change into two or three different
+substances, but whatever happened, the total mass at the end was exactly
+the same (as nearly as chemists could tell) as at the beginning. None
+was either created or destroyed, however, the nature of the matter might
+change. This was called the “law of conservation of mass”.
+
+[Illustration: _Lavoisier in his laboratory during his studies on
+respiration. From a sketch made by Madame Lavoisier._]
+
+[Illustration: _Antoine Lavoisier and his wife._]
+
+Naturally, it would occur to scientists to wonder if a similar law might
+hold for energy. The answer wasn’t easy to get. It wasn’t as simple to
+measure the quantity of energy as it was to measure the quantity of
+mass. Nor was it as simple to pen up a quantity of energy and keep it
+from escaping or from gaining additional quantity from outside, as it
+was in the case of mass.
+
+Beginning in 1840, however, the English physicist James Prescott Joule
+(1818-1889) began a series of experiments in which he made use of every
+form of energy he could think of. In each case he turned it into heat
+and allowed the heat to raise the temperature of a given quantity of
+water. He used the rise in temperature as a measure of the energy. By
+1847 he was convinced that any form of energy could be turned into fixed
+and predictable amounts of heat; that a certain amount of work was
+equivalent to a certain amount of heat.
+
+In that same year, the German physicist Hermann Ludwig Ferdinand von
+Helmholtz (1821-1894) advanced the general notion that a fixed amount of
+energy in one form was equal to the same amount of energy in any other
+form. Energy might change its form over and over, but not change its
+amount. None could either be destroyed or created. This is the “law of
+conservation of energy”.
+
+
+Chemical Energy
+
+There is energy in a piece of wood. Left quietly to itself, it seems
+completely incapable of bringing about any kind of work. Set it on fire,
+however, and the wood plus the oxygen in the air will give off heat and
+light that are clearly forms of energy. The heat could help boil water
+and run a steam engine.
+
+The amount of energy in burning wood could be measured if it were mixed
+with air and allowed to burn in a closed container that was immersed in
+a known quantity of water. From the rise in temperature of the water,
+the quantity of energy produced could be measured in units called
+“calories” (from a Latin word for “heat”). The instrument was therefore
+called a “calorimeter”.
+
+In the 1860s the French chemist Pierre Eugène Marcelin Berthelot
+(1827-1907) carried through hundreds of such determinations. His work
+and similar work by others made it clear that such “chemical energy”—the
+energy derived from chemical changes in matter—fit the law of
+conservation of energy.
+
+Here’s how it looked in the last decades of the 19th century.
+
+Molecules are composed of combinations of atoms. Within the molecules,
+the atoms stick together more or less tightly. It takes a certain amount
+of energy to pull a molecule apart into separate atoms against the
+resistance of the forces holding them together.
+
+If, after being pulled apart, the atoms are allowed to come together
+again, they give off energy. The amount of energy they give off in
+coming together is exactly equal to the amount of energy they had to
+gain before they could separate.
+
+This is true of all substances. For instance, hydrogen gas, as it is
+found on earth, is made up of molecules containing 2 hydrogen atoms each
+(H₂). Add a certain amount of energy and you pull the atoms apart; allow
+the atoms to come back together into paired molecules, and the added
+energy is given back again. The same is true for the oxygen molecule,
+which is made up of 2 oxygen atoms (O₂) and of the water molecule (H₂O).
+Always the amount of energy absorbed in one change is given off in the
+opposite change. The amount absorbed and the amount given off are always
+exactly equal.
+
+However, the amount of energy involved differs from molecule to
+molecule. It is quite hard to pull hydrogen molecules apart, and it is
+even harder to pull oxygen molecules apart. You have to supply about 12%
+more energy to pull an oxygen molecule apart than to pull a hydrogen
+molecule apart. Naturally, if you let 2 oxygen atoms come together to
+form an oxygen molecule, you get back 12% more energy than if you allow
+2 hydrogen atoms to come together to form a hydrogen molecule.
+
+It takes a considerably larger amount of energy to pull apart a water
+molecule into separate atoms than to pull apart either hydrogen or
+oxygen molecules. Naturally, that greater energy is also returned once
+the hydrogen and oxygen atoms are allowed to come back together into
+water molecules.
+
+Next, imagine pulling apart hydrogen and oxygen molecules into hydrogen
+and oxygen atoms and then having those atoms come together to form
+_water_ molecules. A certain amount of energy is put into the system to
+break up the hydrogen and oxygen molecules, but then a much greater
+amount of energy is given off when the water molecules form.
+
+It is for that reason that a great deal of energy (mostly in the form of
+heat) is given off if a jet of hydrogen gas and a jet of oxygen gas are
+allowed to mix in such a way as to form water.
+
+Just mixing the hydrogen and oxygen isn’t enough. The molecules of
+hydrogen and oxygen must be separated and that takes a little energy.
+The energy in a match flame is enough to raise the temperature of the
+mixture and to make the hydrogen and oxygen molecules move about more
+rapidly and more energetically. This increases the chance that some
+molecules will be broken up into separate atoms (though the actual
+process is rather complicated). An oxygen atom might then strike a
+hydrogen molecule to form water (O + H₂ → H₂O) and more energy is given
+off than was absorbed from the match flame. The temperature goes up
+still higher so that further breakup among the oxygen and hydrogen
+molecules is encouraged.
+
+[Illustration: _The formation of a sodium chloride molecule._]
+
+This happens over and over again so that in very little time, the
+temperature is very high and the hydrogen and oxygen are combining to
+form water at an enormous rate. If a great deal of hydrogen and oxygen
+are well-mixed to begin with, the rate of reaction is so great that an
+explosion occurs.
+
+Such a situation, in which each reacting bit of the system adds energy
+to the system by its reaction and brings about more reactions like
+itself, is called a “chain reaction”. Thus, a match flame put to one
+corner of a large sheet of paper will set that corner burning. The heat
+of the burning will ignite a neighboring portion of the sheet and so on
+till the entire sheet is burned. For that matter a single smoldering
+cigarette end can serve to burn down an entire forest in a vastly
+destructive chain reaction.
+
+
+Electrons and Energy
+
+The discovery of the structure of the atom sharpened the understanding
+of chemical energy.
+
+In 1904 the German chemist Richard Abegg (1869-1910) first suggested
+that atoms were held together through the transfer of electrons from one
+atom to another.
+
+To see how this worked, one began by noting that electrons in an atom
+existed in a series of shells. The innermost shell could hold only 2
+electrons, the next 8, the next 18 and so on. It turned out that some
+electron arrangements were more stable than others. If only the
+innermost shell contained electrons and it were filled with the 2
+electrons that were all it could hold, then that was a stable
+arrangement. If an atom contained electrons in more than one shell and
+the outermost shell that held electrons held 8, that was a stable
+arrangement, too.
+
+Thus, the helium atom has 2 electrons only, filling the innermost shell,
+and that is so stable an arrangement that helium undergoes no chemical
+reactions at all. The neon atom has 10 electrons—2 in the innermost
+shell, and 8 in the next—and it does not react. The argon atom has 18
+electrons—2, 8, and 8—and it too is very stable.
+
+But what if an atom did not have its electron shell so neatly filled.
+The sodium atom has 11 electrons—2, 8, and 1—while the fluorine atom has
+9 electrons—2 and 7. If the sodium atom passed one of its electrons to a
+fluorine atom, both would have the stable configuration of neon—2 and 8.
+This, therefore, ought to have a great tendency to happen.
+
+If it did happen, though, the sodium atom, minus 1 electron, would have
+a unit positive charge and would be Na⁺, a positively charged ion.
+Fluorine with 1 electron in excess would become F⁻, a negatively charged
+ion. The 2 ions, with opposite charges, would cling together, since
+opposite charges attract, and thus the molecule of sodium fluoride (NaF)
+would be formed.
+
+In 1916 the American chemist Gilbert Newton Lewis (1875-1946) carried
+this notion farther. Atoms could cling together not only as a result of
+the outright transfer of 1 or more electrons, but through sharing pairs
+of electrons. This sharing could only take place if the atoms remained
+close neighbors, and it would take energy to pull them apart and break
+up the shared pool, just as it would take energy to pull 2 ions apart
+against the attraction of opposite charges.
+
+In this way the vague notions of atoms clinging together in molecules
+and being forced apart gave way to a much more precise picture of
+electrons being transferred or shared. The electron shifts could be
+dealt with mathematically by a system that came to be called “quantum
+mechanics” and chemistry was thus made a more exact science than it had
+ever been before.
+
+
+The Energy of the Sun
+
+The most serious problem raised by the law of conservation of energy
+involved the sun. Until 1847, scientists did not question sunlight. The
+sun radiated vast quantities of energy but that apparently was its
+nature and was no more to be puzzled over than the fact that the earth
+rotated on its axis.
+
+Once Helmholtz had stated that energy could neither be created nor
+destroyed, however, he was bound to ask where the sun’s energy came
+from. It had, to man’s best knowledge, been radiating heat and light,
+with no perceptible change, throughout the history of civilization and,
+from what biologists and geologists could deduce, for countless ages
+earlier. Where, then, did that energy come from?
+
+The sun gave the appearance of being a huge globe of fire. Could it
+actually be that—a large heap of burning fuel, turning chemical energy
+into heat and light?
+
+The sun’s mass was known and its rate of energy production was known.
+Suppose the sun’s mass were a mixture of hydrogen and oxygen and it were
+burning at a rate sufficient to produce the energy at the rate it was
+giving it off. If that were so, all the hydrogen and oxygen in its mass
+would be consumed in 1500 years. No chemical reaction in the sun could
+account for its having given us heat and light since the days of the
+pyramids, let alone since the days of the dinosaurs.
+
+Was there some source of energy greater than chemical energy? What about
+the energy of motion? Helmholtz suggested that meteors might be falling
+into the sun at a steady rate. The energy of their collisions might then
+be converted into heat and light and this could keep the sun shining for
+as long as the supply of meteors held out—even millions of years.
+
+This, however, would mean that the sun’s mass would be increasing
+steadily, and so would the force of its gravitational pull. With the
+sun’s gravitational field increasing steadily, the length of earth’s
+year would be decreasing at a measurable rate—but it wasn’t.
+
+In 1854 Helmholtz came up with something better. He suggested that the
+sun was contracting. Its outermost layers were falling inward, and the
+energy of this fall was converted into heat and light. What’s more, this
+energy would be obtained without any change in the mass of the sun
+whatever.
+
+Helmholtz calculated that the sun’s contraction over the 6000 years of
+recorded history would have reduced its diameter only 560 miles—a change
+that would not have been noticeable to the unaided eye. Since the
+development of the telescope, two and a half centuries earlier, the
+decrease in diameter would have been only 23 miles and that was not
+measurable by the best techniques of Helmholtz’s day.
+
+Working backward, however, it seemed that 25 million years ago, the sun
+must have been so large as to fill the earth’s orbit. Clearly the earth
+could not then have existed. In that case, the maximum age of the earth
+was only 25 million years.
+
+Geologists and biologists found themselves disturbed by this. The slow
+changes in the earth’s crust and in the evolution of life made it seem
+very likely that the earth must have been in existence—with the sun
+delivering heat and light very much in the present fashion—for many
+hundreds of millions of years.
+
+Yet there seemed absolutely no other way of accounting for the sun’s
+energy supply. Either the law of conservation of energy was wrong (which
+seemed unlikely), or the painfully collected evidence of geologists and
+biologists was wrong (which seemed unlikely),—or there was some source
+of energy greater than any known in the 19th century, whose existence
+had somehow escaped mankind (which also seemed unlikely).
+
+Yet one of those unlikely alternatives would have to be true. And then
+in 1896 came the discovery of radioactivity.
+
+
+The Energy of Radioactivity
+
+It eventually became clear that radioactivity involved the giving off of
+energy. Uranium emitted gamma rays that we now know to be a hundred
+thousand times as energetic as ordinary light rays. What’s more, alpha
+particles were being emitted at velocities of perhaps 30,000 kilometers
+per second, while the lighter beta particles were being shot off at
+velocities of up to 250,000 kilometers per second (about 0.8 times the
+velocity of light).
+
+At first, the total energy given off by radioactive substances seemed so
+small that there was no use worrying about it. The amount of energy
+liberated by a gram of uranium in 1 second of radioactivity was an
+insignificant fraction of the energy released by a burning candle.
+
+In a few years, however, something became apparent. A lump of uranium
+might give off very little energy in a second, but it kept on for second
+after second, day after day, month after month, and year after year with
+no perceptible decrease. The energy released by the uranium over a very
+long time grew to be enormous. It eventually turned out that while the
+rate at which uranium delivered energy did decline, it did so with such
+unbelievable slowness that it took 4.5 billion years (!) for that rate
+to decrease to half what it was to begin with.
+
+If _all_ the energy delivered by a gram of uranium in the course of its
+radioactivity over many billions of years was totalled, it was
+enormously greater than the energy produced by the burning of a candle
+with a mass equal to that of uranium.
+
+Let’s put it another way. We might think of a single uranium atom
+breaking down and shooting off an alpha particle. We might also think of
+a single carbon atom combining with 2 oxygen atoms to form carbon
+dioxide. The uranium atom would give off 2,000,000 times as much energy
+in breaking down, as the carbon atom would in combining.
+
+The energy of radioactivity is millions of times as intense as the
+energy released by chemical reactions. The reason mankind had remained
+unaware of radioactivity and very aware of chemical reactions was,
+first, that the most common radioactive processes are so slow that their
+great energies were stretched over such enormous blocks of time as to be
+insignificant on a per second basis.
+
+Secondly, chemical reactions are easily controlled by changing
+quantities, concentrations, temperatures, pressures, states of mixtures,
+and so on, and this makes them easy to take note of and to study. The
+rate of radioactive changes, however, could not apparently be altered.
+The early investigators quickly found that the breakdown of uranium-238,
+for instance, could not be hastened by heat, pressure, changes in
+chemical combination, or, indeed, anything else they could think of. It
+remained incredibly slow.
+
+But despite all this, radioactivity had at last been discovered and the
+intensity of its energies was recognized and pointed out in 1902 by
+Marie Curie and her husband Pierre Curie (1859-1906).
+
+Where, then, did the energy come from? Could it come from the outside?
+Could the radioactive atoms somehow collect energy from their
+surroundings, concentrate it several million-fold, and then let it out
+all at once?
+
+To concentrate energy in this fashion would violate something called
+“the second law of thermodynamics”. This was first proposed in 1850 by
+the German physicist Rudolf Julius Emmanuel Clausius (1822-1888) and had
+proved so useful that physicists did not like to abandon it unless they
+absolutely had to.
+
+Another possibility was that radioactive atoms were creating energy out
+of nothing. This, of course, violated the law of conservation of energy
+(also called “the first law of thermodynamics”) and physicists preferred
+not to do that either.
+
+The only thing that seemed to remain was to suppose that somewhere
+within the atom was a source of energy that had never made itself
+evident to humanity until the discovery of radioactivity. Becquerel was
+one of the first to suggest this.
+
+It might have seemed at first that only radioactive elements had this
+supply of energy somewhere within the atom, but in 1903 Rutherford
+suggested that all atoms had a vast energy supply hidden within
+themselves. The supply in uranium and thorium leaked slightly, so to
+speak, and that was all that made them different.
+
+[Illustration: _The room in which the Curies discovered radium. Pierre
+Curie’s writing is on the blackboard._]
+
+But if a vast supply of energy existed in atoms, it was possible that
+the solution to the puzzle of the sun’s energy might rest there. As
+early as 1899 the American geologist Thomas Chrowder Chamberlin
+(1843-1928) was already speculating about a possible connection between
+radioactivity and the sun’s energy.
+
+If it were some variety of this newly discovered source of energy (not
+necessarily ordinary radioactivity, of course) that powered the
+sun—millions of times as intense as chemical energy—then the sun might
+be pouring out energy for hundreds of millions of years without
+perceptible physical change—just as uranium would show scarcely any
+change even in so mighty a time span. The sun would not have to be
+contracting; it would not have had to fill the earth’s orbit 25,000,000
+years ago.
+
+This was all exciting, but in 1900 the structure of the atom had not yet
+been worked out and this new energy was just a vague supposition. No one
+had any idea of what it actually might be or where in the atom it might
+be located. It could only be spoken of as existing “within the atom” and
+was therefore called “atomic energy”. Through long habit, it is still
+called that much of the time. And yet “atomic energy” is not a good
+name. In the first couple of decades of the 20th century, it became
+apparent that ordinary chemical energy involved electron shifts and
+those electrons were certainly components of atoms. This meant that a
+wood fire was a kind of atomic energy.
+
+The electrons, however, existed only in the outer regions of the atom.
+Once Rutherford worked out the theory of the nuclear atom, it became
+apparent that the energy involved in radioactivity and in solar
+radiation had to involve components of the atom that were more massive
+and more energetic than the light electrons. The energy had to come,
+somehow, from the atomic nucleus.
+
+What is involved then in radioactivity and in the sun is “nuclear
+energy”. That is the proper name for it and in the next section we will
+consider the subsequent history of the nuclear energy that broke upon
+the startled consciousness of scientists as the 20th century opened and
+which, less than half a century later, was to face mankind with untold
+consequences for good and for evil.
+
+
+
+
+                               FOOTNOTES
+
+
+[1]“Mass” is the correct term, but “weight”, which is a somewhat
+    different thing, is so commonly used instead that in this book I
+    won’t try to make any distinction.
+
+
+
+
+                            QUOTATION CREDIT
+
+
+  Inside front cover    Copyright © by Abelard-Shuman, Ltd., New York.
+                        Reprinted by permission from _Inside the Atom_,
+                        Isaac Asimov, 1966.
+
+
+
+
+                             PHOTO CREDITS
+
+
+  Cover                 The Metropolitan Museum of Art
+  Page facing inside    The “Horsehead” Nebula in Orion. Hale
+  cover                 Observatories.
+  Author’s Photo        Jay K. Klein
+  Contents page &       Lick Observatory
+  page 4
+  Page
+  7                     New York Public Library
+  9                     From _Discovery of the Elements_, Mary E. Weeks,
+                        Chemical Education Publishing Company, 1968.
+  12                    Library of Congress
+  15                    Sir George Thomson
+  18                    Burndy Library
+  19                    New York Public Library
+  21                    Copyright © 1965 by Barbara Lovett Cline,
+                        reprinted from her volume _The Questioners:
+                        Physicists and the Quantum Theory_ by permission
+                        of Thomas Y. Crowell Company, Inc., New York.
+  22 & 23               Curie Foundation, Institute of Radium
+  26                    Academic Press, Inc.
+  29                    Van Nostrand Reinhold Company
+  31                    Top, Nobel Institute; bottom, from _Discovery of
+                        the Elements_, Mary E. Weeks, Chemical Education
+                        Publishing Company, 1968.
+  32                    From _Discovery of the Elements_, Mary E. Weeks,
+                        Chemical Education Publishing Company, 1968.
+  34                    Top, Nobel Institute; bottom, Niels Bohr
+                        Institute.
+  36, 42, 44, & 45      Nobel Institute
+  48                    Academic Press, Inc.
+  49                    From _Discovery of the Elements_, Mary E. Weeks,
+                        Chemical Education Publishing Company, 1968.
+  60                    Curie Foundation, Institute of Radium
+
+                      ★ U.S. GOVERNMENT PRINTING OFFICE: 1975—640—285/13
+
+
+A word about ERDA....
+
+The mission of the U. S. Energy Research & Development Administration
+(ERDA) is to develop all energy sources, to make the Nation basically
+self-sufficient in energy, and to protect public health and welfare and
+the environment. ERDA programs are divided into six major categories:
+
+· CONSERVATION OF ENERGY—More efficient use of existing energy sources,
+development of alternate fuels and engines for automobiles to reduce
+dependence on petroleum, and elimination of wasteful habits of energy
+consumption.
+
+· FOSSIL ENERGY—Expansion of coal production and the development of
+technologies for converting coal to synthetic gas and liquid fuels,
+improvement of oil drilling methods and of techniques for converting
+shale deposits to usable oil.
+
+· SOLAR, GEOTHERMAL, AND ADVANCED ENERGY SYSTEMS—Research on solar
+energy to heat, cool, and eventually electrify buildings, on conversion
+of underground heat sources to gas and electricity, and on fusion
+reactors for the generation of electricity.
+
+· ENVIRONMENT AND SAFETY—Investigation of health, safety, and
+environmental effects of the development of energy technologies, and
+research on management of wastes from energy production.
+
+· NUCLEAR ENERGY—Expanding medical, industrial and research applications
+and upgrading reactor technologies for the generation of electricity,
+particularly using the breeder concept.
+
+· NATIONAL SECURITY—Production and administration of nuclear materials
+serving both civilian and military needs.
+
+ERDA programs are carried out by contract and cooperation with industry,
+university communities, and other government agencies. For more
+information, write to USERDA—Technical Information Center, P. O. Box 62,
+Oak Ridge, Tennessee 37830.
+
+    [Illustration: ENERGY RESEARCH & DEVELOPMENT ADMINISTRATION USA]
+
+                             United States
+             Energy Research and Development Administration
+                        Office of Public Affairs
+                         Washington, D.C. 20545
+
+
+
+
+                          Transcriber’s Notes
+
+
+--Retained publication information from the printed edition: this eBook
+  is public-domain in the country of publication.
+
+--In the text version only, underlined or italicized text is delimited
+  by _underscores_.
+
+--Where possible, UTF superscript and subscript numbers are used; some
+  e-reader fonts may not support these characters.
+
+--In the text versions only, other superscript text is preceded by caret
+  and delimited by ^{brackets}.
+
+--In the text versions only, other subscripted text is preceded by
+  underscore and delimited by _{brackets}.
+
+
+
+
+
+
+
+
+
+*** END OF THE PROJECT GUTENBERG EBOOK WORLDS WITHIN WORLDS: THE STORY OF NUCLEAR ENERGY, VOLUME 1 (OF 3) ***
+
+
+    
+
+Updated editions will replace the previous one—the old editions will
+be renamed.
+
+Creating the works from print editions not protected by U.S. copyright
+law means that no one owns a United States copyright in these works,
+so the Foundation (and you!) can copy and distribute it in the United
+States without permission and without paying copyright
+royalties. Special rules, set forth in the General Terms of Use part
+of this license, apply to copying and distributing Project
+Gutenberg™ electronic works to protect the PROJECT GUTENBERG™
+concept and trademark. Project Gutenberg is a registered trademark,
+and may not be used if you charge for an eBook, except by following
+the terms of the trademark license, including paying royalties for use
+of the Project Gutenberg trademark. If you do not charge anything for
+copies of this eBook, complying with the trademark license is very
+easy. You may use this eBook for nearly any purpose such as creation
+of derivative works, reports, performances and research. Project
+Gutenberg eBooks may be modified and printed and given away—you may
+do practically ANYTHING in the United States with eBooks not protected
+by U.S. copyright law. Redistribution is subject to the trademark
+license, especially commercial redistribution.
+
+
+START: FULL LICENSE
+
+THE FULL PROJECT GUTENBERG™ LICENSE
+
+PLEASE READ THIS BEFORE YOU DISTRIBUTE OR USE THIS WORK
+
+To protect the Project Gutenberg™ mission of promoting the free
+distribution of electronic works, by using or distributing this work
+(or any other work associated in any way with the phrase “Project
+Gutenberg”), you agree to comply with all the terms of the Full
+Project Gutenberg License available with this file or online at
+www.gutenberg.org/license.
+
+Section 1. General Terms of Use and Redistributing Project Gutenberg
+electronic works
+
+1.A. By reading or using any part of this Project Gutenberg
+electronic work, you indicate that you have read, understand, agree to
+and accept all the terms of this license and intellectual property
+(trademark/copyright) agreement. If you do not agree to abide by all
+the terms of this agreement, you must cease using and return or
+destroy all copies of Project Gutenberg electronic works in your
+possession. If you paid a fee for obtaining a copy of or access to a
+Project Gutenberg electronic work and you do not agree to be bound
+by the terms of this agreement, you may obtain a refund from the person
+or entity to whom you paid the fee as set forth in paragraph 1.E.8.
+
+1.B. “Project Gutenberg” is a registered trademark. It may only be
+used on or associated in any way with an electronic work by people who
+agree to be bound by the terms of this agreement. There are a few
+things that you can do with most Project Gutenberg electronic works
+even without complying with the full terms of this agreement. See
+paragraph 1.C below. There are a lot of things you can do with Project
+Gutenberg electronic works if you follow the terms of this
+agreement and help preserve free future access to Project Gutenberg
+electronic works. See paragraph 1.E below.
+
+1.C. The Project Gutenberg Literary Archive Foundation (“the
+Foundation” or PGLAF), owns a compilation copyright in the collection
+of Project Gutenberg electronic works. Nearly all the individual
+works in the collection are in the public domain in the United
+States. If an individual work is unprotected by copyright law in the
+United States and you are located in the United States, we do not
+claim a right to prevent you from copying, distributing, performing,
+displaying or creating derivative works based on the work as long as
+all references to Project Gutenberg are removed. Of course, we hope
+that you will support the Project Gutenberg mission of promoting
+free access to electronic works by freely sharing Project Gutenberg
+works in compliance with the terms of this agreement for keeping the
+Project Gutenberg name associated with the work. You can easily
+comply with the terms of this agreement by keeping this work in the
+same format with its attached full Project Gutenberg License when
+you share it without charge with others.
+
+1.D. The copyright laws of the place where you are located also govern
+what you can do with this work. Copyright laws in most countries are
+in a constant state of change. If you are outside the United States,
+check the laws of your country in addition to the terms of this
+agreement before downloading, copying, displaying, performing,
+distributing or creating derivative works based on this work or any
+other Project Gutenberg work. The Foundation makes no
+representations concerning the copyright status of any work in any
+country other than the United States.
+
+1.E. Unless you have removed all references to Project Gutenberg:
+
+1.E.1. The following sentence, with active links to, or other
+immediate access to, the full Project Gutenberg License must appear
+prominently whenever any copy of a Project Gutenberg work (any work
+on which the phrase “Project Gutenberg” appears, or with which the
+phrase “Project Gutenberg” is associated) is accessed, displayed,
+performed, viewed, copied or distributed:
+
+    This eBook is for the use of anyone anywhere in the United States and most
+    other parts of the world at no cost and with almost no restrictions
+    whatsoever. You may copy it, give it away or re-use it under the terms
+    of the Project Gutenberg™ License included with this eBook or online
+    at www.gutenberg.org. If you
+    are not located in the United States, you will have to check the laws
+    of the country where you are located before using this eBook.
+  
+1.E.2. If an individual Project Gutenberg electronic work is
+derived from texts not protected by U.S. copyright law (does not
+contain a notice indicating that it is posted with permission of the
+copyright holder), the work can be copied and distributed to anyone in
+the United States without paying any fees or charges. If you are
+redistributing or providing access to a work with the phrase “Project
+Gutenberg” associated with or appearing on the work, you must comply
+either with the requirements of paragraphs 1.E.1 through 1.E.7 or
+obtain permission for the use of the work and the Project Gutenberg
+trademark as set forth in paragraphs 1.E.8 or 1.E.9.
+
+1.E.3. If an individual Project Gutenberg electronic work is posted
+with the permission of the copyright holder, your use and distribution
+must comply with both paragraphs 1.E.1 through 1.E.7 and any
+additional terms imposed by the copyright holder. Additional terms
+will be linked to the Project Gutenberg License for all works
+posted with the permission of the copyright holder found at the
+beginning of this work.
+
+1.E.4. Do not unlink or detach or remove the full Project Gutenberg
+License terms from this work, or any files containing a part of this
+work or any other work associated with Project Gutenberg.
+
+1.E.5. Do not copy, display, perform, distribute or redistribute this
+electronic work, or any part of this electronic work, without
+prominently displaying the sentence set forth in paragraph 1.E.1 with
+active links or immediate access to the full terms of the Project
+Gutenberg License.
+
+1.E.6. You may convert to and distribute this work in any binary,
+compressed, marked up, nonproprietary or proprietary form, including
+any word processing or hypertext form. However, if you provide access
+to or distribute copies of a Project Gutenberg work in a format
+other than “Plain Vanilla ASCII” or other format used in the official
+version posted on the official Project Gutenberg website
+(www.gutenberg.org), you must, at no additional cost, fee or expense
+to the user, provide a copy, a means of exporting a copy, or a means
+of obtaining a copy upon request, of the work in its original “Plain
+Vanilla ASCII” or other form. Any alternate format must include the
+full Project Gutenberg License as specified in paragraph 1.E.1.
+
+1.E.7. Do not charge a fee for access to, viewing, displaying,
+performing, copying or distributing any Project Gutenberg works
+unless you comply with paragraph 1.E.8 or 1.E.9.
+
+1.E.8. You may charge a reasonable fee for copies of or providing
+access to or distributing Project Gutenberg electronic works
+provided that:
+
+    • You pay a royalty fee of 20% of the gross profits you derive from
+        the use of Project Gutenberg works calculated using the method
+        you already use to calculate your applicable taxes. The fee is owed
+        to the owner of the Project Gutenberg trademark, but he has
+        agreed to donate royalties under this paragraph to the Project
+        Gutenberg Literary Archive Foundation. Royalty payments must be paid
+        within 60 days following each date on which you prepare (or are
+        legally required to prepare) your periodic tax returns. Royalty
+        payments should be clearly marked as such and sent to the Project
+        Gutenberg Literary Archive Foundation at the address specified in
+        Section 4, “Information about donations to the Project Gutenberg
+        Literary Archive Foundation.”
+    
+    • You provide a full refund of any money paid by a user who notifies
+        you in writing (or by e-mail) within 30 days of receipt that s/he
+        does not agree to the terms of the full Project Gutenberg™
+        License. You must require such a user to return or destroy all
+        copies of the works possessed in a physical medium and discontinue
+        all use of and all access to other copies of Project Gutenberg™
+        works.
+    
+    • You provide, in accordance with paragraph 1.F.3, a full refund of
+        any money paid for a work or a replacement copy, if a defect in the
+        electronic work is discovered and reported to you within 90 days of
+        receipt of the work.
+    
+    • You comply with all other terms of this agreement for free
+        distribution of Project Gutenberg™ works.
+    
+
+1.E.9. If you wish to charge a fee or distribute a Project
+Gutenberg™ electronic work or group of works on different terms than
+are set forth in this agreement, you must obtain permission in writing
+from the Project Gutenberg Literary Archive Foundation, the manager of
+the Project Gutenberg™ trademark. Contact the Foundation as set
+forth in Section 3 below.
+
+1.F.
+
+1.F.1. Project Gutenberg volunteers and employees expend considerable
+effort to identify, do copyright research on, transcribe and proofread
+works not protected by U.S. copyright law in creating the Project
+Gutenberg™ collection. Despite these efforts, Project Gutenberg™
+electronic works, and the medium on which they may be stored, may
+contain “Defects,” such as, but not limited to, incomplete, inaccurate
+or corrupt data, transcription errors, a copyright or other
+intellectual property infringement, a defective or damaged disk or
+other medium, a computer virus, or computer codes that damage or
+cannot be read by your equipment.
+
+1.F.2. LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the “Right
+of Replacement or Refund” described in paragraph 1.F.3, the Project
+Gutenberg Literary Archive Foundation, the owner of the Project
+Gutenberg™ trademark, and any other party distributing a Project
+Gutenberg™ electronic work under this agreement, disclaim all
+liability to you for damages, costs and expenses, including legal
+fees. YOU AGREE THAT YOU HAVE NO REMEDIES FOR NEGLIGENCE, STRICT
+LIABILITY, BREACH OF WARRANTY OR BREACH OF CONTRACT EXCEPT THOSE
+PROVIDED IN PARAGRAPH 1.F.3. YOU AGREE THAT THE FOUNDATION, THE
+TRADEMARK OWNER, AND ANY DISTRIBUTOR UNDER THIS AGREEMENT WILL NOT BE
+LIABLE TO YOU FOR ACTUAL, DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE OR
+INCIDENTAL DAMAGES EVEN IF YOU GIVE NOTICE OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+1.F.3. LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
+defect in this electronic work within 90 days of receiving it, you can
+receive a refund of the money (if any) you paid for it by sending a
+written explanation to the person you received the work from. If you
+received the work on a physical medium, you must return the medium
+with your written explanation. The person or entity that provided you
+with the defective work may elect to provide a replacement copy in
+lieu of a refund. If you received the work electronically, the person
+or entity providing it to you may choose to give you a second
+opportunity to receive the work electronically in lieu of a refund. If
+the second copy is also defective, you may demand a refund in writing
+without further opportunities to fix the problem.
+
+1.F.4. Except for the limited right of replacement or refund set forth
+in paragraph 1.F.3, this work is provided to you ‘AS-IS’, WITH NO
+OTHER WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PURPOSE.
+
+1.F.5. Some states do not allow disclaimers of certain implied
+warranties or the exclusion or limitation of certain types of
+damages. If any disclaimer or limitation set forth in this agreement
+violates the law of the state applicable to this agreement, the
+agreement shall be interpreted to make the maximum disclaimer or
+limitation permitted by the applicable state law. The invalidity or
+unenforceability of any provision of this agreement shall not void the
+remaining provisions.
+
+1.F.6. INDEMNITY - You agree to indemnify and hold the Foundation, the
+trademark owner, any agent or employee of the Foundation, anyone
+providing copies of Project Gutenberg™ electronic works in
+accordance with this agreement, and any volunteers associated with the
+production, promotion and distribution of Project Gutenberg™
+electronic works, harmless from all liability, costs and expenses,
+including legal fees, that arise directly or indirectly from any of
+the following which you do or cause to occur: (a) distribution of this
+or any Project Gutenberg work, (b) alteration, modification, or
+additions or deletions to any Project Gutenberg work, and (c) any
+Defect you cause.
+
+Section 2. Information about the Mission of Project Gutenberg
+
+Project Gutenberg is synonymous with the free distribution of
+electronic works in formats readable by the widest variety of
+computers including obsolete, old, middle-aged and new computers. It
+exists because of the efforts of hundreds of volunteers and donations
+from people in all walks of life.
+
+Volunteers and financial support to provide volunteers with the
+assistance they need are critical to reaching Project Gutenberg’s
+goals and ensuring that the Project Gutenberg collection will
+remain freely available for generations to come. In 2001, the Project
+Gutenberg Literary Archive Foundation was created to provide a secure
+and permanent future for Project Gutenberg and future
+generations. To learn more about the Project Gutenberg Literary
+Archive Foundation and how your efforts and donations can help, see
+Sections 3 and 4 and the Foundation information page at www.gutenberg.org.
+
+Section 3. Information about the Project Gutenberg Literary Archive Foundation
+
+The Project Gutenberg Literary Archive Foundation is a non-profit
+501(c)(3) educational corporation organized under the laws of the
+state of Mississippi and granted tax exempt status by the Internal
+Revenue Service. The Foundation’s EIN or federal tax identification
+number is 64-6221541. Contributions to the Project Gutenberg Literary
+Archive Foundation are tax deductible to the full extent permitted by
+U.S. federal laws and your state’s laws.
+
+The Foundation’s business office is located at 41 Watchung Plaza #516,
+Montclair NJ 07042, USA, +1 (862) 621-9288. Email contact links and up
+to date contact information can be found at the Foundation’s website
+and official page at www.gutenberg.org/contact
+
+Section 4. Information about Donations to the Project Gutenberg
+Literary Archive Foundation
+
+Project Gutenberg™ depends upon and cannot survive without widespread
+public support and donations to carry out its mission of
+increasing the number of public domain and licensed works that can be
+freely distributed in machine-readable form accessible by the widest
+array of equipment including outdated equipment. Many small donations
+($1 to $5,000) are particularly important to maintaining tax exempt
+status with the IRS.
+
+The Foundation is committed to complying with the laws regulating
+charities and charitable donations in all 50 states of the United
+States. Compliance requirements are not uniform and it takes a
+considerable effort, much paperwork and many fees to meet and keep up
+with these requirements. We do not solicit donations in locations
+where we have not received written confirmation of compliance. To SEND
+DONATIONS or determine the status of compliance for any particular state
+visit www.gutenberg.org/donate.
+
+While we cannot and do not solicit contributions from states where we
+have not met the solicitation requirements, we know of no prohibition
+against accepting unsolicited donations from donors in such states who
+approach us with offers to donate.
+
+International donations are gratefully accepted, but we cannot make
+any statements concerning tax treatment of donations received from
+outside the United States. U.S. laws alone swamp our small staff.
+
+Please check the Project Gutenberg web pages for current donation
+methods and addresses. Donations are accepted in a number of other
+ways including checks, online payments and credit card donations. To
+donate, please visit: www.gutenberg.org/donate.
+
+Section 5. General Information About Project Gutenberg electronic works
+
+Professor Michael S. Hart was the originator of the Project
+Gutenberg concept of a library of electronic works that could be
+freely shared with anyone. For forty years, he produced and
+distributed Project Gutenberg eBooks with only a loose network of
+volunteer support.
+
+Project Gutenberg eBooks are often created from several printed
+editions, all of which are confirmed as not protected by copyright in
+the U.S. unless a copyright notice is included. Thus, we do not
+necessarily keep eBooks in compliance with any particular paper
+edition.
+
+Most people start at our website which has the main PG search
+facility: www.gutenberg.org.
+
+This website includes information about Project Gutenberg,
+including how to make donations to the Project Gutenberg Literary
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.
