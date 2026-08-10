@@ -174,94 +174,105 @@ GeoExtract ETL — масштабный pet‑проект по построен
 ## 📁 Структура репозитория
 
 project/
+│
 ├── api_results/  
+│   └── результаты работы API (ответы, JSON, логи запросов)
 │
-├── api_test_docs/ 
+├── api_test_docs/
+│   └── тестовые документы для проверки API
 │
-├── data/                                                                   (исходные данные)
-│   ├── golden_set/
-│   │   ├── annotations/
-│   │   ├── gs_data/
-│   │   ├── for_metadata_gs_features.txt
-│   │   ├── metadata_gs_features.csv
-│   │   ├── doc_labels.txt
-│   │   └── doc_labels_all.txt
-│   └── raw/  
-│       ├── pdf_text/
-│       ├── pdf_scans/
-│       ├── doc_Word/
-│       ├── tables/
-│       ├── images/
-│       └── txt/
-│   
-├── log/ 
-│ 
-├── results/ 
-│   ├── classification/
-│   ├── metadata/
-│   ├── ocr/
-│   ├── segmentation/
-│   ├── step1/
-│   ├── step2/
+├── data/                                                                   — исходные данные
+│   ├── golden_set/                                                         — вручную размеченный Golden Set
+│   │   ├── annotations/                                                    — разметка блоков
+│   │   ├── gs_data/                                                        — исходные документы GS
+│   │   ├── for_metadata_gs_features.txt                                    — признаки для метаданных
+│   │   ├── metadata_gs_features.csv                                        — таблица метаданных GS
+│   │   ├── doc_labels.txt                                                  — метки документов
+│   │   └── doc_labels_all.txt                                              — расширенные метки
+│   │
+│   └── raw/                                                                — необработанные данные
+│       ├── pdf_text/                                                       — PDF с текстом
+│       ├── pdf_scans/                                                      — PDF-сканы
+│       ├── doc_Word/                                                       — DOC/DOCX файлы
+│       ├── tables/                                                         — таблицы (XLS/XLSX/CSV)
+│       ├── images/                                                         — изображения
+│       └── txt/                                                            — текстовые файлы
+│
+├── log/                                                                    — логи пайплайна
+│
+├── results/                                                                — результаты всех шагов ETL
+│   ├── classification/                                                     — результаты классификации
+│   ├── metadata/                                                           — извлечённые метаданные
+│   ├── ocr/                                                                — результаты OCR
+│   ├── segmentation/                                                       — сегментация документов
+│   ├── step1/                                                              — результаты шага 1
+│   ├── step2/                                                              — результаты шага 2
 │   ├── step3/
 │   ├── step4/
 │   ├── step5/
 │   ├── step6/
 │   ├── step7/
 │   └── step8/
-│ 
-├── src/                                                                    (Python модули
-│   ├── extractors/
+│
+├── src/                                                                    — Python модули проекта
+│   ├── extractors/                                                         — извлечение текста
 │   │   ├── base.py
 │   │   ├── docx_extractor.py
-│   │   ├── excel_extractor.p                                                                             
+│   │   ├── excel_extractor.py
 │   │   ├── image_extractor.py
-│   │   ├── pdf_scan_extractor.py                                                                             
-│   │   ├── pdf_text_extractor.py                                                                             
-│   │   ├── rtf_extractor.py 
+│   │   ├── pdf_scan_extractor.py
+│   │   ├── pdf_text_extractor.py
+│   │   ├── rtf_extractor.py
 │   │   ├── table_image_analyzer.py
-│   │   └── txt_extractor.py  
-│   ├── segmentation/     
+│   │   └── txt_extractor.py
+│   │
+│   ├── segmentation/                                                       — сегментация документов
 │   │   ├── headers.py
 │   │   ├── normalization.py
-│   │   ├── postprocess.py                                                                            
+│   │   ├── postprocess.py
 │   │   ├── rule_based.py
-│   │   ├── segment_doc.py                                                                             
-│   │   ├── segment_docx.py                                                                             
-│   │   ├── segment_images.py 
+│   │   ├── segment_doc.py
+│   │   ├── segment_docx.py
+│   │   ├── segment_images.py
 │   │   ├── segment_pdf_scans.py
-│   │   ├── segment_pdf_text.py                                                                             
-│   │   ├── segment_txt.py                                                                             
-│   │   ├── segment_xlsx.py                                                                             
-│   │   ├── utils.py                                                                                  
-│   │   └── well_log.py   
-│   ├── semantic_search/                                                                    
+│   │   ├── segment_pdf_text.py
+│   │   ├── segment_txt.py
+│   │   ├── segment_xlsx.py
+│   │   ├── utils.py
+│   │   └── well_log.py
+│   │
+│   ├── semantic_search/                                                    — глобальный semantic search
 │   │   ├── chunks.py
 │   │   ├── embeddings.py
-│   │   ├── faiss.py                                                                         
+│   │   ├── faiss.py
 │   │   ├── loaders.py
-│   │   ├── prepare.py                                                                          
-│   │   ├── qs_table.py                                                                          
+│   │   ├── prepare.py
+│   │   ├── qs_table.py
 │   │   ├── query_suggestions.py
 │   │   ├── search.py
-│   │   └──  suggestions.py                                                                           
-│   │   classifier.py
-│   │   extract_text.py                                                                             
-│   │   features.py                                                                             
-│   │   final_json.py    
-│   │   normalization.py                                                                            
-│   └── structuring.py
-│  
-├── plan_prj_ETL-serv.pdf                                           (план проекта)                                                                            
-├── 01_research_and_pipeline.ipynb                                  (Шаги 1–7 + 10: EDA + model selection + experiments)
-├── 02_ETL.ipynb                                                    (Шаги 8: ETL)  
-├── 03_DEMO_API.ipynb                                               (Шаги 9: API) 
-├── 01_research_and_pipeline.pdf                                    (Шаги 1–7 + 10: EDA + model selection + experiments)
-├── 02_ETL.pdf                                                      (Шаги 8: ETL)  
-├── 03_DEMO_API.pdf                                                 (Шаги 9: API)                                                                             
-├── api.py
-├── requirements.txt
-└── README.md
+│   │   └── suggestions.py
+│   │
+│   ├── classifier.py                                                       — классификация документов
+│   ├── extract_text.py                                                     — универсальный текстовый экстрактор
+│   ├── features.py                                                         — признаки для моделей
+│   ├── final_json.py                                                       — финальная структура JSON
+│   ├── normalization.py                                                    — нормализация данных
+│   └── structuring.py                                                      — структурирование документа
+│
+├── plan_prj_ETL-serv.pdf                                                   — план проекта
+│
+├── 01_research_and_pipeline.ipynb                                          — Шаги 1–7 + 10: исследования, EDA, модели
+├── 02_ETL.ipynb                                                            — Шаг 8: ETL-пайплайн
+├── 03_DEMO_API.ipynb                                                       — Шаг 9: API
+│
+├── 01_research_and_pipeline.pdf                                            — экспорт ноутбука
+├── 02_ETL.pdf                                                              — экспорт ноутбука
+├── 03_DEMO_API.pdf                                                         — экспорт ноутбука
+│
+├── api.py                                                                  — FastAPI сервер
+├── requirements.txt                                                        — зависимости проекта
+└── README.md                                                               — документация проекта
+
 
 ---
 
@@ -280,20 +291,21 @@ project/
    ```bash
    pip install -r requirements.txt
 
-3. Запустить ноутбуки:
+3. Запустить ноутбук с ресёрчем:
 
    ```bash
    jupyter notebook 01_research_and_pipeline.ipynb
 
+3. Запустить ноутбук с ETL:
    ```bash
    jupyter notebook 02_ETL.ipynb
 
-4. Запустить API
+5. Запустить API
 
    ```bash
    uvicorn api:app --reload
 
-5. Открыть Demo‑ноутбук
+6. Открыть Demo‑ноутбук
    ```bash
    jupyter notebook 03_DEMO_API.ipynb
 
