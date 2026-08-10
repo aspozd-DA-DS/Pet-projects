@@ -78,12 +78,13 @@ Pet‑проект по реализации моделей Word2Vec (CBOW и Sk
 `01_Word2Vec/`
 
 ```text
-├──  `Colab_Pet-proj_Word2Vec.ipynb` — основной ноутбук с полным анализом, выполненный в Google Colab  
-├──  `Colab_Pet-proj_Word2Vec.pdf` — экспорт в PDF  
-├──  `Pet-proj_Word2Vec.ipynb` — основной ноутбук с полным анализом, выполненный локально 
-├──  `Pet-proj_Word2Vec.pdf` — экспорт в PDF  
-├──  `word2vec_literature` — данные для проекта
-└──  `README.md` — эта документация
+├──  `Colab_Pet-proj_Word2Vec.ipynb`   — основной ноутбук с полным анализом, выполненный в Google Colab  
+├──  `Colab_Pet-proj_Word2Vec.pdf`     — экспорт в PDF  
+├──  `Pet-proj_Word2Vec.ipynb`         — основной ноутбук с полным анализом, выполненный локально 
+├──  `Pet-proj_Word2Vec.pdf`           — экспорт в PDF  
+├──  `word2vec_literature`             — данные для проекта
+├──  `requirements.txt`                — зависимости проекта
+└──  `README.md`                       — эта документация
 ```
 ---
 

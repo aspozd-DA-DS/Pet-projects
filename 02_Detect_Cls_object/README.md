@@ -122,14 +122,14 @@ Data & Visualization
 
 ```text
 │
-├── `01_streamlit_ydb_EfficientNet.ipynb`      # Разметка + YOLO + EfficientNet
-├── `02_sam_yolo_paketik_cls.ipynb`            # SAM, YOLO-detect, YOLO-CLS, YOLO-Seg
-├── `03_detect_color.ipynb`                    # Полный ML-пайплайн цвета
+├── `01_streamlit_ydb_EfficientNet.ipynb`    # Разметка + YOLO + EfficientNet
+├── `02_sam_yolo_paketik_cls.ipynb`          # SAM, YOLO-detect, YOLO-CLS, YOLO-Seg
+├── `03_detect_color.ipynb`                  # Полный ML-пайплайн цвета
 │
 ├── `01_streamlit_ydb_EfficientNet.pdf`      # экспорт в PDF
 ├── `02_sam_yolo_paketik_cls.pdf`            # экспорт в PDF
 ├── `03_detect_color.pdf`                    # экспорт в PDF
-│
+├── `requirements.txt`                       # зависимости проекта
 └── `README.md                                
 ```
 
