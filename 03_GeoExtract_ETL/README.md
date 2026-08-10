@@ -173,6 +173,7 @@ GeoExtract ETL — масштабный pet‑проект по построен
 
 ## 📁 Структура репозитория
 
+```text
 project/
 │
 ├── api_results/  
@@ -272,7 +273,7 @@ project/
 ├── api.py                                                                  — FastAPI сервер
 ├── requirements.txt                                                        — зависимости проекта
 └── README.md                                                               — документация проекта
-
+```
 
 ---
 

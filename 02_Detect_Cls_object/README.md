@@ -119,6 +119,8 @@ Data & Visualization
 ## 📁 Структура репозитория
 
 `02_Detect_Cls_object/`
+
+```text
 │
 ├── `01_streamlit_ydb_EfficientNet.ipynb`      # Разметка + YOLO + EfficientNet
 ├── `02_sam_yolo_paketik_cls.ipynb`            # SAM, YOLO-detect, YOLO-CLS, YOLO-Seg
@@ -129,6 +131,7 @@ Data & Visualization
 ├── `03_detect_color.pdf`                    # экспорт в PDF
 │
 └── `README.md                                
+```
 
 ---
 
