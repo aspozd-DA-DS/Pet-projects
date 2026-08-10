@@ -1,0 +1,114 @@
+doc_id,extension,true_label,model_predicted_label,classification_confidence,model_confidence,routing_warning
+2020_06_practical_4d_interpretation,.pdf,seismic_geology_study,seismic_geology_study,0.665007965852488,0.665007965852488,False
+Alaska_North_Slope_petroleum_systems,.pdf,scientific_paper,scientific_paper,0.6216247059008865,0.6216247059008865,False
+Cheatsheet_basic,.pdf,seismic_geology_study,seismic_geology_study,0.6158641701916491,0.6158641701916491,False
+Cheatsheet_geophysics,.pdf,seismic_geology_study,seismic_geology_study,0.6313935033204794,0.6313935033204794,False
+Cheatsheet_petroleum,.pdf,seismic_geology_study,seismic_geology_study,0.6389528650595437,0.6389528650595437,False
+Cheatsheet_Petrophysics,.pdf,seismic_geology_study,seismic_geology_study,0.5989436767036662,0.5989436767036662,False
+Chopra_Churning seismic attributes with principal component analysis,.pdf,scientific_paper,scientific_paper,0.6123211293181923,0.6123211293181923,False
+Cruise Report for a Seismic Investigation of Gas Hydrates,.pdf,technical_report,technical_report,0.6528441308465249,0.6528441308465249,False
+Deriving Vp velocity and density properties,.pdf,scientific_paper,scientific_paper,0.5791387900911605,0.5791387900911605,False
+Interpretation of seismic cross-hole,.pdf,seismic_geology_study,seismic_geology_study,0.5809080349139744,0.5809080349139744,False
+NPD Oligocene to Pliocene well and borehole data,.pdf,technical_report,technical_report,0.6162776269218263,0.6162776269218263,False
+Poseidon 3D Interpretation Report_Rev,.pdf,technical_report,technical_report,0.5890859411729165,0.5890859411729165,False
+Reprocessing of Reflection Seismic Lines Rill and R102,.pdf,technical_report,technical_report,0.6103040292880222,0.6103040292880222,False
+Seismic evidence for an extensive gas-bearing layer,.pdf,technical_report,technical_report,0.6064112224516097,0.6064112224516097,False
+Seismic Reflection Profiles Along the Drill Holes,.pdf,technical_report,technical_report,0.638724757895382,0.638724757895382,False
+Two-Dimensional Multichannel Seismic Data,.pdf,technical_report,technical_report,0.6276259312651277,0.6276259312651277,False
+Using Machine Learning for Automated Seismic Facies Classification,.pdf,scientific_paper,scientific_paper,0.6141649758979337,0.6141649758979337,False
+Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin,.pdf,scientific_paper,scientific_paper,0.6462423605083859,0.6462423605083859,False
+Assessment of Tight-Oil and Tight-Gas Resources,.pdf,scientific_paper,scientific_paper,0.6231465124485562,0.6231465124485562,False
+Assessment of Undiscovered Conventional Oil and Gas Resources,.pdf,scientific_paper,scientific_paper,0.48916899037848555,0.48916899037848555,low_confidence_classification
+Assessment of Undiscovered Oil and Gas  in the Haynesville Formation,.pdf,scientific_paper,scientific_paper,0.5325227349429327,0.5325227349429327,low_confidence_classification
+Assessment of Undiscovered Oil and Gas in the Central North Slope of Alaska,.pdf,scientific_paper,scientific_paper,0.6516979144761108,0.6516979144761108,False
+Assessment of Undiscovered Oil and Gas of the Gulf Coast,.pdf,scientific_paper,scientific_paper,0.5874018503274713,0.5874018503274713,False
+Assessment of Undiscovered Shale- Gas Resources,.pdf,scientific_paper,scientific_paper,0.4399588905068113,0.4399588905068113,low_confidence_classification
+Assumptions to the Annual Energy Outlook 2026 Liquid Fuels Market Module,.pdf,technical_report,technical_report,0.4566483732142101,0.4566483732142101,low_confidence_classification
+Characterization of Three Forks Formation Reservoir Lithofacies,.pdf,technical_report,technical_report,0.5848179267227429,0.5848179267227429,False
+Development of the taranaki basin for deepwater exploration,.pdf,scientific_paper,scientific_paper,0.6193535138178232,0.6193535138178232,False
+Interpretation of incised valleys using new 3-D seismic techniques,.pdf,scientific_paper,scientific_paper,0.6439838895673929,0.6439838895673929,False
+Interpretational applications of spectral decomposition in reservoir characterization,.pdf,scientific_paper,scientific_paper,0.6017808534330253,0.6017808534330253,False
+NPD FactPages  Well 72208‑1,.pdf,technical_report,technical_report,0.5683783274139961,0.5683783274139961,False
+NPD FactPages Well 65077‑12,.pdf,technical_report,technical_report,0.6404299093638626,0.6404299093638626,False
+NPD Resource Accounts for the Norwegian continental shelf 2021,.pdf,technical_report,technical_report,0.6154117703707432,0.6154117703707432,False
+Public Dataset for Machine Learning in Seismic Interpretation,.pdf,scientific_paper,scientific_paper,0.4271180488773826,0.4271180488773826,low_confidence_classification
+Seismic attributes in reservoir characterization an overview,.pdf,seismic_geology_study,scientific_paper,0.4516002718236774,0.4516002718236774,low_confidence_classification
+"Seismic facies analysis Past, present and future",.pdf,scientific_paper,scientific_paper,0.6300495376211989,0.6300495376211989,False
+Spectral decomposition of time- vs. depth-migrated data,.pdf,seismic_geology_study,seismic_geology_study,0.613326849941496,0.613326849941496,False
+Spectral Decomposition Reveals Geological Hidden Features in the Amplitude Maps,.pdf,seismic_geology_study,scientific_paper,0.4561418714309559,0.4561418714309559,low_confidence_classification
+The impact of reservoir scale on amplitude variation with offset,.pdf,seismic_geology_study,seismic_geology_study,0.6092996074547277,0.6092996074547277,False
+Use of spectral decomposition technique for delineation of channels at Solar gas discovery,.pdf,scientific_paper,scientific_paper,0.6252389140972394,0.6252389140972394,False
+Well Logging in Support for Seismic Reservoir Characterization,.pdf,scientific_paper,scientific_paper,0.5900926229700505,0.5900926229700505,False
+Williston Basin Province Interpretation of 2-D Seismic Data,.pdf,technical_report,technical_report,0.6381262355901356,0.6381262355901356,False
+Basic elements of a reservoir characterization study,.txt,seismic_geology_study,seismic_geology_study,0.6849344956506548,0.6849344956506548,False
+Geophysics,.txt,seismic_geology_study,seismic_geology_study,0.40158410899523883,0.40158410899523883,low_confidence_classification
+Geostatistical reservoir modeling,.txt,seismic_geology_study,seismic_geology_study,0.703527513946478,0.703527513946478,False
+Geostatistics,.txt,seismic_geology_study,seismic_geology_study,0.6569776996804729,0.6569776996804729,False
+Predicting rock properties,.txt,seismic_geology_study,seismic_geology_study,0.39711512224202555,0.39711512224202555,low_confidence_classification
+Reservoir geophysics overview,.txt,seismic_geology_study,seismic_geology_study,0.4460330568815004,0.4460330568815004,low_confidence_classification
+Reservoir simulation applications,.txt,seismic_geology_study,seismic_geology_study,0.6483641810640578,0.6483641810640578,False
+Seismic attributes for reservoir studies,.txt,seismic_geology_study,seismic_geology_study,0.6431698461246904,0.6431698461246904,False
+Seismic attributes,.txt,seismic_geology_study,seismic_geology_study,0.663771382075831,0.663771382075831,False
+Seismic imaging and inversion,.txt,seismic_geology_study,seismic_geology_study,0.6555497688680054,0.6555497688680054,False
+Seismic interpretation,.txt,seismic_geology_study,seismic_geology_study,0.4229769055193291,0.4229769055193291,low_confidence_classification
+Seismic time-lapse reservoir monitoring,.txt,seismic_geology_study,seismic_geology_study,0.5109811636518518,0.5109811636518518,low_confidence_classification
+WA1,.txt,technical_report,technical_report,0.508301390217671,0.508301390217671,low_confidence_classification
+Seismic_Imaging_and_Interpretation_Techniques_doc,.doc,seismic_geology_study,seismic_geology_study,0.6942464854978051,0.6942464854978051,False
+2D_Simultaneous_Inversion_Bonaparte_Basin_project_report,.docx,technical_report,seismic_geology_study,0.4113003030286563,0.4113003030286563,low_confidence_classification
+A decade of marine seismic technology development,.docx,scientific_paper,scientific_paper,0.5759207159137127,0.5759207159137127,False
+A Seismic Multi-Attribute on the LightGBM-RFECV Coupling Algorithm,.docx,seismic_geology_study,seismic_geology_study,0.558226073464526,0.558226073464526,False
+Application of seismic inversion constrained geological modeling technology,.docx,scientific_paper,seismic_geology_study,0.4667496947772722,0.4667496947772722,low_confidence_classification
+Assessing Gas Hydrate Prospects on the North Slope of Alaska,.docx,technical_report,technical_report,0.5283852636376887,0.5283852636376887,low_confidence_classification
+Elastic seismic inversion and reservoir characterization in the Llanos Basin,.docx,scientific_paper,scientific_paper,0.6114942934629822,0.6114942934629822,False
+Guidelines for interpreted data,.docx,technical_report,technical_report,0.6017351079590383,0.6017351079590383,False
+Implementation of seismic surveys on the Norwegian Continental Shelf,.docx,technical_report,technical_report,0.4742383813430041,0.4742383813430041,low_confidence_classification
+Integration of and Model-Based Seismic Inversion and Neural Network Method,.docx,scientific_paper,scientific_paper,0.6499729250998622,0.6499729250998622,False
+Integration of Deterministic Seismic inversion with Machine Learning,.docx,scientific_paper,scientific_paper,0.6262010845561952,0.6262010845561952,False
+Poro-Acoustic Impedance,.docx,scientific_paper,scientific_paper,0.6078308729780648,0.6078308729780648,False
+Probabilistic inversion of seismic data,.docx,seismic_geology_study,seismic_geology_study,0.4137753777243692,0.4137753777243692,low_confidence_classification
+Qualitative and quantitative reservoir characterization using seismic inversion,.docx,seismic_geology_study,seismic_geology_study,0.6161783668146548,0.6161783668146548,False
+Reservoir Characterization Based on Bayesian AVO,.docx,seismic_geology_study,seismic_geology_study,0.4359207968684234,0.4359207968684234,low_confidence_classification
+Reservoir Characterization Integrating Seismic Attributes,.docx,scientific_paper,scientific_paper,0.49053544728358445,0.49053544728358445,low_confidence_classification
+Reservoir Characterization Using Intelligent Seismic Inversion,.docx,seismic_geology_study,scientific_paper,0.4033663075468153,0.4033663075468153,low_confidence_classification
+Seismic_Imaging_and_Interpretation_Techniques,.docx,seismic_geology_study,seismic_geology_study,0.6942464854978051,0.6942464854978051,False
+Box-plots-ranges-of-source-depths,.jpg,technical_report,technical_report,0.6848857055915631,0.6848857055915631,False
+Convolution_Polarity,.jpg,seismic_geology_study,seismic_geology_study,0.6891741878069311,0.6891741878069311,False
+defs_ref_data,.jpg,seismic_geology_study,seismic_geology_study,0.6094943995204914,0.6094943995204914,False
+Example-of-a-near-seafloor-structure,.jpg,technical_report,technical_report,0.6803870530254094,0.6803870530254094,False
+Example-of-a-regional-seismic-line-from-the-eastern-Gulf-of-Mexico,.jpg,technical_report,technical_report,0.5507694525762115,0.5507694525762115,False
+Facies-of-deepwater-depositional-systems-Shoup,.jpg,seismic_geology_study,seismic_geology_study,0.6660212345505776,0.6660212345505776,False
+Integrated stratigraphic column of the Yingshan area,.jpg,technical_report,technical_report,0.641816276472676,0.641816276472676,False
+Integrated workflow for high-resolution 3D seismic processing and quantitative interpretation,.jpg,seismic_geology_study,seismic_geology_study,0.6093965550486743,0.6093965550486743,False
+Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary,.jpg,technical_report,technical_report,0.4445688334969947,0.4445688334969947,low_confidence_classification
+NW-SE-time-migrated-seismic-line-showing-extensional-basins-developed-atop-the-eastern,.jpg,technical_report,technical_report,0.674474528586424,0.674474528586424,False
+Postack - Seismic inversion (post-stacking vs pre-stacking),.jpg,seismic_geology_study,seismic_geology_study,0.7177068571198036,0.7177068571198036,False
+Prestack - Seismic inversion (post-stacking vs pre-stacking),.jpg,seismic_geology_study,seismic_geology_study,0.7056516439137557,0.7056516439137557,False
+Regional-seismic-profile-showing-rift-structure-and-prerift-synrift-and-postrift,.jpg,technical_report,technical_report,0.6667318762743979,0.6667318762743979,False
+Regional-seismic-sections-across-the-northern-North-Sea-rift-from-north-to-south-See,.jpg,technical_report,technical_report,0.4733039343277599,0.4733039343277599,low_confidence_classification
+Representative-E-W-seismic-line-through-the-salt-minibasins-and-salt-diapirs,.jpg,technical_report,technical_report,0.6581834373830825,0.6581834373830825,False
+SE-NW-seismic-section,.jpg,seismic_geology_study,seismic_geology_study,0.5932117710282823,0.5932117710282823,False
+SEG_EURO_Polarity,.jpg,seismic_geology_study,seismic_geology_study,0.6752298583461809,0.6752298583461809,False
+Seismic inversion (post-stacking vs pre-stacking),.jpg,seismic_geology_study,seismic_geology_study,0.6730588013854785,0.6730588013854785,False
+Seismic-Cross-Section-over-the-Mid-North-Sea-High-from-the-Anglo-Dutch-Basin,.jpg,technical_report,technical_report,0.6557023035228317,0.6557023035228317,False
+Series-of-seismic-reflection-profiles-showing-the-differences-in-rift-geometries-and-rift,.jpg,technical_report,technical_report,0.6532465854801895,0.6532465854801895,False
+The-poststack-inversion-workflow-was-used-in-this-study-in-which-three-key-components,.jpg,seismic_geology_study,seismic_geology_study,0.6594429090433377,0.6594429090433377,False
+vertical-and-horizontal-stratigraphic-compartmentalization-and-baffling-by-reservoi,.jpg,seismic_geology_study,seismic_geology_study,0.6808011804883698,0.6808011804883698,False
+Workflow-for-seismic-interpretation,.jpg,seismic_geology_study,seismic_geology_study,0.6257292341102589,0.6257292341102589,False
+Geophysics_cheatsheet,.png,seismic_geology_study,seismic_geology_study,0.6481017861574004,0.6481017861574004,False
+seismic polarity,.png,seismic_geology_study,seismic_geology_study,0.6417280858002746,0.6417280858002746,False
+Annual Energy  Oil and Gas Supply,.xlsx,technical_report,technical_report,0.7486078315901014,0.7486078315901014,False
+"Annual Energy  Total Energy Supply, Disposition, and Price Summary",.xlsx,technical_report,technical_report,0.7368669608155867,0.7368669608155867,False
+CP_Kronos1_Well_Seismic_Report_VSP_data,.xlsx,technical_report,technical_report,0.5867194344059922,0.5867194344059922,False
+Crude Oil and Natural Gas Exploratory and Development Wells,.xlsx,technical_report,technical_report,0.6909355646813821,0.6909355646813821,False
+DPR_data_region_month_oil_natural_gas,.xlsx,technical_report,technical_report,0.5426973790748318,0.5426973790748318,low_confidence_classification
+GEoREST_induced_seismicity_database_20_11_2022,.xlsx,technical_report,technical_report,0.7241663913657324,0.7241663913657324,False
+Oil well operation parameters (2013),.xlsx,technical_report,technical_report,0.7053565297506175,0.7053565297506175,False
+Oil_and_Gas_Wells,.xlsx,technical_report,technical_report,0.7348850981178261,0.7348850981178261,False
+"Petroleum Segments_Exploration, Development, & Production Statistics",.xlsx,technical_report,technical_report,0.7746908107908971,0.7746908107908971,False
+Petroleum Segments_Proved Petroleum Reserves,.xlsx,technical_report,technical_report,0.782020519009605,0.782020519009605,False
+Pools allocated to petroleum system in the San Joaquin Basin Province,.xlsx,technical_report,technical_report,0.6959579914909386,0.6959579914909386,False
+Reservoir rock allocated to each producing zone all,.xlsx,technical_report,technical_report,0.7074919854109157,0.7074919854109157,False
+Reservoir rock allocated to each producing zone,.xlsx,technical_report,technical_report,0.6793366700275233,0.6793366700275233,False
+Seismic_Water_Bottom_Anomalies,.xlsx,technical_report,technical_report,0.6352673778041686,0.6352673778041686,False
+W1 Well Logs,.xlsx,technical_report,technical_report,0.6604032242863891,0.6604032242863891,False
+Tight oil production estimates by play,.xls,technical_report,technical_report,0.6643758037286536,0.6643758037286536,False

@@ -1,0 +1,197 @@
+{
+  "doc_id": "Interpretational applications of spectral decomposition in reservoir characterization",
+  "extension": ".pdf",
+  "total_blocks": 38,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Interpretational applications of spectral decomposition in reservoir characterization",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "GREG PARTYKA, JAMES GRIDLEY, and JOHN LOPEZ, Amoco E&P Technology Group, Tulsa, Oklahoma, U.S.",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Spectral decomposition provides a novel means of utilizing seismic data and the discrete Fourier transform (DFT) for imaging and mapping temporal bed thickness and geologic discontinuities over large 3-D seismic surveys. By transforming the seismic data into the frequency domain via the DFT, the amplitude spectra delineate temporal bed thickness variability while the phase spectra indicate lateral geologic discontinuities. This technology has delineated stratigraphic settings (such as channel sands and structural settings involving complex fault systems) in 3-D surveys.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Widess pioneered a widely used method for quantifying thin-bed thickness in 1973. Because it uses peak-totrough time separation in conjunction with amplitude, this method depends on careful processing to establish the correct wavelet phase and true traceto-trace amplitudes. Although similar in context, the spectral method proposed here uses a more robust phaseindependent amplitude spectrum and is designed for examining thin-bed responses over large 3-D surveys.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The concept behind spectral decomposition is that a reflection from a thin bed has a characteristic expression in the frequency domain that is indicative of the temporal bed thickness. For example, a simple homogeneous thin bed introduces a predictable and periodic sequence of notches into the amplitude spectrum of the composite reflection (Figure 1). The seismic wavelet, however, typically spans multiple subsurface layers—not just one simple thin bed. This layered system results in a complex tuned reflection that has a unique frequency domain expression.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The amplitude spectrum interference pattern from a tuned reflection defines the relationship between acoustic properties of the individual beds that comprise the reflection. Amplitude spectra delineate thin-bed variability via spectral notching patterns, which are related to local rock mass variability. Likewise, phase spectra respond to lateral discontinuities via local phase instability. Together, the amplitude- and phase-related interference phenomena allow interpreters to quickly and efficiently quan-tify and map local rock mass variability within large 3-D surveys.",
+  "start_page": 1
+},
+    {
+      "type": "figure",
+      "caption": "Figure 1. Thin-bed spectral imaging.",
+      "start_page": 1
+    },
+     {
+      "type": "figure",
+      "caption": "Figure 2. Long-window spectral decomposition and its relationship to the convolutional model. A long temporal window samples random geology that commonly exhibits a white (flat) amplitude spectrum.",
+      "start_page": 1
+    },  
+{
+  "type": "paragraph",
+  "text": "The difference in frequency response between a long-window and a short-window amplitude spectrum is significant. The transform from a long trace approximates the spectrum of the wavelet (Figure 2), but the transform from a short trace comprises a wavelet overprint and a local interference pattern representing the acoustic properties and thickness of the geologic layers spanned by the window (Figure 3).",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "With a few exceptions (e.g., cyclothems and sabkhas), long analysis windows encompass many geologic variations that statistically randomize interference patterns of individual thin beds. The resulting long-window reflectivity spectra appear white or flat. This is the premise behind multiple suppression via deconvolution. Given a large enough window, the geologic stacking of individual thin layers can be considered random. The convolution of a source wavelet with a random geologic sec-tion creates an amplitude spectrum that resembles the wavelet.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The response from a short window is dependent on the acoustic properties and thicknesses of the layers spanned by the window. The shorter the window, the less random the sampled geology. The amplitude spectrum no longer approximates just the wavelet but rather the wavelet plus local layering. In such small windows, the geology acts as a local filter on the reflecting wavelet, thereby attenuating its spectrum. The resulting amplitude spectrum is not white and represents the interference pattern within the window.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The short-window phase spectrum is also useful in mapping local rock mass characteristics. Because phase is sensitive to subtle perturbations in the seismic character, it is ideal for detecting lateral acoustic discontinuities. If the rock mass within the window is lat-erally stable, its phase response will likewise be stable. If a lateral discontinuity occurs, the phase response becomes unstable across that discontinuity. Once the rock mass stabilizes on the other side of the discontinuity, the phase response likewise stabilizes.",
+  "start_page": 2
+},
+    {
+      "type": "figure",
+      "caption": "Figure 3. Short-window spectral decomposition and its relationship to the convolutional model. A short temporal window samples ordered (nonrandom) geology that tunes the amplitude spectrum.",
+      "start_page": 2
+    },
+    {
+      "type": "figure",
+      "caption": "Figure 4. Blocky wedge model. (a) Reflectivity; (b) filtered reflectivity; (c) spectral amplitudes.",
+      "start_page": 2
+    },
+{
+  "type": "paragraph",
+  "text": "Wedge model response. Spectral decomposition and thin-bed tuning phenomena can be illustrated by a simple wedge model (Figure 4a). The temporal response consists of two reflectivity spikes of equal but opposite magnitude. The top of the wedge is marked by a negative reflection coefficient and the bottom by a positive reflection coefficient. The wedge thickens from 0 ms on the left to 50 ms on the right. Filtering the reflectivity model (using an 8-10-40-50 Hz Ormsby filter) illustrates the tuning effects brought on with a change in thickness (Figure 4b). The top and bottom reflections are resolved at larger thicknesses but blend into one reflection as the wedge thins.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "A short-window amplitude spectrum was computed for each reflectivity trace. These are plotted with frequency as the vertical axis (Figure 4c). The temporal thickness of the wedge determines the period of the notches in the amplitude spectrum with respect to frequency (Figure 5a). Pf = 1/t, where Pf = period of notches in the amplitude spectrum with respect to frequency (Hz), and t = thinbed thickness (s).",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "Another viewpoint illustrates that the value of the frequency component determines the period of the notches in the amplitude spectrum with respect to thin-bed thickness (Figure 5b). Pt = 1/f, where Pt = period of notches in the amplitude spectrum with respect to temporal thickness (s), and f = discrete Fourier frequency.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "Even a relatively low-frequency component such as 10 Hz quantifies thin-bed variability.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The wedge model (Figures 4 and 5) illustrates the application of this approach to a very simple two-reflector reflectivity model. Increasing the complexity of the reflectivity model will in turn complicate the interference pattern.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The tuning cube. Amoco’s most common approach to characterize reservoirs using spectral decomposition is via the “zone-of-interest tuning cube” (Figure 6). The interpreter starts by mapping the temporal and vertical bounds of the zone-of-interest. Ashort temporal window about this zone is transformed from the time domain into the frequency domain. The resulting “tuning cube” can be viewed in cross-section or plan view (common frequency slices).",
+  "start_page": 2
+},
+    {
+      "type": "figure",
+      "caption": "Figure 5. Thin-bed tuning of amplitudes versus frequency (a) with respect to frequency and (b) with respect to thin-bed thickness.",
+      "start_page": 3
+    },
+    {
+      "type": "figure",
+      "caption": "Figure 6. Zone-of-interest tuning cube.",
+      "start_page": 3
+    },
+    {
+      "type": "figure",
+      "caption": "Figure 7. Prior to balancing the spectrum, the tuning cube consists of thinbed interference, the seismic wavelet, and random noise.",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "The frequency slice is typically more useful because it allows interpreters to visualize thin-bed interference patterns in plan view from which he or she can, drawing on experience, identify textures and patterns indicative of geologic processes. Amplitude or phase versus frequency behavior/tuning is fully expressed by animating through the entire frequency range (i.e., through all frequency slices).",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "Tuning cube maps of the earth’s subsurface are in many ways analogous to satellite imaging maps of the earth’s surface. Both methods take advantage of frequency subbands to map lateral variability in surface properties.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "Removing the wavelet overprint.The tuning cube has three components: thin-bed interference, wavelet overprint, and noise (Figure 7). Since the geologic response is the most interesting component for the interpreter, it is prudent to balance the wavelet amplitude without degrading the geologic information. This reduces the tuning cube to thin-bed interference and noise.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "Common spectral balancing techniques rely on sparse invariant stationary statistics. If we assume that the geologic tuning varies considerably along any flattened horizon, then we balance the wavelet spectrum by equalizing each frequency slice according to its average amplitude (Figure 8). After whitening to minimize the wavelet effect, the tuning cube retains two main components: thin-bed interference and noise.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "In frequency-slice form, thin-bed interference appears as coherent amplitude variations. Random noise speckles the interference pattern in a similar fashion to poor quality television reception. At dominant frequencies, the relatively high signal-to-noise ratio (SNR) results in clear pictures of thin-bed tuning. Movement away from dominant frequency causes the SNR to degrade. At frequencies beyond usable bandwidth, the poor SNR results in a noise map.",
+  "start_page": 3
+},
+    {
+      "type": "figure",
+      "caption": "Figure 8. Removing the wavelet overprint (balancing the spectrum) without removing the reflectivity tuning characteristics.",
+      "start_page": 4
+    },
+    {
+      "type": "figure",
+      "caption": "Figure 9. Discrete frequency energy cubes.",
+      "start_page": 4
+    },
+{
+  "type": "paragraph",
+  "text": "Beyond the zone-of-interest. The tuning cube addresses the tuning problem on a local zone-of-interest scale. Characterizing larger seismic volumes requires a different approach. For decomposition beyond the single reflectivity package or zone-of-interest, we recommend “discrete frequency energy cubes” or, with different data organization, the “timefrequency 4-D cube.”",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "“Discrete frequency energy cubes” (Figure 9) are computed from a single input seismic volume into multiple discrete frequency amplitude and phase volumes. Computation is done via running window spectral analysis which calculates the amplitude or phase spectrum for each sample. The spectral components are then sorted into common frequency component cubes. This method is typically done only after scoping the zone-of-interest, horizon-based tuning cube.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "For the “time-frequency 4-D cube,” the spectral decomposition is also computed using a running window approach. The results are sorted into common samples with increasing frequency. This volume allows the interpreter to exploit conventional interpretive workstation software and navigate through the volume at any depth slice for any frequency. The output is many times the size of the input, but it allows the interpreter to navigate and visualize in space, time, and frequency.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Gulf of Mexico example. A case history from the Gulf of Mexico illustrates the use of spectral decomposition to image the Pleistocene-age-equivalent of the modern Mississippi River delta. Tuning cube frequency slices (Figure 10) capture the subtleties of inherent tuning and reveal the various depositional features more effectively than full-bandwidth energy and phase extractions (Figure 11). For example, compare the north-south delineation for channel A. The image from 26 Hz (Figure 10b) is significantly better than from 16 Hz (Figure 10a). On the other hand, channel B is better imaged by 16 Hz than by 26 Hz. Neither channel is adequately delineated by conventional energy envelope extraction. The strength of the phase component lies in detecting discontinuities. The response in both phase (Figure 10c,d) is stable away from the faults but becomes unstable crossing discontinuities such as faults. These spectral phase maps provide sharper definition of faults than a conventional response phase map (Figure 11b).",
+  "start_page": 4
+},
+    {
+      "type": "figure",
+      "caption": "Figure 10. Gulf of Mexico (a) 16-Hz energy map, (b) 26-Hz energy map, (c) 16-Hz phase map, (d) 26-Hz phase map.",
+      "start_page": 5
+    },
+    {
+      "type": "figure",
+      "caption": "Figure 11. Gulf of Mexico full-bandwidth (a) conventional energy envelope extraction, (b) conventional response phase extraction.",
+      "start_page": 5
+    },
+{
+  "type": "paragraph",
+  "text": "Conclusions. Spectral decomposition can be a powerful aid to the imaging and mapping of bed thickness and geologic discontinuities. Real seismic is rarely dominated by simple blocky, resolved reflections. In addition, true geologic boundaries rarely fall along fully resolved seismic peaks and troughs. By transforming the data into the frequency domain with the discrete Fourier transform, short-window amplitude and phase spectra localize thin-bed reflections and define bedthickness variability within complex rock strata. This allows the interpreter to quickly and effectively quantify thin-bed interference and detect subtle discontinuities within large 3-D surveys.",
+  "start_page": 5
+},
+{
+  "type": "paragraph",
+  "text": "Suggestions for further reading. The Fourier Transform and its Applications by Bracewell (McGraw-Hill, 1965). “Spectral analysis applied to seismic monitoring of thermal recovery” by Dilay and Eastwood (TLE, 1995). “Identification of deltaic facies with 3-D seismic coherency and spectral decomposition cube” by Lopez et al. (Abstract, Istanbul ‘97). “Interpretational aspects of spectral decomposition” by Partyka and Gridley (Abstract, Istanbul ‘97). “How thin is a thin bed?” by Widess (GEOPHYSICS, 1973",
+  "start_page": 5
+}
+  ]
+}

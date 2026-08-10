@@ -1,0 +1,118 @@
+2026-08-10 10:40:25,684 — INFO — === Шаг 1: старт ===
+2026-08-10 10:40:25,998 — INFO — = Проверка открытия файлов =
+2026-08-10 10:40:25,998 — INFO — [OK] Файл открыт: data\raw\doc_Word\2D_Simultaneous_Inversion_Bonaparte_Basin_project_report.docx
+2026-08-10 10:40:25,999 — INFO — [OK] Файл открыт: data\raw\doc_Word\A decade of marine seismic technology development.docx
+2026-08-10 10:40:25,999 — INFO — [OK] Файл открыт: data\raw\doc_Word\A Seismic Multi-Attribute on the LightGBM-RFECV Coupling Algorithm.docx
+2026-08-10 10:40:26,000 — INFO — [OK] Файл открыт: data\raw\doc_Word\Application of seismic inversion constrained geological modeling technology.docx
+2026-08-10 10:40:26,000 — INFO — [OK] Файл открыт: data\raw\doc_Word\Assessing Gas Hydrate Prospects on the North Slope of Alaska.docx
+2026-08-10 10:40:26,001 — INFO — [OK] Файл открыт: data\raw\doc_Word\Elastic seismic inversion and reservoir characterization in the Llanos Basin.docx
+2026-08-10 10:40:26,001 — INFO — [OK] Файл открыт: data\raw\doc_Word\Guidelines for interpreted data.docx
+2026-08-10 10:40:26,003 — INFO — [OK] Файл открыт: data\raw\doc_Word\Implementation of seismic surveys on the Norwegian Continental Shelf.docx
+2026-08-10 10:40:26,004 — INFO — [OK] Файл открыт: data\raw\doc_Word\Integration of and Model-Based Seismic Inversion and Neural Network Method.docx
+2026-08-10 10:40:26,004 — INFO — [OK] Файл открыт: data\raw\doc_Word\Integration of Deterministic Seismic inversion with Machine Learning.docx
+2026-08-10 10:40:26,005 — INFO — [OK] Файл открыт: data\raw\doc_Word\Poro-Acoustic Impedance.docx
+2026-08-10 10:40:26,005 — INFO — [OK] Файл открыт: data\raw\doc_Word\Probabilistic inversion of seismic data.docx
+2026-08-10 10:40:26,006 — INFO — [OK] Файл открыт: data\raw\doc_Word\Qualitative and quantitative reservoir characterization using seismic inversion.docx
+2026-08-10 10:40:26,006 — INFO — [OK] Файл открыт: data\raw\doc_Word\Reservoir Characterization Based on Bayesian AVO.docx
+2026-08-10 10:40:26,007 — INFO — [OK] Файл открыт: data\raw\doc_Word\Reservoir Characterization Integrating Seismic Attributes.docx
+2026-08-10 10:40:26,008 — INFO — [OK] Файл открыт: data\raw\doc_Word\Reservoir Characterization Using Intelligent Seismic Inversion.docx
+2026-08-10 10:40:26,009 — INFO — [OK] Файл открыт: data\raw\doc_Word\Seismic_Imaging_and_Interpretation_Techniques.docx
+2026-08-10 10:40:26,009 — INFO — [OK] Файл открыт: data\raw\doc_Word\Seismic_Imaging_and_Interpretation_Techniques_doc.doc
+2026-08-10 10:40:26,010 — INFO — [OK] Файл открыт: data\raw\images\Box-plots-ranges-of-source-depths.jpg
+2026-08-10 10:40:26,011 — INFO — [OK] Файл открыт: data\raw\images\Convolution_Polarity.jpg
+2026-08-10 10:40:26,011 — INFO — [OK] Файл открыт: data\raw\images\defs_ref_data.jpg
+2026-08-10 10:40:26,012 — INFO — [OK] Файл открыт: data\raw\images\Example-of-a-near-seafloor-structure.jpg
+2026-08-10 10:40:26,013 — INFO — [OK] Файл открыт: data\raw\images\Example-of-a-regional-seismic-line-from-the-eastern-Gulf-of-Mexico.jpg
+2026-08-10 10:40:26,013 — INFO — [OK] Файл открыт: data\raw\images\Facies-of-deepwater-depositional-systems-Shoup.jpg
+2026-08-10 10:40:26,014 — INFO — [OK] Файл открыт: data\raw\images\Geophysics_cheatsheet.png
+2026-08-10 10:40:26,015 — INFO — [OK] Файл открыт: data\raw\images\Integrated stratigraphic column of the Yingshan area.jpg
+2026-08-10 10:40:26,015 — INFO — [OK] Файл открыт: data\raw\images\Integrated workflow for high-resolution 3D seismic processing and quantitative interpretation.jpg
+2026-08-10 10:40:26,016 — INFO — [OK] Файл открыт: data\raw\images\Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary.jpg
+2026-08-10 10:40:26,016 — INFO — [OK] Файл открыт: data\raw\images\NW-SE-time-migrated-seismic-line-showing-extensional-basins-developed-atop-the-eastern.jpg
+2026-08-10 10:40:26,017 — INFO — [OK] Файл открыт: data\raw\images\Postack - Seismic inversion (post-stacking vs pre-stacking).jpg
+2026-08-10 10:40:26,018 — INFO — [OK] Файл открыт: data\raw\images\Prestack - Seismic inversion (post-stacking vs pre-stacking).jpg
+2026-08-10 10:40:26,019 — INFO — [OK] Файл открыт: data\raw\images\Regional-seismic-profile-showing-rift-structure-and-prerift-synrift-and-postrift.jpg
+2026-08-10 10:40:26,019 — INFO — [OK] Файл открыт: data\raw\images\Regional-seismic-sections-across-the-northern-North-Sea-rift-from-north-to-south-See.jpg
+2026-08-10 10:40:26,020 — INFO — [OK] Файл открыт: data\raw\images\Representative-E-W-seismic-line-through-the-salt-minibasins-and-salt-diapirs.jpg
+2026-08-10 10:40:26,020 — INFO — [OK] Файл открыт: data\raw\images\SE-NW-seismic-section.jpg
+2026-08-10 10:40:26,021 — INFO — [OK] Файл открыт: data\raw\images\SEG_EURO_Polarity.jpg
+2026-08-10 10:40:26,021 — INFO — [OK] Файл открыт: data\raw\images\Seismic inversion (post-stacking vs pre-stacking).jpg
+2026-08-10 10:40:26,022 — INFO — [OK] Файл открыт: data\raw\images\seismic polarity.png
+2026-08-10 10:40:26,023 — INFO — [OK] Файл открыт: data\raw\images\Seismic-Cross-Section-over-the-Mid-North-Sea-High-from-the-Anglo-Dutch-Basin.jpg
+2026-08-10 10:40:26,023 — INFO — [OK] Файл открыт: data\raw\images\Series-of-seismic-reflection-profiles-showing-the-differences-in-rift-geometries-and-rift.jpg
+2026-08-10 10:40:26,024 — INFO — [OK] Файл открыт: data\raw\images\The-poststack-inversion-workflow-was-used-in-this-study-in-which-three-key-components.jpg
+2026-08-10 10:40:26,024 — INFO — [OK] Файл открыт: data\raw\images\vertical-and-horizontal-stratigraphic-compartmentalization-and-baffling-by-reservoi.jpg
+2026-08-10 10:40:26,025 — INFO — [OK] Файл открыт: data\raw\images\Workflow-for-seismic-interpretation.jpg
+2026-08-10 10:40:26,025 — INFO — [OK] Файл открыт: data\raw\pdf_scans\2020_06_practical_4d_interpretation.pdf
+2026-08-10 10:40:26,025 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Alaska_North_Slope_petroleum_systems.pdf
+2026-08-10 10:40:26,025 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Cheatsheet_basic.pdf
+2026-08-10 10:40:26,025 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Cheatsheet_geophysics.pdf
+2026-08-10 10:40:26,025 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Cheatsheet_petroleum.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Cheatsheet_Petrophysics.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Chopra_Churning seismic attributes with principal component analysis.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Cruise Report for a Seismic Investigation of Gas Hydrates.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Deriving Vp velocity and density properties.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Interpretation of seismic cross-hole.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\NPD Oligocene to Pliocene well and borehole data.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Poseidon 3D Interpretation Report_Rev.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Reprocessing of Reflection Seismic Lines Rill and R102.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Seismic evidence for an extensive gas-bearing layer.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Seismic Reflection Profiles Along the Drill Holes.pdf
+2026-08-10 10:40:26,026 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Two-Dimensional Multichannel Seismic Data.pdf
+2026-08-10 10:40:26,027 — INFO — [OK] Файл открыт: data\raw\pdf_scans\Using Machine Learning for Automated Seismic Facies Classification.pdf
+2026-08-10 10:40:26,027 — INFO — [OK] Файл открыт: data\raw\pdf_text\Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin.pdf
+2026-08-10 10:40:26,027 — INFO — [OK] Файл открыт: data\raw\pdf_text\Assessment of Tight-Oil and Tight-Gas Resources.pdf
+2026-08-10 10:40:26,027 — INFO — [OK] Файл открыт: data\raw\pdf_text\Assessment of Undiscovered Conventional Oil and Gas Resources.pdf
+2026-08-10 10:40:26,027 — INFO — [OK] Файл открыт: data\raw\pdf_text\Assessment of Undiscovered Oil and Gas  in the Haynesville Formation.pdf
+2026-08-10 10:40:26,027 — INFO — [OK] Файл открыт: data\raw\pdf_text\Assessment of Undiscovered Oil and Gas in the Central North Slope of Alaska.pdf
+2026-08-10 10:40:26,027 — INFO — [OK] Файл открыт: data\raw\pdf_text\Assessment of Undiscovered Oil and Gas of the Gulf Coast.pdf
+2026-08-10 10:40:26,027 — INFO — [OK] Файл открыт: data\raw\pdf_text\Assessment of Undiscovered Shale- Gas Resources.pdf
+2026-08-10 10:40:26,027 — INFO — [OK] Файл открыт: data\raw\pdf_text\Assumptions to the Annual Energy Outlook 2026 Liquid Fuels Market Module.pdf
+2026-08-10 10:40:26,027 — INFO — [OK] Файл открыт: data\raw\pdf_text\Characterization of Three Forks Formation Reservoir Lithofacies.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\Development of the taranaki basin for deepwater exploration.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\Interpretation of incised valleys using new 3-D seismic techniques.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\Interpretational applications of spectral decomposition in reservoir characterization.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\NPD FactPages  Well 72208‑1.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\NPD FactPages Well 65077‑12.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\NPD Resource Accounts for the Norwegian continental shelf 2021.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\Public Dataset for Machine Learning in Seismic Interpretation.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\Seismic attributes in reservoir characterization an overview.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\Seismic facies analysis Past, present and future.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\Spectral decomposition of time- vs. depth-migrated data.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\Spectral Decomposition Reveals Geological Hidden Features in the Amplitude Maps.pdf
+2026-08-10 10:40:26,028 — INFO — [OK] Файл открыт: data\raw\pdf_text\The impact of reservoir scale on amplitude variation with offset.pdf
+2026-08-10 10:40:26,029 — INFO — [OK] Файл открыт: data\raw\pdf_text\Use of spectral decomposition technique for delineation of channels at Solar gas discovery.pdf
+2026-08-10 10:40:26,029 — INFO — [OK] Файл открыт: data\raw\pdf_text\Well Logging in Support for Seismic Reservoir Characterization.pdf
+2026-08-10 10:40:26,029 — INFO — [OK] Файл открыт: data\raw\pdf_text\Williston Basin Province Interpretation of 2-D Seismic Data.pdf
+2026-08-10 10:40:26,029 — INFO — [OK] Файл открыт: data\raw\tables\Annual Energy  Oil and Gas Supply.xlsx
+2026-08-10 10:40:26,029 — INFO — [OK] Файл открыт: data\raw\tables\Annual Energy  Total Energy Supply, Disposition, and Price Summary.xlsx
+2026-08-10 10:40:26,029 — INFO — [OK] Файл открыт: data\raw\tables\CP_Kronos1_Well_Seismic_Report_VSP_data.xlsx
+2026-08-10 10:40:26,029 — INFO — [OK] Файл открыт: data\raw\tables\Crude Oil and Natural Gas Exploratory and Development Wells.xlsx
+2026-08-10 10:40:26,029 — INFO — [OK] Файл открыт: data\raw\tables\DPR_data_region_month_oil_natural_gas.xlsx
+2026-08-10 10:40:26,029 — INFO — [OK] Файл открыт: data\raw\tables\GEoREST_induced_seismicity_database_20_11_2022.xlsx
+2026-08-10 10:40:26,029 — INFO — [OK] Файл открыт: data\raw\tables\Oil well operation parameters (2013).xlsx
+2026-08-10 10:40:26,030 — INFO — [OK] Файл открыт: data\raw\tables\Oil_and_Gas_Wells.xlsx
+2026-08-10 10:40:26,030 — INFO — [OK] Файл открыт: data\raw\tables\Petroleum Segments_Exploration, Development, & Production Statistics.xlsx
+2026-08-10 10:40:26,030 — INFO — [OK] Файл открыт: data\raw\tables\Petroleum Segments_Proved Petroleum Reserves.xlsx
+2026-08-10 10:40:26,030 — INFO — [OK] Файл открыт: data\raw\tables\Pools allocated to petroleum system in the San Joaquin Basin Province.xlsx
+2026-08-10 10:40:26,030 — INFO — [OK] Файл открыт: data\raw\tables\Reservoir rock allocated to each producing zone all.xlsx
+2026-08-10 10:40:26,030 — INFO — [OK] Файл открыт: data\raw\tables\Reservoir rock allocated to each producing zone.xlsx
+2026-08-10 10:40:26,030 — INFO — [OK] Файл открыт: data\raw\tables\Seismic_Water_Bottom_Anomalies.xlsx
+2026-08-10 10:40:26,030 — INFO — [OK] Файл открыт: data\raw\tables\Tight oil production estimates by play.xls
+2026-08-10 10:40:26,030 — INFO — [OK] Файл открыт: data\raw\tables\W1 Well Logs.xlsx
+2026-08-10 10:40:26,030 — INFO — [OK] Файл открыт: data\raw\txt\Basic elements of a reservoir characterization study.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Geophysics.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Geostatistical reservoir modeling.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Geostatistics.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Predicting rock properties.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Reservoir geophysics overview.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Reservoir simulation applications.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Seismic attributes for reservoir studies.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Seismic attributes.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Seismic imaging and inversion.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Seismic interpretation.txt
+2026-08-10 10:40:26,031 — INFO — [OK] Файл открыт: data\raw\txt\Seismic time-lapse reservoir monitoring.txt
+2026-08-10 10:40:26,032 — INFO — [OK] Файл открыт: data\raw\txt\WA1.txt
+2026-08-10 10:43:25,559 — ERROR — [file: Seismic_Imaging_and_Interpretation_Techniques_doc.doc] extract_docx_images error - "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
+2026-08-10 10:43:34,150 — INFO — Tesseract OK: 5.5.0.20241111
+2026-08-10 10:43:37,775 — INFO — Summary_eda table saved to: results\step1\summary_eda.csv

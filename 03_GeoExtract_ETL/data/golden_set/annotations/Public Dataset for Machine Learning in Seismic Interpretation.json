@@ -1,0 +1,400 @@
+{
+  "doc_id": "Public Dataset for Machine Learning in Seismic Interpretation",
+  "extension": ".pdf",
+  "total_blocks": 70,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Netherlands Dataset: A New Public Dataset for Machine Learning in Seismic Interpretation",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Reinaldo Mozart Silva, Lais Baroni1, Rodrigo S. Ferreira, Daniel Civitarese, Daniela Szwarcman1, Emilio Vital Brazil",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Abstract—Machine learning and, more specifically, deep learning algorithms have seen a remarkable growth in their popularity and usefulness in the last years. This is arguably due to three main factors: powerful computers, new techniques to train deeper networks and larger datasets. Although the first two are readily available in modern computers and ML libraries, the last one remains a challenge for many domains. It is a fact that big data is a reality in almost all fields nowadays, and geosciences are not an exception. However, to achieve the success of general-purpose applications such as ImageNet – for which there are +14 million labeled images for 1000 target classes – we not only need more data, we need more high-quality labeled data. When it comes to the Oil & Gas industry, confidentiality issues hamper even more the sharing of datasets. In this work, we present the Netherlands interpretation dataset, a contribution to the development of machine learning in seismic interpretation. The Netherlands F3 dataset acquisition was carried out in the North Sea, Netherlands offshore. The data is publicly available and contains pos-stack data, 8 horizons and well logs of 4 wells. For the purposes of our machine learning tasks, the original dataset was reinterpreted, generating 9 horizons separating different seismic facies intervals. The interpreted horizons were used to generate 190,000 labeled images for inlines and crosslines. Finally, we present two deep learning applications in which the proposed dataset was employed and produced compelling results.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "I. INTRODUCTION",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Seismic interpretation plays a very important role in the exploration and production stream, being indispensable for geoscientists to delevelop oil and gas prospects. Being able to accurately describe the geology of the subsurface is a critical factor for the successful exploitation of known hydrocarbon accumulations [1].",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "However, seismic interpretation is a human-intensive and time-consuming task. The reflection seismic method only provides an indirect measurement of the subsurface geology, which is often noisy and limited in its spatial and temporal resolutions. Thus, reconstructing the geologic story of a seismic survey still poses a tremendous challenge, despite the technological advances in data acquisition, processing and software applications [1]. Tight deadlines and the increasing size of datasets are also complicating factors.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Other domains facing similar challenges are using neural networks and machine/deep learning techniques with great success to support tasks that deal with high volumes of data and are considered human-centered [2], [3], [4], [5]. Nevertheless, these methods require training datasets with a rather large amount of data [6].",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The geoscience community, and more specifically the oil and gas industry, are already dealing with big data, but to fully harness the power of deep learning techniques, we need high-quality labeled datasets. This was one of the main factors that allowed general-purpose deep learning applications such as MNIST [7] (60k images), PASCAL-VOC [8] (40k images), MS-COCO [9] (330k images), and ImageNet [10] (14 million images) to be as successful as they are today. These applications comprise tasks like object detection, segmentation and classification, which have direct parallels in common tasks in the seismic interpretation workflow.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "In this work, we present a contribution to the development of machine learning in seismic interpretation, which will be made publicly available. The Netherlands interpretation dataset consists of 9 horizons and 190,000 labeled seismic images derived from the Netherlands F3 seismic data [11], already in the public domain. The seismic sections were interpreted based on their seismic facies. Previous versions of the proposed dataset have already been used in some works such as [12], [13], two of which will be discussed in Section VI.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "This paper is organized as follows: next section describes the regional geology of the Netherlands F3 survey. Sections III and IV present the Netherlands F3 seismic dataset and discuss the interpretation procedure. In Section V we present the proposed dataset and detail its main characteristics. Finally, in Sections VI and VII we briefly discuss two deep learning applications in which the proposed dataset was employed and present our final remarks.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "II. GEOLOGICAL SETTINGS",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "The Netherlands F3 dataset is a seismic survey of approximately 384km2 in the Dutch offshore portion of the Central Graben basin, roughly situated at 180km from the Netherlands shore (Figure 1) [14].",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The Central Graben Basin is a result of the North Atlantic opening and posterior division of the supercontinent Pangea. This main region is characterized by a triple rift system – Central Graben, Viking Graben, and Moray Firth Basins [15].",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The formation of the Central Graben Basin transpired during the Mesozoic, after a triple rifting phase due to the three stages of the Atlantic Ocean opening [16]. The first phase of subsidence is thermal, the second phase, during the Triassic, is represented by a rifting tectonic, ending with several extensional regimes during the Kimmeridgian [17].",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "As for the lithostratigraphic configuration, the Central Graben Basin is constituted of 9 main groups from the Carboniferous to the Cenozoic. According to [18], the Carboniferous Group sediments – the oldest stratigraphic record from the Central Graben Basin – have limited information, available only from a few wells. This group is mainly composed of black limestones and general clastic rocks, reaching a thickness of more than 4,000m in some areas [19].",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The following stratigraphic groups – the Lower and Upper Rotliegend Group – were deposited during the Early and Middle Permian. These deposits are mainly constituted of volcanic rocks and fluvio-lacustrine sediments, on the lower portions, and by fluvial, eolian, and sabkha sediments on the upper regions of the group, reaching a maximum thickness of 900m [18].",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The Zechstein Group, the next lithostratigraphic portion, is composed by carbonate and evaporite rocks. In the Central Graben Basin, this group is characterized by several salt structures, reaching a thickness of 1,300m [18]. Moreover, in areas with intense tectonism, the upper layers are affected by the halokinesis caused by the evaporites of the Zechstein Group.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The subsequent group is the Germanic Trias Group, being deposited during the Triassic period, reaching a thickness of 1,800m [18]. The Lower portion of this group is mainly composed of red shale rocks and siltstone interbedded with sands [20], occurring during the Early Triassic. The Upper portion of the Germanic Trias Group, deposited during the Middle and Upper Triassic, is constituted of anhydrous evaporites [20].",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The following lithostratigraphic unit is the Altena Group, deposited during the Rhaetian untill the Callovian – Middle Jurassic. Thick marine shales mainly represent this group, reaching a thickness of 1,600m [18].",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The Late Jurassic deposits are represented by the Schieland, Scruff and Niedersachsen Groups. The thickness of this sediments, primarily lacustrine and clastic, had an intense influence of erosion and inversion, rarely reaching magnitude over 1,000m [18].",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The deposits from the Early Cretaceous – the Rijnland Group – have no more than 1,000m thickness in specific regions due to intense erosion and inversion [18]. The sediments of this group are predominantly siliciclastic and suffer intense halokinesis on the Central Graben region.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The Chalk Group, the following lithostratigraphic unit, correspond to the Late Cretaceous deposits. Its sediments have more than 1,800m of thickness, on specific regions, and are mainly comprised of chalk and argillites. However, most of the record is absent in the Dutch Central Graben basin due to inversion in the region [18].",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The North Sea Supergroup – Lower, Middle, and Upper – represents the remain deposits from the Cenozoic Era. In the Central Graben Basin, this period is characterized by strong subsidence, and have the most significant presence on the F3-Netherland seismic record. The North Sea Supergroup is also affected by intense halokinesis from the Zechstein Group salt.",
+  "start_page": 2
+},
+    {
+      "type": "figure",
+      "caption": "Figure 1: Location of the F3 3D survey in the North Sea, Netherlands offshore.",
+      "start_page": 2
+    },
+    {
+      "type": "header",
+      "text": "III. SEISMIC DATA",
+      "start_page": 2
+    },
+{
+  "type": "paragraph",
+  "text": "The seismic data used for the generation of the proposed dataset is a public 3D seismic survey called Netherlands Offshore F3 Block which is available at the Open Seismic Repository [11]. The dataset consists of 384km2 of time migrated 3D seismic data, with 651 inlines and 951 crosslines, located at the North Sea, Netherlands offshore (Figure 1).",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The seismic data has a time range of 1,848ms, a sampling rate of 4ms and a bin size of 25m. Along with the 3D seismic data, the repository also provides 4 wells, F021, F032, F034, and F061 – with some markers and geophysical logs –, 8 interpreted horizons, and some additional 2D and 3D seismic data with attributes and models.",
+  "start_page": 2
+},
+    {
+      "type": "header",
+      "text": "IV. SEISMIC INTERPRETATION",
+      "start_page": 2
+    },
+{
+  "type": "paragraph",
+  "text": "The Netherlands F3 seismic dataset was reinterpreted by two geoscientists using the software OpendTect [21]. Although other data are available in the repository, the interpretation was produced based only on the 3D data, disregarding the provided horizons since they sometimes comprehend more than one significant texture, what could hamper the performance of the machine learning algorithms.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "Nine horizons were interpreted: H1, H2, H3, H4, H5, H6, H7, H8 and H9, sorted in descending order of geological age. Figure 2 shows the 9 interpreted horizons along with two seismic lines. It is noteworthy that interpreted horizons may not correspond to the top of formations or stratal interfaces since only pattern configurations were taken into consideration, focusing on the separation of different seismic facies intervals. One fault was also interpreted just to assist the horizons interpretation.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The analysis of seismic facies consists of the identification of seismic reflection parameters, based primarily on configuration patterns that indicate geological factors like lithology, stratification and depositional systems [22]. In the following list, we describe the seismic facies of each horizon interval in terms of their amplitude and continuity.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "H1: this horizon limits the top of the Permian evaporiterich succession of the Zechstein Group. The top reflectors feature stratified seismic facies while the lower ones present homogeneous seismic facies, where there are no apparent reflections.",
+  "start_page": 2
+},
+    {
+      "type": "figure",
+      "caption": "Figure 2: Nine interpreted horizons shown along with two seismic sections.",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "H2-H1: reflectors between H2 and H1 are continuous and have low amplitude. These characteristics are related to the neritic environment constituted mainly by argillaceous deposits.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "H3-H2: depositional environment and lithology of the sediments between H3 and H2 are essentially the same as H2, but this portion is marked by polygonal faults. Polygonal faults are common in argillaceous sediments and attribute discontinuous mound-shaped characteristic to reflectors.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "H4-H3: reflectors between H4 and H3 are predominantly subparallel and have varying amplitude.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "H5-H4: characterized by reflectors that has a prograding sigmoidal configuration of low energy and medium to low amplitude due to complex delta system deposited during the Late Miocene and Pliocene.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "H6-H5: package between H6 and H5 is made up mostly of parallel, high-amplitude reflectors due to Upper Cretaceous deposits of Chalk Group carbonates.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "H7-H6: comprises North Sea Supergroup, which has alternation of sandstones and claystones which give these facies the characteristics of semi-continuity and low amplitude.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "H8-H7: this interval still comprises sediments of the North Sea Supergroup and presents contorned to moundshaped and low amplitude facies.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "H9-H8: facies between H9 and H8 are noisy, possibly because of acquisition noise or seismic processing failure.",
+  "start_page": 3
+},
+    {
+      "type": "header",
+      "text": "V. NETHERLANDS INTERPRETATION DATASET",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "The Netherlands interpretation dataset consists mainly of 9 interpreted horizons in XYZ format and 3,204 images, being 1,602 seismic lines in TIFF format and 1,602 labeled images in PNG format. The labeled images were created by taking the intersection between the seismic lines and the horizon surfaces. Then, the pixels of each horizon interval were labeled from 0 to 9. Figure 3 presents an inline section (cropped in the figure) and its respective labels. In this paper, we present two applications: classification and semantic segmentation of seismic images. To make it easier for others to experiment with the dataset, we provide the image tiles used in the classification task within the package1.",
+  "start_page": 3
+},
+    {
+      "type": "table",
+      "content": [
+          ["File Format", "# Files", "Total size (MB)"],
+          ["H1-H9 XYZ", "9", "225"],
+          ["Seismic inlines TIF", "651", "1,150"],
+          ["Seismic crosslines TIF", "951", "1,150"],
+          ["Labeled inlines PNG", "651", "2.6"],
+          ["Labeled crosslines PNG", "951", "2.9"],
+          ["Seismic tiles (inlines) PNG", "94720", "140"],
+          ["Seismic labels (inlines) JSON", "1", "2.7"],
+          ["Seismic tiles (crosslines) PNG", "94400", "141"],
+          ["Seismic labels (crosslines) JSON", "1", "2.9"]
+        ],
+        "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "To produce the classification dataset, we split the seismic images into tiles with 64 25 pixels. If the predominant class covers more than 70% of the tile, it is associated with that class. Otherwise, the tile is discarded [13], [12]. The process of creating tiles from a seismic image comprises the following steps:",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "1) stretch the contrast and re-scale values between 0 and 255: this step removes extreme amplitudes and allows for a more compact representation of the dataset, e.g. using 8-bit integers.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "2) generate tiles from processed images: in this step we split the image in tiles and associate each tile with its predominant class.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "3) balance training dataset: there are many solutions to deal with imbalanced datasets. In this work, we decided to simply balance the number of samples per class, which makes the training process easier and allows us to use standard metrics such as accuracy.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "The provided classification dataset includes 9,440 crossline and 9,472 inline seismic tiles per class along with their respective labels. Table I describes the files in the dataset. We do not provide ready-to-use validation and test sets. Thus, users can create their own splits. A common practice is to separate 25% of the dataset for test, and from the remaining training dataset, keep 25% for validation. The name of the tile image files contains the original inline/crossline number, so users can guarantee that the tiles in one seismic section go either in the training or test dataset.",
+  "start_page": 3
+},
+    {
+      "type": "header",
+      "text": "VI. EXPERIMENTS",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "In this section, we present two deep learning applications that employ the Netherlands interpretation dataset: classifi-cation of rock layers (strata) and semantic segmentation of seismic images.",
+  "start_page": 3
+},
+    {
+      "type": "figure",
+      "caption": "Figure 3: Example of a cropped inline and its respective labels.",
+      "start_page": 4
+    },
+    {
+      "type": "header",
+      "text": "A. Classification of Rock Layers",
+      "start_page": 4
+    },
+{
+  "type": "paragraph",
+  "text": "The first application is the classification of different types of rock layers as presented in [12] and [13]. In both works, the authors trained deep neural networks that were able to successfully discriminate strata in the Netherlands F3 dataset. The main assumption is that one may distinguish different layers by their textural features as discussed in [23], [24]. Hence, a model that can classify images based on their textural attributes could be used to classify distinct rock types.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "In the experiments presented in [13], the dataset preprocessing step included a sliding window mechanism to split the input image into tiles, in which each tile received the label of its predominant texture. These small images were then used as the actual input of the model that classifies each tile as one of the possible classes.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "The authors in [13] tested multiple tile sizes, many numbers of examples per rock type, different percentages for texture predominance among other parameters, using a similar training dataset based on Netherlands F3. To create a baseline, we applied the same methodology on the proposed interpretation dataset. In this experiment, we used only 9 seismic sections randomly selected from the odd lines of the cube for training and validation. From these sections, we took 80% for training and 20% for validation. For testing, we used all the even lines which produced 4,784 tiles per class, after balancing. The final accuracy in the test dataset was 81.6%. Figure 4 shows the final confusion matrix.",
+  "start_page": 4
+},
+    {
+      "type": "header",
+      "text": "B. Semantic Segmentation of Seismic Images",
+      "start_page": 4
+    },
+{
+  "type": "paragraph",
+  "text": "The second application in which the Netherlands interpretation dataset was used is the semantic segmentation of seismic images. In [25], the authors selected a trained deep neural network from the rock layer classification task [13] to function as a pre-trained feature extractor. This transfer learning technique makes training faster and more accurate, as discussed in [25], [26].",
+  "start_page": 4
+},
+    {
+      "type": "figure",
+      "caption": "Figure 4: Confusion matrix for rock layer classification using the proposed dataset.",
+      "start_page": 4
+    },
+{
+  "type": "paragraph",
+  "text": "Next, they removed the tail of the network that acts as a classifier and appended an upscale module to produce pixelwise predictions based on the the main extracted features. Such a process has already been used in many other works [27], [28]. Finally, they trained the resulting model using the Netherlands interpretation dataset.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Similarly to the first application discussed, the authors in [25] divided the input seismic section into small tiles. Additionally, they merged some layers to prevent thin layers from unbalancing the dataset. Next, they applied the network throughout the image to generate the final prediction. By doing this, they achieved more than 98% of the mean Intersection over Union (IoU) metric. Figure 5 shows that the model produced segmentations very close to the actual interpretation (white lines) with very little discontinuity.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Although ready-to-use tile data are provided with the dataset, users can split the original seismic sections using different tile sizes, depending on the task at hand. For example, the result obtained in [25] was produced using more than 50% of the seismic lines for training. However, the authors have been able to achieve 90% of mean IoU for semantic segmentation using only 9 training lines and a tile size of 120 80 pixels for the same dataset.",
+  "start_page": 4
+},
+    {
+      "type": "header",
+      "text": "VII. CONCLUSIONS",
+      "start_page": 4
+    },
+{
+  "type": "paragraph",
+  "text": "In this work, we argued that seismic interpretation is a human-intensive and time-consuming task which is indispensable for the identification and exploitation of hydrocarbon accumulations. On the other hand, deep learning techniques have seen a remarkable growth while achieving impressive results in similar human-centered tasks. Many of them being generalpurpose applications related to object detection, segmentation and classification, which have obvious parallels in the seismic interpretation workflow.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "However, for the successful application of such techniques on seismic interpretation, we not only have to leverage the large amounts of data produced daily in oil and gas companies but also to create high-quality labeled data. With our dataset, we make a contribution that will allow geoscientists and machine learning practitioners working in the field to validate their models and compare their results.",
+  "start_page": 4
+},
+    {
+      "type": "figure",
+      "caption": "Figure 5: Semantic segmentation of inlines 160 (top) and 640 (bottom) from the Netherlands F3 dataset. In the output, each pixel receives an overlaid color representing their class while the white lines represent the reference seismic horizons (ground truth). In that work, the authors used a subset of the horizons/classes present in the proposed Netherlands interpretation dataset.",
+      "start_page": 5
+    },
+{
+  "type": "paragraph",
+  "text": "In the experiments discussed in this work, the authors used the proposed dataset to train state-of-the-art deep learning models for rock layer classification and semantic segmentation of seismic images, obtaining high accuracies. Nevertheless, the Netherlands interpretation dataset could also be used to train and validated other machine learning techniques such as clustering, retrieval and transfer learning.",
+  "start_page": 5
+},
+    {
+      "type": "header",
+      "text": "REFERENCES",
+      "start_page": 5
+    },
+{
+  "type": "list",
+  "ordered": true,
+  "items": [
+    "[1] D. A. Herron, First steps in seismic interpretation. Society of Exploration Geophysicists, 2011.",
+    "[2] V. Badrinarayanan, A. Kendall, and R. Cipolla, “SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation,” nov 2015.",
+    "[3] E. Shelhamer, J. Long, and T. Darrell, “Fully Convolutional Networks for Semantic Segmentation,”",
+    "[4] J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You only look once: Unified, real-time object detection,” in CVPR, June 2016.",
+    "[5] S. Ren, K. He, R. Girshick, and J. Sun, “Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks,” in Advances in NIPS 28 (C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, eds.), pp. 91–99, Curran Associates, Inc., 2015.",
+    "[6] I. Goodfellow, Y. Bengio, A. Courville, and Y. Bengio, Deep learning, vol. 1. MIT press Cambridge, 2016."
+  ],
+  "start_page": 5
+},
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "[7] Y. LeCun, C. Cortes, and C. J. Burges, “Mnist handwritten digit database,” AT&T Labs [Online]. Available: http://yann. lecun. com/exdb/mnist, vol. 2, 2010.",
+        "[8] M. Everingham, L. Van Gool, C. K. Williams, J. Winn, and A. Zisserman, “The pascal visual object classes (voc) challenge,” IJCV, vol. 88, no. 2, pp. 303–338, 2010.",
+        "[9] T. Lin, M. Maire, S. Belongie, J. Hays, P. Perona, D. Ramanan, P. Doll´ar, and C. L. Zitnick, “Microsoft coco: Common objects in context,” in ECCV, pp. 740–755, Springer, 2014.",
+        "[10] J. Deng, W. Dong, R. Socher, L. Li, K. Li, and L. Fei-Fei, “Imagenet: A large-scale hierarchical image database,” in CVPR, pp. 248–255, IEEE, 2009.",
+        "[11] O. S. R. dGB Earth Sciences, “Netherlands offshore f3 block - survey,” 2017.",
+        "[12] D. S. Chevitarese, D. Szwarcman, E. V. Brazil, and B. Zadrozny, “Efficient classification of seismic textures,” in 2018 IJCNN, pp. 2984–2991, July 2018.",
+        "[13] D. S. Chevitarese, D. Szwarcman, R. M. G. e Silva, and E. V. Brazil, “Deep learning applied to seismic facies classification: a methodology for training,” in EAGE Saint Petersburg, 2018.",
+        "[14] L. S. Lucas, “Caracterizac¸ ˜ao sismo-estratigr´afica e estrutural de um reservat´orio de hidrocarbonetos no bloco f3 do sector holandˆes do mar do norte,” Master’s thesis, Universidade de Aveiro, 2014.",
+        "[15] P. Ziegler, “Evolution of the north atlantican overview,” Extensional tectonics and stratigraphy of the North Atlantic margins: American Association of Petroleum Geologists Memoir, vol. 46, pp. 111–129, 1989.",
+        "[16] N. M. S. Alves, “Modelac¸ ˜ao de um reservat´orio petrol´ıfero no campo gullfaks, noruega,” Master’s thesis, Universidade de Aveiro, 2011.",
+        "[17] B. Schroot and R. Sch¨uttenhelm, “Expressions of shallow gas in the netherlands north sea,” Netherlands Journal of Geosciences, vol. 82, no. 1, pp. 91–105, 2003.",
+        "[18] E. Duin, J. Doornenbal, R. Rijkers, J. Verbeek, and T. E. Wong, “Subsurface structure of the netherlands-results of recent onshore and offshore mapping,” Netherlands Journal of Geosciences, vol. 85, no. 4, p. 245, 2006.",
+        "[19] E. J. T. D. Doornenbal, Johannes C., “Geological atlas of the subsurface of the netherlands - onshore,” TNO, Utrecht, Netherlands, 2004.",
+        "[20] T. E. Wong, T. H. Van Doorn, and B. Schroot, “late jurassic petroleum geology of the dutch central north sea graben,” Geologische Rundschau, vol. 78, no. 1, pp. 319–336, 1989.",
+        "[21] dGB Earth Sciences, “Seismic interpretation software & services,” 2018.",
+        "[22] L. F. Brown Jr, “Seismic stratigraphic interpretation and petroleum exploration,” Course Notes AAPG, no. 16, p. 181p, 1980.",
+        "[23] A. B. Mattos, R. S. Ferreira, R. M. D. G. Silva, M. Riva, and E. V. Brazil, “Assessing texture descriptors for seismic image retrieval,” in 2017 30th SIBGRAPI, pp. 292–299, Oct 2017.",
+        "[24] S. Chopra and V. Alexeev, “Applications of texture attribute analysis to 3d seismic data,” The Leading Edge, vol. 25, no. 8, pp. 934–940, 2006.",
+        "[25] D. Chevitarese, D. Szwarcman, R. M. D. Silva, and E. V. Brazil,“Seismic facies segmentation using deep learning,” in AAPG ACE 2018.",
+        "[26] D. Chevitarese, D. Szwarcman, R. M. D. Silva, and E. V. Brazil, “Transfer learning applied to seismic images classification,” in AAPG ACE 2018.",
+        "[27] O. Ronneberger, P. Fischer, and T. Brox, “U-net: Convolutional networks for biomedical image segmentation,” in International Conference on Medical image computing and computer-assisted intervention, pp. 234–241, Springer, 2015.",
+        "[28] J. Long, E. Shelhamer, and T. Darrell, “Fully convolutional networks for semantic segmentation,” in Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 3431–3440, 2015." 
+      ],
+      "start_page": 5
+    }
+  ]
+}

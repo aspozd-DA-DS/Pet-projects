@@ -1,0 +1,117 @@
+{
+  "doc_id": "A decade of marine seismic technology development",
+  "extension": ".docx",
+  "total_blocks": 22,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "A decade of marine seismic technology development from an oil company perspective. What does the future hold?",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Per Eivind Dhelie*, Vidar Danielsen & Jan Erik Lie (Lundin Norway)",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Summary",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "The history of Lundin Norway dates back to 2004 starting with a handful of employees with an overwhelming appetite for seismic data and exploration. From the very beginning until today, seismic data has been and still is the primary tool for finding and discovering new fields. This is probably not unique or very different to most other oil exploration companies, but what makes Lundin and our history a bit different is the way we see and use the data–never believing that we cannot get more out of what we already have, by constantly re-processing, re-acquiring and trying new and different tools, with a desire to find new ways of using and seeing things in the data. There is no best practice in our work, only better practice and reprocessing is not a project from a to z, merely part of an always ongoing effort to  continuously  improve  the  seismic  images. Lundin  Norway  has  also  always  had  appetite  for  new technologies and have been in the forefront of many new seismic developments. Since the discovery of Edvard Grieg (LUNO) back in 2007, the Utsira High became a seismic laboratory both for 2D and 3D image testing. Directly following the discovery of the Luno field Lundin Norway commenced acquisition of the 1st high density OBC survey on the Utsira High, LN0803, approx. 50sqkm of 200x25m dense 4C OBC data. This dataset paved the way for several good appraisal wells and has been used to push for low frequency signal and provided a fundamental understanding of the image challenges  in  the  area.  The  dataset  is  still  today,  10  years  later,  constantly  under re-processing  and scrutinization for comparison to other new and different tools. A year later, in 2009, Lundin Norway was the first company in the world to acquire 3D dual-sensor deghosted Geostreamer data, LN0902. Over 1650km2  of new (revolutionary) technology data. Like the OBC data, this is still today, a decade later actively used every single day to explore and develop further the Edvard Grieg field and the surrounding areas. A few years later, in 2012, another contractor launched their BroadSeis combined with Broadsource full deghosting technology based on pressure only sensors. Also this time, Lundin Norway were first adopters and went ahead and acquired over 2500km2 of high density 3D data–as the first company in the world to use this technology. The desire to seek the unknown and the new, is not by luck, but by desire and understanding, and the will to go further and beyond what other companies can and are willing to do. The list of new technology embarking’s is long; MagSeis, Snake Streamer, IsoMetrix, TopSeis (2016/2017/2018), inApril, Compact small point sources (2016) (1/3 of conventional  source  outputs),  Triple  source, Hexasource  (2018,2019)  and  now  lastly  the  TopSeis  2 hexasource in addition to very recently also testing the Source Isolation technology.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "This paper does not intent to recap all and everything from each and all these different technologies, but will instead shed light on the why’s, the what’s and the how’s of developing and taking part in all these new novel acquisition and processing technologies and how they have actively led to more and better discoveries. Without trying to predict the future, we will also, based on the history, try to discuss what we think the future of seismic exploration may hold, at least on the Norwegian Continental Shelf.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "The first steps of Broadband seismic across the Southern Utsira High",
+      "start_page": 2
+    },
+{
+  "type": "paragraph",
+  "text": "Since the first license commitment from Lundin Norway on the Norwegian Continental Shelf, license PL338 (Luno–Edvard Grieg) in 2005, seismic data massaging and re-processing has been looked upon as a continuous process of development. There is no start and no end; Processing, re-processing and continuously investigating new ways to image and develop the understanding of the seismic data and the subsurface has been a foundation for the field development. The original seismic data used to place the discovery well on the Edvard Grieg field was ST9511. With special denoise, high cut filtering and low frequency signal boost, it was possible to see hints of the graben structures up on the Utsira High area. Following the discovery well, 16/1-8, the first OBC survey was planned and completed in 2008. The focus was to improve the low frequency content and also deghost the data using PZ summation. Only a year later the new dual-sensor streamer technology, GeoStreamer was tested in full 3D as the first commercial survey ever. Approximately 1650km2 of broadband data was collected. Lundin Norway has always had an appetite for new promising technologies, and are rarely afraid of going “all in”. With the introduction of BroadSeis and also BroadSource, Lundin Norway followed up again in 2012 with an even larger 3D broadband survey, covering all of the Southern Utsira High area.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "Along with or trailing slightly behind are processing based solutions that tries to overcome the need for special  equipment. Tendency  has  it  that  processing  can  and  will  try  to  mimic  expensive  acquisition solutions like dual-sensor, multi-sensor and broadband sources, by application of mathematical deghosting processes. This led to Lundin’s own Snake streamer test in 2015, whereby 11 different slant streamer profiles were tested to dig deeper into processing based deghosting solutions and try to determine  what  profiles  are  optimum for  processing based deghosting applications. This dataset  has been processed as trial and error by many processing contractors, both as a development tool for them and for optimization of future acquisition setups. Acquisition, reprocessing and comparison to other 3D solutions has also been performed, such as high density 3D site survey data. Pcable technology with lots of very small short offset (~50m) streamers towed extremely dense has also been acquired, processed  and  tested.  During  the  work  on  site  survey  3D  data,  along  with  the  introduction  of  more sources (more than dual source) it became necessary to investigate the general setup of typical marine seismic sources. This work led to studies of source sizes, areal source distribution, making the source both smaller and more compact to gain better focus of the seismic source wavefield. The initial trial was performed across the Edvard Grieg field in 2016 and was a direct instigator to the triple source small compact source used for the first ever commercial TopSeis survey, LN17001 in the Barents Sea. Prior to performing this survey, the field test across Utsira High in 2016, confirmed that smaller source was not just acceptable to use, but also increased the spatial resolution in the data. This was also confirmed with reprocessing of relatively old 3D site survey data using only 160 in3  across the Neiden area on the Loppa High.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The latest development of both sources and receiver setups is the TopSeis 2 Utsira Hexasource survey, CGG18003, which utilized 6 small compact sources towed over and across a 10 streamer deep-towed spread. This survey is still in processing, but fully migrated fast track images at reservoir level again reveal  that  dense sampling of the wavefield, from 6 sources shot  with only 2.5 s shot  point  interval combined with a source-over-streamer geometry is yet another step up in quality compared to any other legacy dataset.",
+  "start_page": 2
+},
+    {
+      "type": "header",
+      "text": "Overcoming the image challenges across the Loppa High in the Barents Sea",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "Lundin Norway’s desire to really challenge the imaging problems across the Loppa High in the Barents Sea  was  driven  by  the  discoveries  of  Alta  and  Gohta  in  2013  and  2014,  respectively.  Hydrocarbon accumulations were discovered in high velocity  karstefied carbonates of Permian age. The deepest reservoirs  are  located  at  ~1700m  MSL  and  follows  the  upward  dipping  trend  towards  North  on  the Loppa ridge. The shallowest reservoirs have been found at only 700-800m. Water depth in the Barents Sea is roughly 350m and relatively constant. Due to recent Tertiary uplift of more than 1500m followed by significant erosion, the seafloor and the shallow geologic layers today consist of very dense and high velocity strata that was previously buried much deeper. The seafloor is generally very hard and iceberg have scraped along the seafloor for decades which have given rice to a very rugose seafloor topography which acts more or less as millions of diffractor points. This geologic setting can generally be split into three main geophysical challenges:",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "1) Shallow high velocities which bends the rays quickly and warrants the use of near offset data, simply because the further offset data ricochets away and goes critical and as such is not usable for imaging. The solution to this is to alter the acquisition setup and use a method that captures much more of the zero and near offset data",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "2) Rugose and hard seafloor with high reflection coefficients sets up very strong multiples and a lot of multiple diffractions plus strong interbed multiples. In order to be able to handle and remove all these strong multiples (often 10 orders of multiples) it is critical to sample them without aliasing such that they can be properly modeled and removed in processing. This is true for multiples and multiple generators in 3D, i.e. not just along the sailing direction of the seismic vessel, but in all directions. This implies an acquisition solution that samples both shots and receivers in full 3D adequately in“both”directions,  x and  y,  or  more  correctly,  in  all  azimuths.  The  earth’s  impulse  response  does not  know which direction the seismic data was acquired in, and it should not be visible in the data either. It should be uniformly sampled and dense in all directions.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "3) Relatively shallow reservoirs in carbonates of varying porosity and permeability. These carbonates have been exposed to fresh water and erosion that has given rise to caves and other permable zones. As with exposed carbonates today, we see that some areas are completely tight and without any porosity whereas other areas close by have large caves and permeable fracture zones. In order to produce hydrocarbons from such reservoirs it is important to see the areas of best porosity and permeability and place future production wells in these areas. This again warrants geophysical data with as high as possible resolution, both temporal and spatial and in full 3D (both inline and xline). Another aspect of this is signal to noise ratio (S/N). Small fractures and permeable zones must be distinguished and separated from general noise and all the diffracted multiple noise. This warrants a setup that provides high S/N level without compromising resolution. Also, because the targets are relatively shallow the stack mute is often at  less than 1000m offset. This again requires  very short  shot  point  interval  and dense trace spacing in cmp domain to obtain good stack power. ",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "With the above challenges in mind, Lundin Norway set out on a journey to come up with new acquisition setups that would tackle as many of the above issues as possible.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "With multiples, fold and high velocities in mind, it did not take long until the need for a towed marine solution  with  the  sources  placed  directly  in  the  middle  and  above  all  the  streamers  was ironed  out. However, a multi-year trial and error including testing and re-design should occupy most of 2014 and 2015,  including  also  a  number of  modeling  exercises.  Originally,  Lundin  Norway  approach  several contractors with the proposal to tow the sources in the middle of all the  receivers, but CGG was the only one that finally decided to go ahead and try if this actually could be done. Once the 1st trail was successfully completed (in Gabon) and we knew it was feasible to acquire data like this, a more detailed investigation commenced to optimize all the acquisition parameters. 2 years later, this all culminated with the LN17001 triple-wide tow compact dithered TopSeis survey in the Barents Sea across the Loppa High area.  Results of this are now showing clear improvement  on all  the  aspects it  was designed to tackle.",
+  "start_page": 3
+},
+    {
+      "type": "header",
+      "text": "What does the future of marine seismic look like for the NCS from a technical perspective?",
+      "start_page": 4
+    },
+{
+  "type": "paragraph",
+  "text": "For the towed marine seismic market there is no going back to dual source technology any more. The successful application of multisource distributed acquisition such as triple, penta and hexasource have proved itself in terms of viability and quality. When it also increases the efficiency by reducing the time it takes to acquire a dataset, this type of marine source setups will become the norm very soon, if it has not already done so. The challenge still remains with some of them to overcome the need for using two vessels, however with autonomous small extra source vessel, this hurdle may soon be overcome. There are promising tests with much longer source umbilicals too, so there may be other was to avoid mobilizing more than one vessel. For much larger areas, the normal survey could include a quarto wide tow source behind the streamer towing vessel, and one could add a second source vessel with hexasources in “TopSeis” mode to cover a part of the survey (a field in development) to get the highest possible image quality.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "There are still a number of companies that are worried about the blending and deblending of the seismic data inside the target level. i.e. that the next shot is fired before the two-way time for the target zone. In the  North Sea and  Barents Sea, this  means typically less than  2s  (below  the  seafloor). Results  from Lundin’s own tests on deblending technology does not support this worry. Indeed when shots are fired denser and more often, the amplitude behavior is more similar so it is possible to recover the signal behind the next source before the previous (n+1 and n-1).",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "For Ocean Bottom Seismic, the introduction of several source boats with multiple sources happened several year ago and will eventually become the norm. The efficiency gain obvious and the sampling desire is similar to streamer seismic. In fact, the industry is more likely to try and save on the number of receivers (or to cover larger areas) and instead use many more source than is typical today. Let us not forget permanently installed seafloor systems, where the source effort is 100% of the time. There is certainly a serious cost saving to obtain using 6 sources (hexasource) covering 3 times the amount of lines in a single pass (reducing the turnaround time by 60%.).",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "In order to convert a typical dual-source setup into a hexasource without increasing the inventory requires each single source to be much smaller. Typically reducing the source from ~3500 in3  down to 600-800 in3. Quite a few companies have engaged themselves in field tests and studies on the source size requirements over the last decade. Several studies have been published on detailed comparisons of source sized from very large 3 sub-arrays sources (~3500in3) down to single strings and even all the way down to single guns. The takeaway from these tests are that signal strength and low frequencies are maintained every for very small sources. Currently most single distributed sources will perform well in a NCS setting, down to around 500in3. Going below this source size the signal strength is overcome by noise at around 2-3 seconds TWT. This is of course geology dependent, but as a rule of thumb, it seems to be accepted.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "There is no straightforward answer to the question of re-processing or re-acquire data. However, a new survey should be able to tackle the geologic and geophysical challenges the area requires and there is certainly a lot of understanding to be had, in terms of multiples, sampling, velocities etc. that one would learn and gain good understanding of by first going back and re-process whatever data the area has, prior to designing and choosing parameters for a new high spec high density 3D data acquisition, both in an OBS and a towed marine setting.",
+  "start_page": 4
+}
+  ]
+}

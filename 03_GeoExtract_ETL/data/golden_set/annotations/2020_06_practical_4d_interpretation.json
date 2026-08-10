@@ -1,0 +1,153 @@
+{
+  "doc_id": "2020_06_practical_4d_interpretation",
+  "extension": ".pdf",
+  "total_blocks": 28,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Lunch and Learn: Practical 4D seismic interpretation",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "The Force geophysical methods network invites you to a lunch and learn webinar featuring 3 talks on practical 4D seismic interpretation.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Measured data",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Production data Simulation model Simulation model Seismic",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "Agenda",
+      "start_page": 1
+    },
+    {
+      "type": "list",
+      "items": [
+        "1300 intro",
+        "1305 : Lee Jean Wong (Heriot-Watt University): Noisy 4D seismic data interpretation: Case Study of a Brazilian carbonate reservoir",
+        "1330 : Ming Yi Wong (Equinor): Classification of production changes using 4D AVO response in the Snorre Field",
+        "1355 : Hamed Amini (Heriot-Watt University, now at AkerBP ASA): 4D seismic characterisation of OWC and GOC in a thin reservoir in Central North Sea",
+        "1420 close"
+      ],
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Abstracts",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Noisy 4D seismic data interpretation: Case Study of a Brazilian carbonate reservoir",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Lee Jean Wong (Heriot-Watt University)",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Legacy seismic dataset from 2001 and 2011 were used for time lapse interpretation over a Brazilian carbonate reservoir in Field-X of Campos basin. The acquired 4D seismic dataset was noisy and initially deemed to be uninterpretable. Pressure data was limited and the initial simulation model was poorly calibrated. All these challenges warranted the need for the establishment of an interdisciplinary platform. In this paper, we will introduce a tiered, integrated approach to optimize data value from multiple facets, leading towards identification of a potential sweet spot.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Rock Fluid Logs, cores",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "properties properties & seismic traces",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "Measured data Production data Simulation model Simulation model Seismic",
+  "start_page": 2
+},
+    {
+      "type": "header",
+      "text": "Classification of production changes using 4D AVO response in the Snorre Field",
+      "start_page": 2
+    },
+    {
+      "type": "header",
+      "text": "Ming Yi Wong (Equinor)",
+      "start_page": 2
+    },
+{
+  "type": "paragraph",
+  "text": "The holy grail of 4D seismic data is to quantitatively invert for changes in pressure and saturation which is crucial to understanding dynamic changes of the reservoir, optimizing well production and injection rate, placement of new wells, and model updating. The method presented in this abstract uses Extended Elastic Impedance (EEI) changes (Whitcombe et al. 2002) to qualitatively classify different production changes in the Snorre field. EEI is a weighted stack of intercept and gradient from the prestack data to optimally suppress and enhance certain types of AVA responses. Our case study shows the advantageous of 4D EEI in comparison to stacked near and far 4D difference, especially in the dynamic range of 4D EEI in optimally separating dynamic changes induced by pure-pressure versus a mixed of pressure-saturation effects. Prior to generating meaningful 4D EEI, the prestack data is preconditioned via a 4D-AVO preserving workflow. The 4D EEI products from the PRM data highlights a preferred water pathway from an injector well to a producer well, and the advantages of gas injection which not only reduced gas cut at the producer well but also maintained reservoir pressure for continuous production. A potential pressure communication pathway is also established for future producer placement. This method systematically bring us one step closer to comparing predictions from the reservoir simulation model.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "Gas injection  Pressure up  Pressure down  Water",
+  "start_page": 3
+},
+    {
+      "type": "header",
+      "text": "4D seismic characterisation of OWC and GOC in a thin reservoir in Central North Sea",
+      "start_page": 3
+    },
+    {
+      "type": "header",
+      "text": "Hamed Amini (Heriot-Watt University, now at AkerBP ASA)",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "4D seismic quantitative interpretation of simultaneous movement of GOC and OWC around horizontal producers in this thin reservoir is challenged by seismic tuning effects. Here, 4D amplitude and time-shift maps were produced in a simulator-to-seismic modelling study to illustrate the effect of reservoir structure, relative movement of the contacts during production, immediate overburden properties, and seismic wavelet on the 4D signature. The outcome was an improved comprehension of the reservoir for future management. Also, in a feasibility study, by application of engineering driven assumptions on the geometry of the contacts and saturation profile within each fluid zone, a Bayesian approach was proposed to invert the 4D seismic data to post-production contacts. As wells as the best-case scenario, this method provides the uncertainty associated with the contacts' locations.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "Baseline",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Monitor Truth",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Baseline 4D",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "1560 1580 1600",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "1620 0 0.5 1",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Mon-BavesOot",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Baseline Monitor-BavesOpt",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Misfit",
+  "start_page": 4
+}
+  ]
+}

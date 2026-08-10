@@ -1,0 +1,168 @@
+{
+  "doc_id": "Integration of Deterministic Seismic inversion with Machine Learning",
+  "extension": ".docx",
+  "total_blocks": 32,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Integration of Deterministic Seismic inversion with Machine Learning for Reservoir Characterization",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Mohammed Farfour and Said Gaci",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Department of Earth Sciences",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Sultan Qaboos University",
+      "start_page": 1
+    },
+
+    {
+      "type": "header",
+      "text": "Abstract",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Seismic inversion plays a key role in reservoir characterization. The inversion allows interpreters to transfer data from interface properties to layers and physical properties. Various deterministic approaches are available for interpreters to achieve this objective, including model-based, trace-based, recursive approaches, etc. Machine learning methods are increasingly adopted in reservoir characterization workflows to identify nonlinear and complicated relationships between various parameters, helping to predict one parameter from another or combine one with others.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "In this study, we employ pre-stack model-based inversion to invert seismic data for P-wave and S-wave impedances. We extract numerous seismic attributes from the seismic data and use them to train a Feedforward Neural Network to predict the computed impedances at well locations. We compare the impedance models from deterministic inversion with those produced by the ANN. The resulting models are validated using wells that were not included in the inversion or ANN training. The ANN demonstrates good capability to reproduce results close to the inversion results. Next, the P-wave and S-wave impedance models are used for a detailed characterization of the fluvial-deltaic reservoir in the study area. Various quantities are derived, including Poisson ratio, Bulk modulus, Shear modulus, Lambda-Rho, and Mu-Rho. All models are combined using another ANN that has been trained to classify the area of interest into reservoir and non-reservoir facies. The trained ANN allows us to delineate potential reservoir facies and identify some new zones that are not drilled.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "In conclusion, the ANN emerges as a key player in reservoir characterization. The above study's methodology can be applied to other fields. As the proposed workflow is data-driven, better results can be achieved than those in the present study.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Key words: Machine Learning, Seismic inversion, reservoir characterization.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "Introduction:",
+      "start_page": 2
+    },
+{
+  "type": "paragraph",
+  "text": "Seismic inversion is the process of converting seismic reflection data, which reflects interface properties or property contrasts between two layers, into layer properties such as impedance, density, or other characteristics directly related to the lithology and fluid types of geological formations. Seismic inversion has become a routine application in today’s seismic reservoir characterization workflows (Farfour et al. 2015). Interpreters employ various inversion workflows and methods to carry out the inversion process, including model-based, sparse spikes, and bandlimited techniques.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "Inversion methods are divided into prestack inversion, which is implemented on prestack gathers, and poststack inversion, applied to stacked data. Prestack inversion simultaneously creates and updates three models: P-wave impedance, S-wave impedance, and density, combining them to produce gathers that closely resemble the input gathers. In contrast, poststack inversion focuses on a single model, P-impedance, and updates it until a good match between synthetic and actual seismic stack traces is achieved. The products from seismic inversions are typically analyzed and interpreted to characterize geological formations.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "Machine learning is an increasingly prominent field that integrates computer science, applied statistics, and applied mathematics to develop algorithms and statistical models that enable computers to perform tasks without explicit programming. The use of machine learning in seismic interpretation and reservoir characterization dates back more than 50 years (McCormack, 1991; Dramsch, 2020). Machine learning has become a powerful tool in today’s reservoir characterization, allowing interpreters to analyze complex datasets, extract relationships between different parameters, and identify anomalies and facies changes by combining various types of datasets.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "In literature, consistently increasing number of studies document the successful implementation of Machine Learning in solving problems related to reservoirs, seals, and source rock (Farfour and Foster, 2022; Farfour et al., 2012; Djarfour et al. 2014; Amoura et al. 2022; Ismail et al., 2022).",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "In this study, we perform seismic inversion to derive P-wave impedance, S-wave impedance, and density. We also utilize machine learning, specifically an Artificial Neural Network (ANN), to create impedance from seismic attributes. Subsequently, we apply the ANN to integrate elastic attributes from the impedances and seismic attributes from seismic data to predict reservoir facies. The results from the ANN are calibrated with well data, achieving good agreement.",
+  "start_page": 2
+},
+    {
+      "type": "header",
+      "text": "Geological Setting and Data Set",
+      "start_page": 2
+    },
+{
+  "type": "paragraph",
+  "text": "The study area is located in the Poseidon field of the Browse Basin, situated in the northwestern offshore region of Australia (Figure 1A). The Browse Basin originated as an intracratonic basin during the Carboniferous period and contains over 11 km of strata ranging from Carboniferous to Cenozoic. The Plover Formation within the Poseidon field was deposited in a fluvial-deltaic environment during the Early to Middle Jurassic, within a syn-rift tectonic setting (Figure 1B). This formation consists of sandstone interlayered with shale, coal, and siltstone. The Plover Formation serves as the primary target for many fields in the Browse Basin (Figure 1C). Notably, its thickness and continuity can vary significantly both within the same field and across different fields.",
+  "start_page": 2
+},
+    {
+      "type": "figure",
+      "caption": "Figure 1: Geographic Map showing the study area. B) Tectonic evolution of the area. C) Stratigraphic column showing different geological formation present in the area.",
+      "start_page": 3
+    },
+    {
+      "type": "header",
+      "text": "Methodology",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "We perform pre-stack model-based inversion to derive P-wave and S-wave impedances from the seismic data. We extract numerous seismic attributes from this data and use them to train a Feedforward Neural Network (FNN) to predict the computed impedances at well locations. The attributes include amplitude components, scaled Poisson Reflectivity (SPR), gradient, and their products, among others (Farfour, 2020; Farfour and Foster, 2021, Farfour et al. 2014). We compare the impedance models obtained from deterministic inversion with those produced by the ANN. The resulting models are validated using wells that were not included in the inversion or ANN training. Subsequently, the P-wave and S-wave impedance models are utilized for a detailed characterization of the fluvial-deltaic reservoir in the study area. Various properties are derived, including Poisson's ratio, bulk modulus, shear modulus, lambda-rho, and mu-rho. Finally, all models are integrated using another ANN trained to predict reservoir facies.",
+  "start_page": 3
+},
+    {
+      "type": "header",
+      "text": "Results and Discussion",
+      "start_page": 4
+    },
+{
+  "type": "paragraph",
+  "text": "Prestack gathers are converted to P-wave impedance, S-wave impedance, and density volumes and displayed in Figure 2. The resulting volumes revealed some features that helped distinguish the reservoirs from its background. The reservoir exhibit low P-wave impedance, and low Vp/Vs, and Poisson ratio. The drop in these three attributes is attributed to the high porosity and gas presence (Farfour and Russell, 2024). Impedance from ANN showed good similarity with deterministic impedance from inversion. However, due to the lack of well data the ANN could not produce as high quality product as the deterministic inversion (Figure 3). We combine the inverted impedances with their products (Poisson ratio, Bulk modulus, Shear modulus, Lambda-Rho, and Mu-Rho) to predict reservoir facies. The ANN could predict the distribution of the reservoir facies which was confirmed using well data (Figure 4).",
+  "start_page": 4
+},
+    {
+      "type": "figure",
+      "caption": "Figure 2: Full stack seismic section along with acoustic impedance section derived from it.",
+      "start_page": 4
+    },
+    {
+      "type": "figure",
+      "caption": "Figure 3: Impedance model from ANN (left) and impedance from deterministic seismic inversion.",
+      "start_page": 5
+    },
+    {
+      "type": "figure",
+      "caption": "Figure 4: Reservoir facies identified using ANN. High probability reservoir facies are colored in green.",
+      "start_page": 5
+    },
+    {
+      "type": "header",
+      "text": "Conclusion",
+      "start_page": 6
+    },
+{
+  "type": "paragraph",
+  "text": "Machine Learning, namely, Artificial Neural Network was trained and used to create impedance from seismic attributes and showed a good capability to reproduce impedance.",
+  "start_page": 6
+},
+{
+  "type": "paragraph",
+  "text": "Prestack inversion was used to convert seismic data to P-impedance, S-impedance, and density models from which different elastic attributes were extracted.",
+  "start_page": 6
+},
+{
+  "type": "paragraph",
+  "text": "The extracted elastic attributes along with some seismic attributes were combined using ANN to define reservoir facies.",
+  "start_page": 6
+},
+{
+  "type": "paragraph",
+  "text": "The predicted facies and lithologies were validated using well data and found to be very consistent.",
+  "start_page": 6
+},
+    {
+      "type": "header",
+      "text": "Acknowledgments:",
+      "start_page": 6
+    },
+{
+  "type": "paragraph",
+  "text": "We would like to thank dGB Earth Science for providing OpendeTect, GeoSoftware for providing Hampson-Russell software, and Geoscience Australia for providing the data set used in the study.",
+  "start_page": 6
+}
+  ]
+}

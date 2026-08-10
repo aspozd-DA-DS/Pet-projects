@@ -1,0 +1,67 @@
+doc_id,type,extension,method,precision,recall,f1,precision_fuzzy,recall_fuzzy,f1_fuzzy
+2020_06_practical_4d_interpretation,pdf_scans,.pdf,rule,0.0520833333327908,0.5555555554938272,0.09523809507954648,0.07291666666590711,0.777777777691358,0.13333333317405893
+2020_06_practical_4d_interpretation,pdf_scans,.pdf,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+2020_06_practical_4d_interpretation,pdf_scans,.pdf,hybrid,0.0520833333327908,0.5555555554938272,0.09523809507954648,0.07291666666590711,0.777777777691358,0.13333333317405893
+A decade of marine seismic technology development,doc_Word,.docx,rule,0.99999999975,0.6666666665555555,0.79999999936,0.99999999975,0.6666666665555555,0.79999999936
+A decade of marine seismic technology development,doc_Word,.docx,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+A decade of marine seismic technology development,doc_Word,.docx,hybrid,0.99999999975,0.6666666665555555,0.79999999936,0.99999999975,0.6666666665555555,0.79999999936
+Alaska_North_Slope_petroleum_systems,pdf_scans,.pdf,rule,0.1428571428367347,0.3333333332222222,0.19999999953999997,0.1428571428367347,0.3333333332222222,0.19999999953999997
+Alaska_North_Slope_petroleum_systems,pdf_scans,.pdf,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Alaska_North_Slope_petroleum_systems,pdf_scans,.pdf,hybrid,0.1428571428367347,0.3333333332222222,0.19999999953999997,0.1428571428367347,0.3333333332222222,0.19999999953999997
+Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin,pdf_text,.pdf,rule,0.13636363636157023,0.6923076922544379,0.22784810098509853,0.13636363636157023,0.6923076922544379,0.22784810098509853
+Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin,pdf_text,.pdf,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin,pdf_text,.pdf,hybrid,0.13636363636157023,0.6923076922544379,0.22784810098509853,0.13636363636157023,0.6923076922544379,0.22784810098509853
+Assessment of Tight-Oil and Tight-Gas Resources,pdf_text,.pdf,rule,0.5714285713469388,0.5714285713469388,0.5714285708469388,0.5714285713469388,0.5714285713469388,0.5714285708469388
+Assessment of Tight-Oil and Tight-Gas Resources,pdf_text,.pdf,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Assessment of Tight-Oil and Tight-Gas Resources,pdf_text,.pdf,hybrid,0.5714285713469388,0.5714285713469388,0.5714285708469388,0.5714285713469388,0.5714285713469388,0.5714285708469388
+Characterization of Three Forks Formation Reservoir Lithofacies,pdf_text,.pdf,rule,0.09090909090817263,0.8181818181074381,0.16363636345338844,0.09090909090817263,0.8181818181074381,0.16363636345338844
+Characterization of Three Forks Formation Reservoir Lithofacies,pdf_text,.pdf,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Characterization of Three Forks Formation Reservoir Lithofacies,pdf_text,.pdf,hybrid,0.09090909090817263,0.8181818181074381,0.16363636345338844,0.09090909090817263,0.8181818181074381,0.16363636345338844
+Convolution_Polarity,images,.jpg,rule,0.0,0.0,0.0,0.0,0.0,0.0
+Convolution_Polarity,images,.jpg,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Convolution_Polarity,images,.jpg,hybrid,0.0,0.0,0.0,0.0,0.0,0.0
+Example-of-a-near-seafloor-structure,images,.jpg,rule,0.0,0.0,0.0,0.0,0.0,0.0
+Example-of-a-near-seafloor-structure,images,.jpg,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Example-of-a-near-seafloor-structure,images,.jpg,hybrid,0.0,0.0,0.0,0.0,0.0,0.0
+Geophysics,txt,.txt,rule,0.59999999988,0.9999999996666666,0.7499999993437498,0.59999999988,0.9999999996666666,0.7499999993437498
+Geophysics,txt,.txt,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Geophysics,txt,.txt,hybrid,0.59999999988,0.9999999996666666,0.7499999993437498,0.59999999988,0.9999999996666666,0.7499999993437498
+Integration of Deterministic Seismic inversion with Machine Learning,doc_Word,.docx,rule,0.89999999991,0.8181818181074381,0.8571428565623582,0.89999999991,0.8181818181074381,0.8571428565623582
+Integration of Deterministic Seismic inversion with Machine Learning,doc_Word,.docx,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Integration of Deterministic Seismic inversion with Machine Learning,doc_Word,.docx,hybrid,0.89999999991,0.8181818181074381,0.8571428565623582,0.89999999991,0.8181818181074381,0.8571428565623582
+Interpretation of incised valleys using new 3-D seismic techniques,pdf_text,.pdf,rule,0.0,0.0,0.0,0.0,0.0,0.0
+Interpretation of incised valleys using new 3-D seismic techniques,pdf_text,.pdf,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Interpretation of incised valleys using new 3-D seismic techniques,pdf_text,.pdf,hybrid,0.0,0.0,0.0,0.0,0.0,0.0
+Interpretational applications of spectral decomposition in reservoir characterization,pdf_text,.pdf,rule,0.0,0.0,0.0,0.0,0.0,0.0
+Interpretational applications of spectral decomposition in reservoir characterization,pdf_text,.pdf,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Interpretational applications of spectral decomposition in reservoir characterization,pdf_text,.pdf,hybrid,0.0,0.0,0.0,0.0,0.0,0.0
+Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary,images,.jpg,rule,0.0,0.0,0.0,0.0,0.0,0.0
+Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary,images,.jpg,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary,images,.jpg,hybrid,0.0,0.0,0.0,0.0,0.0,0.0
+NPD Oligocene to Pliocene well and borehole data,pdf_scans,.pdf,rule,0.2499999999375,0.2499999999375,0.2499999994375,0.7499999998125,0.7499999998125,0.7499999993124999
+NPD Oligocene to Pliocene well and borehole data,pdf_scans,.pdf,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+NPD Oligocene to Pliocene well and borehole data,pdf_scans,.pdf,hybrid,0.2499999999375,0.2499999999375,0.2499999994375,0.7499999998125,0.7499999998125,0.7499999993124999
+Oil well operation parameters (2013),tables,.xlsx,rule,0.0,0.0,0.0,0.0,0.0,0.0
+Oil well operation parameters (2013),tables,.xlsx,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Oil well operation parameters (2013),tables,.xlsx,hybrid,0.0,0.0,0.0,0.0,0.0,0.0
+Predicting rock properties,txt,.txt,rule,0.9999999998333333,0.9999999998333333,0.9999999993333333,0.9999999998333333,0.9999999998333333,0.9999999993333333
+Predicting rock properties,txt,.txt,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Predicting rock properties,txt,.txt,hybrid,0.9999999998333333,0.9999999998333333,0.9999999993333333,0.9999999998333333,0.9999999998333333,0.9999999993333333
+Public Dataset for Machine Learning in Seismic Interpretation,pdf_text,.pdf,rule,0.0796460176984102,0.7499999999375,0.14399999982412798,0.08849557522045579,0.8333333332638889,0.159999999823872
+Public Dataset for Machine Learning in Seismic Interpretation,pdf_text,.pdf,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Public Dataset for Machine Learning in Seismic Interpretation,pdf_text,.pdf,hybrid,0.0796460176984102,0.7499999999375,0.14399999982412798,0.08849557522045579,0.8333333332638889,0.159999999823872
+Reservoir rock allocated to each producing zone,tables,.xlsx,rule,0.0,0.0,0.0,0.0,0.0,0.0
+Reservoir rock allocated to each producing zone,tables,.xlsx,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Reservoir rock allocated to each producing zone,tables,.xlsx,hybrid,0.0,0.0,0.0,0.0,0.0,0.0
+Seismic attributes,txt,.txt,rule,0.499999999875,0.9999999995,0.6666666659999999,0.499999999875,0.9999999995,0.6666666659999999
+Seismic attributes,txt,.txt,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Seismic attributes,txt,.txt,hybrid,0.499999999875,0.9999999995,0.6666666659999999,0.499999999875,0.9999999995,0.6666666659999999
+Seismic_Imaging_and_Interpretation_Techniques,doc_Word,.docx,rule,0.8888888887901234,0.999999999875,0.9411764699792387,0.8888888887901234,0.999999999875,0.9411764699792387
+Seismic_Imaging_and_Interpretation_Techniques,doc_Word,.docx,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+Seismic_Imaging_and_Interpretation_Techniques,doc_Word,.docx,hybrid,0.8888888887901234,0.999999999875,0.9411764699792387,0.8888888887901234,0.999999999875,0.9411764699792387
+W1 Well Logs,tables,.xlsx,rule,0.0,0.0,0.0,0.0,0.0,0.0
+W1 Well Logs,tables,.xlsx,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+W1 Well Logs,tables,.xlsx,hybrid,0.0,0.0,0.0,0.0,0.0,0.0
+WA1,txt,.txt,rule,0.0,0.0,0.0,0.0,0.0,0.0
+WA1,txt,.txt,nlp,0.0,0.0,0.0,0.0,0.0,0.0
+WA1,txt,.txt,hybrid,0.0,0.0,0.0,0.0,0.0,0.0

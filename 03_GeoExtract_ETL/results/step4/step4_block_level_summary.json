@@ -1,0 +1,10 @@
+{
+  "total_docs": 16,
+  "total_tp": 256,
+  "total_fp": 151,
+  "total_fn": 168,
+  "avg_precision": 0.7191731568864383,
+  "avg_recall": 0.6769529994858943,
+  "avg_f1": 0.669462557743186,
+  "weighted_f1": 0.5990537957369582
+}

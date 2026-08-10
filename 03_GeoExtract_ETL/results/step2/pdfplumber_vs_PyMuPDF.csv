@@ -1,0 +1,25 @@
+file,doc_id,type,extension,language,requires_ocr,plumber_chars,fitz_chars,chars_diff,plumber_sec,fitz_sec,faster,more_text
+Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin.pdf,Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin,pdf_text,.pdf,en,False,17379,17685,306,0.876,0.027,PyMuPDF,PyMuPDF
+Assessment of Tight-Oil and Tight-Gas Resources.pdf,Assessment of Tight-Oil and Tight-Gas Resources,pdf_text,.pdf,en,False,11877,12009,132,0.834,0.023,PyMuPDF,PyMuPDF
+Assessment of Undiscovered Conventional Oil and Gas Resources.pdf,Assessment of Undiscovered Conventional Oil and Gas Resources,pdf_text,.pdf,en,False,11738,11862,124,0.717,0.017,PyMuPDF,PyMuPDF
+Assessment of Undiscovered Oil and Gas  in the Haynesville Formation.pdf,Assessment of Undiscovered Oil and Gas  in the Haynesville Formation,pdf_text,.pdf,en,False,14203,14385,182,9.958,0.099,PyMuPDF,PyMuPDF
+Assessment of Undiscovered Oil and Gas in the Central North Slope of Alaska.pdf,Assessment of Undiscovered Oil and Gas in the Central North Slope of Alaska,pdf_text,.pdf,en,False,15238,15418,180,1.69,0.027,PyMuPDF,PyMuPDF
+Assessment of Undiscovered Oil and Gas of the Gulf Coast.pdf,Assessment of Undiscovered Oil and Gas of the Gulf Coast,pdf_text,.pdf,en,False,11830,12094,264,4.195,0.041,PyMuPDF,PyMuPDF
+Assessment of Undiscovered Shale- Gas Resources.pdf,Assessment of Undiscovered Shale- Gas Resources,pdf_text,.pdf,en,False,16369,16547,178,1.649,0.018,PyMuPDF,PyMuPDF
+Assumptions to the Annual Energy Outlook 2026 Liquid Fuels Market Module.pdf,Assumptions to the Annual Energy Outlook 2026 Liquid Fuels Market Module,pdf_text,.pdf,en,False,59503,61833,2330,2.455,0.033,PyMuPDF,PyMuPDF
+Characterization of Three Forks Formation Reservoir Lithofacies.pdf,Characterization of Three Forks Formation Reservoir Lithofacies,pdf_text,.pdf,en,False,21852,22314,462,1.069,0.013,PyMuPDF,PyMuPDF
+Development of the taranaki basin for deepwater exploration.pdf,Development of the taranaki basin for deepwater exploration,pdf_text,.pdf,en,False,37169,36301,868,2.908,0.028,PyMuPDF,pdfplumber
+Interpretation of incised valleys using new 3-D seismic techniques.pdf,Interpretation of incised valleys using new 3-D seismic techniques,pdf_text,.pdf,en,False,16604,16622,18,1.181,0.01,PyMuPDF,PyMuPDF
+Interpretational applications of spectral decomposition in reservoir characterization.pdf,Interpretational applications of spectral decomposition in reservoir characterization,pdf_text,.pdf,en,False,13348,13358,10,0.642,0.004,PyMuPDF,PyMuPDF
+NPD FactPages  Well 72208‑1.pdf,NPD FactPages  Well 72208‑1,pdf_text,.pdf,en,False,12676,13802,1126,0.829,0.017,PyMuPDF,PyMuPDF
+NPD FactPages Well 65077‑12.pdf,NPD FactPages Well 65077‑12,pdf_text,.pdf,en,False,19081,20920,1839,1.668,0.03,PyMuPDF,PyMuPDF
+NPD Resource Accounts for the Norwegian continental shelf 2021.pdf,NPD Resource Accounts for the Norwegian continental shelf 2021,pdf_text,.pdf,en,False,28941,29678,737,1.486,0.017,PyMuPDF,PyMuPDF
+Public Dataset for Machine Learning in Seismic Interpretation.pdf,Public Dataset for Machine Learning in Seismic Interpretation,pdf_text,.pdf,en,False,23962,24701,739,1.112,0.01,PyMuPDF,PyMuPDF
+Seismic attributes in reservoir characterization an overview.pdf,Seismic attributes in reservoir characterization an overview,pdf_text,.pdf,en,False,37010,39777,2767,1.345,0.024,PyMuPDF,PyMuPDF
+"Seismic facies analysis Past, present and future.pdf","Seismic facies analysis Past, present and future",pdf_text,.pdf,en,False,117935,119080,1145,4.5,0.064,PyMuPDF,PyMuPDF
+Spectral decomposition of time- vs. depth-migrated data.pdf,Spectral decomposition of time- vs. depth-migrated data,pdf_text,.pdf,en,False,13248,14013,765,0.724,0.017,PyMuPDF,PyMuPDF
+Spectral Decomposition Reveals Geological Hidden Features in the Amplitude Maps.pdf,Spectral Decomposition Reveals Geological Hidden Features in the Amplitude Maps,pdf_text,.pdf,en,False,12388,12933,545,1.12,0.013,PyMuPDF,PyMuPDF
+The impact of reservoir scale on amplitude variation with offset.pdf,The impact of reservoir scale on amplitude variation with offset,pdf_text,.pdf,en,False,29397,32352,2955,1.649,0.013,PyMuPDF,PyMuPDF
+Use of spectral decomposition technique for delineation of channels at Solar gas discovery.pdf,Use of spectral decomposition technique for delineation of channels at Solar gas discovery,pdf_text,.pdf,en,False,12839,13624,785,0.6,0.017,PyMuPDF,PyMuPDF
+Well Logging in Support for Seismic Reservoir Characterization.pdf,Well Logging in Support for Seismic Reservoir Characterization,pdf_text,.pdf,en,False,9160,9267,107,0.366,0.0,PyMuPDF,PyMuPDF
+Williston Basin Province Interpretation of 2-D Seismic Data.pdf,Williston Basin Province Interpretation of 2-D Seismic Data,pdf_text,.pdf,en,False,17527,17755,228,30.416,0.217,PyMuPDF,PyMuPDF

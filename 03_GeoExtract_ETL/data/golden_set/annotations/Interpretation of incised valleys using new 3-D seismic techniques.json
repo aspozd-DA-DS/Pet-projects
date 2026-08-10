@@ -1,0 +1,199 @@
+{
+  "doc_id": "Interpretation of incised valleys using new 3-D seismic techniques",
+  "extension": ".pdf",
+  "total_blocks": 38,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Interpretation of incised valleys using new 3-D seismic techniques: A case history using spectral decomposition and coherency",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "LYNN PEYTON, Amoco Production Company, Denver, Colorado",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "RICH BOTTJER, Coal Creek Resources, Louisville, Colorado",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "GREG PARTYKA, Amoco Exploration and Production Technology Group, Tulsa, Oklahoma",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "New 3-D seismic interpretation techniques such as spectral decomposition and coherency have been shown to enhance interpretation of stratigraphic features in Tertiary, poorly lithified rocks, but their use has not been as well documented on older, more consolidated sediments. Coherency images seismic discontinuities by calculating localized seismic trace similarity. Spectral decomposition uses the discrete Fourier transform to image time thickness variability. In the latter, the amplitude spectrum, computed from a short time window covering the geologic zone of interest, is tuned by the rock properties within the analysis window. When applied to 3-D seismic and presented in map form, these spectral responses image lateral variability within the zone of interest.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "In this paper we present a case history where both spectral decomposition and coherency were used successfully to image deep (~10000 ft) and old (Pennsylvanian) stratigraphic features in the U.S. midcontinent.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The original objectivewas to generate drilling prospects in the Middle Pennsylvanian (Desmoinesian) Red Fork Formation of the Anadarko Basin, Oklahoma. The Red Fork is a prolific producer throughout the basin, producing from both marine and valley-fill sands.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The study area is located in the eastern part of the Anadarko Basin (Figure 1). Pennsylvanian rocks throughout most of the Anadarko Basin are dominated by shallow shelf marine clastics. The Red Fork Formation in the study area is characterized by three coarsening upward marine parasequences (Lower, Middle, and Upper Red Fork), herein referred to as Regional Red Fork,with regionally extensive limestones above (Pink Lime) and below (Inola Lime and Novi Lime). Incised valleys of Lower,Middle, and Upper Red Fork age have eroded into these regionally correlative parasequences. This paper will discuss only Upper Red Fork incised valleys, as they are the largest and most clearly imaged on the 3-D seismic and contain the best reservoir rocks in the area.",
+  "start_page": 1
+},
+    {
+      "type": "figure",
+      "caption": "Figure 1. Location map showing 3-D survey outlines, lines of cross-section, wells producing from Upper Red Fork Stage III valley fill, and interpreted outline of Stage III valley before acquisition of 3-D seismic data.",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "The Upper Red Fork incised valley system consists of multiple stages of incision and fill, resulting in a stratigraphically complex internal architecture. Prior to acquiring 3-D seismic in the area, we followed the conventional belief that fourmain stages of valley fill exist, ofwhich the third, Stage III, is the most abundant producer. Red Fork incised valleys are generally 0.5-1.0 miles wide and are, therefore, challenging exploration targets. 3-Dseismic technologywas utilized in an attempt to decrease the risk associatedwith drilling for these narrowbut prolific objectives.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Acquisition. Amoco acquired three 3-D seismic surveys over the study area. The first (27 mi2) was shot in 1993. In 1994, 57 mi2 were acquired. Both surveys had primary objectives below the Red Fork. In 1996, 67 mi2 were acquiredwith themain objective of imaging theUpper Red Fork incised valley system. The three surveysweremerged to produce one 136-mi2 survey (Figure 1).",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Data quality is excellent compared to typical land 3-D surveys, with a dominant frequency of about 50 Hz and up to 80 Hz present in the data.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Before the acquisition of the 1996 survey, several wells in the area were interpreted as penetrating the edge of the Stage III valley fill. These wells do not produce, but they do indicate the presence of the Stage III valley. The distribution of wells which produce fromStage III Sand (Figure 1) shows a gap in production in the same part of the 1996 survey. We recognized that this area had good potential for unpenetrated, and therefore undrained, Stage III reservoir sand. This prospective area (Figure 1) was a significant objective of the 1996 survey. Itwas necessary to image both the edges of the valley and the different stages of fill within the valley to map the Stage III valley fill and identify prospects.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Interpretation. Geologically, the Red Fork is bounded above and below by regionally correlative marker beds (Pink Lime above and Inola andNovi Limes below)which have consistent character on electric logs. The same is true seismically, although the Lower Skinner Shale directly above the Pink Lime gives a more continuous reflection than the Pink itself. TheNovi Lime provides themost continuous reflection belowthe Red Fork interval (Figure 2a).",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The seismic cross-section in Figure 2a illustrates the difficulty of interpreting the Red Fork incised valley using traditional interpretation techniques (autopicking horizons, amplitude mapping, isochron mapping, etc.). The incised valleys are characterized by discontinuous reflec-tions of varying amplitude which are difficult to interpret laterally. Individual stages of fill are almost impossible to identify. As we subsequently learned, the cross-section in Figure 2a actually crosses from Regional Red Fork marine parasequences in the south through three different stages of valley fill and back into Regional Red Fork at the north end (Figure 2b). Due to the inadequacy of conventional interpretation techniques, we decided to use spectral decomposition and coherency. In the study area the entire Red Fork interval is approximately 50-ms thick (~300 ft). Therefore a 50-mswindowbelowthe Lower Skinner horizon, encompassing the Red Fork interval, was used as the input zone-of-interest volume into spectral decomposition.",
+  "start_page": 1
+},
+    {
+      "type": "figure",
+      "caption": "Figure 2. Seismic cross-section A flattened on Novi horizon; (a) without and (b) with current interpretation.",
+      "start_page": 2
+    },
+
+{
+  "type": "paragraph",
+  "text": "Spectral decomposition imaged the Red Fork incised valley between about 20 Hz and 50 Hz. The 36-Hz amplitude slicewas one of the best images of the valley throughout the survey area and was therefore chosen for display purposes (Figure 3a). It is apparent from Figure 3a that spectral decomposition not only images the valley edges but also internal features which we have interpreted to be different stages of valley fill.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "A coherency cube was computed for the entire 3-D volume. The cube was flattened on the Lower Skinner horizon, and time slices were taken through the flattened volume in the Red Fork interval. This is the same as taking horizon slices below the Lower Skinner horizon in the coherency volume. As expected, coherency slices imaged the edges of the valley and different stages of the valley fill well (Figure 4), although the level of internal detail present on the spectral decomposition image is not present on the coherency image.",
+  "start_page": 2
+},
+    {
+      "type": "figure",
+      "caption": "Figure 3. 36-Hz amplitude slice from Red Fork spectral decomposition; (a) without and (b) with current interpretation.",
+      "start_page": 2
+    },
+    {
+      "type": "figure",
+      "caption": "Figure 4. Coherency slice 36 ms below Lower Skinner horizon, showing wells with faults in the Red Fork and Inola intervals. Box shows location of Figure 8a.",
+      "start_page": 2
+    },
+{
+  "type": "paragraph",
+  "text": "Initial examination of the spectral decomposition and coherency images (Figures 3a and 4) seems to show that the Stage III valley does indeed cross the 1996 survey and connect the producing wells in the west half of the study area with those to the east, as interpreted before the 3-D (Figure 1). However, closer inspection of the spectral decomposition shows an apparently younger valley which trends northwest in the east part of the 1996 survey and cuts out the Stage III, but then bends to the southwest and diverges from the Stage III valley. This interesting feature led us to reinterpret the well logs in the area,which resulted in the recognition of a new, younger stage of valley fill, Stage V. The final interpretation of the valley to date (Figure 3b) is the result of integration of well log interpretation with the shapes and patterns on the spectral decomposition and coherency results.",
+  "start_page": 2
+},
+    {
+      "type": "figure",
+      "caption": "Figure 5. Stratigraphic well log cross-section A showing stages II, III, IV and V valley fill. Cross-section datum is top of Novi Lime. Upper Red Fork valley stages and regionally correlative limestones are shaded. The Griffin 1 well (perforations shown) has produced 1.03 billion ft3 of gas and 16.4 thousand bls oil from Red Fork Stage III Sand.",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "Unfortunately, geologic work shows that Stage V is a shale-filled valley with no potential for hydrocarbon production. Becausemost of the prospective Stage III has been erosionally removed by the Stage V, no drilling prospects were found in the Red Fork interval in the 3-D area.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "The Stage III and Stage V valleys must diverge to the east of the survey area where Stage III production is encountered. It was disappointing that no valleys were imaged in the northeast part of the 3-D area, around the producing Jay-Jay 2 well (Figure 1). This well produces fromapproximately 50 ft of Stage III sand. Time constraints on the project allowed only normal-incidencemodeling to determine why the Stage III valley was not imaged in this area. Lack of good sonic log data in the area made modeling difficult, but results showed very low impedance contrast between the Stage III valley and the Regional Lower Red Fork intowhich it cuts. This lack of impedance contrast may explain why the Stage III is not imaged around this well.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "Interpretations of borehole, spectral decomposition, and coherency data were combined in the geologic interpretation of seismic cross-sections (e.g., Figure 2). Notice that the Red Fork interval (between the Lower Skinner and Novi Lime reflections) shows an isochron thinwhere Stage V fill is present. A corresponding isopach thin is apparent on the equivalent well cross-section (Figure 5).A3-D visualization of the Red Fork interval isochron (Figure 6) shows that the isochron thin coincides with the occurrence of Stage V. Indeed, the isochronmap was used to identify the northeast-trending valley in the southeast of the study area as Stage V. The isopach/isochron thin is probably due to differential compaction of the Stage V shale.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "Faulting and slumping. Significant faulting of the area occurred during early Pennsylvanian (Atokan) time, and somemovement persisted into theDesmoinesian.All faulting interpreted on the 3-Dseismic is nearly vertical and generally basement-involved. Before acquisition of the seismic, several faults had been identified on well logs in the Red Fork and Inola intervals (Figure 7); however, these faults could not be identified using 3-Dseismic. Thiswas unusual as faults are generally easy to interpret on 3-D seismic data in this area. The Ramsey 1 well (Figure 7) is particularly interesting because the Inola Lime ismissing, the Regional Red Fork marine parasequences sit directly on the Novi Lime, and Stage II valley fill sits on top of the Regional Red Fork.We interpret a normal fault just above theNovi Lime which has downthrown the Regional Red Fork to a position immediately on top of the Novi in this wellbore. This occurred before and/or during the deposition of the valley fill sediments. When the wells with the Red Fork and Inola faults are plotted on the coherency map (Figure 4), they all coincide with the edges of stages of the Upper Red Fork valley. More detailed inspection of a slightly deeper coherency slice (Figure 8a) shows that the faultedwells coincide with dark areas of low coherency at the edge of the valley. This led to the conclusion that these faults are bounding faults of valley-edge slump blocks. These slump blocks seem to be of a similar scale to present-day examples from the Canterbury Plains of New Zealand (Figure 8b).",
+  "start_page": 3
+},
+    {
+      "type": "figure",
+      "caption": "Figure 6. 3-D visualization of Red Fork interval isochron (Novi Lime to Lower Skinner horizons).",
+      "start_page": 3
+    },
+    {
+      "type": "figure",
+      "caption": "Figure 7. Stratigraphic well log cross-section B showing stages II, IV and V valley fill and slump fault in Ramsey 1 well. Cross-section datum is top of Novi Lime. Upper Red Fork valley stages and regionally correlative limestones are shaded.",
+      "start_page": 3
+    },
+    {
+      "type": "figure",
+      "caption": "Figure 8. (a) Zoom from Figure 4 of coherency slice 40 ms below Lower Skinner horizon, showing wells with faults in the Red Fork and Inola intervals. Dark areas have low coherency. (b) Modern-day incised valley from the Canterbury Plains of New Zealand showing slump feature on valley edge. Slump is approximately 1 km long and 0.5 km wide (photo courtesy of Dale Leckie).",
+      "start_page": 4
+    },
+{
+  "type": "paragraph",
+  "text": "Conclusions. Spectral decomposition and coherency displays of 3-D seismic data enabled interpretation of a complex incisedvalley systemthatwouldhave beendifficult and time-consuming using standard interpretation techniques. Wewere able tomap not only the limits of the Pennsylvanian Upper Red Fork valley system but also the distribution of different stages within the valley.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Integration of the 3-D seismic with the well data was absolutely essential for an accurate interpretation. Integration of the two disciplines led to the recognition of a new stage of valley fill, Stage V, in this part of the valley system. This hada significant impact on our exploitation program because the Stage V erosionally removed the productive Stage III in the area in which we were looking for prospects. The new interpretation prevented the drilling of dry holes.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Both spectraldecomposition andcoherency images show many valley-shaped features throughout the 3-Darea in the Red Fork interval. Many of these features were previously unknown, andmorework is needed to determine howthey fit into the interpretation of the Red Fork. Coherency also led to the interpretation of valley-edge slump features and the recognition that not all faults in this area are basementinvolved.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Suggestions for further reading. “Desmoinesian fluvial-deltaic sandstone and shallow-marine limestone,Anadarko Basin, Oklahoma” by Bingham (Atlas of Major Midcontinent Gas Reservoirs, GRI 1993) provides an overview of the Red Fork throughout theAnadarko Basin.Clement’s paper “East Clinton Field, USA” (AAPG Treatise of Petroleum Geology, Atlas of Oil and Gas Fields, Stratigraphic Traps II, 1991) provides a more detailed geologic description of the Red Fork Formation and the Upper Red Fork incisedvalley system. Additionaldetails concerning coherency cube technology are found in “The Coherence Cube” by Bahorich and Farmer (TLE, 1995). Spectral decomposition was presented by Partyka and Gridley in “Interpretational aspects of spectral decomposition” (Istanbul ‘97 Conference and Exposition Abstracts).",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Acknowledgments:We would like to thank Jim Gridley, who along with Greg Partyka developed and shared the spectral decomposition technology that was so instrumental in arriving at the final conclusions. Previous work by AlWarner and John Coughlon on the Red Fork Valley systems in this area led to the recognition of the prospective area. Dale Leckie kindly provided his photograph of a modern incised valley and associated valley edge slumping in New Zealand. Many thanks to Allan Skorpen and Terri Olson for editing the manuscript. Thanks to Amoco and Gothic Energy for allowing publication of these data and the results of this study.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Lynn Peyton is currently interpreting 3-D seismic data in the Permian Basin for Texaco E&P in Denver. From 1991 through 1997 she worked the U.S. midcontinent for Amoco Production Company, mainly interpreting 2-D and 3-D seismic data in the Anadarko Basin. She received a bachelor’s degree in geology and geophysics (1988) fromtheUniversity ofDurhamand amasters degree (1991) in geophysics fromtheUniversity of Utah.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Richard J. Bottjer, president of Coal Creek Resources, is actively prospecting for oil and gas and providing geological consulting services in the U.S. midcontinent and Rocky Mountain regions. Bottjer worked for Amoco Production Company in the Exploration Department and later in theMidcontinent BusinessUnit from1983 through 1997.He received a bachelor’s degree (1981) in geology from the State University of New York at Binghamton and a master’s degree in geology (1984) from the University of Wyoming.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Greg Partyka is currently developing interpretive processing techniques withAmoco’sUnix Seismic Processing Team. Since 1988, he hasworked for Amoco in Calgary, Poland, Houston, and now Tulsa. He received a bachelor’s degree (1987) in geological engineering from the University of Manitoba.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "Corresponding author: L. Peyton, peytosl@texaco.com",
+  "start_page": 4
+}
+
+  ]
+}

@@ -1,0 +1,126 @@
+Seismic interpretation 
+
+Interpreting seismic data requires an understanding of the subsurface formations and how they may affect wave reception. This article discusses some of the key stratal interfaces and their implications for interpreting the data received.
+
+Application of seismic attributes
+All instantaneous seismic attributes (amplitude, phase, frequency) can be used in interpretation. In practice, most interpreters use instantaneous amplitude, or some variation of an amplitude attribute, as their primary diagnostic tool. Amplitude is related to reflectivity, which in turn is related to subsurface impedance contrasts. Thus, amplitude attributes provide information about all the rock, fluid, and formation-pressure conditions listed in Table 1- Geological influences on acoustic impedance.
+
+Instantaneous phase is useful for tracking reflection continuity and stratal surfaces across low-amplitude areas where it is difficult to see details of reflection waveform character. In general, instantaneous phase is the least used of the seismic attributes.
+
+Instantaneous frequency sometimes aids in recognizing changes in bed thickness and bed spacing. Anomalous values of Instantaneous frequency (negative values or unbelievably high positive values) are particularly useful for recognizing:
+
+Edges of reservoir compartments
+Subtle faults
+Stratigraphic pinchouts
+Hardage[1] demonstrated these applications of Instantaneous frequency.
+
+Seismic stratigraphy
+A stratal surface is a depositional bedding plane: a depositional surface that defines a fixed geologic time. A siliciclastic rock deposited in a high-accommodation environment contains numerous vertically stacked stratal surface. A fundamental thesis of seismic stratigraphy is that a seismic reflection event follows an impedance contrast associated with a stratal surface; that is, a seismic reflection is a surface that represents a fixed point in geologic time.[2][3] The term chronostratigraphic defines this type of seismic reflection event. Because lithology varies across the area spanned by a large depositional surface, the implication of this interpretation principle is that an areally pervasive seismic reflection event does not necessarily mark an impedance contrast boundary between two fixed rock types as that reflection traverses an area of interest. The application of this fundamental concept about the genetic origin of seismic reflections to seismic interpretation is referred to as stratal-surface seismic interpretation.
+
+Tipper[4] illustrated and discussed situations in which a seismic reflection can be either chronostratigraphic or diachronous (meaning that the event moves across depositional time surfaces), depending on the vertical spacings between beds, the lateral discontinuity between diachronous beds, and bed thickness. The conclusion that a seismic reflection is chronostratigraphic or diachronous needs to be made with caution because the answer depends on the local stratigraphy, the seismic bandwidth, and the horizontal and vertical resolution of the seismic data.
+
+If two seismic reflection events, A and B, are separated by an appreciable seismic time interval (a few hundred milliseconds) yet are conformable to each other (that is, they parallel each other), then the uniform seismic time thickness between these two events represents a constant and fixed period of geologic time throughout the seismic image space spanned by reflectors A and B. An implication of seismic stratigraphy that can be invoked in such an instance is that any seismic surface intermediate to A and B, which is also conformable to A and B, is also a stratal surface.
+
+Types of stratal interfaces
+A key first step in seismic interpretation is to use well logs and cores to identify the three types of stratal interfaces that exist in geologic intervals of interest:
+
+Flooding surfaces
+Maximum flooding surfaces
+Erosion surfaces
+
+Flooding surface
+Flooding surfaces are widespread interfaces that contain evidence of an upward, water-deepening facies dislocation, such as contact between the following:
+
+Rooted, unfossiliferous floodplain mudstones
+Overlying fossiliferous marine shale
+A ravinement surface is a specific type of flooding surface that suggests that transgressive passage of a surf zone has eroded underlying shallower-water facies.
+
+Maximum flooding surface
+Maximum flooding surfaces are interfaces that contain evidence of a widespread, upward, water-deepening facies dislocation that is associated with the inferred, deepest water facies encountered in a succession of strata. A maximum flooding surface is commonly represented by a thin condensed section, typically a black, organic-rich shale with a low-diversity fossil assemblage representing deepwater, sediment-starved conditions.
+
+Maximum flooding surfaces bound and define upward-coarsening facies successions that are called genetic sequences by Galloway.[5] These genetic sequences are similar to cycles or cyclothems in other terminology.[6] [7]
+
+
+Erosion surface
+An erosion surface is an interface in which there is evidence of a facies offset that indicates that an abrupt decrease in water depth occurred. If an erosion surface is widespread, truncation of older strata can be documented on well log cross sections. Some of these surfaces may be disconformities representing downcutting during periods of subaerial exposure caused by allocyclic (extrabasinal) mechanisms, such as eustatic sea-level changes. These major chronostratigraphic surfaces are often manifested as mappable seismic reflections. All 3D seismic data volumes should be calibrated with mappable, key surfaces recognized from cores and well logs, with priority given to: flooding surfaces, maximum flooding surfaces, and erosion surfaces
+
+Structural interpretation
+The original use of seismic reflection data (circa 1930 through 1960) was to create maps depicting the geometry of a subsurface structure. Because many of the world’s largest oil and gas fields are positioned on structural highs, structural mapping has been, in a historical sense, the most important application of exploration seismic data. When the seismic industry converted from analog to digital data recording in the mid-1960s, digital technology increased the dynamic range of reflected seismic signals and allowed seismic data to be used for applications other than structural mapping, such as:
+
+Stratigraphic imaging
+Pore-fluid estimation
+Lithofacies mapping
+These expanded seismic applications have led to the discovery of huge oil and gas reserves confined in subtle stratigraphic traps, and seismic exploration is now no longer limited to just “mapping the structural highs.” However, even with the advances in seismic technology, structural mapping is still the first and most fundamental step in interpretation. When 3D seismic data are interpreted with modern computer workstations and interpretation software, structural mapping can be done quickly and accurately.
+
+Different seismic interpreters use different approaches and philosophies in their structural interpretations. The technique described here is particularly robust and well documented.[8] The first step of the procedure is to convert the 3D seismic data volume that has to be interpreted to a 3D coherency volume. Coherency is a numerical measure of the lateral uniformity of seismic reflection character in a selected data window. As the waveform character of side-by-side seismic traces becomes more similar, the coherency value for the traces approaches a value of +1.0; as the traces become more dissimilar, the coherency of the traces approaches zero. All modern seismic interpretation software can perform the numerical transform that converts 3D seismic wiggle-trace data into a 3D coherency volume.
+
+Fig. 1 shows an example of a horizontal time slice through a 3D coherency volume from the Gulf of Mexico. The narrow bands of low coherency values that extend across this time slice are created by faults that disrupt the lateral continuity of reflection events. Fault mapping is a major component of structural mapping, and this type of coherency display can be used to create fast, accurate fault maps. Coherency technology has evolved into the optimal methodology for detecting and mapping structural faults in 3D seismic image space.
+
+Fig. 1 – Horizontal slice through a 3D coherency volume imaging a producing area in the Gulf of Mexico.[8]
+
+The second step of the structural interpretation procedure is to transfer the fault pattern defined by coherency data to the associated 3D seismic wiggle-trace data volume. Fig. 2 illustrates the projection of the faults in Fig. 1 onto a vertical profile through 3D seismic image space. The coherency time slice in Fig. 1 defines the X, Y coordinates of each intersected fault at one constant, image-time coordinate across the image space. Additional coherency time slices are made at image-time intervals of 100 or 200 milliseconds to define the X, Y coordinates of each fault as a function of imaging depth. This procedure causes the orientations and vertical extents of faults transferred to a 3D seismic wiggle-trace volume to be quite accurate.
+
+Fig. 2 – Vertical seismic slice along crossline T600 of Fig. 2.15.[8]
+
+The first-order fault labeled in Fig. 2 extends through the entire stratigraphic column and create large vertical displacements of strata. The second-order faults have less vertical extent and cause less vertical displacement than the first-order faults. Other structural and stratigraphic features that are common in Gulf of Mexico geology are labeled. These features are identified to indicate the imaging capabilities of seismic data. Rollover indicates fault-related flexing of bedding, which results in structural trapping of hydrocarbons. The bright spot is an example of reflection amplitude reacting as a direct hydrocarbon indicator (see changes in pore fluid in Table 2.2). The velocity sag feature is a false structural effect caused by anomalously low seismic propagation velocity that delays reflection arrival times, leaving the misleading appearance of a structural sag.
+
+The third step of this approach to structural mapping is to interpret a series of chronostratigraphic surfaces across the seismic image space. These surfaces can be any of the chronostratigraphic surfaces (flooding surfaces, maximum flooding surfaces, and erosion surfaces) described in Sec. 2.15, depending on the amount and quality of subsurface well control available to the interpreter. If there is no well control, interpreters must use their best judgment as to how to correlate equivalent strata across a seismic image space and then adjust their interpretation, if necessary, as wells are drilled.
+
+When a selected stratal surface is extended across the complete seismic image space, the geometrical configuration of that chronostratigraphic surface can be displayed as a structure map. The structure map in Fig. 3 is one of the chronostratigraphic surfaces interpreted across this Gulf of Mexico prospect with the fault geometry information defined by coherency slices (Fig. 1) and vertical slices (Fig. 2). The producing fields shown in the map are positioned on local structural highs associated with one or more first-order faults.
+
+Fig. 3 – Time-structure map of a deep reservoir system exhibiting considerable fault-induced compartmentalization.[8]
+
+In the lower left of the map in Fig. 3, an arbitrary profile XX′ is shown crossing the fault swarm. Fig. 4 displays a vertical section along this profile to demonstrate the degree to which faults compartmentalize producing strata. This expanded view of the seismic reflection character also reveals critical stratigraphic features, such as lowstand wedges, that are embedded in the faulted structure. (A lowstand wedge is a sedimentary wedge deposited during a period of low sea level.) This type of seismic interpretation allows stratigraphers to construct detailed models of the internal architecture of targeted reservoir systems.
+
+Fig. 4 – Vertical seismic slice along profile XX́ (Fig. 3) showing faulted stratigraphic features.[8]
+
+Fig. 5 shows a second structural map constructed from a shallower chronostratigraphic surface to illustrate that less fault compartmentalization is in shallow reservoirs than in the deeper reservoirs associated with the structure shown in Fig. 3. The first-order faults still displace strata at this shallow level, but most second-order faults have terminated at deeper depths and no longer cause reservoir compartmentalization.
+
+Fig. 5 – Shallow time-structure map showing reduced influence of second-order faults compared with the deeper structure of Fig. 3.[8]
+
+The structure maps shown in Figs. 3 and 5 are time-structure maps. These maps can be converted to depth maps once seismic propagation velocities are determined through the stratigraphic column.
+
+Imaging reservoir targets
+Fig. 6 shows a data window from a vertical slice of a 3D seismic data volume that is centered on a targeted channel system. These data include a good-quality reflection peak labeled "reference surface." The reference surface is a reference seismic stratal surface used to construct additional stratal surfaces that pass through the targeted thin-bed interval.[9] The fluvial system is embedded in the reflection peak that occurs at 0.73 seconds at inline coordinate 120. This particular reflection peak satisfies the fundamental criteria required of a reference stratal surface used to study thin-bed sequences:
+
+Event extends over the total 3D image space and has a high signal-to-noise character
+Event is reasonably close to the targeted thin-bed sequences that need to be studied (i.e., the strata related to the anomalous reflection waveforms labeled “Channel 1” approximately 90 milliseconds above the reference surface)
+Event is conformable to (i.e., parallel to) this targeted thin-bed sequence
+The third criterion is the most important requirement for any seismic stratal surface that is to be used as a reference surface. Because this reference surface follows the apex of an areally continuous reflection peak, the basic premise of seismic stratigraphy is that this reference surface follows an impedance contrast that coincides with a stratal surface.
+
+Fig. 6 – Data window from a vertical slice of a 3D seismic data volume that is centered on a targeted channel system (Channel 1).
+
+Fig. 7 displays this crossline section view with four conformable surfaces (A, B, C, and D) that pass through the targeted thin-bed interval added to the profile. These four surfaces are, respectively, 92, 90, 88, and 86 milliseconds above—and conformable to—the reference surface. Visual inspection of the reflection events above and below surfaces A, B, C, and D shows that all these reflection peaks and/or troughs are reasonably conformable to the reference surface event. Surfaces A, B, C, and D can thus be assumed to be stratal surfaces, or constant-depositional-time surfaces, because they are conformable to a known stratal surface (the reference surface) and are embedded in a 200-millisecond seismic window in which all reflection events are approximately conformable to the selected reference surface. The highlighted data window encircles subtle changes in reflection waveform that identify the seismic channel facies.[9]
+
+Fig. 7 – Data window from the selected vertical slice showing stratal surfaces that traverse the channel system.[9]
+
+The circled features in Fig. 7 identify locations where stratal surfaces A, B, C, and D intersect obvious variations in reflection waveform. These waveshape changes are the critical seismic reflection character that distinguishes channel facies from nonchannel facies, as can be verified by comparing the inline coordinates spanned by the circled features (coordinates 60 to 70) with these same inline coordinates where this crossline (number 174) intersects the channel features labeled "Channel 1" in Fig. 8.
+
+Fig. 8 – Reflection-amplitude behavior on stratal surface B, which is 90 milliseconds above, and conformable to, the selected seismic reference surface.[9]
+
+
+Fig. 8 shows reflection-amplitude behavior on stratal surface B, which is 90 milliseconds above, and conformable to, the selected seismic reference surface. This surface shows portions of the Channel 1 system in the lower right quadrant of the image. A second channel system (Channel 2) is located in the upper right quadrant.[9] The channel-system image shown in Fig. 8 is a surface-based image; that is, the seismic attribute that is displayed (which is reflection amplitude in this instance) is limited to a data window that vertically spans only one data sample. When a 1-point-thick data window is a good approximation of a stratal surface that passes through the interior of a targeted thin-bed sequence, then the seismic attributes defined on that surface can be important depictions of facies distributions within the sequence, as the image in this figure demonstrates.
+
+An alternate, and usually more rigorous, way of determining facies distributions within a thin-bed sequence is to calculate seismic attributes in a data window that spans several data points vertically, yet is still confined (approximately) to only the thin-bed interval that needs to be studied. The bottom stratal surface of this data window must reasonably coincide with the onset depositional time of the sequence, and the top stratal surface must be a good approximation of the shutoff depositional time of the sequence. Such a data window is called a stratal-bounded seismic analysis window.
+
+stratal surfaces A and D shown in the section view in Fig. 7 are examples of surfaces that define a stratal-bounded data analysis window that spans a targeted thin-bed sequence, specifically a thin-bed fluvial channel system that was the interpretation objective of this 3D seismic program. In this instance, the analysis window is 4 data points (8 milliseconds) thick. As stated in the discussion of Fig. 7, surfaces A, B, C, and D are good-quality stratal surfaces because each horizon images a significant part of the thin-bed fluvial system that was deposited over a "short" geological time period. Because each of these four seismic horizons is a good approximation of a constant-depositional-time surface, the four surfaces collectively are a good representation of the facies distribution within the total thin-bed sequence that they span.
+
+One way to evaluate facies-sensitive seismic information spanned by surfaces A and D is to calculate some type of an averaged seismic attribute in each stacking bin (the concept of a stacking bin is described in Sec. 2.18.1) of the 4-point-thick data analysis window bounded by horizons A and D. For example, the average peak amplitude between A and D could be used to show an alternate image of the total channel system.
+
+In thin-bed interpretations such as the fluvial channel system considered here, it is important to try to define two seismic reference surfaces that bracket the thin-bed system to be interpreted: one reference surface below the interpretation target and the second reference surface above the target. By creating conformable reference stratal surfaces above and below a thin-bed system, an interpreter can extend a series of conformable seismic stratal surfaces from two directions to sweep across a thin-bed target. A set of seismic stratal surfaces extended across an interval from above the interval is often a better approximation of constant-depositional-time surfaces within a targeted thin-bed sequence than is a set of stratal surfaces extended across the interval from below the interval (or vice versa). The more accurate set of surfaces will produce more reliable images of facies patterns within the thin-bed unit.
+
+To illustrate the advantage of this opposite-direction convergence of seismic stratal surfaces onto a thin-bed target, a second reference surface was interpreted above (and, in this case, closer to) the targeted fluvial system studied in Figs. 6 through 8. Specifically, this second stratal reference surface followed the apex of the reflection troughs immediately above the thin-bed channels. Fig. 8 shows the location of reference surface 2 on a second vertical slice (crossline 200) through the 3D seismic data volume. Reference surface 1 is the horizon labeled "reference surface" in Fig. 5. Reference surface 2 is an alternate seismic stratal surface positioned above the Channel 1 thin-bed target.[9] The targeted fluvial system referred to as Channel 1 is approximately 24 to 30 milliseconds below this second reference surface.
+
+Fig. 8 – Location of reference surface 2 on a second vertical slice (crossline 200) through the 3D seismic data volume.[9]
+
+
+Fig. 9 displays the reflection-amplitude response across the channel systems observed on a stratal surface 26 milliseconds below and conformable to reference surface 2, as defined in Fig. 8. An improved channel image occurs, when compared with the image in Fig. 7, because in this case stratal surfaces that are conformable to the overlying seismic stratal surface happen to be better approximations of constant-depositional-time surfaces for this channel system than are stratal surfaces that are conformable to the deeper reference surface. This result illustrates that the combination of upward and downward extrapolations of conformable stratal surfaces across a thin-bed target is a good interpretation procedure, especially in those instances in which valid stratal reference surfaces can be interpreted both above and below the targeted thin bed.
+
+Fig. 9 – Three-dimensional seismic image of the targeted thin-bed fluvial channel system.[9]
+
+
+In summary, a good technique for interpreting thin-bed targets in 3D seismic data volumes is to interpret a reference surface that is conformable to the areal geometry of the thin-bed sequence and then to create seismic stratal surfaces conformable to this reference surface that pass through the thin-bed target. If the seismic stratal surfaces constructed according to this logic are satisfactory approximations of constant-depositional-time surfaces that existed during the deposition of the thin-bed sequence, the seismic attributes across these stratal surfaces are usually valuable indicators of facies distributions within the sequence.
+
+A second technique is to expand the application of this stratal-surface concept by calculating seismic attributes inside a thin, stratal-bounded analysis window that is centered vertically on the thin-bed target. Facies-sensitive attributes extracted from carefully constructed stratal-bounded windows are often better indicators of facies distributions within a thin-bed target than are attributes that are restricted to a 1-point-thick stratal surface that passes through the target. This fact implies that the geologic time interval during which a thin-bed sequence is deposited can sometimes be portrayed satisfactorily by a stratal-bounded data window, whereas a fixed geologic time during the thin-bed deposition is not well approximated by a 1-point-thick seismic stratal surface. Interpreters have to try both approaches to determine an optimal procedure.
+
+A third technique is to extend a series of conformable seismic stratal surface and stratal-bounded windows onto the thin-bed target from opposite directions, that is, from both below and above the thin-bed target. The logic in this dual-direction approach is that one of the seismic reference surfaces may be more conformable to the thin-bed sequence than the other reference surface and that this improved conformability will lead to improved attribute imaging of facies distributions within the thin bed.

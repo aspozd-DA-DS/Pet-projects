@@ -1,0 +1,32 @@
+AVO analyzes the fluid content of reservoir rocks through a combination of visual, analytical and modeling processes using both pre-stack seismic and well log data. AVO is started by Geoview and can use the View3D application to view its attribute maps.
+The program can perform a variety of tasks, from fluid replacement modeling with the Biot-Gassmann equations, through AVO synthetic generation to AVO attribute generation and cross plotting. The AVO program also provides numerous processing features to condition data, including a parabolic radon transform utility.
+ 
+The AVO program consists of two components: AVO Modeling and AVO Analysis. AVO Modeling has the log editing and manipulation tools of eLOG.
+AVO Modeling 
+Modeling utilities can create 1D, 2D and 3D synthetic offset/angle gathers from well log data. Typically, an AVO study starts by importing both well logs and CDP gathers. Modeling is usually performed first, in order to determine what type of AVO anomaly may be anticipated.
+ 
+ 
+The synthetic wavelet is a key modeling element. Use a range of extraction options to determine the wavelet, from the seismic alone, or with the well log.
+Create and analyze a series of pre-stack synthetics for a range of scenarios. Classically, changes in reservoir fluid type and saturation, as well as changes in porosity, are modeled using the FRM tool (see eLOG). Another key parameter to model is the change in reservoir thickness.
+ 
+AVO Analysis
+Following AVO modeling, the next step is to perform AVO analysis on the seismic gathers. In this example, pre-stack gathers over a bright spot are displayed next to the equivalent full offset stack.
+ 
+AVO provides a range of options for calculating attributes based on the Intercept and Gradient of the seismic data. A very useful example is the Scaled Poisson’s Ratio, formed by adding the Intercept and Gradient. This can indicate the presence of hydrocarbons.
+ 
+Cross plot intercept and gradient data to identify fluid zones.
+ 
+ 
+Project fluid zones back onto the seismic section for subsequent mapping or visualization. In this example, the top of a gas sand is highlighted in yellow; the base in blue.
+ 
+You can analyze a 3D volume and display the resulting attribute volume by extracting data slices. You can pass the volume to visualization software such as View3D for further analysis.
+AVO Inversion
+By combining our AVO and STRATA programs, you can perform a range of AVO inversions. These powerful techniques let you extract lithologic and pore fluid information, while removing the effects of the seismic wavelet and optimizing thin-layer resolution. Examples include:
+ 
+ 
+Elastic Impedance	Lambda-Mu-Rho Analysis
+  	  
+ 
+Simultaneous Inversion
+
+

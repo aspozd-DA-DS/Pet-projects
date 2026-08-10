@@ -1,0 +1,102 @@
+{
+  "doc_id": "Seismic_Imaging_and_Interpretation_Techniques",
+  "extension": ".docx",
+  "total_blocks": 19,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Seismic Imaging and Interpretation Techniques",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Sunjay",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Geophysicist",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Summary",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Geophysical seismic interpretation is part of geophysical hydrocarbon prospecting. It evaluates and analyses seismic reflection data aiming at the detection of the position of hydrocarbon reservoirs. Seismic interpretation has two fundamental disciplines at its core: seismic geomorphology and seismic stratigraphy. Spectral decomposition unravels the seismic signal into its constituent frequencies. This allows the interpreter to see amplitude and phase tuned to specific wavelengths. Since the stratigraphy resonates at wavelengths dependent on the bedding thickness, the interpreter can not only image subtle thickness variations and discontinuities, but also accurately predict bedding thickness quantitatively. In addition, since the high-frequency response of a reflector can be attenuated by the presence of compressible fluids, spectral decomposition can also assist in the direct detection of hydrocarbons. Seismic attributes play a pivotal role in three dimensional seismic interpretation. After migration and stacking of the acquired seismic reflection data, the seismic image corresponds to an amplitude map of the stratification and structure of the subsurface. In order to identify geological features in this image, geoscientist must quantify seismic signal parameters with attributes which are concerned with the subsurface stratigraphy. For opaque three dimensional seismic data, attributes are indispensable for visualizing and characterizing reflection properties.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "Introduction",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Spectral decomposition(time frequency analysis) is a powerful analysis tool used to identify the frequency content of seismic data which aides in the imaging and mapping of bed thickness and geologic discontinuities. Local time-frequency analysis, also known as spectral decomposition, allows for a more detailed interpretation of time-series by providing the evolution of the frequency spectrum through time and has proven to be a useful seismic attribute for exercises such as reservoir characterization- to squeezing out reservoir detail of fault definition from seismic data. Its aim is to reveal signal features such as any underlying periodicities, which facilitates the seismic interpretation. Spectral decomposition has been utilized in a variety of applications such as hydrocarbon detection , geological structure detection, stratigraphic delamination and attenuation estimation. Local variations of frequency content in a signal can be acquired through local time-frequency analysis, also known as spectral decomposition which decomposes a one dimensional signal (time) into a two dimensional space (time and frequency). Frequency Spectral Decomposition: Frequency Spectral Decomposition is a technology for generating high-resolution seismic images of structural and stratigraphic reservoirs. The seismic wavelet that propagates through the subsurface contains many frequencies. Spectral decomposition breaks down and decomposes any geologic event into a series of frequency slices by using discrete Fourier transforms. These transforms filter the seismic time series into its individual frequency components. To find out detail, spectral decomposition leverages studies in delineating complex fault systems in 3D surveys. The interpretation of discrete stratigraphic features on seismic data is limited by its bandwidth and its signal-to-noise ratio. Unfortunately, well-resolved reflections from the top and base of subtle stratigraphic geologic boundaries occur only for thick features imaged by broadband data. Seismically thin stratigraphic features approaching a quarter-wavelength in thickness give rise to composite, or “tuned,” seismic reflections. Different spectral-decomposition methods provide an effective way of examining the seismic response of stratigraphic geologic features in terms of spectral components and thus help in interpretation. Phase components help with interpretation of the discontinuity features as well as stratigraphic features such as onlap, offlap, and erosional unconformities. Applications of an often overlooked attribute derived during spectral decomposition, called the voice components, can be illustrated in terms of more accurate interpretation of the subsurface features. An “amplitude- friendly” method for spectral balancing enhances the frequency content of the data and preserves the geologic tuning features and amplitudes. Spectral decomposition of seismic data that are spectrally balanced and interpreted in terms of voice components leads to more accurate definition of the features of interest. different spectral-decomposition methods-including the traditional short-window discrete Fourier transform, the continuous-wavelet transform (CWT), the S-transform, and the matching-pursuit transform -compute the spectral-magnitude and spectral-phase components at every time-frequency sample. The analysis of such spectral-magnitude and spectral phase components is equivalent to interpreting subsurface stratigraphic features at different scales.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "Theory and/or Method",
+      "start_page": 2
+    },
+{
+  "type": "paragraph",
+  "text": "Spectral decomposition provides a novel means of utilizing seismic data and the Discrete Fourier Transform (DFT) for imaging and mapping temporal bed thickness and geological discontinuities over large 3D seismic surveys. By transforming the seismic data into the frequency domain via the DFT, the amplitude spectra delineate temporal bed thickness variability while the phase spectra indicate lateral geologic discontinuities. There are a variety of spectral decomposition methods, which include the discrete Fourier transform (DFT), the short-time Fourier transform (STFT), Enhanced Spectral Processing (ESP), the Maximum Entropy Method (MEM), CWT, Matching Pursuit Decomposition (MPD), the Gabor-Morlet transform (GMT), and instantaneous spectral analysis (ISA), etc. DFT to generate discrete-frequency energy cubes for reservoir characterization. However, vertical resolution of the DFT is limited due to frequency localization loss when the seismogram is windowed. The short-time Fourier transform(STFT) extracts the frequency content of the signal and produces a 2D representative profile of frequencies versus time by adding a small time-domain window and shifting this window appropriately. The vertical resolution is fixed over the entire time-frequency plane when a window function has been chosen for an STFT. The CWT decomposes a function by band pass filtering the original signal at different band-widths. In practice, the CWT has higher frequency resolution for low frequencies and better time resolution for higher frequencies, MPD to detect low-frequency shadows beneath hydrocarbon reservoirs.ISA method selects the wavelet dictionary to better capture the features of the seismogram while selecting parameters judiciously and avoiding as many cross-correlation operations as possible to achieve reasonable computation time. The significant amplitudes spectral profiles show that low-frequency seismic presents significant anomalies for the fluid saturated sections, and high-frequency signals attenuated while propagating through pay zones. amplitude anomaly features for further prospects, possible pay zones can be identified based on the following conditions: Low-frequency spectra often show amplitude anomalies; High-frequency spectra are usually attenuated drastically; and Amplitude anomalies may appear either above or below or to the side of petroliferous sections. Complex Wavelet transform, Discrete Wavelet Transform(DWT) are employed for seismic signal and image analysis, image compression, image segmentation, data modeling, inversion ,etc. Qualitative and Quantitative Seismic Interpretation: Quantitative seismic interpretation information that is available after spectral decomposition can be directly used for actual value of temporal bed thickness (thin bed thickness quantitative estimation) Exploration seismology, understanding subsurface geological deciphering by analysing seismic signal phenomena in frequency domain(reflectivity dispersion) is challenging issue of research before geophysicist. Qualitative analysis: DFT - Short Window Discrete Fourier Transform –spectral decomposition derived dominant frequency dominant amplitude mapping. DFT assigns which seismic event at which frequency occurred first. Spectral decomposition derived thickness by DFT. Dominant Frequency Dominant Amplitude the method requires two attribute to be isolated after spectral decomposition: maximum spectral amplitude- the frequency at which the first frequency peak occurs. The maximum spectral amplitude has to be understood as the first amplitude peak that occurs in amplitude frequency spectra.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "Low-frequency reflection seismic and direct hydrocarbon indication: low-frequency (< 20 Hz) reflection seismic has been used as an indicator to detect hydrocarbons in petroliferous reservoirs. Spectral decomposition methods is employed to derive seismic from time to frequency domain. The application of low-frequency seismic computed by the GMT and ISA methods reveals one of low frequency shadow effects, amplitude attenuation, The loss mechanism of high-frequency energy is considered to be contributed by P-wave attenuation of stratigraphic heterogeneity. This type of low-frequency shadow effect can illustrate the probable existence of an oil reservoir and can be applied to detect the existence of hydrocarbon directly. Low-frequency reflection seismic to detect hydrocarbon directly, frequency components can be applied to calibrate the interpretations of horizons and faults. Low-frequency components of reflected seismic waves is applied for hydrocarbon indicators to image, delineate, and monitor petroliferous reservoirs. These indicators include low-frequency shadow with hydrocarbon deposits, low-frequency energy anomalies, and instantaneous wavelet energy absorption analysis, etc. low-frequency shadow effects, such as time delay, phase distortion, frequency decrease, and amplitude attenuation are evidences of hydrocarbon existence. To derive frequency components from reflection seismic, spectral decomposition has been regarded as an effective technology. three steps are involved for spectral decomposition: utilize wavelet transform methods to decompose the seismogram into constituent wavelets; produce “frequency gathers” by summing up the transformed spectra (e.g. Fourier spectra) of the individual wavelets in the time-frequency domain; and sort the frequency gathers to produce common frequency cubes, sections, time slices, and horizon slices, etc.",
+  "start_page": 3
+},
+    {
+      "type": "header",
+      "text": "Examples",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "The modern use of spectral decomposition treats reflection events always frequency dependent in practice . The Wolf Ramp: Reflection Characteristics of a Transition Layer-The modern use of spectral decomposition has shown that reflection events in practice are always frequency dependent, a phenomenon we call reflectivity dispersion. This can often be attributed to strong interference effects from neighboring reflection coefficients of the classical type (i.e., parameter discontinuities or jumps). However, an intrinsic frequency dependence from a single layer is possible if the contact is not a jump discontinuity but a gradual transition. Wolf Ramp- Reflection From Transition Zone reflectivity dispersion which refers to frequency dependence of a normal incidence reflection effect. There are few causes for reflectivity dispersion , e.g. rough surface scattering, reflection from an interface porous media, vertical transition zone. Biot Reflection the great problem of reflectivity dispersion arising from a poroelastic contact in earth which acts as DHI Direct Hydrocarbon Indicator.In a Biot Medium, three types of body waves exist- fast P, slow P , S.",
+  "start_page": 3
+},
+    {
+      "type": "figure",
+      "caption": "Figure1: seismic response of a layer modified by the seismic impedance changes (A), (B) Thick Layer Models , (C), (D) Thin Bed Model , (E)- (N) Transition Zone Model, [Kasina 1998]",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "Wave Equation in Differential Form: Fractional Derivatives(seismic attenuation) appear in Biot theory which is essential to describe wave propagation in multi-phase (porous) media from the seismic to the ultrasonic frequency range",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "Seismic UNIX Complex Wavelet analysis: Complex continuous wavelet transform of seismic section after migration is employed to analyze seismic traces with the help of Seismic UNIX (SUCCWT). The rectification in the location of a reflector and then positioning it in its true location is seismic migration.",
+  "start_page": 4
+},
+    {
+      "type": "figure",
+      "caption": "Figure.2/left: The horizontal arrows indicate the prospective zone for hydrocarbon",
+      "start_page": 4
+    },
+    {
+      "type": "figure",
+      "caption": "Figure. 3/right: CWT of seismic section of Fig. 2 (C=.002). The prospective zones are marked by yellow ellipses",
+      "start_page": 4
+    },
+    {
+      "type": "header",
+      "text": "Conclusions",
+      "start_page": 4
+    },
+{
+  "type": "paragraph",
+  "text": "Geophysical interpretation is closely related to geologic interpretation, i.e., the task of inferring from a description of a region the sequence of events which formed that region. The description of the region can be a diagram representing a cross-section of the region, which comes e.g. from the geophysical interpretation of a seismic cross-section, together with an identification of the rock types. Geologic interpretation is not static. It attempts to reconstruct the sequence of events which occurred, i.e., it converts the signal data from a spatial domain to the temporal domain of geologic processes. Drawbacks of the Spectral Decomposition method:. There is a trade-off between the length of the data window and the spectral resolution. Using a longer window will provide better resolution in the frequency domain. On the other hand, a long window may be contaminated by the response from the underlying and overlying events of the zone of interest. Having a high sampling rate may improve the situation but simply resampling the data will not add any new information. Viewing the frequency slices and interpreting the results as zone thickness can be misleading due to wavelet effects. Frequency Decomposition of Broadband Seismic Data: Challenges and Solutions : Frequency decomposition is a widely used method for identifying and discriminating different geological expressions in the seismic data by isolating seismic signals of particular frequency ranges. Several frequency decomposition techniques are available for the interpreter: each utilises different filtering methods, resulting in a variety in their resolution in time and frequency. One of the drawbacks of the filter -based frequency decomposition techniques, such as Fast Fourier Transform(FFT) or Wavelet Transform(WT), is that the vertical resolution of the original seismic data is not preserved due to vertical smearing (bleeding effect). Application of Multi-scale Mathematical Morphology in Amplitude Compensation of Seismic Data The application of multi-scale mathematical morphology which is a branch of mathematical morphology in seismic data processing and the seismic signal resolution improving and amplitude compensation. Seismic Interpretation Pattern Recognition and Machine Learning(deep learning, inductive learning, statistical learning): Seismic interpretation assigns to extract all the geologic information possible from the data as it relates to structure, stratigraphy, rock properties, and perhaps reservoir fluid changes in space and time. Interpretation of seismic reflection data routinely involves powerful multiple-central-processing-unit computers, advanced visualization techniques, and generation of numerous seismic data types and attributes. Fractional calculus/ derivatives, fractional filtering ,fractional fourier transform fractional wavelet transform, etc. are employed for seismic signal and image processing. Fractional Scaling Digital Signal Processing(DSP) algorithms quantitatively define and shape the spectrum of any signal. Bootstrap technique(resampling) for seismic signal and image processing is important for statistical data analysis.",
+  "start_page": 4
+}
+  ]
+}

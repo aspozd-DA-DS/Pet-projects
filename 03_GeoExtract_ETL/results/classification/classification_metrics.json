@@ -1,0 +1,11 @@
+{
+  "LogReg_train_accuracy": 1.0,
+  "LogReg_test_accuracy": 0.5714285714285714,
+  "SVC_train_accuracy": 1.0,
+  "SVC_test_accuracy": 0.5714285714285714,
+  "class_distribution": {
+    "seismic_geology_study": 7,
+    "scientific_paper": 7,
+    "technical_report": 8
+  }
+}

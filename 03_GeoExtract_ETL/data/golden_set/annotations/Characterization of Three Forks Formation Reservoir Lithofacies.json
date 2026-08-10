@@ -1,0 +1,255 @@
+{
+  "doc_id": "Characterization of Three Forks Formation Reservoir Lithofacies",
+  "extension": ".pdf",
+  "total_blocks": 45,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Characterization of Three Forks Formation Reservoir Lithofacies in the Williston Basin, North Dakota",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Adedoyin Adeyilola*1, Stephan Nordeng2, Chioma Onwumelu2, Olusegun Tomomewo2, 1. Central Michigan University, 2. University of North Dakota",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Copyright 2020, Unconventional Resources Technology Conference (URTeC) DOI 10.15530/urtec-2020-3237",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "This paper was prepared for presentation at the Unconventional Resources Technology Conference held in Austin, Texas, USA, 20-22 July 2020.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The URTeC Technical Program Committee accepted this presentation on the basis of information contained in an abstract submitted by the author(s). The contents of this paper have not been reviewed by URTeC and URTeC does not warrant the accuracy, reliability, or timeliness of any information herein. All information is the responsibility of, and, is subject to corrections by the author(s). Any person or entity that relies on any information obtained from this paper does so at their own risk. The information herein does not necessarily reflect any position of URTeC. Any reproduction, distribution, or storage of any part of this paper by anyone other than the author without the written consent of URTeC is prohibited.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "Abstract",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "The continuous demand for energy and advancement in technology has accelerated the research in the areas of unconventional petroleum resources. The Devonian Three Forks Formation consisting of carbonate and clastic sediments is an unconventional reservoir with about 3.73 billion barrels of technically recoverable oil. However, major gaps remain in the knowledge of how mineralogy, structures and fabrics within the various lithofacies have influenced the hydrocarbon storage and transport capacity. This work integrates petrographic (physical rock description, XRD bulk mineralogy and thin section) and petrophysical (Helium pycnometry and NMR) studies in characterizing the reservoir potentials of the Three Forks lithofacies. Physical core description and wireline logs were utilized to identify and correlate seven (7) lithofacies within the Three Forks Formation. They are: 1) green - grey massive mudstone; 2) tan massive dolostone; 3) grey - tan laminated mudstone and dolostone; 4) tan - dark brown mottled dolostone; 5) grey and tan mottled mudstone; 6) grey and tan mudstone conglomerates; and 7) grey and tan brecciated mudstone. Diverse pore types were identified within various lithofacies, with microporosity pores dominating the mudstone rich lithofacies and interparticle pores dominating the dolostone rich lithofacies. Preliminary results showed the dolostone lithofacies have relatively lower total porosities while the mudstone lithofacies have relatively higher total porosity values.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "Introduction",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "The Three Forks Formation is a tight reservoir in the Bakken-Three Forks unconventional petroleum accumulation in the Williston basin (Lefever et al. 1991, Nordeng et al. 2010, Nesheim 2019). The Devonian Three Forks Formation directly underlies the Bakken Formation and overlies the Bird Bear Formation. It is mainly an association of tight carbonates, clastic sediments and anhydrites. The amount of oil in place within the Bakken- Three Forks system is estimated to be about 7.8 billion barrels with almost a half of it from the Bakken Formation while the other half is from the Three Forks Formation (Gaswirth and Marra 2015). Apart from being a thermally matured and prolific a source rock, the Bakken Formation has produced an appreciable amount of oil through advanced drilling, completion and stimulation techniques (Lefever and Nordeng 2015). Oil discovery and production in the Bakken-Three Forks system began in 1953 from the Antelope Field with vertical wells (Lefever and Nordeng 2015).",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The lithofacies and stratigraphy of the Three Forks Formation have been studied by various researchers, they have been subdivided into different members and units based on mineralogical composition, structures, and other geological features (Nordeng and LeFever, 2009; Bottjer et al., 2011; Sonnenberg et. al., 2011; LeFever et. al., 2013; and Sonnenberg, 2017). Mudstones have varying pore types, sizes, and distribution that influences hydrocarbon distribution (Slatt and O’Brien, 2011). Primary porosity develop during deposition, and may be influenced by compaction, cementation, and burial (Desbois et al., 2009; Milliken and Reed, 2010 and Loucks et al., 2012) Carbonates are known to have complex and diverse pore networks due to multiple factors that increase, preserve, modify or destroy pores (Norbisrath et al., 2015; Li et al., 2016a). Researchers have utilized helium porosimetry (Grejj et al., 1993; Chalmers et. al, 2012; Adeyilola et. al 2020), mercury intrusion porosimetry (Loucks et. al 2009; Li et al., 2016b), nuclear magnetic resonance (Brigaud et. al 2014; Gharechelou et. al 2016; Awad 2019), gas adsorption (Bustin et. al., 2008; Zhang et al. 2017) small angle neutron scattering (Clarkson et al., 2013), micro-CT imaging (Lawal and Mahmoud, 2020), Scanning Electron Microscopy image analysis (Loucks et al., 2009; Klaver et al., 2016; Deng et al., 2016) and thin section petrography (Choquette and Pray, 1970, Lonoy 2006, Lai et. al 2020) to characterize tight reservoirs. Similarly, the point-load test (Broch and Franklin, 1972), rebound hardness test (Aydin and Basu, 2005), micro-indentation (Su et al., 2018), scratch test (Kolawole and Ispas, 2020), and other geomechanical methods (Zoback et al., 1985) has been utilized in characterizing the mechanical properties of mudstones. The goal of this research is to provide a better understanding of the Three Forks Formation reservoir qualities.",
+  "start_page": 2
+},
+    {
+      "type": "figure",
+      "caption": "Fig. 1. County Map of North Dakota showing boundary states. (Inset: Fields of interest in Divide County)",
+      "start_page": 2
+    },
+    {
+      "type": "header",
+      "text": "Materials and Methods",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "Four wells from the Ambrose (NDIC# 22809), West Ambrose (NDIC# 26745 & 28042) and Colgan (NDIC# 23828) fields were utilized in this study (Fig. 1). They are all located in Divide County, North Dakota. Polished and epoxy stained thin sections were used to identify and characterize the pores, mineral assemblages and other depositional features with a transmitted light microscope. X-ray diffraction (XRD) was used to examine the bulk mineralogical composition of samples. Crushed and pulverized samples were analyzed with a RIGAKU Smartlab XRD equipment and results were interpreted with a PDXL software. Each sample was analyzed at 5 degrees to 90 degrees, two theta (5º-90º 2θ) in order to identify the entire mineral assemblage and distributions.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+   "text": "Porosity was estimated using both helium porosimetry and nuclear magnetic resonance (NMR). The helium porosimetry method uses Boyle’s law gas expansion technique and pressure differences to penetrate pores within samples inside its chamber. Samples were initially dried to get rid of trapped moisture, weighed and transferred to a 3D Laser scanner that measures the bulk volume. Core samples of known mass and bulk volumes were inserted into the matrix cup in the porosimeter and filled with disks of known mass to occupy void spaces in the matrix cup. Nuclear magnetic resonance (NMR) was used to quality check the helium porosity results and characterize pore fluid distribution within the rocks. Core samples were saturated in 300,000 ppm brine at 100 psi for 60 days to match the estimated salinity of connate water in the Bakken Petroleum System. The saturated samples were analyzed for total porosity and pore fluid distribution with an Oxford Instruments Geospec 2 core analyzer.",
+  "start_page": 3
+},
+    {
+      "type": "header",
+      "text": "Results and Discussion",
+      "start_page": 3
+    },
+    {
+      "type": "header",
+      "text": "Lithofacies identification and description",
+      "start_page": 3
+    },
+{
+  "type": "paragraph",
+  "text": "Physical core description and wireline logs wells were used to identify and correlate the Three Forks reservoir lithofacies (Fig. 2). They are: 1) Laminated mudstone and dolostone lithofacies; 2) massive dolostone lithofacies; 3) mottled dolostone lithofacies; 4) massive mudstone lithofacies; 5) mottled mudstone lithofacies; 6) mudstone conglomerates lithofacies; and 7) brecciated mudstone lithofacies.",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "1) Laminated Lithofacies: It consists of finely interlaminated grayish-green to greenish-gray dolomitic mudstones and pinkish-tan silty dolostones. Laminar bedding ranges from less than 1cm up to approximately 15cm with no preference to mineralogy. Unidirectional and bidirectional ripples are more visible in the tan dolostone compared to the green mudstone. The different lithologies are mostly separated by a sharp contact or gradation which include both fining and coarsening upward sequences. Lithofacies thickness is about 2 to 5ft (Fig. 2A & 2B).",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "2) Massive Dolostone: This a tan dolostone lithofacies which is mainly composed of silt and sand-size dolomite. The predominant grain size is silt (~0.04 mm), with some grains in the very fine sand range (~0.07 mm). It is composed mainly of dolomite and trace amount of quartz and clay. They also have sub-rounded lenses that are probable deformed dolomite-filled burrows. No major sedimentary structure, they have massive texture and scoured surfaces. Lithofacies thickness varies from 1 to 3ft (Fig. 2C).",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "3) Mottled Dolostone: Predominantly tan dolostone with interbed of green - grey mudstone. They contain about 20 to 40 percent thinly interbedded green mudstone that are slightly folded and deformed due to the soft sediment deformation. They are flaser bedded, slightly laminated and contain deformed thinly laminated silty dolostones. The predominant grain size is silt (~0.04 mm), with some grains in the fine sand range (~0.07 mm). Thickness of this lithofacies is approximately 1 to 4ft (Fig. 2D).",
+  "start_page": 3
+},
+{
+  "type": "paragraph",
+  "text": "4) Massive Mudstone: This unit is a thinly laminated green to grayish-green mudstone. They are clay-sized, matrix supported rock with sparsely scattered, silt-sized, dolomite and quartz grains. Abundant burrows and crystal aggregates of variable sizes are distributed irregularly throughout this unit. The texture is massive with no visible sedimentary structure. Thickness of this lithofacies is approximately 0.5 to 3.5 ft (Fig. 2E).",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "5) Mottled Mudstone: It composed of light brown dolomitic shaly siltstone and gray to dark green dolomitic claystone. They are massive, slightly laminated, flaser bedded with irregular distribution of dolostones. The predominant grain size is silt (~0.04 mm), with some grains in the fine sand range (~0.07 mm). They are chaotic, slightly brecciated with thickness ranging from less than 1 to 5ft (Fig. 2F).",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "6) Mudstone conglomerates: This lithofacies consists of green-grey dolomitic mudstone matrix with tan dolomitic clasts. The clasts range in size from 0.5 to 2 cm and the matrix are predominantly silt size (~0.04 mm). Moderate to well-rounded and poorly sorted. Brown in the deeper section of Middle Three Forks due to oxidation. The lithofacies is matrix supported with no visible sedimentary structure (Fig. 2G).",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "7) Brecciated Mudstone: Composed of brecciated layers interbedded with reddish massive dolomitic mudstone with clasts. The clasts are angular and poorly sorted. They are chaotic with no visible sedimentary structure. It is matrix supported at the top and clast supported at the base. The matrix is silt size (~0.04 mm) while the clasts range from <1cm to 3.5cm (Fig. 2H & 2I).",
+  "start_page": 4
+},
+    {
+      "type": "header",
+      "text": "Pore types",
+      "start_page": 4
+    },
+{
+  "type": "paragraph",
+  "text": "Petrographic thin sections were used to characterize the various types of pores within these lithofacies under a petrographic microscope with plane polarized light. The dominant pores identified and described with the petrographic microscopes are interparticle, intercrystalline, fracture, vuggy and micropores.",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "1) Interparticle porosity: This class of pores occurs between two or more mineral grains (Choquette and Pray, 1970). Interparticle porosity is formed by well sorted sand-sized carbonate grains and minerals with little interstitial mud as seen in the massive dolostone, mottled dolostone and brecciated dolostone lithofacies (Fig. 3A).",
+  "start_page": 4
+}, 
+{
+  "type": "paragraph",
+  "text": "2) Intercrystalline porosity: This class of pores occur between crystals of either primary or secondary origin (Choquette and Pray, 1970). They typically occur at the edges of two or more dolomite crystals where they are characterized by their smooth and sharp edges. They occur in medium to coarse dolomite grain (fine-grained sand size) with cloudy core and clear as seen in the massive and mottled dolostone lithofacies. (Fig. 3B & 3C).",
+  "start_page": 4
+},  
+{
+  "type": "paragraph",
+  "text": "3) Fracture Porosity: These are laterally extensive features that occur in both macroscopic and mesoscopic scale within the Three Forks Formation lithofacies Fractures occurring in mudstones are widely distributed and relatively longer while fractures in dolostone are less abundant and relatively shorter. Fractures in mudstones are both mineralized and non-mineralized (Fig. 3D).",
+  "start_page": 4
+},   
+{
+  "type": "paragraph",
+  "text": "4) Vuggy Porosity: These are secondary solution pores that cuts across grains and cements boundaries (Lenoy, 2006). They are relatively larger and wider than all the other pores discussed, circular to elongated in shape and mostly interconnected. These pores are widely distributed in the sand-sized dolostone facie within the highly fractured brecciated mudstone lithofacies. (Fig. 3E).",
+  "start_page": 4
+},
+{
+  "type": "paragraph",
+  "text": "5) Mudstone microporosity: This group of pores are characterized by their extremely small pore sizes (<2um), they are the smallest in size and most widely distributed within the mudstone lithofacies in the Three Forks Formation (Fig. 3F). The extremely small sizes of the dolomite crystals and mudstone matrix makes it challenging to classify them into intercrystalline or interparticle pores (Lonoy 2006).",
+  "start_page": 4
+},
+    {
+      "type": "figure",
+      "caption": "Fig. 2. Three Forks Formation reservoir lithofacies A) Grey – tan laminated mudstone and dolostone; B) Laminated mudstone and dolostone C) Tan massive dolostone; D) Tan - dark brown mottled dolostone; E) Green – grey massive mudstone; F) Grey and tan mottled mudstone; G) grey and tan mudstone conglomerate; and H) Grey and tan brecciated mudstone I) Brecciated mudstone",
+      "start_page": 5
+    },
+    {
+      "type": "figure",
+      "caption": "Fig. 3. Porosity types (blue epoxy filled) in the Three Forks Formation lithofacies A) Interparticle porosity B) Intercrystalline porosity C) Intercrystalline porosity D) Fracture porosity E) Vuggy porosity and F) Mudstone microporosity",
+      "start_page": 6
+    },
+    {
+  "type": "table",
+  "header": ["Lithofacies","Gra. Den.","Bulk Den.","Por. Vol.","He Φ","NMR Φ","Qtz","Dol","Clay","Fld","Other"],
+  "rows": [
+    ["Lam. Mud","2.65","2.48","0.025","6.21","6.44","24","43","19","14","0"],
+    ["Mas. Dol.","2.82","2.75","0.008","2.32","2.89","21","67","4","4","4"],
+    ["Mot. Dol.","2.75","2.59","0.022","5.62","5.81","13","63","4","11","9"],
+    ["Mas. Mud.","2.67","2.42","0.040","9.63","10.26","14","26","27","20","13"],
+    ["Mot. Mud","2.67","2.45","0.034","8.26","8.73","19","42","23","15","1"],
+    ["Mud. Cong.","2.68","2.49","0.028","7.08","7.70","15","42","26","17","0"],
+    ["Brec. Mud","2.65","2.49","0.024","5.91","6.31","13","50","20","12","5"]
+  ],
+  "start_page": 7
+},
+{
+  "type": "paragraph",
+  "text": "Gra. Den. – Grain Density, Bulk Den. – Bulk Density, Por. Vol. – Pore Volume, Qtz – Quartz, Dol – Dolomite, Fld - Feldspar",
+  "start_page": 7
+},
+    {
+      "type": "header",
+      "text": "Porosity",
+      "start_page": 7
+    },
+{
+  "type": "paragraph",
+  "text": "Helium, NMR porosities and XRD mineralogical composition results are displayed in Table 1. The results from the helium porosimetry analysis include grain density, bulk density, pore volume and total porosity. The massive dolostone is seen to have the lowest porosity (2.32 %), highest grain density (2.82 g/ml) and highest bulk density (2.75 g/ml). The relatively higher grain density is attributed to the abundance of the dense dolomite minerals which is 67% of the total composition. Mottled dolostone lithofacies shows a relatively lower porosity, grain density and bulk density (5.62%, 2.75 g/ml and 2.59 g/ml respectively). Again, these differences in grain density, bulk density and porosity is controlled by the mineralogical composition as the dolomite was observed to have decreased relatively from the massive dolostone. The massive mudstone lithofacies have relatively low grain density (2.67 g/ml), lowest bulk density (2.42 g/ml) and hence the highest porosity (9.63%). This high porosity in the massive mudstone lithofacies is attributed to the abundance of low density siliciclastic minerals (clay, quartz and feldspars). Overall, the bulk and grain densities are observed to increase from the less dense clean mudstone lithofacies with relatively higher porosities into the denser clean dolostone lithofacies with relatively lower porosities.",
+  "start_page": 7
+},
+{
+  "type": "paragraph",
+  "text": "The results of the NMR transverse relaxation time analysis are displayed in Fig. 4. The results show the incremental porosity in percentage versus transverse time in milliseconds. The peak of the curves corresponds to the transverse relaxation time (T2) with the highest porosity. The peak occurs at varying time on the T2 time axis depending on the pore distribution within the various lithofacies. T2 distribution in rocks with smaller pores have a corresponding shorter relation time (faster) and rocks with larger pores have corresponding longer relaxation time (slower) (Kleinberg et. al 1993; Kenyon, 1997). The mudstone lithofacies show peaks at faster relaxation with right skewed T2 spectra (the bigger peak on the left and smaller peak on the right), this is interpreted as dominance of relative smaller pore sizes (mainly mudstone micropores). The T2 spectra in massive dolostone lithofacies is left skewed with their peak occurring at longer (slower) relaxation time. This confirms the dominance of larger pore sizes in the dolostone dominated lithofacies (intercrystalline, vuggy and interparticle porosity).",
+  "start_page": 7
+},
+{
+  "type": "paragraph",
+  "text": "NMR porosity values are observed to be greater than the corresponding helium porosimetry values with the differences being less than 1% (Fig.5). This difference in porosity values from the two types of measurements are attributed mainly to the difference in the operating techniques of both methods. The NMR technique can detect both interconnected pores that make up the effective porosity and closed pores that host the clay bound water, while helium porosity detects mainly interconnected pores (pores accessible to the helium molecules). Yuan and Rezaee (2019) compared the porosity values from helium porosimetry and NMR T2 analysis on clay-rich and clay-poor shale samples from different basins in Australia and USA. The NMR porosity results were observed to be higher than the corresponding helium porosity values in the clay-rich shale and lesser than helium porosity values in clay-poor shales. The authors suggested the higher NMR porosity is due to the capability of NMR technique in detecting the effective porosity and clay bound water (CBW) that is tightly bound to the surface area of the clay minerals. Also, Clarkson et al. (2012) compared total porosity in tight-gas shale samples using both Small-angle and Ultra-small-angle neutron scattering (SANS and USANS) and helium porosimetry method. Helium porosity was observed to be smaller than the corresponding neutron scattering results. The authors suggested the difference is likely caused by the capability of neutron scattering to measure both closed and open pores, unlike helium porosimetry that measures only accessible (open) pores.",
+  "start_page": 7
+},
+    {
+      "type": "figure",
+      "caption": "Fig. 4: T2 relaxation time and incremental porosity plot for the studied lithofacies",
+      "start_page": 8
+    },
+    {
+      "type": "figure",
+      "caption": "Fig. 5: Helium and NMR porosity for the studied lithofacies",
+      "start_page": 8
+    },
+    {
+      "type": "header",
+      "text": "Conclusion",
+      "start_page": 9
+    },
+{
+  "type": "list",
+  "items": [
+    "The reservoir facies identified in the Three Forks Formation are 1) Laminated mudstone and dolostone; 2) Massive dolostone; 3) Mottled dolostone; 4) Massive mudstone; 5) Mottled mudstone 6) Mudstone conglomerates and 7) Brecciated mudstone.",
+    "Five major types of porosity were identified and described. They include interparticle, intercrystalline, fracture, vuggy and mudstone microporosity. The interparticle and intercrystalline porosity are abundant in dolostone dominated lithofacies while the mudstone microporosity are abundant in mudstone dominated lithofacies.",
+    "The mudstone-rich lithofacies have relatively higher porosities while the dolostone-rich lithofacies have relatively lower porosities. This high porosity in the mudstone-rich lithofacies is attributed to the abundance of low density siliciclastic minerals (clay, quartz and feldspars). Overall, the bulk and grain densities are observed to increase from the less dense clean mudstone lithofacies with relatively higher porosity to the denser clean dolostone lithofacies with relatively lower porosity.",
+    "NMR porosities values are all greater that the Helium porosimetry method with a difference <1%, because Helium porosimetry measures mostly connected pores while NMR detect both connected and isolated pores.",
+    "Despite the low total porosity values in the dolostone lithofacies, they have the highest distribution of large pores sizes as seen from NMR spectra due to the crystal arrangement of the large dolomite grains."
+  ],
+  "start_page": 9
+},
+    {
+      "type": "header",
+      "text": "References",
+      "start_page": 9
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+      "Adeyilola, A., Nordeng, S., Onwumelu, C., Nwachukwu, F., & Gentzis, T. (2020). Geochemical, petrographic and petrophysical characterization of the lower Bakken Shale, Divide County, North Dakota. International Journal of Coal Geology, 103477. DOI: 10.1016/j.coal.2020.103477",
+      "Awad, M. M. (2019). “NMR Characterization and Chemical Enhanced Oil Recovery Using Surfactants in Unconventional Reservoirs”, Publication No: 13880795,",
+      "Aydin, A., Basu, A. (2005) The Schmidt Hammer in Rock Material Characterization. Eng. Geology, 81 (1): 1–14. http://dx.doi.org/10.1016/j.enggeo.2005.06.006.",
+      "Brigaud, B., Vincent, B., Durlet, C., Deconinck, J. F., Jobard, E., Pickard, N., ... & Landrein, P. (2014). Characterization and origin of permeability–porosity heterogeneity in shallow-marine carbonates: from core scale to 3D reservoir dimension (Middle Jurassic, Paris Basin, France). Marine and Petroleum Geology, 57, 631-651.",
+      "Bottjer, R. J., Sterling, R., Grau, A., & Dea, P. (2011). Stratigraphic relationships and reservoir quality at the Three Forks–Bakken Unconformity, Williston Basin, North Dakota.",
+      "Broch, E., Franklin, J.A. (1972) Point-Load Strength Test. International J. Rock Mechanics & Mining Sci., 9 (6) 669–676. http://dx.doi.org/10.1016/0148-9062(72)90030-7."
+      ],
+  "start_page": 9
+    }
+  ]
+}

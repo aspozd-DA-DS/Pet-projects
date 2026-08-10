@@ -1,0 +1,67 @@
+doc_id,method,precision,recall,f1
+2020_06_practical_4d_interpretation,rule,0.07291666666590711,0.777777777691358,0.13333333317405893
+2020_06_practical_4d_interpretation,nlp,0.0,0.0,0.0
+2020_06_practical_4d_interpretation,hybrid,0.07291666666590711,0.777777777691358,0.13333333317405893
+A decade of marine seismic technology development,rule,0.99999999975,0.6666666665555555,0.79999999936
+A decade of marine seismic technology development,nlp,0.0,0.0,0.0
+A decade of marine seismic technology development,hybrid,0.99999999975,0.6666666665555555,0.79999999936
+Alaska_North_Slope_petroleum_systems,rule,0.1428571428367347,0.3333333332222222,0.19999999953999997
+Alaska_North_Slope_petroleum_systems,nlp,0.0,0.0,0.0
+Alaska_North_Slope_petroleum_systems,hybrid,0.1428571428367347,0.3333333332222222,0.19999999953999997
+Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin,rule,0.13636363636157023,0.6923076922544379,0.22784810098509853
+Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin,nlp,0.0,0.0,0.0
+Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin,hybrid,0.13636363636157023,0.6923076922544379,0.22784810098509853
+Assessment of Tight-Oil and Tight-Gas Resources,rule,0.5714285713469388,0.5714285713469388,0.5714285708469388
+Assessment of Tight-Oil and Tight-Gas Resources,nlp,0.0,0.0,0.0
+Assessment of Tight-Oil and Tight-Gas Resources,hybrid,0.5714285713469388,0.5714285713469388,0.5714285708469388
+Characterization of Three Forks Formation Reservoir Lithofacies,rule,0.09090909090817263,0.8181818181074381,0.16363636345338844
+Characterization of Three Forks Formation Reservoir Lithofacies,nlp,0.0,0.0,0.0
+Characterization of Three Forks Formation Reservoir Lithofacies,hybrid,0.09090909090817263,0.8181818181074381,0.16363636345338844
+Convolution_Polarity,rule,0.0,0.0,0.0
+Convolution_Polarity,nlp,0.0,0.0,0.0
+Convolution_Polarity,hybrid,0.0,0.0,0.0
+Example-of-a-near-seafloor-structure,rule,0.0,0.0,0.0
+Example-of-a-near-seafloor-structure,nlp,0.0,0.0,0.0
+Example-of-a-near-seafloor-structure,hybrid,0.0,0.0,0.0
+Geophysics,rule,0.59999999988,0.9999999996666666,0.7499999993437498
+Geophysics,nlp,0.0,0.0,0.0
+Geophysics,hybrid,0.59999999988,0.9999999996666666,0.7499999993437498
+Integration of Deterministic Seismic inversion with Machine Learning,rule,0.89999999991,0.8181818181074381,0.8571428565623582
+Integration of Deterministic Seismic inversion with Machine Learning,nlp,0.0,0.0,0.0
+Integration of Deterministic Seismic inversion with Machine Learning,hybrid,0.89999999991,0.8181818181074381,0.8571428565623582
+Interpretation of incised valleys using new 3-D seismic techniques,rule,0.0,0.0,0.0
+Interpretation of incised valleys using new 3-D seismic techniques,nlp,0.0,0.0,0.0
+Interpretation of incised valleys using new 3-D seismic techniques,hybrid,0.0,0.0,0.0
+Interpretational applications of spectral decomposition in reservoir characterization,rule,0.0,0.0,0.0
+Interpretational applications of spectral decomposition in reservoir characterization,nlp,0.0,0.0,0.0
+Interpretational applications of spectral decomposition in reservoir characterization,hybrid,0.0,0.0,0.0
+Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary,rule,0.0,0.0,0.0
+Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary,nlp,0.0,0.0,0.0
+Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary,hybrid,0.0,0.0,0.0
+NPD Oligocene to Pliocene well and borehole data,rule,0.7499999998125,0.7499999998125,0.7499999993124999
+NPD Oligocene to Pliocene well and borehole data,nlp,0.0,0.0,0.0
+NPD Oligocene to Pliocene well and borehole data,hybrid,0.7499999998125,0.7499999998125,0.7499999993124999
+Oil well operation parameters (2013),rule,0.0,0.0,0.0
+Oil well operation parameters (2013),nlp,0.0,0.0,0.0
+Oil well operation parameters (2013),hybrid,0.0,0.0,0.0
+Predicting rock properties,rule,0.9999999998333333,0.9999999998333333,0.9999999993333333
+Predicting rock properties,nlp,0.0,0.0,0.0
+Predicting rock properties,hybrid,0.9999999998333333,0.9999999998333333,0.9999999993333333
+Public Dataset for Machine Learning in Seismic Interpretation,rule,0.08849557522045579,0.8333333332638889,0.159999999823872
+Public Dataset for Machine Learning in Seismic Interpretation,nlp,0.0,0.0,0.0
+Public Dataset for Machine Learning in Seismic Interpretation,hybrid,0.08849557522045579,0.8333333332638889,0.159999999823872
+Reservoir rock allocated to each producing zone,rule,0.0,0.0,0.0
+Reservoir rock allocated to each producing zone,nlp,0.0,0.0,0.0
+Reservoir rock allocated to each producing zone,hybrid,0.0,0.0,0.0
+Seismic attributes,rule,0.499999999875,0.9999999995,0.6666666659999999
+Seismic attributes,nlp,0.0,0.0,0.0
+Seismic attributes,hybrid,0.499999999875,0.9999999995,0.6666666659999999
+Seismic_Imaging_and_Interpretation_Techniques,rule,0.8888888887901234,0.999999999875,0.9411764699792387
+Seismic_Imaging_and_Interpretation_Techniques,nlp,0.0,0.0,0.0
+Seismic_Imaging_and_Interpretation_Techniques,hybrid,0.8888888887901234,0.999999999875,0.9411764699792387
+W1 Well Logs,rule,0.0,0.0,0.0
+W1 Well Logs,nlp,0.0,0.0,0.0
+W1 Well Logs,hybrid,0.0,0.0,0.0
+WA1,rule,0.0,0.0,0.0
+WA1,nlp,0.0,0.0,0.0
+WA1,hybrid,0.0,0.0,0.0

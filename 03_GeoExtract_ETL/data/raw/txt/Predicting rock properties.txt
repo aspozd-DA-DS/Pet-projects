@@ -1,0 +1,27 @@
+Predicting rock properties 
+
+Many theoretical models have been developed to predict or correlate specific physical properties of porous rock. Most theoretical models are built on simplified physical concepts: what are the properties of an ideal porous media. However, in comparison with real rocks, these models are always oversimplified (they must be, to be solvable). Most of these models are capable of forward modeling or predicting rock properties with one or more arbitrary parameters. However, as is typical in earth science, models cannot be inverted from measurements to predict uniquely real rock and pore-fluid properties. Many efforts have been made and will continue to be made to build porous rock models, but progress is very limited. Some of the most fundamental questions are still unanswered.
+
+Importance of rock properties
+
+Rock and fluid properties provide the common denominator around which we build the models, interpretations, and predictions of petroleum engineering, as well as geology and geophysics. Most important are the properties of sedimentary rocks, particularly those that make up hydrocarbon reservoirs.
+Usually, these consist of sandstones, limestones, and dolomites. (See Rock types.) We must be more inclusive, and consider rocks such as shales, evaporates, and diatomites because these provide the seals, bounding materials, or source rocks to our reservoirs. It is important to note that shales and claystones make up the most abundant rock type in the typical sedimentary column. Features such as seismic signature depend as much on the enclosing shale as on the reservoir sands.
+Clark[1] provides an extensive list of mineral and rock properties.
+
+Laboratory measurements of rock samples
+
+To establish the basic relationships between physical properties and rock parameters, laboratory investigations are made. Laboratory measurements of rock samples can provide controlled conditions and high data quality ('hard data'). These relationships can be extended to a larger scale, or can even be made scaleless. Typically, models and relationships based on laboratory data are then applied to in-situ measurements to derive the parameters we actually need (say, permeability) from information we can actually collect (say, density and gamma ray radiation). The relative merits and problems associated with several rock and fluid measurement techniques are presented in Table 1.
+
+Predicting properties in new areas
+
+Although many empirical relationships already have been established, when facing a frontier basin, new development areas, or untested portions of known formations, valid prediction of rock properties usually requires core data (including 'sidewall' plugs). For many applications, standard trend data may not be adequate. A broad investigation is needed.
+
+Understanding rock physics
+
+Many of the factors affecting rock properties are incompletely ascertained. For example, acoustic velocities can be affected by numerous parameters, many of which cannot be measured. In addressing a rock physics problem, the following aspects should be remembered
+
+There may be no exact solution:
+- Rock properties are controlled by rock parameters, and these physical correlations can be examined and recognized (although perhaps not understood)
+- Often nature gives us a break. At certain conditions, relationships between the rock properties and rock parameters can be simplified (such as Archie’s Law)
+- We usually must settle on imperfect solutions with some uncertainty. Statistical trends or high and low bounds might be used to handle the uncertainty
+- Every measurement is, to some degree, wrong. The question is: Can we tolerate the errors and understand how they propagate through our analyses?

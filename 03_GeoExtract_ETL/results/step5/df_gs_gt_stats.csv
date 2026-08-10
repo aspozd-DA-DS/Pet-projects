@@ -1,0 +1,23 @@
+doc_id,extension,GT_total,TP,FN,FP,precision_doc,recall_doc,f1_doc
+2020_06_practical_4d_interpretation,.pdf,5,5,0,0,1.0,1.0,1.0
+Alaska_North_Slope_petroleum_systems,.pdf,11,9,2,0,1.0,0.8181818181818182,0.9
+NPD Oligocene to Pliocene well and borehole data,.pdf,67,61,6,0,1.0,0.9104477611940298,0.953125
+Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin,.pdf,31,27,4,0,1.0,0.8709677419354839,0.9310344827586207
+Assessment of Tight-Oil and Tight-Gas Resources,.pdf,32,26,6,0,1.0,0.8125,0.896551724137931
+Characterization of Three Forks Formation Reservoir Lithofacies,.pdf,58,35,23,0,1.0,0.603448275862069,0.7526881720430108
+Interpretation of incised valleys using new 3-D seismic techniques,.pdf,64,47,17,0,1.0,0.734375,0.8468468468468469
+Interpretational applications of spectral decomposition in reservoir characterization,.pdf,54,44,10,0,1.0,0.8148148148148148,0.8979591836734693
+Public Dataset for Machine Learning in Seismic Interpretation,.pdf,94,58,36,0,1.0,0.6170212765957447,0.763157894736842
+Geophysics,.txt,18,12,6,0,1.0,0.6666666666666666,0.8
+Predicting rock properties,.txt,33,22,11,0,1.0,0.6666666666666666,0.8
+Seismic attributes,.txt,38,25,13,0,1.0,0.6578947368421053,0.7936507936507937
+WA1,.txt,26,20,6,0,1.0,0.7692307692307693,0.8695652173913044
+A decade of marine seismic technology development,.docx,8,8,0,0,1.0,1.0,1.0
+Integration of Deterministic Seismic inversion with Machine Learning,.docx,43,39,4,0,1.0,0.9069767441860465,0.951219512195122
+Seismic_Imaging_and_Interpretation_Techniques,.docx,76,69,7,0,1.0,0.9078947368421053,0.9517241379310345
+Convolution_Polarity,.jpg,17,13,4,0,1.0,0.7647058823529411,0.8666666666666666
+Example-of-a-near-seafloor-structure,.jpg,15,10,5,0,1.0,0.6666666666666666,0.8
+Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary,.jpg,47,45,2,0,1.0,0.9574468085106383,0.9782608695652174
+Oil well operation parameters (2013),.xlsx,40,35,5,0,1.0,0.875,0.9333333333333333
+Reservoir rock allocated to each producing zone,.xlsx,14,14,0,0,1.0,1.0,1.0
+W1 Well Logs,.xlsx,41,41,0,0,1.0,1.0,1.0

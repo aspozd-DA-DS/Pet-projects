@@ -1,0 +1,9 @@
+{
+  "total_docs": 22,
+  "docs_with_matches": 22,
+  "total_gt_values": 832,
+  "total_tp": 665,
+  "total_fp": 0,
+  "total_fn": 167,
+  "match_rate": 1.0
+}

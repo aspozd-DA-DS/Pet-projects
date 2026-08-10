@@ -1,0 +1,6 @@
+extension,type,docs,blocks,types_blocks,keys
+.docx,doc_Word,3,73,"figure, header, paragraph","caption, start_page, text, type"
+.jpg,images,3,3,"header, paragraph","start_page, text, type"
+.pdf,"pdf_scans, pdf_text",9,306,"figure, header, list, paragraph, table","caption, content, header, items, ordered, rows, start_page, text, type"
+.xlsx,tables,3,3,table,"caption, columns, data, header_descriptions, start_page, type"
+.txt,txt,4,45,"figure, header, list, paragraph, table","caption, columns, items, rows, start_page, text, type"

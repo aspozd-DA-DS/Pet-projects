@@ -1,0 +1,367 @@
+=== Smoke-test started ===
+
+Processing: data\raw\doc_Word\2D_Simultaneous_Inversion_Bonaparte_Basin_project_report.docx
+  source=native_mammoth, time=2.745, warnings=0
+
+Processing: data\raw\doc_Word\A decade of marine seismic technology development.docx
+  source=native_mammoth, time=0.733, warnings=0
+
+Processing: data\raw\doc_Word\A Seismic Multi-Attribute on the LightGBM-RFECV Coupling Algorithm.docx
+  source=native_mammoth, time=0.491, warnings=0
+
+Processing: data\raw\doc_Word\Application of seismic inversion constrained geological modeling technology.docx
+  source=native_mammoth, time=0.109, warnings=0
+
+Processing: data\raw\doc_Word\Assessing Gas Hydrate Prospects on the North Slope of Alaska.docx
+  source=native_mammoth, time=3.180, warnings=0
+
+Processing: data\raw\doc_Word\Elastic seismic inversion and reservoir characterization in the Llanos Basin.docx
+  source=native_mammoth, time=1.017, warnings=0
+
+Processing: data\raw\doc_Word\Guidelines for interpreted data.docx
+  source=native_mammoth, time=1.197, warnings=0
+
+Processing: data\raw\doc_Word\Implementation of seismic surveys on the Norwegian Continental Shelf.docx
+  source=native_mammoth, time=0.705, warnings=0
+
+Processing: data\raw\doc_Word\Integration of and Model-Based Seismic Inversion and Neural Network Method.docx
+  source=native_mammoth, time=0.164, warnings=0
+
+Processing: data\raw\doc_Word\Integration of Deterministic Seismic inversion with Machine Learning.docx
+  source=native_mammoth, time=0.125, warnings=0
+
+Processing: data\raw\doc_Word\Poro-Acoustic Impedance.docx
+  source=native_mammoth, time=0.529, warnings=0
+
+Processing: data\raw\doc_Word\Probabilistic inversion of seismic data.docx
+  source=native_mammoth, time=1.458, warnings=0
+
+Processing: data\raw\doc_Word\Qualitative and quantitative reservoir characterization using seismic inversion.docx
+  source=native_mammoth, time=0.859, warnings=0
+
+Processing: data\raw\doc_Word\Reservoir Characterization Based on Bayesian AVO.docx
+  source=native_mammoth, time=1.371, warnings=0
+
+Processing: data\raw\doc_Word\Reservoir Characterization Integrating Seismic Attributes.docx
+  source=native_mammoth, time=2.775, warnings=0
+
+Processing: data\raw\doc_Word\Reservoir Characterization Using Intelligent Seismic Inversion.docx
+  source=native_mammoth, time=1.000, warnings=0
+
+Processing: data\raw\doc_Word\Seismic_Imaging_and_Interpretation_Techniques.docx
+  source=native_mammoth, time=0.020, warnings=0
+
+Processing: data\raw\doc_Word\Seismic_Imaging_and_Interpretation_Techniques_doc.doc
+  source=native_mammoth, time=1.631, warnings=0
+
+Processing: data\raw\images\Box-plots-ranges-of-source-depths.jpg
+  source=ocr_image, time=1.181, warnings=0
+
+Processing: data\raw\images\Convolution_Polarity.jpg
+  source=ocr_image, time=0.731, warnings=0
+
+Processing: data\raw\images\defs_ref_data.jpg
+  source=ocr_image, time=1.570, warnings=0
+
+Processing: data\raw\images\Example-of-a-near-seafloor-structure.jpg
+  source=ocr_image, time=0.750, warnings=0
+
+Processing: data\raw\images\Example-of-a-regional-seismic-line-from-the-eastern-Gulf-of-Mexico.jpg
+  source=ocr_image, time=0.547, warnings=0
+
+Processing: data\raw\images\Facies-of-deepwater-depositional-systems-Shoup.jpg
+  source=ocr_image, time=1.013, warnings=0
+
+Processing: data\raw\images\Geophysics_cheatsheet.png
+  source=ocr_image, time=8.082, warnings=0
+
+Processing: data\raw\images\Integrated stratigraphic column of the Yingshan area.jpg
+  source=ocr_image, time=2.562, warnings=0
+
+Processing: data\raw\images\Integrated workflow for high-resolution 3D seismic processing and quantitative interpretation.jpg
+  source=ocr_image, time=4.389, warnings=0
+
+Processing: data\raw\images\Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary.jpg
+  source=ocr_image, time=2.083, warnings=0
+
+Processing: data\raw\images\NW-SE-time-migrated-seismic-line-showing-extensional-basins-developed-atop-the-eastern.jpg
+  source=ocr_image, time=1.585, warnings=0
+
+Processing: data\raw\images\Postack - Seismic inversion (post-stacking vs pre-stacking).jpg
+  source=ocr_image, time=0.612, warnings=0
+
+Processing: data\raw\images\Prestack - Seismic inversion (post-stacking vs pre-stacking).jpg
+  source=ocr_image, time=0.654, warnings=0
+
+Processing: data\raw\images\Regional-seismic-profile-showing-rift-structure-and-prerift-synrift-and-postrift.jpg
+  source=ocr_image, time=1.718, warnings=0
+
+Processing: data\raw\images\Regional-seismic-sections-across-the-northern-North-Sea-rift-from-north-to-south-See.jpg
+  source=ocr_image, time=1.067, warnings=0
+
+Processing: data\raw\images\Representative-E-W-seismic-line-through-the-salt-minibasins-and-salt-diapirs.jpg
+  source=ocr_image, time=1.191, warnings=0
+
+Processing: data\raw\images\SE-NW-seismic-section.jpg
+  source=ocr_image, time=1.514, warnings=0
+
+Processing: data\raw\images\SEG_EURO_Polarity.jpg
+  source=ocr_image, time=1.059, warnings=0
+
+Processing: data\raw\images\Seismic inversion (post-stacking vs pre-stacking).jpg
+  source=ocr_image, time=0.446, warnings=0
+
+Processing: data\raw\images\seismic polarity.png
+  source=ocr_image, time=1.075, warnings=0
+
+Processing: data\raw\images\Seismic-Cross-Section-over-the-Mid-North-Sea-High-from-the-Anglo-Dutch-Basin.jpg
+  source=ocr_image, time=1.389, warnings=0
+
+Processing: data\raw\images\Series-of-seismic-reflection-profiles-showing-the-differences-in-rift-geometries-and-rift.jpg
+  source=ocr_image, time=1.292, warnings=0
+
+Processing: data\raw\images\The-poststack-inversion-workflow-was-used-in-this-study-in-which-three-key-components.jpg
+  source=ocr_image, time=0.900, warnings=0
+
+Processing: data\raw\images\vertical-and-horizontal-stratigraphic-compartmentalization-and-baffling-by-reservoi.jpg
+  source=ocr_image, time=0.768, warnings=0
+
+Processing: data\raw\images\Workflow-for-seismic-interpretation.jpg
+  source=ocr_image, time=1.687, warnings=0
+
+Processing: data\raw\pdf_scans\2020_06_practical_4d_interpretation.pdf
+  source=ocr, time=10.503, warnings=0
+
+Processing: data\raw\pdf_scans\Alaska_North_Slope_petroleum_systems.pdf
+  source=ocr, time=4.660, warnings=0
+
+Processing: data\raw\pdf_scans\Cheatsheet_basic.pdf
+  source=ocr, time=14.393, warnings=0
+
+Processing: data\raw\pdf_scans\Cheatsheet_geophysics.pdf
+  source=ocr, time=8.536, warnings=0
+
+Processing: data\raw\pdf_scans\Cheatsheet_petroleum.pdf
+  source=ocr, time=7.226, warnings=0
+
+Processing: data\raw\pdf_scans\Cheatsheet_Petrophysics.pdf
+  source=ocr, time=8.810, warnings=0
+
+Processing: data\raw\pdf_scans\Chopra_Churning seismic attributes with principal component analysis.pdf
+  source=ocr, time=22.676, warnings=0
+
+Processing: data\raw\pdf_scans\Cruise Report for a Seismic Investigation of Gas Hydrates.pdf
+  source=ocr, time=92.374, warnings=0
+
+Processing: data\raw\pdf_scans\Deriving Vp velocity and density properties.pdf
+  source=ocr, time=119.268, warnings=0
+
+Processing: data\raw\pdf_scans\Interpretation of seismic cross-hole.pdf
+  source=ocr, time=45.005, warnings=0
+
+Processing: data\raw\pdf_scans\NPD Oligocene to Pliocene well and borehole data.pdf
+  source=ocr, time=11.082, warnings=0
+
+Processing: data\raw\pdf_scans\Poseidon 3D Interpretation Report_Rev.pdf
+  source=ocr, time=176.110, warnings=0
+
+Processing: data\raw\pdf_scans\Reprocessing of Reflection Seismic Lines Rill and R102.pdf
+  source=ocr, time=120.062, warnings=0
+
+Processing: data\raw\pdf_scans\Seismic evidence for an extensive gas-bearing layer.pdf
+  source=ocr, time=67.941, warnings=0
+
+Processing: data\raw\pdf_scans\Seismic Reflection Profiles Along the Drill Holes.pdf
+  source=ocr, time=81.114, warnings=0
+
+Processing: data\raw\pdf_scans\Two-Dimensional Multichannel Seismic Data.pdf
+  source=ocr, time=128.927, warnings=0
+
+Processing: data\raw\pdf_scans\Using Machine Learning for Automated Seismic Facies Classification.pdf
+  source=ocr, time=79.356, warnings=0
+
+Processing: data\raw\pdf_text\Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin.pdf
+  source=native_pymupdf, time=1.577, warnings=0
+
+Processing: data\raw\pdf_text\Assessment of Tight-Oil and Tight-Gas Resources.pdf
+  source=native_pymupdf, time=0.993, warnings=0
+
+Processing: data\raw\pdf_text\Assessment of Undiscovered Conventional Oil and Gas Resources.pdf
+  source=native_pymupdf, time=0.943, warnings=0
+
+Processing: data\raw\pdf_text\Assessment of Undiscovered Oil and Gas  in the Haynesville Formation.pdf
+  source=native_pymupdf, time=11.377, warnings=0
+
+Processing: data\raw\pdf_text\Assessment of Undiscovered Oil and Gas in the Central North Slope of Alaska.pdf
+  source=native_pymupdf, time=2.017, warnings=0
+
+Processing: data\raw\pdf_text\Assessment of Undiscovered Oil and Gas of the Gulf Coast.pdf
+  source=native_pymupdf, time=4.884, warnings=0
+
+Processing: data\raw\pdf_text\Assessment of Undiscovered Shale- Gas Resources.pdf
+  source=native_pymupdf, time=1.335, warnings=0
+
+Processing: data\raw\pdf_text\Assumptions to the Annual Energy Outlook 2026 Liquid Fuels Market Module.pdf
+  source=native_pymupdf, time=2.577, warnings=0
+
+Processing: data\raw\pdf_text\Characterization of Three Forks Formation Reservoir Lithofacies.pdf
+  source=native_pymupdf, time=1.192, warnings=0
+
+Processing: data\raw\pdf_text\Development of the taranaki basin for deepwater exploration.pdf
+  source=native_pymupdf, time=3.058, warnings=0
+
+Processing: data\raw\pdf_text\Interpretation of incised valleys using new 3-D seismic techniques.pdf
+  source=native_pymupdf, time=0.995, warnings=0
+
+Processing: data\raw\pdf_text\Interpretational applications of spectral decomposition in reservoir characterization.pdf
+  source=native_pymupdf, time=0.802, warnings=0
+
+Processing: data\raw\pdf_text\NPD FactPages  Well 72208‑1.pdf
+  source=native_pymupdf, time=1.135, warnings=0
+
+Processing: data\raw\pdf_text\NPD FactPages Well 65077‑12.pdf
+  source=native_pymupdf, time=2.211, warnings=0
+
+Processing: data\raw\pdf_text\NPD Resource Accounts for the Norwegian continental shelf 2021.pdf
+  source=native_pymupdf, time=1.491, warnings=0
+
+Processing: data\raw\pdf_text\Public Dataset for Machine Learning in Seismic Interpretation.pdf
+  source=native_pymupdf, time=1.173, warnings=0
+
+Processing: data\raw\pdf_text\Seismic attributes in reservoir characterization an overview.pdf
+  source=native_pymupdf, time=2.100, warnings=0
+
+Processing: data\raw\pdf_text\Seismic facies analysis Past, present and future.pdf
+  source=native_pymupdf, time=4.829, warnings=0
+
+Processing: data\raw\pdf_text\Spectral decomposition of time- vs. depth-migrated data.pdf
+  source=native_pymupdf, time=0.767, warnings=0
+
+Processing: data\raw\pdf_text\Spectral Decomposition Reveals Geological Hidden Features in the Amplitude Maps.pdf
+  source=native_pymupdf, time=0.784, warnings=0
+
+Processing: data\raw\pdf_text\The impact of reservoir scale on amplitude variation with offset.pdf
+  source=native_pymupdf, time=1.983, warnings=0
+
+Processing: data\raw\pdf_text\Use of spectral decomposition technique for delineation of channels at Solar gas discovery.pdf
+  source=native_pymupdf, time=0.699, warnings=0
+
+Processing: data\raw\pdf_text\Well Logging in Support for Seismic Reservoir Characterization.pdf
+  source=native_pymupdf, time=0.592, warnings=0
+
+Processing: data\raw\pdf_text\Williston Basin Province Interpretation of 2-D Seismic Data.pdf
+  source=native_pymupdf, time=32.240, warnings=0
+
+Processing: data\raw\tables\Annual Energy  Oil and Gas Supply.xlsx
+  source=native_excel, time=0.094, warnings=0
+
+Processing: data\raw\tables\Annual Energy  Total Energy Supply, Disposition, and Price Summary.xlsx
+  source=native_excel, time=0.061, warnings=0
+
+Processing: data\raw\tables\CP_Kronos1_Well_Seismic_Report_VSP_data.xlsx
+  source=native_excel, time=0.045, warnings=0
+
+Processing: data\raw\tables\Crude Oil and Natural Gas Exploratory and Development Wells.xlsx
+  source=native_excel, time=0.037, warnings=0
+
+Processing: data\raw\tables\DPR_data_region_month_oil_natural_gas.xlsx
+  source=native_excel, time=0.264, warnings=0
+
+Processing: data\raw\tables\GEoREST_induced_seismicity_database_20_11_2022.xlsx
+  source=native_excel, time=0.288, warnings=0
+
+Processing: data\raw\tables\Oil well operation parameters (2013).xlsx
+  source=native_excel, time=0.043, warnings=0
+
+Processing: data\raw\tables\Oil_and_Gas_Wells.xlsx
+  source=native_excel, time=1.878, warnings=0
+
+Processing: data\raw\tables\Petroleum Segments_Exploration, Development, & Production Statistics.xlsx
+  source=native_excel, time=0.236, warnings=0
+
+Processing: data\raw\tables\Petroleum Segments_Proved Petroleum Reserves.xlsx
+  source=native_excel, time=0.222, warnings=0
+
+Processing: data\raw\tables\Pools allocated to petroleum system in the San Joaquin Basin Province.xlsx
+  source=native_excel, time=0.191, warnings=0
+
+Processing: data\raw\tables\Reservoir rock allocated to each producing zone all.xlsx
+  source=native_excel, time=0.041, warnings=0
+
+Processing: data\raw\tables\Reservoir rock allocated to each producing zone.xlsx
+  source=native_excel, time=0.017, warnings=0
+
+Processing: data\raw\tables\Seismic_Water_Bottom_Anomalies.xlsx
+  source=native_excel, time=0.113, warnings=0
+
+Processing: data\raw\tables\Tight oil production estimates by play.xls
+  source=native_excel, time=0.016, warnings=0
+
+Processing: data\raw\tables\W1 Well Logs.xlsx
+  source=native_excel, time=0.013, warnings=0
+
+Processing: data\raw\txt\Basic elements of a reservoir characterization study.txt
+  source=native_txt, time=0.027, warnings=0
+
+Processing: data\raw\txt\Geophysics.txt
+  source=native_txt, time=0.001, warnings=0
+
+Processing: data\raw\txt\Geostatistical reservoir modeling.txt
+  source=native_txt, time=0.037, warnings=0
+
+Processing: data\raw\txt\Geostatistics.txt
+  source=native_txt, time=0.017, warnings=0
+
+Processing: data\raw\txt\Predicting rock properties.txt
+  source=native_txt, time=0.046, warnings=0
+
+Processing: data\raw\txt\Reservoir geophysics overview.txt
+  source=native_txt, time=0.029, warnings=0
+
+Processing: data\raw\txt\Reservoir simulation applications.txt
+  source=native_txt, time=0.096, warnings=0
+
+Processing: data\raw\txt\Seismic attributes for reservoir studies.txt
+  source=native_txt, time=0.039, warnings=0
+
+Processing: data\raw\txt\Seismic attributes.txt
+  source=native_txt, time=0.015, warnings=0
+
+Processing: data\raw\txt\Seismic imaging and inversion.txt
+  source=native_txt, time=0.037, warnings=0
+
+Processing: data\raw\txt\Seismic interpretation.txt
+  source=native_txt, time=0.057, warnings=0
+
+Processing: data\raw\txt\Seismic time-lapse reservoir monitoring.txt
+  source=native_txt, time=0.022, warnings=0
+
+Processing: data\raw\txt\WA1.txt
+  source=native_txt, time=0.001, warnings=0
+
+=== Summary ===
+Total files: 113
+Success: 113
+Errors: 0
+Table docs: 56
+
+Tables by file type:
+  doc_Word: 10
+  images: 1
+  pdf_scans: 7
+  pdf_text: 17
+  tables: 16
+  txt: 5
+Image docs: 82
+
+Images by file type:
+  doc_Word: 16
+  images: 25
+  pdf_scans: 17
+  pdf_text: 24
+Avg time: 10.122
+Max time: 176.110
+Min time: 0.001
+Total time: 1194.32 sec
+
+=== Smoke-test finished ===

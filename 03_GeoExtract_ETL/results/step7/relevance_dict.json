@@ -1,0 +1,256 @@
+{
+  "3D seismic imaging of Red Fork incised valleys": [
+    [
+      "Interpretation of incised valleys using new 3-D seismic techniques",
+      "Interpretation of incised valleys using new 3-D seismic techniques_merged"
+    ],
+    [
+      "Seismic_Imaging_and_Interpretation_Techniques",
+      "Seismic_Imaging_and_Interpretation_Techniques_merged"
+    ]
+  ],
+  "4D seismic interpretation": [
+    [
+      "2020_06_practical_4d_interpretation",
+      "2020_06_practical_4d_interpretation_merged"
+    ],
+    [
+      "Seismic_Imaging_and_Interpretation_Techniques",
+      "Seismic_Imaging_and_Interpretation_Techniques_merged"
+    ]
+  ],
+  "Alaska North Slope petroleum systems": [
+    [
+      "Alaska_North_Slope_petroleum_systems",
+      "Alaska_North_Slope_petroleum_systems_merged"
+    ]
+  ],
+  "Amplitude, phase, frequency": [
+    [
+      "Seismic attributes",
+      "Seismic attributes_merged"
+    ],
+    [
+      "Interpretational applications of spectral decomposition in reservoir characterization",
+      "Interpretational applications of spectral decomposition in reservoir characterization_merged"
+    ]
+  ],
+  "Basics of seismic data and acquisition": [
+    [
+      "Geophysics",
+      "Geophysics_merged"
+    ],
+    [
+      "Seismic_Imaging_and_Interpretation_Techniques",
+      "Seismic_Imaging_and_Interpretation_Techniques_merged"
+    ]
+  ],
+  "Brazilian carbonate 4D seismic interpretation": [
+    [
+      "2020_06_practical_4d_interpretation",
+      "2020_06_practical_4d_interpretation_merged"
+    ],
+    [
+      "Seismic_Imaging_and_Interpretation_Techniques",
+      "Seismic_Imaging_and_Interpretation_Techniques_merged"
+    ]
+  ],
+  "Dataset for Machine Learning": [
+    [
+      "Public Dataset for Machine Learning in Seismic Interpretation",
+      "Public Dataset for Machine Learning in Seismic Interpretation_merged"
+    ]
+  ],
+  "density, porosity": [
+    [
+      "Predicting rock properties",
+      "Predicting rock properties_merged"
+    ]
+  ],
+  "DEPTH sp GR CALI": [
+    [
+      "WA1",
+      "WA1_merged"
+    ]
+  ],
+  "Hydrocarbon families": [
+    [
+      "Alaska_North_Slope_petroleum_systems",
+      "Alaska_North_Slope_petroleum_systems_merged"
+    ],
+    [
+      "Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary",
+      "Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary_merged"
+    ]
+  ],
+  "Instantaneous seismic attributes: amplitude, phase, frequency": [
+    [
+      "Seismic attributes",
+      "Seismic attributes_merged"
+    ],
+    [
+      "Interpretational applications of spectral decomposition in reservoir characterization",
+      "Interpretational applications of spectral decomposition in reservoir characterization_merged"
+    ],
+    [
+      "Seismic_Imaging_and_Interpretation_Techniques",
+      "Seismic_Imaging_and_Interpretation_Techniques_merged"
+    ]
+  ],
+  "Junggar–Santanghu tight oil and gas assessment": [
+    [
+      "Assessment of Tight-Oil and Tight-Gas Resources",
+      "Assessment of Tight-Oil and Tight-Gas Resources_merged"
+    ]
+  ],
+  "Komombo Basin seismic inversion": [
+    [
+      "Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin",
+      "Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin_merged"
+    ]
+  ],
+  "Marine seismic technology and multisource acquisition": [
+    [
+      "A decade of marine seismic technology development",
+      "A decade of marine seismic technology development_merged"
+    ]
+  ],
+  "Near‑seafloor structure: seabed anomaly and seismic chimney": [
+    [
+      "Example-of-a-near-seafloor-structure",
+      "Example-of-a-near-seafloor-structure_merged"
+    ]
+  ],
+  "Oligocene–Pliocene depocentres and Fennoscandian uplift": [
+    [
+      "NPD Oligocene to Pliocene well and borehole data",
+      "NPD Oligocene to Pliocene well and borehole data_merged"
+    ]
+  ],
+  "Oil and gas assessment": [
+    [
+      "Assessment of Tight-Oil and Tight-Gas Resources",
+      "Assessment of Tight-Oil and Tight-Gas Resources_merged"
+    ]
+  ],
+  "Oil well daily production parameters": [
+    [
+      "Oil well operation parameters (2013)",
+      "Oil well operation parameters (2013)_merged"
+    ]
+  ],
+  "Petroleum systems": [
+    [
+      "Alaska_North_Slope_petroleum_systems",
+      "Alaska_North_Slope_petroleum_systems_merged"
+    ]
+  ],
+  "Polarity conventions": [
+    [
+      "Convolution_Polarity",
+      "Convolution_Polarity_merged"
+    ]
+  ],
+  "Predicting properties": [
+    [
+      "Predicting rock properties",
+      "Predicting rock properties_merged"
+    ]
+  ],
+  "Producing zones and reservoir formations": [
+    [
+      "Reservoir rock allocated to each producing zone",
+      "Reservoir rock allocated to each producing zone_merged"
+    ]
+  ],
+  "Production parameters": [
+    [
+      "Oil well operation parameters (2013)",
+      "Oil well operation parameters (2013)_merged"
+    ]
+  ],
+  "Rock and fluid properties": [
+    [
+      "Predicting rock properties",
+      "Predicting rock properties_merged"
+    ]
+  ],
+  "Seismic convolution": [
+    [
+      "Convolution_Polarity",
+      "Convolution_Polarity_merged"
+    ]
+  ],
+  "Seismic inversion": [
+    [
+      "Integration of Deterministic Seismic inversion with Machine Learning",
+      "Integration of Deterministic Seismic inversion with Machine Learning_merged"
+    ]
+  ],
+  "Seismic inversion with machine learning": [
+    [
+      "Integration of Deterministic Seismic inversion with Machine Learning",
+      "Integration of Deterministic Seismic inversion with Machine Learning_merged"
+    ]
+  ],
+  "Seismic technology": [
+    [
+      "A decade of marine seismic technology development",
+      "A decade of marine seismic technology development_merged"
+    ],
+    [
+      "Geophysics",
+      "Geophysics_merged"
+    ]
+  ],
+  "Source intervals and hydrocarbon families": [
+    [
+      "Alaska_North_Slope_petroleum_systems",
+      "Alaska_North_Slope_petroleum_systems_merged"
+    ],
+    [
+      "Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary",
+      "Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary_merged"
+    ]
+  ],
+  "Spectral decomposition and seismic interpretation techniques": [
+    [
+      "Interpretational applications of spectral decomposition in reservoir characterization",
+      "Interpretational applications of spectral decomposition in reservoir characterization_merged"
+    ],
+    [
+      "Seismic_Imaging_and_Interpretation_Techniques",
+      "Seismic_Imaging_and_Interpretation_Techniques_merged"
+    ],
+    [
+      "Seismic attributes",
+      "Seismic attributes_merged"
+    ]
+  ],
+  "Spectral decomposition for thin‑bed reservoir characterization": [
+    [
+      "Interpretational applications of spectral decomposition in reservoir characterization",
+      "Interpretational applications of spectral decomposition in reservoir characterization_merged"
+    ],
+    [
+      "Seismic_Imaging_and_Interpretation_Techniques",
+      "Seismic_Imaging_and_Interpretation_Techniques_merged"
+    ],
+    [
+      "Interpretation of incised valleys using new 3-D seismic techniques",
+      "Interpretation of incised valleys using new 3-D seismic techniques_merged"
+    ]
+  ],
+  "Three Forks lithofacies characterization": [
+    [
+      "Characterization of Three Forks Formation Reservoir Lithofacies",
+      "Characterization of Three Forks Formation Reservoir Lithofacies_merged"
+    ]
+  ],
+  "W1 well logs": [
+    [
+      "W1 Well Logs",
+      "W1 Well Logs_merged"
+    ]
+  ]
+}

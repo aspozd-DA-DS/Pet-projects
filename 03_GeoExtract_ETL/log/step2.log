@@ -1,0 +1,51 @@
+2026-08-10 10:43:39,375 — INFO — === Шаг 2: старт ===
+2026-08-10 10:43:40,754 — INFO — === Step 2.1: pdfplumber vs PyMuPDF comparison started ===
+2026-08-10 10:43:40,755 — INFO — [2.1] Comparing extractors on: Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin.pdf
+2026-08-10 10:43:42,404 — INFO — [2.1] Comparing extractors on: Assessment of Tight-Oil and Tight-Gas Resources.pdf
+2026-08-10 10:43:44,087 — INFO — [2.1] Comparing extractors on: Assessment of Undiscovered Conventional Oil and Gas Resources.pdf
+2026-08-10 10:43:45,863 — INFO — [2.1] Comparing extractors on: Assessment of Undiscovered Oil and Gas  in the Haynesville Formation.pdf
+2026-08-10 10:44:06,166 — INFO — [2.1] Comparing extractors on: Assessment of Undiscovered Oil and Gas in the Central North Slope of Alaska.pdf
+2026-08-10 10:44:09,337 — INFO — [2.1] Comparing extractors on: Assessment of Undiscovered Oil and Gas of the Gulf Coast.pdf
+2026-08-10 10:44:17,120 — INFO — [2.1] Comparing extractors on: Assessment of Undiscovered Shale- Gas Resources.pdf
+2026-08-10 10:44:19,781 — INFO — [2.1] Comparing extractors on: Assumptions to the Annual Energy Outlook 2026 Liquid Fuels Market Module.pdf
+2026-08-10 10:44:22,433 — INFO — [2.1] Comparing extractors on: Characterization of Three Forks Formation Reservoir Lithofacies.pdf
+2026-08-10 10:44:23,864 — INFO — [2.1] Comparing extractors on: Development of the taranaki basin for deepwater exploration.pdf
+2026-08-10 10:44:27,775 — INFO — [2.1] Comparing extractors on: Interpretation of incised valleys using new 3-D seismic techniques.pdf
+2026-08-10 10:44:29,608 — INFO — [2.1] Comparing extractors on: Interpretational applications of spectral decomposition in reservoir characterization.pdf
+2026-08-10 10:44:31,041 — INFO — [2.1] Comparing extractors on: NPD FactPages  Well 72208‑1.pdf
+2026-08-10 10:44:32,052 — INFO — [2.1] Comparing extractors on: NPD FactPages Well 65077‑12.pdf
+2026-08-10 10:44:33,984 — INFO — [2.1] Comparing extractors on: NPD Resource Accounts for the Norwegian continental shelf 2021.pdf
+2026-08-10 10:44:35,682 — INFO — [2.1] Comparing extractors on: Public Dataset for Machine Learning in Seismic Interpretation.pdf
+2026-08-10 10:44:37,326 — INFO — [2.1] Comparing extractors on: Seismic attributes in reservoir characterization an overview.pdf
+2026-08-10 10:44:39,070 — INFO — [2.1] Comparing extractors on: Seismic facies analysis Past, present and future.pdf
+2026-08-10 10:44:43,885 — INFO — [2.1] Comparing extractors on: Spectral decomposition of time- vs. depth-migrated data.pdf
+2026-08-10 10:44:45,137 — INFO — [2.1] Comparing extractors on: Spectral Decomposition Reveals Geological Hidden Features in the Amplitude Maps.pdf
+2026-08-10 10:44:46,920 — INFO — [2.1] Comparing extractors on: The impact of reservoir scale on amplitude variation with offset.pdf
+2026-08-10 10:44:49,036 — INFO — [2.1] Comparing extractors on: Use of spectral decomposition technique for delineation of channels at Solar gas discovery.pdf
+2026-08-10 10:44:50,304 — INFO — [2.1] Comparing extractors on: Well Logging in Support for Seismic Reservoir Characterization.pdf
+2026-08-10 10:44:51,003 — INFO — [2.1] Comparing extractors on: Williston Basin Province Interpretation of 2-D Seismic Data.pdf
+2026-08-10 10:45:21,774 — INFO — === Step 2.1: comparison finished ===
+2026-08-10 11:05:19,070 — INFO — === Golden Set extraction check started ===
+2026-08-10 11:05:19,070 — INFO — [GoldenSet] Проверка: data\raw\pdf_scans\2020_06_practical_4d_interpretation.pdf
+2026-08-10 11:05:32,990 — INFO — [GoldenSet] Проверка: data\raw\doc_Word\A decade of marine seismic technology development.docx
+2026-08-10 11:05:35,748 — INFO — [GoldenSet] Проверка: data\raw\pdf_scans\Alaska_North_Slope_petroleum_systems.pdf
+2026-08-10 11:05:42,293 — INFO — [GoldenSet] Проверка: data\raw\pdf_text\Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin.pdf
+2026-08-10 11:05:43,231 — INFO — [GoldenSet] Проверка: data\raw\pdf_text\Assessment of Tight-Oil and Tight-Gas Resources.pdf
+2026-08-10 11:05:44,626 — INFO — [GoldenSet] Проверка: data\raw\pdf_text\Characterization of Three Forks Formation Reservoir Lithofacies.pdf
+2026-08-10 11:05:45,399 — INFO — [GoldenSet] Проверка: data\raw\images\Convolution_Polarity.jpg
+2026-08-10 11:05:46,880 — INFO — [GoldenSet] Проверка: data\raw\images\Example-of-a-near-seafloor-structure.jpg
+2026-08-10 11:05:48,134 — INFO — [GoldenSet] Проверка: data\raw\txt\Geophysics.txt
+2026-08-10 11:05:48,136 — INFO — [GoldenSet] Проверка: data\raw\doc_Word\Integration of Deterministic Seismic inversion with Machine Learning.docx
+2026-08-10 11:05:49,759 — INFO — [GoldenSet] Проверка: data\raw\pdf_text\Interpretation of incised valleys using new 3-D seismic techniques.pdf
+2026-08-10 11:05:50,654 — INFO — [GoldenSet] Проверка: data\raw\pdf_text\Interpretational applications of spectral decomposition in reservoir characterization.pdf
+2026-08-10 11:05:51,765 — INFO — [GoldenSet] Проверка: data\raw\images\Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary.jpg
+2026-08-10 11:05:55,478 — INFO — [GoldenSet] Проверка: data\raw\pdf_scans\NPD Oligocene to Pliocene well and borehole data.pdf
+2026-08-10 11:06:06,880 — INFO — [GoldenSet] Проверка: data\raw\tables\Oil well operation parameters (2013).xlsx
+2026-08-10 11:06:06,932 — INFO — [GoldenSet] Проверка: data\raw\txt\Predicting rock properties.txt
+2026-08-10 11:06:06,965 — INFO — [GoldenSet] Проверка: data\raw\pdf_text\Public Dataset for Machine Learning in Seismic Interpretation.pdf
+2026-08-10 11:06:07,637 — INFO — [GoldenSet] Проверка: data\raw\tables\Reservoir rock allocated to each producing zone.xlsx
+2026-08-10 11:06:07,659 — INFO — [GoldenSet] Проверка: data\raw\txt\Seismic attributes.txt
+2026-08-10 11:06:07,664 — INFO — [GoldenSet] Проверка: data\raw\doc_Word\Seismic_Imaging_and_Interpretation_Techniques.docx
+2026-08-10 11:06:08,877 — INFO — [GoldenSet] Проверка: data\raw\tables\W1 Well Logs.xlsx
+2026-08-10 11:06:08,909 — INFO — [GoldenSet] Проверка: data\raw\txt\WA1.txt
+2026-08-10 11:06:08,914 — INFO — === Golden Set extraction check finished ===

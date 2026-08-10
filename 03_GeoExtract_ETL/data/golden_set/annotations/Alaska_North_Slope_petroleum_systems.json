@@ -1,0 +1,47 @@
+{
+  "doc_id": "Alaska_North_Slope_petroleum_systems",
+  "extension": ".pdf",
+  "total_blocks": 8,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Alaskan North Slope Petroleum Systems by L.B. Magoon1, P.G. Lillis2, K.J. Bird1, C. Lampe3, K.E. Peters",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "1, U.S. Geological Survey, Menlo Park, California 2, U.S. Geological Survey, Denver, Colorado 3, Integrated Exploration Systems, Juelich, Germany",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "ABSTRACT",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Six North Slope petroleum systems are identified, described, and mapped using oil-to-oil and oil-to-source rock correlations, pods of active source rock, and overburden rock packages. To map these systems, we assumed that: a) petroleum source rocks contain 2 wt. % organic carbon (TOC); b) immature oil-prone source rocks have hydrogen indices (HI) >300 (mg НС/gm TOC); c) the top and bottom of the petroleum (oil plus gas) window occur at vitrinite reflectance values of 0.6 and 1.0% Ro, respectively; and d) most hydrocarbons are expelled within the petroleum window.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The six petroleum systems we have identified and mapped are: a) a southern system involving the Kuna-Lisburne source rock unit that was active during the Late Jurassic and Early Cretaceous; b) two western systems involving source rock in the Kingak-Blankenship, and GRZ-lower Torok source rock units that were active during the Albian; and c) three eastern systems involving the Shublik-Otuk, Hue Shale and Canning source rock units that were active during the Cenozoic. The GRZ-lower Torok in the west is correlative with the Hue Shale to the east.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Four overburden rock packages controlled the time of expulsion and gross geometry of migration paths: a) a southern package of Early Cretaceous and older rocks structurally-thickened by early Brooks Range thrusting; b) a western package of Early Cretaceous rocks that filled the western part of the foreland basin; c) an eastern package of Late Cretaceous and Paleogene rocks that filled the eastern part of the foreland basin; and d) an offshore deltaic package of Neogene rocks deposited by the Colville, Canning, and Mackenzie rivers.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "This petroleum system poster is part of a series of Northern Alaska posters on modeling. The poster in this session by Saltus and Bird present gridded maps for the greater Northern Alaskan onshore and offshore that are used in the 3D modeling poster by Lampe and others. Posters on source rock units are by Keller and Bird as well as Peters and others. Sandstone and shale compaction properties used in sedimentary basin modeling are covered in a poster by Rowan and others. The results of this modeling exercise will be used in our next Northern Alaska oil and gas resource assessment.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "Figure showing National Petroleum Reserve in Alaska (NPRA) and Arctic National Wildlife Refuge (ANWR) in North Slope of Alaska. The polygon relates to poster by Lampe and others. Numbers are the oil and gas pools listed aphabetically above and numerically in the table to the left. The table and map shown here are the basis for the location and volume of each pool in each of the six petroleum systems.",
+  "start_page": 1
+}
+  ]
+}

@@ -1,0 +1,114 @@
+Basic elements of a reservoir characterization study
+
+A reservoir characterization study is a part of the development of a reservoir model. This article describes each of the basic elements involved in a reservoir characterization study.
+
+Shared earth model
+The result of reservoir characterization is the creation of the shared-earth model.[1] This type of model, created as a result of reservoir characterization,is important in four ways:
+- It is a central part of the reservoir-characterization team’s work
+- It ensures cross-disciplinary data consistency
+- It allows each discipline to measure how its own interpretation fits with other specialty models
+- It leads to a more-consistent global model
+
+The shared-earth model provides for efficient updating of the critical information necessary for 3D modeling. Exploration and production both benefit from such cross-validation and data integration. The ten basic elements (steps) of the shared-earth model are:
+- Basic interpretation
+- Premodeling organization
+- Data preparation and formatting
+- Exploratory data analysis (EDA)
+- 3D structural model
+- 3D sedimentary model
+- 3D petrophysical model
+- Upscaled 3D dynamic model
+- Flow simulation
+- Model assumptions iteration and updating
+
+Basic interpretation
+
+At the basic interpretation stage, the discipline expert interprets the primary data, whereas the geologist and geophysicist collaborate on the structure model and sequence definition. The petrophysicist, geologist, and reservoir engineer also decide on how to determine petrophysical properties.
+
+Premodeling organization
+
+From the premodeling organization step onward, the reservoir modeling requires a multidisciplinary team approach. Premodeling organization involves determining project goals and then designing a workflow (Fig. 1) to monitor the progress of the reservoir study. The workflow provides a system of checks and balances that ensures that the necessary data are ready at the appropriate times in the project. It also guarantees that an integrated approach is followed, because each step requires the interaction of multiple disciplines.
+
+Fig. 1—A generalized workflow chart illustrating the main elements of a 3D geostatistical reservoir characterization study.
+
+Data preparation and formatting
+
+Data preparation and formatting is critical to the accuracy of the results and often is extremely time consuming because different software packages import/export data in different formats. The data-preparation process does serve as a quality-control step, though—incomplete, inaccurate, or missing data yield poor results.
+
+Exploratory data analysis (EDA)
+
+A key step in any study is EDA. In this step, quality control of the data is critical because the relationships between key variables and general data characteristics are identified using various tools, including both classical and geostatistical methods.
+
+3D structural modeling
+T
+he 3D structural model (Fig. 2) shows the larger framework of the reservoir, and consists of two primary elements, the bounding surfaces and the faults. At this stage, there is no volume between the bounding surfaces. Seismic surfaces generally are converted to depth and adjusted for the well tops of the key marker surfaces (e.g., sequence boundaries, parasequence boundaries, and maximum flooding surfaces). Important aspects of fault-building are:
+
+Fault geometry
+
+Fault-to-fault relations
+
+That fault-to-bounding-surface contacts are a perfect match (this prevents later problems during flow simulation)
+That the modeling is restricted to those faults that directly impact fluid flow
+
+Fig. 2—The 3D structural model is the larger framework of the reservoir. It consists of two primary elements: the bounding surfaces and the faults.
+
+3D sedimentary modeling
+
+The 3D sedimentary model has two main elements: the definition of the internal stratigraphic layering (bedding geometry) and the definition of the facies. In this step, the sedimentary model must be defined in terms of sequence stratigraphy.
+
+Stratigraphic model
+
+Once the 3D structural framework has been created and the sequences (reservoir units) identified, the internal bedding geometries are defined within each sequence. Proportional bedding (Fig. 3) assumes an equal number of layers everywhere within the sequence, regardless of layer thickness. parallel bedding is a layering scheme that is parallel with other reservoir surfaces (Fig. 3) (e.g., parallel to the top or base) or to an internal or external surface marker. Combinations of these layering schemes allow the geologist to depict the depositional bedding geometries more realistically. The layering schemes define lines of correlation inside the model and are used to laterally connect facies and, ultimately, the petrophysical properties.
+
+Fig. 3—Internal bedding geometries for two reservoir units. The lower unit has proportional bedding. The upper unit onlaps the lower unit, with bedding planes parallel to the upper surface.
+
+Facies model
+
+So far, the 3D stratigraphic model has depicted the structural configuration and internal layering, but the volume still is empty (Fig. 4). The next step is to model the facies and simulate their 3D spatial distribution. Facies are defined from cores either as electrofacies (i.e., based on rock properties) or as depositional facies, and are coded using discrete integer values. Each sequence and its associated facies and petrophysical properties are modeled independently of the other sequences. The modeling honors the vertical and lateral facies relationships with the depositional environment. The three data required for facies simulation (Fig. 5) are:
+
+Facies codes along the well
+
+Markers that indicate the well depths that correspond to the structural surface used to define the overall geometry.
+
+Fig. 4— A final 3D structural and stratigraphic framework grid constructed from multiple surfaces and showing numerous sequences that influence fluid flow.
+
+Fig. 5— The data requirements for constructing the facies model are lithofacies codes, marker tops, and petrophysical information, which can be a continuous log or discrete measurements at various depths.
+
+Whether a pixel-based (Fig. 6) or Boolean (Fig. 7) simulation method is chosen depends highly on the data and the depositional environments. Facies modeling is not mandatory, and some studies bypass it, proceeding directly to the simulation of petrophysical properties.
+
+Fig. 6— Image A is a map view of a pixel-based, sequential-indicator simulation of three facies: channels (white), crevasse splays (light gray), and background shales (dark gray). Image B is the porosity distribution associated with the facies simulation. Compare these images to those in Fig. 7.
+
+Fig. 7— Image A is a map view of an object-based (Boolean) simulation of three facies: channels (white), crevasse splays (light gray), and background shales (dark gray). Image B is the porosity distribution associated with the facies simulation. Compare these images to those in Fig. 6.
+
+3D petrophysical modeling
+
+After facies modeling, the petrophysical properties (net-to-gross, φ, k, Sw) are assigned on a facies-by-facies basis, using the sedimentary model as a template. Fig. 6 and Fig. 7 show the porosity distribution within a pixel simulation and Boolean simulation, respectively. Volumetrics are computed once the petrophysical properties have been simulated.
+
+Upscaled 3D dynamic modeling
+
+Up to this phase, successive models were built by adding information to the previous one. The high-resolution petrophysical model often has many millions of grid cells. Current software and computer limitations for the simulation require us to simplify (upscale) the high-resolution model before going to the flow simulator. The upscaling takes into account the coarsening of the grid (x,y) dimensions (Fig. 8) and defines stratigraphic layering, sequence-by-sequence. Upscaling the grid geometry also upscales the petrophysical properties.
+
+Fig. 8—The high-resolution petrophysical model (upper image) often has many millions of grid cells. Computer limitations require that the high-resolution model be simplified (upscaled) before going to the flow simulator (lower image).
+
+Flow simulation
+
+Flow simulation is an important step in the shared-earth model, and is the process through which the model assumptions are iterated and updated. The next section discusses the iteration and updating of model assumptions, but as a topic, flow simulation itself is beyond the scope of this page.
+
+Model assumption iteration and updating
+
+It is unlikely that a history match will be achieved on the first flow simulation. A global history might be matched, but locally, wells are unlikely to match the pressure and production history. At this point, it is necessary to revisit the model assumptions, for which the reservoir engineer’s input is needed. From looking at the flow-simulation results, the reservoir engineer can offer valuable insight into which parameters are the most sensitive to flow, and how to tune the parameters. Rather than adjusting the relative permeability curves to match history, it may be better to change the modeling parameters and generate an updated reservoir model. Local adjustments may provide a history match at a point in time, but the model might still be a poor predictor of future performance.
+
+Benefits of an integrated 3D reservoir model
+
+In today’s economy, a model of sufficient detail is required to make the best reservoir-management decisions, accounting for uncertainty, toward the most efficient recovery of hydrocarbons. Six motivating factors for integrated 3D reservoir modeling are:
+
+The need for reliable estimates of gross rock volume and original hydrocarbons in place, which are important for determining the economics of producing the reservoir, determining production facility requirements, ranking development opportunities of alternative reservoirs, and allocating equity shares with partners.
+That a good reservoir model is invaluable in selecting well locations and well designs (vertical, horizontal, multilateral), and in assessing the number of wells needed to produce the reservoir economically.
+The need to assess bypassed pay potential and the value of infill drilling.
+That the integration of all static and dynamic data in a consistent framework ensures a better model.
+That modern portfolio management includes risk assessment. A stochastic-modeling method helps quantify uncertainty in the HRGMs (High Resolution Geological Models).
+That flow simulation and production performance is not based on the probable (P50) scenario. Geostatistical methods allow us to test several scenarios and select realizations representing the P10, P50, and P90 outcomes, for example.
+Nomenclature
+φ	=	porosity, fraction or percent
+k	=	permeability, md or darcies
+Sw	=	water saturation, the percentage of the total fluid that is attributable to water; fraction or percent

@@ -1,0 +1,6 @@
+{
+  "sentence-transformers/all-MiniLM-L6-v2": 0.5665519056898175,
+  "sentence-transformers/all-MiniLM-L12-v2": 0.5962849223252499,
+  "sentence-transformers/multi-qa-MiniLM-L6-cos-v1": 0.5603153642379877,
+  "sentence-transformers/all-mpnet-base-v2": 0.5953943250757275
+}

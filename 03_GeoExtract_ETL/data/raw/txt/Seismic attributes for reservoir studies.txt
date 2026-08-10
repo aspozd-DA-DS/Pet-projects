@@ -1,0 +1,110 @@
+Seismic attributes for reservoir studies 
+
+In most exploration and reservoir seismic surveys, the main objectives are, first, to correctly image the structure in time and depth and, second, to correctly characterize the amplitudes of the reflections. Assuming that the amplitudes are accurately rendered, a host of additional features can be derived and used in interpretation. Collectively, these features are referred to as seismic attributes.[1]
+
+The simplest attribute, and the one most widely used, is seismic amplitude, and it is usually reported as the maximum (positive or negative) amplitude value at each sample along a horizon picked from a 3D volume. It is fortunate that, in many cases, the amplitude of reflection corresponds directly to the porosity or to the saturation of the underlying formation.
+
+Attributes can be obtained from typical post-stack seismic data volumes, and these are the most common types. On the other hand, additional information can be obtained from attributes of the individual seismic traces prior to stacking, in a prestack analysis. The most common of these is the variation of amplitude with offset [or amplitude vs. offset (AVO)], which is often used as an indicator of fluid type. The interpretation of any attribute is nonunique, and calibration to well data is required to minimize the ambiguities present.
+
+Well calibration
+Calibration of seismic attributes at wellbores should be undertaken in order to test the correlation of observed attributes with rock properties using all available:
+
+Log data
+Core data
+Borehole seismic information
+It is simple to correlate the attribute of interest with the well-log (or log-derived) data of interest; a strong correlation between seismic amplitude and porosity is often enough to convince many workers that the correlation is meaningful and that seismic amplitude can be used as a proxy for porosity in reservoir characterization. On the other hand, there are many potential pitfalls in this approach,[2] so the following protocols should be followed:
+
+Statistical tests should be performed on the correlations
+Geologic inference should be brought in to evaluate the reasonableness of the results
+Most importantly, the physical basis for the behavior of an observed attribute should be understood
+Spurious correlations can readily be obtained, and, without a geologic or physical basis, simple statistical correlations should be suspect unless their statistical basis is very robust.[3]
+
+Post-stack attributes
+The stacked seismic data volume is commonly used for interpretation of geologic structure and seismic attributes. The most common attribute is simply amplitude, although its interpretation in thin-layered beds is not necessarily straightforward.[4] Amplitude is often found to correlate strongly with porosity and/or liquid saturation (oil/water vs. gas) because those reservoir properties have a strong effect on both velocity and density, and seismic reflections are generated at boundaries where the acoustic impedance (the product of velocity and density) changes. The “bright-spot” identification of hydrocarbons, as demonstrated in Fig. 1,[5] is a result of this property, although other nonhydrocarbon changes in lithology can also result in large-amplitude reflections.
+
+Fig. 1-Amplitudes resulting from changes in seismic impedance. A perspective view of a single horizon containing several potential reservoirs is shown from the Teal South area of the Gulf of Mexico (from Pennington et al.[5]). The coloring is based on the amplitude of the reflected arrival at this horizon, with the hotter colors indicating larger (negative) amplitudes, resulting (in this case) from high-GOR oil in both producing and unproduced reservoirs. The reservoirs have been highlighted for increased visibility on the black-and-white version of a typically color display. (Data provided by Diamond Geophysical, through the Energy Research Clearing House.)
+
+The use of seismic attributes extends well beyond simple amplitudes. Most of the “original” seismic attributes were based on the Hilbert transform (see the section on reservoir characterization and evaluation) and consisted of the following (see Fig. 2[6]):
+
+The instantaneous amplitude (or amplitude of the wave envelope)
+The instantaneous phase (most useful for accurate time-picking)
+The instantaneous frequency (probably most often relating to thin-bed reverberations)[4]
+Fig. 2-Some trace-based attributes. The original seismic trace from one location in a seismic volume is shown on the left; the three common attributes of instantaneous amplitude (or envelope), instantaneous phase (wrapped), and instantaneous frequency follow to the right. Additional attributes of average energy and peak-to-trough ratio are also shown. The values of these attributes are usually not important, and often not cited, because it is the relative value of an attribute along a given horizon or interval that is important. Exceptions would be the phase (which varies from –180 degrees to +180 degrees in the plot shown) and frequency (which varies from 0 to 110 Hz). (This figure was modeled after one in Radovich and Oliveros,[6] which provides an interesting case history in the use of various attributes.)
+
+
+Variations on these attributes have evolved, and other classes of attributes have come into use[7] (see Fig. 3). There are now over two hundred attributes in use in some geophysical interpretation software packages,[8] many of which result from slightly differing approaches to determining a specific property, such as frequency or amplitude. Attributes based on stacked data (post-stack attributes) can be computed:
+
+At each point on the seismic trace independently (such as amplitude)
+Over a time window on each trace independently [such as root mean square (RMS) amplitude over 24 ms]
+Or
+
+by comparing neighboring traces within a time window (such as coherence, dip, and azimuth)
+Fig. 3-Classification of attribute types. Attributes can be point-based along a given time slice or horizon, or they can be based on a window that is constant in time, time associated with a given horizon, or times associated with two horizons (after Brown[7]).
+
+
+Coherence is an attribute of similarity among neighboring traces[9][10] and is often used to identify fractures or faults that tend to disrupt reflections locally (see Fig. 4[11]). Dip and azimuth5 describe the direction of trace offset for maximum similarity and can yield finely detailed images of bed surfaces. Additional attributes may be created based on combinations of original attributes, with the intention of identifying specific features known to be of interest (see Fig. 5[6]).
+
+Fig. 4-Coherence and faults or other discontinuities. The upper portion of the figure shows a time-slice through the coherence volume of a deformed area in the Gulf of Mexico; the faults are clearly visible and easy to track laterally. The lower portion shows a conventional amplitude display of the same time-slice in which the doming, because of salt movement (at depth), is evident, but the faulting is less easily identified (after DeAngelo and Wood).
+
+
+Fig. 5-Use of combined attributes. This map shows a specific attribute, made up of a combination of two other attributes (instantaneous frequency and amplitude), designed to indicate specific features. The black arrow points to the red regions of low frequency and high amplitude, which likely correlate (in this instance) with high-productivity regions within the overall sand body that is outlined in white (after Radovich and Oliveros[6]).
+
+
+Prestack attributes (AVO)
+The volume of seismic data available to the interpreter is usually the stacked-data volume, resulting from the stacking of all of the moveout-corrected traces, each with a different offset between the source and receiver but with reflection points at a common location. In post-stack analysis, it is assumed that the composite (stacked) trace exhibits the seismic reflection character as that which would result from single source-receiver pairs with no separation. Under these conditions, the reflection coefficient, R0, at each interface between two layers is determined by the ratio of the difference in acoustic impedance between these two layers, ΔI, to twice the average acoustic impedance and is written as
+
+RTENOTITLE....................(1)
+
+Vp and ρ are the P-wave velocity and density of the medium; subscript 2 indicates the medium that is causing the reflection and containing the refracted or transmitted rays, and subscript 1 indicates the medium that is containing the incident and reflected seismic rays.
+
+This “zero-offset” approximation is often satisfactory for interpretation of the seismic data, but it neglects a potentially important component: the amplitude variation with offset (or AVO), as shown[1] in Fig. 6. As a result of boundary conditions (such as conservation of energy and continuity of displacement) across a reflecting interface between two layers, any P-wave arriving at non-normal incidence is likely to produce not only a transmitted P-wave and a reflected P-wave but also a transmitted S-wave and a reflected S-wave, with angles determined by Snell’s law (Fig. 7) and amplitudes determined by a set of equations known as Zoeppritz equations.[12]
+
+Fig. 6-Seismic gather showing an AVO effect. This seismic gather demonstrates an amplitude increase with offset (toward the left) for the reflection at about 2.85 seconds. This figure shows the basic components of seismic data. Each “trace” is the recording of ground velocity at a specific location, with varying distance from the source, ranging from “near” (perhaps a few meters) to “far” (up to a kilometer or two). The positive values have been filled in with black to aid the eye in correlating reflection events from trace to trace (from Dey-Sarkar and Svatek).
+
+
+Fig. 7-Snell’s law illustrated in diagram form. In this example (and in general for reflection seismology), the wave incident on an interface between two layers is a downgoing P-wave. At the interface, it separates into reflected upcoming P- and S-waves and transmitted or refracted P- and S-waves, each with the appropriate angle. In this diagram, the length of the rays roughly indicates the relative velocities; that is, Vp2 > Vp1 > Vs2 > Vs1.
+
+
+Snell’s law governs the angles of reflection and transmission for a given angle of incidence (i) and is determined by the velocities on either side of the reflection/transmission boundary. It can be derived by applying the boundary condition that the apparent velocity Vapp along the boundary is required to be identical on either side of the boundary.
+
+RTENOTITLE....................(2)
+
+The ray parameter, p, is also termed the slowness and is constant for any given incident ray and all of the reflected and transmitted rays that result from striking that boundary. This expression is usually implemented for an incident P-wave by recognizing the relationships shown in Eq. 3. The subscripts are identified in Fig. 7.
+
+RTENOTITLE....................(3)
+
+In AVO studies, the dependence of the reflected P-wave amplitude on the contrast between the P and S velocities in both layers is exploited. In particular, a simple approximation[13] can often be applied to predict the amplitude as a function of angle of incidence (determined by Snell’s Law), as shown in the example in Fig. 8. The interpretation is generally made in terms of the slope or gradient (B) of the amplitude as plotted against the square of the sine of the angle of incidence and the intercept or zero-offset reflection amplitude (R0).
+
+Fig. 8-Dependence of amplitude on offset. The upper diagram shows the (exact) amplitude-vs.-offset behavior for a specific shale-over-sand example typical in parts of the Gulf of Mexico. Squares indicate 5-degree increments in angle of incidence (i) for the P-wave at the interface, with a larger square at 30 degrees. The lower diagram shows the same data plotted against the square of the sine of the angle of incidence, and compares the exact solution with Shuey’s[13] approximation.
+
+B is primarily a function of the change in Poisson’s ratio across the interface. This is only one of many approximations[14] to the complete solution, but it is the one most commonly used. For offsets corresponding to angles of incidence greater than about 30 degrees, a more complete relationship must be substituted.[15]
+
+The advantage to using prestack attributes is that they can provide some distinction between lithologic changes and changes in reflection character because of fluid content along an interface. The ratio of P-wave velocity (Vp) to S-wave velocity (Vs) is often very sensitive to the compressibility of the fluid within the pore spaces of the rock and not very sensitive to the porosity of the rock; that is, within a given formation, the changes in Vp / Vs, because of anticipated changes in saturation, are generally much greater than those anticipated from changes in porosity or lithology. Variation in rock types and pore structures is great, and local calibration is essential, but the empirical results summarized in Fig. 4 can be useful.[16] Poisson’s ratio, ν, and the Vp / Vs ratio can be related through Eqs. 4 and 5 and the graph shown in Fig. 8.
+
+RTENOTITLE....................(4)
+
+and
+
+RTENOTITLE....................(5)
+
+Fig. 9-Empirical relationships of Vp and Poisson’s ratio. The model of Greenberg and Castagna[6] can be used to generate curves of the relationship between Poisson’s ratio and P-wave velocity for pure rock types, as shown here. This sort of guide is useful when little or no local calibration is available.
+
+Fig. 10-Comparison of Vp /Vs and Poisson’s ratio, obtained from Eqs. 4 and 5.
+
+The results of many studies are expressed in terms of Poisson’s ratio, ν, although Vp / Vs may be more physically meaningful.[17] A variety of AVO attributes has been developed using different combinations of the AVO slope and intercept, generally with the intention of maximizing the distinctions between fluid types.[18][19] Some formulations break the AVO trend into three components[20][21] to isolate density contrasts, as shown by example in Fig. 11. As more offset ranges are used (and as each range gets narrower), the results tend to be noisier, and the robustness of the process suffers as additional parameters are sought.[22][23]
+
+Fig. 11-An example of using three-parameter amplitude-vs.-offset attributes applied to a field that has been produced. The map on the left shows the amplitude along the horizon, indicating hydrocarbon regions; the map in the center shows an AVO map indicating the same regions. The map on the right indicates differences in density, as derived from a three-component AVO model and indicates that large portions of the reservoirs in blocks 1 and 2 have been reduced to residual hydrocarbon saturation, but those in blocks 3 and 4 remain at high hydrocarbon saturation (after Skidmore et al.[21]).
+
+Special considerations
+Ultra-thin beds
+Methods to extract meaningful interpretations from seismic data in the presence of thin beds (less than one seismic wavelength in thickness) are discussed in seismic interpretation page. Additional techniques have recently been developed, which help the interpreter identify properties of extremely thin beds well below what has traditionally been considered the quarter-wavelength resolution of seismic data. These techniques make use of the various frequency components within a band-limited seismic wavelet; one operates in the frequency domain, and the other in the time domain.
+
+The frequency-domain approach,[24] called spectral decomposition, looks for notches in the frequency band representing an interference between the reflections from the top and bottom of the thin bed. The frequency at which constructive and destructive interference occurs is related to the (two-way) time-thickness of the bed. Because the seismic wavelet contains a range of frequencies, spectral notches or peak frequencies can be used to indicate extremely thin beds. Additional attributes can be derived from the spectral character of the reflections, further refining an interpretation.[25] The thinning-out of a channel or shoreline, for example, can be observed by mapping the locations of various frequency components, as shown in Fig. 12.
+
+Fig. 12—Ultra-thin bed example. This map shows an attribute calculated over a 100-ms window centered on a mapped horizon within which distributary channels were known to exist. This attribute represents the peak frequency within that window, and clearly indicates the thickest parts of the channels (white) and the thinner, and less productive parts ranging from gray to black. (From Marfurt and Kirlin,[25] where the figure is in color.)
+
+The time-domain approach involves classifying the character of the reflected wavelet, often using a neural-network technique.[26] The wavelet along a given horizon can be classified into several different characteristic wavelets, perhaps differing from each other only in subtle ways. The resulting map of classified wavelets can resemble a map of the geologic feature being sought[27] (see Fig. 13), and the classification is often referred to a “seismic facies” classification. Because this method tends to compare relative amplitudes of features within a wavelet packet (side lobes vs. main lobes, for example) or slight changes in period, it often responds to interference from very thin features that were previously considered to be below seismic resolution.
+
+Fig. 13—Seismic facies classification map and wavelets. The classification of this reservoir has been accomplished by recognizing similarity (using a neural network approach) of waveforms in four classes, based on representative waveforms at four wells, as shown.[27]
+
+Both of these techniques run the risk of leading to incorrect interpretations if seismic petrophysical modeling is not performed to direct the analysis and interpretation or to confirm the results. The processing involved can produce signals that appear realistic but are geologically meaningless, unless care is taken to ensure that the interpretation is physically sound.

@@ -1,0 +1,454 @@
+{
+  "0": {
+    "doc_id": "2020_06_practical_4d_interpretation",
+    "block_id": "2020_06_practical_4d_interpretation_merged"
+  },
+  "1": {
+    "doc_id": "Alaska_North_Slope_petroleum_systems",
+    "block_id": "Alaska_North_Slope_petroleum_systems_merged"
+  },
+  "2": {
+    "doc_id": "Cheatsheet_basic",
+    "block_id": "Cheatsheet_basic_merged"
+  },
+  "3": {
+    "doc_id": "Cheatsheet_geophysics",
+    "block_id": "Cheatsheet_geophysics_merged"
+  },
+  "4": {
+    "doc_id": "Cheatsheet_petroleum",
+    "block_id": "Cheatsheet_petroleum_merged"
+  },
+  "5": {
+    "doc_id": "Cheatsheet_Petrophysics",
+    "block_id": "Cheatsheet_Petrophysics_merged"
+  },
+  "6": {
+    "doc_id": "Chopra_Churning seismic attributes with principal component analysis",
+    "block_id": "Chopra_Churning seismic attributes with principal component analysis_merged"
+  },
+  "7": {
+    "doc_id": "Cruise Report for a Seismic Investigation of Gas Hydrates",
+    "block_id": "Cruise Report for a Seismic Investigation of Gas Hydrates_merged"
+  },
+  "8": {
+    "doc_id": "Deriving Vp velocity and density properties",
+    "block_id": "Deriving Vp velocity and density properties_merged"
+  },
+  "9": {
+    "doc_id": "Interpretation of seismic cross-hole",
+    "block_id": "Interpretation of seismic cross-hole_merged"
+  },
+  "10": {
+    "doc_id": "NPD Oligocene to Pliocene well and borehole data",
+    "block_id": "NPD Oligocene to Pliocene well and borehole data_merged"
+  },
+  "11": {
+    "doc_id": "Poseidon 3D Interpretation Report_Rev",
+    "block_id": "Poseidon 3D Interpretation Report_Rev_merged"
+  },
+  "12": {
+    "doc_id": "Reprocessing of Reflection Seismic Lines Rill and R102",
+    "block_id": "Reprocessing of Reflection Seismic Lines Rill and R102_merged"
+  },
+  "13": {
+    "doc_id": "Seismic evidence for an extensive gas-bearing layer",
+    "block_id": "Seismic evidence for an extensive gas-bearing layer_merged"
+  },
+  "14": {
+    "doc_id": "Seismic Reflection Profiles Along the Drill Holes",
+    "block_id": "Seismic Reflection Profiles Along the Drill Holes_merged"
+  },
+  "15": {
+    "doc_id": "Two-Dimensional Multichannel Seismic Data",
+    "block_id": "Two-Dimensional Multichannel Seismic Data_merged"
+  },
+  "16": {
+    "doc_id": "Using Machine Learning for Automated Seismic Facies Classification",
+    "block_id": "Using Machine Learning for Automated Seismic Facies Classification_merged"
+  },
+  "17": {
+    "doc_id": "Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin",
+    "block_id": "Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin_merged"
+  },
+  "18": {
+    "doc_id": "Assessment of Tight-Oil and Tight-Gas Resources",
+    "block_id": "Assessment of Tight-Oil and Tight-Gas Resources_merged"
+  },
+  "19": {
+    "doc_id": "Assessment of Undiscovered Conventional Oil and Gas Resources",
+    "block_id": "Assessment of Undiscovered Conventional Oil and Gas Resources_merged"
+  },
+  "20": {
+    "doc_id": "Assessment of Undiscovered Oil and Gas  in the Haynesville Formation",
+    "block_id": "Assessment of Undiscovered Oil and Gas  in the Haynesville Formation_merged"
+  },
+  "21": {
+    "doc_id": "Assessment of Undiscovered Oil and Gas in the Central North Slope of Alaska",
+    "block_id": "Assessment of Undiscovered Oil and Gas in the Central North Slope of Alaska_merged"
+  },
+  "22": {
+    "doc_id": "Assessment of Undiscovered Oil and Gas of the Gulf Coast",
+    "block_id": "Assessment of Undiscovered Oil and Gas of the Gulf Coast_merged"
+  },
+  "23": {
+    "doc_id": "Assessment of Undiscovered Shale- Gas Resources",
+    "block_id": "Assessment of Undiscovered Shale- Gas Resources_merged"
+  },
+  "24": {
+    "doc_id": "Assumptions to the Annual Energy Outlook 2026 Liquid Fuels Market Module",
+    "block_id": "Assumptions to the Annual Energy Outlook 2026 Liquid Fuels Market Module_merged"
+  },
+  "25": {
+    "doc_id": "Characterization of Three Forks Formation Reservoir Lithofacies",
+    "block_id": "Characterization of Three Forks Formation Reservoir Lithofacies_merged"
+  },
+  "26": {
+    "doc_id": "Development of the taranaki basin for deepwater exploration",
+    "block_id": "Development of the taranaki basin for deepwater exploration_merged"
+  },
+  "27": {
+    "doc_id": "Interpretation of incised valleys using new 3-D seismic techniques",
+    "block_id": "Interpretation of incised valleys using new 3-D seismic techniques_merged"
+  },
+  "28": {
+    "doc_id": "Interpretational applications of spectral decomposition in reservoir characterization",
+    "block_id": "Interpretational applications of spectral decomposition in reservoir characterization_merged"
+  },
+  "29": {
+    "doc_id": "NPD FactPages  Well 72208‑1",
+    "block_id": "NPD FactPages  Well 72208‑1_merged"
+  },
+  "30": {
+    "doc_id": "NPD FactPages Well 65077‑12",
+    "block_id": "NPD FactPages Well 65077‑12_merged"
+  },
+  "31": {
+    "doc_id": "NPD Resource Accounts for the Norwegian continental shelf 2021",
+    "block_id": "NPD Resource Accounts for the Norwegian continental shelf 2021_merged"
+  },
+  "32": {
+    "doc_id": "Public Dataset for Machine Learning in Seismic Interpretation",
+    "block_id": "Public Dataset for Machine Learning in Seismic Interpretation_merged"
+  },
+  "33": {
+    "doc_id": "Seismic attributes in reservoir characterization an overview",
+    "block_id": "Seismic attributes in reservoir characterization an overview_merged"
+  },
+  "34": {
+    "doc_id": "Seismic facies analysis Past, present and future",
+    "block_id": "Seismic facies analysis Past, present and future_merged"
+  },
+  "35": {
+    "doc_id": "Spectral decomposition of time- vs. depth-migrated data",
+    "block_id": "Spectral decomposition of time- vs. depth-migrated data_merged"
+  },
+  "36": {
+    "doc_id": "Spectral Decomposition Reveals Geological Hidden Features in the Amplitude Maps",
+    "block_id": "Spectral Decomposition Reveals Geological Hidden Features in the Amplitude Maps_merged"
+  },
+  "37": {
+    "doc_id": "The impact of reservoir scale on amplitude variation with offset",
+    "block_id": "The impact of reservoir scale on amplitude variation with offset_merged"
+  },
+  "38": {
+    "doc_id": "Use of spectral decomposition technique for delineation of channels at Solar gas discovery",
+    "block_id": "Use of spectral decomposition technique for delineation of channels at Solar gas discovery_merged"
+  },
+  "39": {
+    "doc_id": "Well Logging in Support for Seismic Reservoir Characterization",
+    "block_id": "Well Logging in Support for Seismic Reservoir Characterization_merged"
+  },
+  "40": {
+    "doc_id": "Williston Basin Province Interpretation of 2-D Seismic Data",
+    "block_id": "Williston Basin Province Interpretation of 2-D Seismic Data_merged"
+  },
+  "41": {
+    "doc_id": "Basic elements of a reservoir characterization study",
+    "block_id": "Basic elements of a reservoir characterization study_merged"
+  },
+  "42": {
+    "doc_id": "Geophysics",
+    "block_id": "Geophysics_merged"
+  },
+  "43": {
+    "doc_id": "Geostatistical reservoir modeling",
+    "block_id": "Geostatistical reservoir modeling_merged"
+  },
+  "44": {
+    "doc_id": "Geostatistics",
+    "block_id": "Geostatistics_merged"
+  },
+  "45": {
+    "doc_id": "Predicting rock properties",
+    "block_id": "Predicting rock properties_merged"
+  },
+  "46": {
+    "doc_id": "Reservoir geophysics overview",
+    "block_id": "Reservoir geophysics overview_merged"
+  },
+  "47": {
+    "doc_id": "Reservoir simulation applications",
+    "block_id": "Reservoir simulation applications_merged"
+  },
+  "48": {
+    "doc_id": "Seismic attributes for reservoir studies",
+    "block_id": "Seismic attributes for reservoir studies_merged"
+  },
+  "49": {
+    "doc_id": "Seismic attributes",
+    "block_id": "Seismic attributes_merged"
+  },
+  "50": {
+    "doc_id": "Seismic imaging and inversion",
+    "block_id": "Seismic imaging and inversion_merged"
+  },
+  "51": {
+    "doc_id": "Seismic interpretation",
+    "block_id": "Seismic interpretation_merged"
+  },
+  "52": {
+    "doc_id": "Seismic time-lapse reservoir monitoring",
+    "block_id": "Seismic time-lapse reservoir monitoring_merged"
+  },
+  "53": {
+    "doc_id": "WA1",
+    "block_id": "WA1_merged"
+  },
+  "54": {
+    "doc_id": "Seismic_Imaging_and_Interpretation_Techniques_doc",
+    "block_id": "Seismic_Imaging_and_Interpretation_Techniques_doc_merged"
+  },
+  "55": {
+    "doc_id": "2D_Simultaneous_Inversion_Bonaparte_Basin_project_report",
+    "block_id": "2D_Simultaneous_Inversion_Bonaparte_Basin_project_report_merged"
+  },
+  "56": {
+    "doc_id": "A decade of marine seismic technology development",
+    "block_id": "A decade of marine seismic technology development_merged"
+  },
+  "57": {
+    "doc_id": "A Seismic Multi-Attribute on the LightGBM-RFECV Coupling Algorithm",
+    "block_id": "A Seismic Multi-Attribute on the LightGBM-RFECV Coupling Algorithm_merged"
+  },
+  "58": {
+    "doc_id": "Application of seismic inversion constrained geological modeling technology",
+    "block_id": "Application of seismic inversion constrained geological modeling technology_merged"
+  },
+  "59": {
+    "doc_id": "Assessing Gas Hydrate Prospects on the North Slope of Alaska",
+    "block_id": "Assessing Gas Hydrate Prospects on the North Slope of Alaska_merged"
+  },
+  "60": {
+    "doc_id": "Elastic seismic inversion and reservoir characterization in the Llanos Basin",
+    "block_id": "Elastic seismic inversion and reservoir characterization in the Llanos Basin_merged"
+  },
+  "61": {
+    "doc_id": "Guidelines for interpreted data",
+    "block_id": "Guidelines for interpreted data_merged"
+  },
+  "62": {
+    "doc_id": "Implementation of seismic surveys on the Norwegian Continental Shelf",
+    "block_id": "Implementation of seismic surveys on the Norwegian Continental Shelf_merged"
+  },
+  "63": {
+    "doc_id": "Integration of and Model-Based Seismic Inversion and Neural Network Method",
+    "block_id": "Integration of and Model-Based Seismic Inversion and Neural Network Method_merged"
+  },
+  "64": {
+    "doc_id": "Integration of Deterministic Seismic inversion with Machine Learning",
+    "block_id": "Integration of Deterministic Seismic inversion with Machine Learning_merged"
+  },
+  "65": {
+    "doc_id": "Poro-Acoustic Impedance",
+    "block_id": "Poro-Acoustic Impedance_merged"
+  },
+  "66": {
+    "doc_id": "Probabilistic inversion of seismic data",
+    "block_id": "Probabilistic inversion of seismic data_merged"
+  },
+  "67": {
+    "doc_id": "Qualitative and quantitative reservoir characterization using seismic inversion",
+    "block_id": "Qualitative and quantitative reservoir characterization using seismic inversion_merged"
+  },
+  "68": {
+    "doc_id": "Reservoir Characterization Based on Bayesian AVO",
+    "block_id": "Reservoir Characterization Based on Bayesian AVO_merged"
+  },
+  "69": {
+    "doc_id": "Reservoir Characterization Integrating Seismic Attributes",
+    "block_id": "Reservoir Characterization Integrating Seismic Attributes_merged"
+  },
+  "70": {
+    "doc_id": "Reservoir Characterization Using Intelligent Seismic Inversion",
+    "block_id": "Reservoir Characterization Using Intelligent Seismic Inversion_merged"
+  },
+  "71": {
+    "doc_id": "Seismic_Imaging_and_Interpretation_Techniques",
+    "block_id": "Seismic_Imaging_and_Interpretation_Techniques_merged"
+  },
+  "72": {
+    "doc_id": "Box-plots-ranges-of-source-depths",
+    "block_id": "Box-plots-ranges-of-source-depths_merged"
+  },
+  "73": {
+    "doc_id": "Convolution_Polarity",
+    "block_id": "Convolution_Polarity_merged"
+  },
+  "74": {
+    "doc_id": "defs_ref_data",
+    "block_id": "defs_ref_data_merged"
+  },
+  "75": {
+    "doc_id": "Example-of-a-near-seafloor-structure",
+    "block_id": "Example-of-a-near-seafloor-structure_merged"
+  },
+  "76": {
+    "doc_id": "Example-of-a-regional-seismic-line-from-the-eastern-Gulf-of-Mexico",
+    "block_id": "Example-of-a-regional-seismic-line-from-the-eastern-Gulf-of-Mexico_merged"
+  },
+  "77": {
+    "doc_id": "Facies-of-deepwater-depositional-systems-Shoup",
+    "block_id": "Facies-of-deepwater-depositional-systems-Shoup_merged"
+  },
+  "78": {
+    "doc_id": "Integrated stratigraphic column of the Yingshan area",
+    "block_id": "Integrated stratigraphic column of the Yingshan area_merged"
+  },
+  "79": {
+    "doc_id": "Integrated workflow for high-resolution 3D seismic processing and quantitative interpretation",
+    "block_id": "Integrated workflow for high-resolution 3D seismic processing and quantitative interpretation_merged"
+  },
+  "80": {
+    "doc_id": "Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary",
+    "block_id": "Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary_merged"
+  },
+  "81": {
+    "doc_id": "NW-SE-time-migrated-seismic-line-showing-extensional-basins-developed-atop-the-eastern",
+    "block_id": "NW-SE-time-migrated-seismic-line-showing-extensional-basins-developed-atop-the-eastern_merged"
+  },
+  "82": {
+    "doc_id": "Postack - Seismic inversion (post-stacking vs pre-stacking)",
+    "block_id": "Postack - Seismic inversion (post-stacking vs pre-stacking)_merged"
+  },
+  "83": {
+    "doc_id": "Prestack - Seismic inversion (post-stacking vs pre-stacking)",
+    "block_id": "Prestack - Seismic inversion (post-stacking vs pre-stacking)_merged"
+  },
+  "84": {
+    "doc_id": "Regional-seismic-profile-showing-rift-structure-and-prerift-synrift-and-postrift",
+    "block_id": "Regional-seismic-profile-showing-rift-structure-and-prerift-synrift-and-postrift_merged"
+  },
+  "85": {
+    "doc_id": "Regional-seismic-sections-across-the-northern-North-Sea-rift-from-north-to-south-See",
+    "block_id": "Regional-seismic-sections-across-the-northern-North-Sea-rift-from-north-to-south-See_merged"
+  },
+  "86": {
+    "doc_id": "Representative-E-W-seismic-line-through-the-salt-minibasins-and-salt-diapirs",
+    "block_id": "Representative-E-W-seismic-line-through-the-salt-minibasins-and-salt-diapirs_merged"
+  },
+  "87": {
+    "doc_id": "SE-NW-seismic-section",
+    "block_id": "SE-NW-seismic-section_merged"
+  },
+  "88": {
+    "doc_id": "SEG_EURO_Polarity",
+    "block_id": "SEG_EURO_Polarity_merged"
+  },
+  "89": {
+    "doc_id": "Seismic inversion (post-stacking vs pre-stacking)",
+    "block_id": "Seismic inversion (post-stacking vs pre-stacking)_merged"
+  },
+  "90": {
+    "doc_id": "Seismic-Cross-Section-over-the-Mid-North-Sea-High-from-the-Anglo-Dutch-Basin",
+    "block_id": "Seismic-Cross-Section-over-the-Mid-North-Sea-High-from-the-Anglo-Dutch-Basin_merged"
+  },
+  "91": {
+    "doc_id": "Series-of-seismic-reflection-profiles-showing-the-differences-in-rift-geometries-and-rift",
+    "block_id": "Series-of-seismic-reflection-profiles-showing-the-differences-in-rift-geometries-and-rift_merged"
+  },
+  "92": {
+    "doc_id": "The-poststack-inversion-workflow-was-used-in-this-study-in-which-three-key-components",
+    "block_id": "The-poststack-inversion-workflow-was-used-in-this-study-in-which-three-key-components_merged"
+  },
+  "93": {
+    "doc_id": "vertical-and-horizontal-stratigraphic-compartmentalization-and-baffling-by-reservoi",
+    "block_id": "vertical-and-horizontal-stratigraphic-compartmentalization-and-baffling-by-reservoi_merged"
+  },
+  "94": {
+    "doc_id": "Workflow-for-seismic-interpretation",
+    "block_id": "Workflow-for-seismic-interpretation_merged"
+  },
+  "95": {
+    "doc_id": "Geophysics_cheatsheet",
+    "block_id": "Geophysics_cheatsheet_merged"
+  },
+  "96": {
+    "doc_id": "seismic polarity",
+    "block_id": "seismic polarity_merged"
+  },
+  "97": {
+    "doc_id": "Annual Energy  Oil and Gas Supply",
+    "block_id": "Annual Energy  Oil and Gas Supply_merged"
+  },
+  "98": {
+    "doc_id": "Annual Energy  Total Energy Supply, Disposition, and Price Summary",
+    "block_id": "Annual Energy  Total Energy Supply, Disposition, and Price Summary_merged"
+  },
+  "99": {
+    "doc_id": "CP_Kronos1_Well_Seismic_Report_VSP_data",
+    "block_id": "CP_Kronos1_Well_Seismic_Report_VSP_data_merged"
+  },
+  "100": {
+    "doc_id": "Crude Oil and Natural Gas Exploratory and Development Wells",
+    "block_id": "Crude Oil and Natural Gas Exploratory and Development Wells_merged"
+  },
+  "101": {
+    "doc_id": "DPR_data_region_month_oil_natural_gas",
+    "block_id": "DPR_data_region_month_oil_natural_gas_merged"
+  },
+  "102": {
+    "doc_id": "GEoREST_induced_seismicity_database_20_11_2022",
+    "block_id": "GEoREST_induced_seismicity_database_20_11_2022_merged"
+  },
+  "103": {
+    "doc_id": "Oil well operation parameters (2013)",
+    "block_id": "Oil well operation parameters (2013)_merged"
+  },
+  "104": {
+    "doc_id": "Oil_and_Gas_Wells",
+    "block_id": "Oil_and_Gas_Wells_merged"
+  },
+  "105": {
+    "doc_id": "Petroleum Segments_Exploration, Development, & Production Statistics",
+    "block_id": "Petroleum Segments_Exploration, Development, & Production Statistics_merged"
+  },
+  "106": {
+    "doc_id": "Petroleum Segments_Proved Petroleum Reserves",
+    "block_id": "Petroleum Segments_Proved Petroleum Reserves_merged"
+  },
+  "107": {
+    "doc_id": "Pools allocated to petroleum system in the San Joaquin Basin Province",
+    "block_id": "Pools allocated to petroleum system in the San Joaquin Basin Province_merged"
+  },
+  "108": {
+    "doc_id": "Reservoir rock allocated to each producing zone all",
+    "block_id": "Reservoir rock allocated to each producing zone all_merged"
+  },
+  "109": {
+    "doc_id": "Reservoir rock allocated to each producing zone",
+    "block_id": "Reservoir rock allocated to each producing zone_merged"
+  },
+  "110": {
+    "doc_id": "Seismic_Water_Bottom_Anomalies",
+    "block_id": "Seismic_Water_Bottom_Anomalies_merged"
+  },
+  "111": {
+    "doc_id": "W1 Well Logs",
+    "block_id": "W1 Well Logs_merged"
+  },
+  "112": {
+    "doc_id": "Tight oil production estimates by play",
+    "block_id": "Tight oil production estimates by play_merged"
+  }
+}

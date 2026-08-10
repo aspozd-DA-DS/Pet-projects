@@ -1,0 +1,12 @@
+{
+  "doc_id": "Convolution_Polarity",
+  "extension": ".jpg",
+  "total_blocks": 1,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Convolution Model & Polarity Convention * + noise = Wavelet Reflection Series from well data Seismic Trace The Convolutional Model Zero Phase +RC European Normal European Reverse (SEG Normal) European Wavelet Polarity Convention",
+      "start_page": 1
+    }
+  ]
+}

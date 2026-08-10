@@ -1,0 +1,335 @@
+{
+  "cluster_0": {
+    "doc_ids": [
+      "A decade of marine seismic technology development",
+      "Example-of-a-regional-seismic-line-from-the-eastern-Gulf-of-Mexico",
+      "Geophysics",
+      "Guidelines for interpreted data",
+      "Implementation of seismic surveys on the Norwegian Continental Shelf",
+      "Poseidon 3D Interpretation Report_Rev",
+      "Public Dataset for Machine Learning in Seismic Interpretation",
+      "Seismic_Water_Bottom_Anomalies",
+      "Well Logging in Support for Seismic Reservoir Characterization",
+      "defs_ref_data"
+    ],
+    "keywords": [
+      "data",
+      "seismic",
+      "cret",
+      "source",
+      "norway",
+      "interpreted data",
+      "dataset"
+    ],
+    "suggested_queries": [
+      "data analysis",
+      "seismic analysis",
+      "cret analysis",
+      "source analysis",
+      "norway analysis",
+      "interpreted data analysis",
+      "dataset analysis"
+    ]
+  },
+  "cluster_1": {
+    "doc_ids": [
+      "Pools allocated to petroleum system in the San Joaquin Basin Province",
+      "Reservoir rock allocated to each producing zone",
+      "Reservoir rock allocated to each producing zone all",
+      "W1 Well Logs"
+    ],
+    "keywords": [
+      "nan",
+      "san joaquin",
+      "joaquin",
+      "late",
+      "san",
+      "late miocene",
+      "pliocene"
+    ],
+    "suggested_queries": [
+      "nan analysis",
+      "san joaquin analysis",
+      "joaquin analysis",
+      "late analysis",
+      "san analysis",
+      "late miocene analysis",
+      "pliocene analysis"
+    ]
+  },
+  "cluster_2": {
+    "doc_ids": [
+      "2D_Simultaneous_Inversion_Bonaparte_Basin_project_report",
+      "A Seismic Multi-Attribute on the LightGBM-RFECV Coupling Algorithm",
+      "Application of seismic inversion constrained geological modeling technology",
+      "Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin",
+      "Basic elements of a reservoir characterization study",
+      "Elastic seismic inversion and reservoir characterization in the Llanos Basin",
+      "Geostatistical reservoir modeling",
+      "Geostatistics",
+      "Integrated workflow for high-resolution 3D seismic processing and quantitative interpretation",
+      "Integration of Deterministic Seismic inversion with Machine Learning",
+      "Integration of and Model-Based Seismic Inversion and Neural Network Method",
+      "Interpretation of seismic cross-hole",
+      "Poro-Acoustic Impedance",
+      "Postack - Seismic inversion (post-stacking vs pre-stacking)",
+      "Predicting rock properties",
+      "Prestack - Seismic inversion (post-stacking vs pre-stacking)",
+      "Probabilistic inversion of seismic data",
+      "Qualitative and quantitative reservoir characterization using seismic inversion",
+      "Reservoir Characterization Based on Bayesian AVO",
+      "Reservoir Characterization Using Intelligent Seismic Inversion",
+      "Reservoir geophysics overview",
+      "Reservoir simulation applications",
+      "Seismic inversion (post-stacking vs pre-stacking)",
+      "The-poststack-inversion-workflow-was-used-in-this-study-in-which-three-key-components",
+      "Using Machine Learning for Automated Seismic Facies Classification"
+    ],
+    "keywords": [
+      "reservoir",
+      "inversion",
+      "seismic",
+      "data",
+      "model",
+      "characterization",
+      "reservoir characterization"
+    ],
+    "suggested_queries": [
+      "reservoir analysis",
+      "inversion analysis",
+      "seismic analysis",
+      "data analysis",
+      "model analysis",
+      "characterization analysis",
+      "reservoir characterization analysis"
+    ]
+  },
+  "cluster_3": {
+    "doc_ids": [
+      "Box-plots-ranges-of-source-depths",
+      "CP_Kronos1_Well_Seismic_Report_VSP_data",
+      "Cheatsheet_Petrophysics",
+      "Cheatsheet_basic",
+      "Cheatsheet_geophysics",
+      "Cheatsheet_petroleum",
+      "DPR_data_region_month_oil_natural_gas",
+      "Geophysics_cheatsheet",
+      "Integrated stratigraphic column of the Yingshan area",
+      "NW-SE-time-migrated-seismic-line-showing-extensional-basins-developed-atop-the-eastern",
+      "Oil well operation parameters (2013)",
+      "Seismic-Cross-Section-over-the-Mid-North-Sea-High-from-the-Anglo-Dutch-Basin",
+      "Series-of-seismic-reflection-profiles-showing-the-differences-in-rift-geometries-and-rift",
+      "Tight oil production estimates by play",
+      "WA1",
+      "vertical-and-horizontal-stratigraphic-compartmentalization-and-baffling-by-reservoi"
+    ],
+    "keywords": [
+      "00",
+      "00 00",
+      "db",
+      "1000",
+      "10",
+      "00000",
+      "30"
+    ],
+    "suggested_queries": [
+      "00 analysis",
+      "00 00 analysis",
+      "db analysis",
+      "1000 analysis",
+      "10 analysis",
+      "00000 analysis",
+      "30 analysis"
+    ]
+  },
+  "cluster_4": {
+    "doc_ids": [
+      "Assessment of Tight-Oil and Tight-Gas Resources",
+      "Assessment of Undiscovered Conventional Oil and Gas Resources",
+      "Assessment of Undiscovered Oil and Gas  in the Haynesville Formation",
+      "Assessment of Undiscovered Oil and Gas of the Gulf Coast",
+      "Assessment of Undiscovered Shale- Gas Resources",
+      "NPD FactPages  Well 72208‑1",
+      "NPD FactPages Well 65077‑12",
+      "NPD Oligocene to Pliocene well and borehole data",
+      "NPD Resource Accounts for the Norwegian continental shelf 2021",
+      "Northern-Gulf-of-Mexico-Basin-source-intervals-ages-hydrocarbon-families-and-summary",
+      "Regional-seismic-sections-across-the-northern-North-Sea-rift-from-north-to-south-See",
+      "SE-NW-seismic-section"
+    ],
+    "keywords": [
+      "gas",
+      "basin",
+      "resources",
+      "au",
+      "oil",
+      "assessment",
+      "jurassic"
+    ],
+    "suggested_queries": [
+      "gas analysis",
+      "basin analysis",
+      "resources analysis",
+      "au analysis",
+      "oil analysis",
+      "assessment analysis",
+      "jurassic analysis"
+    ]
+  },
+  "cluster_5": {
+    "doc_ids": [
+      "2020_06_practical_4d_interpretation",
+      "Chopra_Churning seismic attributes with principal component analysis",
+      "Deriving Vp velocity and density properties",
+      "Example-of-a-near-seafloor-structure",
+      "Representative-E-W-seismic-line-through-the-salt-minibasins-and-salt-diapirs",
+      "Reservoir Characterization Integrating Seismic Attributes",
+      "SEG_EURO_Polarity",
+      "Seismic attributes",
+      "Seismic attributes for reservoir studies",
+      "Seismic attributes in reservoir characterization an overview",
+      "Seismic evidence for an extensive gas-bearing layer",
+      "Seismic imaging and inversion",
+      "Seismic interpretation",
+      "Seismic time-lapse reservoir monitoring",
+      "The impact of reservoir scale on amplitude variation with offset",
+      "Workflow-for-seismic-interpretation",
+      "seismic polarity"
+    ],
+    "keywords": [
+      "seismic",
+      "attributes",
+      "amplitude",
+      "reservoir",
+      "time",
+      "seismic attributes",
+      "data"
+    ],
+    "suggested_queries": [
+      "seismic analysis",
+      "attributes analysis",
+      "amplitude analysis",
+      "reservoir analysis",
+      "time analysis",
+      "seismic attributes analysis",
+      "data analysis"
+    ]
+  },
+  "cluster_6": {
+    "doc_ids": [
+      "Assumptions to the Annual Energy Outlook 2026 Liquid Fuels Market Module",
+      "Characterization of Three Forks Formation Reservoir Lithofacies",
+      "Development of the taranaki basin for deepwater exploration",
+      "Reprocessing of Reflection Seismic Lines Rill and R102",
+      "Seismic Reflection Profiles Along the Drill Holes",
+      "Two-Dimensional Multichannel Seismic Data",
+      "Williston Basin Province Interpretation of 2-D Seismic Data"
+    ],
+    "keywords": [
+      "taranaki",
+      "survey",
+      "geological survey",
+      "line",
+      "geological",
+      "basin",
+      "usgs"
+    ],
+    "suggested_queries": [
+      "taranaki analysis",
+      "survey analysis",
+      "geological survey analysis",
+      "line analysis",
+      "geological analysis",
+      "basin analysis",
+      "usgs analysis"
+    ]
+  },
+  "cluster_7": {
+    "doc_ids": [
+      "Alaska_North_Slope_petroleum_systems",
+      "Assessing Gas Hydrate Prospects on the North Slope of Alaska",
+      "Assessment of Undiscovered Oil and Gas in the Central North Slope of Alaska",
+      "Cruise Report for a Seismic Investigation of Gas Hydrates",
+      "Facies-of-deepwater-depositional-systems-Shoup",
+      "Regional-seismic-profile-showing-rift-structure-and-prerift-synrift-and-postrift"
+    ],
+    "keywords": [
+      "alaska",
+      "north",
+      "hydrate",
+      "north slope",
+      "slope",
+      "gas hydrate",
+      "zuunbayan"
+    ],
+    "suggested_queries": [
+      "alaska analysis",
+      "north analysis",
+      "hydrate analysis",
+      "north slope analysis",
+      "slope analysis",
+      "gas hydrate analysis",
+      "zuunbayan analysis"
+    ]
+  },
+  "cluster_8": {
+    "doc_ids": [
+      "Convolution_Polarity",
+      "Interpretation of incised valleys using new 3-D seismic techniques",
+      "Interpretational applications of spectral decomposition in reservoir characterization",
+      "Seismic facies analysis Past, present and future",
+      "Seismic_Imaging_and_Interpretation_Techniques",
+      "Seismic_Imaging_and_Interpretation_Techniques_doc",
+      "Spectral Decomposition Reveals Geological Hidden Features in the Amplitude Maps",
+      "Spectral decomposition of time- vs. depth-migrated data",
+      "Use of spectral decomposition technique for delineation of channels at Solar gas discovery"
+    ],
+    "keywords": [
+      "spectral",
+      "decomposition",
+      "spectral decomposition",
+      "seismic",
+      "frequency",
+      "european",
+      "time"
+    ],
+    "suggested_queries": [
+      "spectral analysis",
+      "decomposition analysis",
+      "spectral decomposition analysis",
+      "seismic analysis",
+      "frequency analysis",
+      "european analysis",
+      "time analysis"
+    ]
+  },
+  "cluster_9": {
+    "doc_ids": [
+      "Annual Energy  Oil and Gas Supply",
+      "Annual Energy  Total Energy Supply, Disposition, and Price Summary",
+      "Crude Oil and Natural Gas Exploratory and Development Wells",
+      "GEoREST_induced_seismicity_database_20_11_2022",
+      "Oil_and_Gas_Wells",
+      "Petroleum Segments_Exploration, Development, & Production Statistics",
+      "Petroleum Segments_Proved Petroleum Reserves"
+    ],
+    "keywords": [
+      "nan",
+      "nan nan",
+      "unnamed",
+      "unnamed unnamed",
+      "5241",
+      "max",
+      "min"
+    ],
+    "suggested_queries": [
+      "nan analysis",
+      "nan nan analysis",
+      "unnamed analysis",
+      "unnamed unnamed analysis",
+      "5241 analysis",
+      "max analysis",
+      "min analysis"
+    ]
+  }
+}

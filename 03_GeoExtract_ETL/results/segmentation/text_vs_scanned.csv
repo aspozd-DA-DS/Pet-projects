@@ -1,0 +1,10 @@
+doc_id,type,extension,language,requires_ocr,is_scanned,f1
+2020_06_practical_4d_interpretation,pdf_scans,.pdf,en,True,True,0.09523809507954648
+Alaska_North_Slope_petroleum_systems,pdf_scans,.pdf,en,True,True,0.19999999953999997
+Applying Seismic Inversion Technique and Seismic Attributes for Komombo Basin,pdf_text,.pdf,en,False,False,0.22784810098509853
+Assessment of Tight-Oil and Tight-Gas Resources,pdf_text,.pdf,en,False,False,0.5714285708469388
+Characterization of Three Forks Formation Reservoir Lithofacies,pdf_text,.pdf,en,False,False,0.16363636345338844
+Interpretation of incised valleys using new 3-D seismic techniques,pdf_text,.pdf,en,False,False,0.0
+Interpretational applications of spectral decomposition in reservoir characterization,pdf_text,.pdf,en,False,False,0.0
+NPD Oligocene to Pliocene well and borehole data,pdf_scans,.pdf,en,True,True,0.2499999994375
+Public Dataset for Machine Learning in Seismic Interpretation,pdf_text,.pdf,en,False,False,0.14399999982412798

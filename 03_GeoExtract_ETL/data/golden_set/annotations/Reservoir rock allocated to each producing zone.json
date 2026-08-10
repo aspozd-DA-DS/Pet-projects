@@ -1,0 +1,44 @@
+{
+  "doc_id": "Reservoir rock allocated to each producing zone",
+  "extension": ".xlsx",
+  "total_blocks": 1,
+  "blocks": [
+    {
+      "type": "table",
+      "caption": "Appendix 8.2. Reservoir rock allocated to each producing zone in appendix 8.1.",
+      "start_page": 1,
+      "columns": [
+        "Producing Zone",
+        "Allocated to Reservoir Rock",
+        "Age",
+        "Res. No.",
+        "Top Age1 (Ma)",
+        "Bottom Age1 (Ma)"
+      ],
+      "data": [
+        ["Amnicola (gas or oil)", "Tulare Formation", "Pliocene to Pleistocene", 1, "0,6", "2,5"],
+        ["Tulare", "Tulare Formation", "Pliocene to Pleistocene", 1, "0,6", "2,5"],
+        ["Tulare (Amnicola)", "Tulare Formation", "Pliocene to Pleistocene", 1, "0,6", "2,5"],
+        ["Tulare-Antelope", "Tulare Formation", "Pliocene to Pleistocene", 1, "0,6", "2,5"],
+        ["Tulare-Etchegoin", "Tulare Formation", "Pliocene to Pleistocene", 1, "0,6", "2,5"],
+        ["Upper", "Tulare Formation", "Pliocene to Pleistocene", 1, "0,6", "2,5"],
+        ["Kern River Formation", "Kern River Formation", "late Miocene to early Pleistocene", 2, "0,7", "8"],
+        ["Kern River Fm.-Chanac Fm.", "Kern River Formation", "late Miocene to early Pleistocene", 2, "0,7", "8"],
+        ["1200 Sand", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["1st MYA", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["2nd MYA (gas)", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["4-23 (gas)", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["4th MYA", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["Above Scalez (AS)", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["Atwell Island sand", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["Atwell Island zone", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["Espee (gas)", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["First MYA zone", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["MYA (gas)", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["MYA Tar", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["Root (gas)", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"],
+        ["San Joaquin", "San Joaquin Formation", "early to late Pliocene", 3, "2,5", "4,5"]
+      ]
+    }
+  ]
+}

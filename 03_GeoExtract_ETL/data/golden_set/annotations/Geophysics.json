@@ -1,0 +1,67 @@
+{
+  "doc_id": "Geophysics",
+  "extension": ".txt",
+  "total_blocks": 11,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Geophysics",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Geophysics is a broad subject that encompasses potential field theory (gravity and electromagnetic fields) and seismic technology. Potential field data are valuable in many studies, but seismic data are used in more reservoir characterization and reservoir management applications.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "Seismic data",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Seismic data have been used for many years to guide exploration. More recently, seismic data have been used to support reservoir characterization in field development planning and subsequent reservoir management. As the technology in equipment and interpretation techniques has advanced, so has the ability to define the size, shape, fluid content, and variation of some petrophysical properties of reservoirs. This page provides insight into the fundamentals of:",
+  "start_page": 1
+},
+    {
+      "type": "list",
+      "items": [
+        "Seismic data acquisition",
+        "Interpretation techniques",
+        "Types of information that can be derived",
+        "See the page on reservoir geophysics for information on emerging technologies that apply geophysical data."
+      ],
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Most seismic data are acquired with surface-positioned sources and receivers. For the first 4 or 5 decades that seismic-reflection data were acquired, sources and receivers were deployed along the same straight line to create 2D seismic profiles. Two-dimensional seismic data do not yield a correct image of subsurface stratigraphy when a 2D seismic line crosses a complex subsurface structure because the acquisition geometry cannot distinguish reflections that originate from outside the profile plane from reflections that occur within the 2D vertical image plane.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "This imaging deficiency of 2D seismic profiling has been remedied by the implementation of 3D seismic data acquisition, which allows data processing to migrate reflections to their correct image coordinates in 3D space. Industry largely abandoned 2D seismic profiling in the 1990s and now relies almost entirely on 3D seismic data acquisition.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "In some reservoir applications, seismic data are acquired with downhole sources and receivers. If the receiver is stationed at various depth levels in a well and the source remains on the surface, the measurement is called vertical seismic profiling (VSP). This technique produces a high-resolution, 2D image that begins at the receiver well and extends a short distance (a few tens of meters or a few hundred meters, depending on the source offset distance) toward the source station. This image, a 2D profile restricted to the vertical plane passing through the source and receiver coordinates, is useful in tying seismic responses to subsurface geologic and engineering control.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "If the source is deployed at various depth levels in one well and the receiver is placed at several depth stations in a second well, the measurement is called crosswell seismic profiling (CSP). Images made from CSP data have the best spatial resolution of any seismic measurement used in reservoir characterization because a wide range of frequencies is recorded. CSP data are useful for creating high-resolution images of interwell spaces and for monitoring fluid movements between wells. However, a CSP image is also a 2D profile with the image limited to the vertical plane that passes through the source and receiver coordinates.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "References",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Use this section for citation of items referenced in the text to show your sources. [The sources should be available to the reader, i.e., not an internal company document.]",
+  "start_page": 1
+}
+  ]
+}

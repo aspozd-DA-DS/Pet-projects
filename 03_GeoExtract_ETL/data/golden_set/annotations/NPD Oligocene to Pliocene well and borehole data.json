@@ -1,0 +1,72 @@
+{
+  "doc_id": "NPD Oligocene to Pliocene well and borehole data",
+  "extension": ".pdf",
+  "total_blocks": 13,
+  "blocks": [
+    {
+      "type": "header",
+      "text": "Oligocene to Lower Pliocene deposits of the Norwegian continental shelf, Norwegian Sea, Svalbard, Denmark and their relation to the uplift of Fennoscandia: A synthesis",
+      "start_page": 1
+    },
+    {
+      "type": "header",
+      "text": "Tor Eidvin , Fridtjof Riis , Erik S. Rasmussen",
+      "start_page": 1
+    }, 
+    {
+      "type": "header",
+      "text": "ABSTRACT",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "Within the study area, three main depocentres have been identified where sandy sediments accumulated throughout the Oligocene to Early Pliocene period. The depocentre in the Norwegian—Danish Basin received sediments from the southern Scandes Mountains, with a general progradation from north to south during the studied period. The depocentre in the basinal areas of the UK and Norwegian sectors of the North Sea north of 58 N received sediments from the Scotland Shetland area. Because of the sedimentary infilling there was a gradual shallowing of the northern North Sea basin in the Oligocene and Miocene. Л smaller depocentre is identified offshore northern Nordland between Ranafjorden (approximately 66°N) and Vestcralcn (approximately 68;N) where the northern Scandes Mountains were the source of the Oligocene to Early Pliocene sediments. In other local depocentres along the west coast of Norway, sandy sedimentation occurred in only parts of the period. Shifts in local depocentres are indicative of changes in the paleogeography in the source areas.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "In the Barents Sea and south to approximately 68 N, the Oligocene to Early Pliocene section is eroded except for distal fine-grained and biogenic deposits along the western margin and on the oceanic crust. This margin was undergoing deformation in a strike-slip regime until the Eocene—Oligocene transition. The Early Oligocene sediments dated in the Vestbakken Volcanic Province and the Forlandssundet Basin represent the termination of this strike-slip regime.",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "The change in the plate tectonic regime at the Eocene-Oligocene transition affected mainly the northern part of the study area, and was followed by a quiet tectonic period until the Middle Miocene, when large compressional dome and basin structures were formed in the Norwegian Sea. The Middle Miocene event is correlated with a relative fall in sea level in the main depocentres in the North Sea, formation of a large delta in the Viking Graben (Frigg area) and uplift of the North and South Scandes domes. In the Norwegian—Danish Basin, the Sorgcnfrci-Tornquist Zone was reactivated in the Early Miocene, possibly causing a shift in the deltaic progradation towards the east. A Late Pliocene relative rise in sea level resulted in low sedimentation rates in the main depositional areas until the onset of glaciations at about 2.7 Ma when the Scandes Mountains were strongly eroded and became a major source of sediments for the Norwegian shelf, whilst the Frigg delta prograded farther to the northeast.",
+  "start_page": 1
+},
+    {
+      "type": "header",
+      "text": "1. Introduction",
+      "start_page": 1
+    },
+{
+  "type": "paragraph",
+  "text": "In this paper, the stratigraphy of Oligocene to Lower Pliocene deposits from Svalbard in the north to Denmark in the south is presented. To define the upper limit of the successions, the Upper Pliocene has been investigated in most wells. The paper is based on Eidvin et al. (2013d) which synthesises data from 47 wells and boreholes from the entire Norwegian shelf, one outcrop from northwestern Svalbard and two stratigraphic boreholes from onshore Denmark (Figs. 1—6). The purpose of the paper is to present a regional synthesis of our findings. For more detailed documentation of the biostratigraphical, lithological and strontium isotope data and interpretations the reader is referred to Eidvin et al. (2013d).",
+  "start_page": 1
+},
+{
+  "type": "paragraph",
+  "text": "A detailed understanding of the Oligocenc to Pliocene stratigraphy is important in reconstructing the geological history of the North Sea Basin and the uplift and erosion of the Fennoscandian Shield. It can also be applied to petroleum exploration and CO? sequestration. For these purposes, in most areas, most emphasis has been placed on investigation of sandy deposits.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "The post-Eocene deposits on the Norwegian continental shelf have been far less sampled and investigated than the older sediments, which have been the main target for hydrocarbon exploration. However, when drilling exploration wells the oil companies commonly sample the postEocene deposits with drill cuttings, except for the upper part of the Pleistocene. The sampling programme is usually considerably less dense than in the deeper section, e.g., every ten metres compared to every three metres in reservoir sections. A small number of wells have been sampled with sidewall cores and short conventional cores. The conventional cores are used mainly for geotechnical investigations. Contracted bio-stratigraphical consultants usually execute routine investigations, but the samples are often investigated with a large sample spacing and only limited effort is put into the analyses. Mistakes and inaccuracies in the bio stratigraphical analysis and age interpretations have led to errors in completion logs, final well re ports, regional seismic mapping and even in the stratigraphic nomenclature. Historically, this has led to considerable confusion in the stratigraphical understanding. Several scientific investigations have tried to improve this situation, including those of Grcgcrscn (1998), Gregcrsen and Johannessen (2007). Gregersen et al. (1997), Henriksen et al. (2005), Jarsve et al. (submitted), Jordt ct al. (1995, 2000), Loscth and Henriksen (2005). Martinson et al. (1999), Michelsen and Danielsen (1996). Michelsen et al. (1995) and Ryseth ct al, (2003), Much of their work has focused on regional seismic interpretation, but some of their correlations have unfortunately been hampered by inaccurate/incorrect completion logs and final well reports. Biostratigraphic studies, including the present paper, dealing with redating of petroleum wells and boreholes, may improve this situation. Regional seismic studies dealing with the outer shelf, continental slope and rise, including Laberg ct al. (2001, 2005ab) and Stoker ct al. (2005ab), arc less affected by this problem since their seismic data, to a large extent, are calibrated with data from deep-sea ODP/DSDP boreholes.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "Based on the revised and new biostratigraphic data, Eidvin et al. (2013d) presented a suggestion for an update of the lithostrati- graphic nomenclature for the post-Eocene succession on the Norwegian continental shelf, and suggestions for new type- and reference wells. These suggestions wrill not be discussed here.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "In Jutland, Denmark (Jylland in Danish. Figs. 1 and 2a), upper Paleogene and Neogene sediments occur below the glacial deposits over large areas. According to Rasmussen ct al. (2004), the Geological Survey of Denmark and Greenland (GEUS) has executed a systematic study of these deposits, which includes detailed sedimentological descriptions of outcrops, sedimentological and log-interpretations of new stratigraphic boreholes and interpretation of high-resolution seismic data. More than 50 boreholes and outcrops (including some offshore boreholes) have been studied palynologically. These studies have resulted in a dinoflagellate cysts zonation scheme (Dybkjaer and Piasecki, 2008.2010) and a regional, stratigraphic model. In many of these sites, thin-walled calcareous foraminifera have been dissolved due to a high concentration of humic acid in the pore water. However, based on examination of the foraminifera! contents in marine clay from 18 onshore boreholes (most from the North German Basin in the southern Jutland), Laursen and Kristofferson (1999) have established a detailed foraminiferal biostratigraphy of the Miocene Ribe and Made groups for these areas.",
+  "start_page": 2
+},
+{
+  "type": "paragraph",
+  "text": "To facilitate correlation of the Danish onshore boreholes and outcrops (palynologically investigated by Dybkjaer and Piasecki. 2008, 2010) to the Norwegian wells and boreholes, a large number of the Danish samples containing molluscs and mollusc fragments have been analysed for Sr isotopes. The thick-walled tests of molluscs are far less prone to dissolution than the foraminiferal tests and arc present in many samples where foraminifera are absent. The detailed results from this investigation will be published in Eidvin ct al. (submitted), but the main results arc shown here in Figure 4.",
+  "start_page": 2
+}
+  ]
+}

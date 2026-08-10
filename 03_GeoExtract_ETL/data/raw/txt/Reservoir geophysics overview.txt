@@ -1,0 +1,66 @@
+Reservoir geophysics overview 
+
+Reservoir geophysics, in contrast to exploration and development geophysics, is a relatively new field. Rather than being limited to assisting in the identification and delineation of prospects, geophysics is now increasingly being used for the characterization of the internal geometry and quality of reservoirs themselves and is often used as a means of monitoring reservoir changes between wells during production. Advances in the reliability of seismic observations and in methods for interpreting these observations in terms of reservoir properties have, together with economic considerations, provided the driving forces for the development of reservoir geophysics.
+
+
+Differences from exploration geophysics
+There are several specific differences between exploration geophysics and reservoir geophysics, as the term is usually intended. The differences include:
+
+Assumption that well control is available within the area of the geophysical survey
+A carefully designed geophysical survey can be conducted at a level of detail that will be useful
+Some understanding of the rock physics is available for interpretation
+3D seismic (or other geophysical) data can be collected
+Geostatistical techniques can be applied to it
+The reservoir geophysicist should be familiar with the usefulness and limitations of petrophysical and reservoir-engineering studies and should be able to ask intelligent questions of the experts in those fields. However, the reservoir geophysicist typically is not an expert in those areas and works with the appropriate specialists to interpret the data or to design a new experiment to solve reservoir problems.
+
+Well control
+In exploration, extrapolation of well data from far outside the area of interest is often necessary, and the interpretation is required to cross discontinuities that may or may not be recognized, including:
+
+Faults
+Sequence boundaries
+Pressure compartments
+The interpreter resorts to analogs in the absence of hard data, and local calibration of the geophysical response is generally poor. In reservoir geophysics it can often be assumed that a reservoir is already under production or at a late stage of development; therefore, wells are available for analysis, providing a variety of information. The interpreter has access to:
+
+Edited and interpreted well-log data
+Descriptions of the lithology
+Including the mineralogy, porosity, and perhaps even the morphology of the pore spaces
+Fluid content
+Sometimes related to either logged conditions or virgin reservoir conditions
+Detailed depth constraints for geologic horizons
+Exploration-based seismic data
+Limited to estimates of time-to-depth conversions that are inaccurate without well ties
+Possibly, estimates of the proximity to boundaries, aquifers, or other features of interest
+If a well has been tested
+Good estimates of the total volume of the reservoir
+If the reservoir has been under production
+Usually, additional information concerning the in-situ conditions of the reservoir
+Including the formation temperature, pressure, and the properties of the oil/gas and brine
+The asset team can relate these observations to the geologic interpretation and thereby determine the need for seismic surveys at increased resolution.
+
+Rock physics control
+Reservoir geophysics studies are directed at differentiating between competing reservoir models or at developing new ones. The ability of a given study to accomplish this lies not just in the geophysical model but in the rock physics, or “seismic petrophysics,” of the reservoir rock and neighboring formations.[1] Logs, particularly sonic logs of compressional and shear velocities, when combined with density logs and with image logs, can be used (carefully) to provide basic seismic properties, which are in turn modeled for variations in lithologic character, fluid content, and in-situ conditions such as pore pressure. Core samples can be used to provide the basis for a theoretical framework or measurements on them can be used (again, carefully) to provide the same basic seismic properties. Reservoir geophysicists should always be on the alert for accidental misuse of the input data. They should also be concerned with upscaling of the properties, particularly with the possibility that physical effects occuring at one scale not be mistakenly applied at other scales (such as the increased incompressibility observed in laboratory ultrasonic experiments on saturated rocks). Predicting rock properties discusses and links to information about rock properties of interest to reservoir geophysicists. An excellent summary of rock physics aspects, appropriate for reservoir geophysics studies, is found in Ref. 2[2].
+
+Survey design
+The design of a seismic survey for reservoir geophysics purposes can often be optimized for specific interpretation goals. Once a field has been discovered, developed, and under production for some time, information is available to the geophysicist, allowing a geophysical survey design that maximizes the likelihood that the data collected will significantly aid reservoir management. That is, if the goal of the survey is to define the structural limits of the field, a 3D seismic survey can be designed with that in mind. If, however, the goal of the survey is to define the extent of a gas zone, the geophysicist may be able to use log data, seismic petrophysical modeling, and pre-existing (“legacy”) seismic data to determine which offset ranges are required, for example, to differentiate between the water and gas zones. If highly accurate well ties or wavelet phase control are needed, an appropriately placed vertical seismic profile (VSP) may be designed. Or, the geophysicist can design the new survey in a way that eliminates troublesome artifacts if an acquisition “footprint” was observed in a previously acquired seismic data set and that footprint obscured the attributes needed to define the reservoir target (an acquisition footprint refers to features that appear in seismic data but are acquisition-related artifacts).[3]
+
+In short, the fact that the target is well known permits the reservoir geophysics survey to be designed in a more enlightened manner than a typical exploration survey. The expense of a properly conducted seismic survey for reservoir characterization purposes can often be justified (or at least properly evaluated) because the financial impact of the survey can be calculated with greater confidence than for typical exploration seismic surveys.[4]
+
+3D seismic data
+Most reservoir geophysics is based on reflection seismic data, although a wide variety of other techniques are employed regularly on specific projects. Nearly all seismic data collected for reservoir studies is high-fold, three-dimensional, vertical-receiver data, and many good case histories have been published.[5][6][7][8][9][10] In order to overcome specific problems, however, the use of multicomponent receivers on land or on the seafloor and of multicomponent sources on land is increasing. Most seismic surveys are designed to exploit compressional (P) waves using hydrophones or vertical geophones, but some are designed to record shear (S) waves using horizontal and vertical geophones.
+
+One increasingly common usage of multicomponent seismology involves imaging beneath gas clouds. Gas clouds encountered above reservoirs obscure the P-wave image by intense scattering of these waves because of the strong velocity dependence of P-waves on saturation. Seismic waves that are converted from P to S at the reflecting horizon (also called C-waves) are often used to image reservoirs beneath such gas clouds by allowing a downgoing P-wave to pass underneath the gas cloud, while the upcoming converted S (or C) wave, which is much less sensitive to scattering by gas, passes through the cloud without significant distortion.[11] Fig. 1 demonstrates the geometry that makes undershooting a gas cloud possible with converted waves.
+
+Fig. 1—Geometry of undershooting a gas cloud over a reservoir of interest. The upper diagram shows the paths taken by a selected P-wave seismic ray; scattering, because of the velocity inhomogeneity caused by the pockets of gas, result in an inability to image through the gas cloud. The lower diagram shows the path taken by one selected converted (C) wave. This ray enters the sea floor (at the top edge of the figure) as a P-wave and converts on reflection at the top of reservoir to an S-wave (dashed); because fluid content has little effect on the velocity of S-waves, this ray is not scattered, and the reservoir can be imaged using multicomponent receivers on the seafloor.
+
+
+The recognition that fractures play an important role in many reservoir development schemes has led to a number of experimental programs for multicomponent sources and receivers in an effort to identify shear-wave splitting (and other features) associated with high-fracture density. These studies make use of the fact that shear waves, polarized in directions parallel to the fractures, travel faster than those polarized perpendicular to fractures.[12] In fact, an arbitrarily polarized shear wave will split into two polarized shear waves—one, polarized parallel to the fracture trend faster than the other, as shown in Fig. 2.[13] Several case histories, demonstrating the use of shear-wave splitting, have been published,[14][15] and the technology is gaining greater acceptance in the industry.
+
+Fig. 2—Splitting of polarized S-waves. Shear wave splitting is because of propagation through vertically aligned fractures. An arbitrarily polarized shear wave will separate into two orthogonally polarized waves; the faster one will be polarized in a direction parallel to the fracture direction (after Hitchings and Potters[13]).
+
+Although some of these techniques are used increasingly often, at present, most surface seismic studies designed to characterize existing reservoirs are high-quality 3D surveys using vertical-component-receiver surveys on land or hydrophone streamers at sea.
+
+Geostatistics
+In contrast to exploration geophysics, in which fully deterministic models can be required for interpretation because of the lack of well data, reservoir geophysics studies are often faced with huge volumes of data, not all of it consistent or complete. Geostatistical techniques have been developed to manage this data and its inconsistencies and incompleteness.[16][17][18] For example, simple averaging between wells can easily lead to misleading results, so the technique of kriging was developed for use with features observed to correlate over certain distances, usually from other data. The technique has been refined to include data that provide additional “soft” evidence between the “hard” data locations at wells, and seismic data often provide the soft evidence. If a statistical and physically meaningful correlation is found to exist between formation parameters observed at wells and some seismic attribute observed throughout the study area, geostatistical techniques are available that honor the hard data at the wells, and interpolated between wells (generally using kriging and cokriging techniques), simultaneously honoring the seismic interpretation, to a greater or lesser degree. Various “realizations” of properties in the interwell regions can be generated using additional geostatistical techniques, with each realization being just as likely to occur as any other. The use of seismic data, with reliable predictive capabilities, can significantly reduce the range of such models. Many case histories using these approaches have been published.[19]
+
+Focused approaches
+A reservoir geophysics study generally focuses on a specific target, makes use of legacy seismic data calibrated to wells, and employs models of the seismic petrophysical responses of various scenarios anticipated in the reservoir. As a result, a reservoir geophysics study could collect that data, and only that data, which will be required to observe the features of interest. For example, one could acquire only far-offset seismic data if one were convinced that the far offsets contained all the information that was essential to the study.[20] It is not clear that such highly focused approaches are being used, which is true probably because the cost savings do not warrant the added risk of missing an important piece of data. There may also be a natural aversion to purposefully collecting data that are not as “good” or “complete” as conventionally-acquired seismic data.
