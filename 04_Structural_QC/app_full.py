@@ -7,6 +7,7 @@ import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
 import os
+from pathlib import Path
 from scipy.spatial.distance import pdist
 from scipy.stats import gaussian_kde
 from sklearn.linear_model import (
@@ -485,7 +486,8 @@ NOT_USED = not_used_label
 NO_DEMO = no_demo_label
 
 # ------ Автоматический поиск демонстрационных файлов ------
-demo_dir = "data"
+# demo_dir = "data"
+demo_dir = Path(__file__).parent / "data"
 
 if os.path.isdir(demo_dir):
     demo_files = [
