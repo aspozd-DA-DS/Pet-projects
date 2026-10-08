@@ -106,7 +106,7 @@ Let Δ denote the residual (difference between the two values). On the basic QC 
 | P-value (significance of linear correlation) | $t = r\sqrt{\dfrac{N-2}{1-r^2}}$, &nbsp; $p = 2\left(1-F_{t,\,N-2}(\lvert t\rvert)\right)$ |
 | Linear regression equation | $y = a + bx$; slope b and intercept a — from `linregress` |
 
-*The p-value answers the question: how likely is it to obtain an equally strong (or stronger) linear relationship between PARAM_1 and PARAM_2 by chance, if in reality there is no relationship (null hypothesis H₀: the true regression slope b=0). The smaller the p-value — the less plausible that the found dependence is a coincidence; the significance threshold is usually taken as p<0.05. It is computed only for the basic QC cross-plot (Step 1), via `scipy.stats.linregress`.*
+*P-value answers the question: how likely it is to observe the linear relationship between PARAM_1 and PARAM_2 (or a stronger one) by chance if no true linear relationship exists (null hypothesis H₀: the true regression slope b = 0). The smaller the p-value, the less evidence there is that the observed relationship arose purely by chance. A relationship is commonly considered statistically significant when p < 0.05. This metric is calculated only for the basic QC cross-plot (Step 1) using `scipy.stats.linregress`.*
 
 ---
 
