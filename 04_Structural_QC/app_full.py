@@ -328,6 +328,7 @@ def save_dataset_to_session(df, param_1, param_2, unit_1, unit_2, zone_col=None,
         "sidebar_picked_horizons",
         "category_col",
         "pairplot_category", 
+        "step3_selected_zones",
     ]:
         st.session_state.pop(key, None)
 
@@ -1410,6 +1411,11 @@ if df is not None:
         st.sidebar.markdown("---")
         with st.sidebar.expander(category_expander,  expanded=False):
             category_col = st.selectbox(category_parameter_label, category_candidates, index=default_index, key="category_col",)
+            # При смене категориального параметра — сбросить выбор зон в Шаге 3,
+            # чтобы "Категории для общего графика" переинициализировались из zones
+            if st.session_state.get("_last_category_col") != category_col:
+                st.session_state.pop("step3_selected_zones", None)
+                st.session_state["_last_category_col"] = category_col
             zone_point_size = st.slider(category_point_size_label, 3, 20, 7, key="zone_point_size",)
             zone_point_opacity = st.slider(category_point_opacity_label, 0.1, 1.0, 0.8, 0.05, key="zone_point_opacity",)
             categories = sorted(df[category_col].dropna().unique())
