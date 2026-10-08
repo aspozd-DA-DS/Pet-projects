@@ -182,7 +182,7 @@ Structural QC — интерактивный **Streamlit-дашборд** для
 │
 ├── data/                           — демонстрационные файлы (demo datasets)
 │   └── *.csv, *.xlsx               — примеры для быстрого старта
-├── test_data_import/                           — файлы  для проверки импорта данных
+├── test_data_import/               — файлы  для проверки загрузки данных локально
 │   └── *.csv, *.xlsx               — примеры для быстрого старта
 │
 ├── structural_qc_demo.ipynb        — демонстрационный ноутбук
@@ -226,6 +226,10 @@ Structural QC — интерактивный **Streamlit-дашборд** для
    ```
 
 6. Открыть в браузере: `http://localhost:8501`
+
+### Браузер
+
+https://structural-qc-cv.streamlit.app/
 
 ---
 
