@@ -25,8 +25,6 @@ A geological example: **Z_well** (horizon depth from a well) and **Z_map** (dept
 | map ↔ map | Z_map_v1 / Z_map_v2 |
 | attribute ↔ attribute | Amplitude / Sweetness |
 
-Below, the notation Z_well / Z_map is used throughout as an example — just keep in mind that this is a special case of PARAM_1 / PARAM_2.
-
 ---
 
 ## How it works, step by step
@@ -112,7 +110,7 @@ Let Δ denote the residual (difference between the two values). On the basic QC 
 
 ---
 
-## Parameter statistics 
+## Parameter statistics
 
 For PARAM_1 and PARAM_2, extended descriptive statistics are computed separately — here is what each quantity means:
 

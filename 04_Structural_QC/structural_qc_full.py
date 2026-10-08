@@ -252,6 +252,8 @@ def compute_fit_stats(x: np.ndarray, y: np.ndarray, approx_type: str) -> FitStat
         coeffs = np.polyfit(x[mask], logy, 1)
         a = np.exp(coeffs[1])
         b = coeffs[0]
+        x = x[mask]
+        y = y[mask]
         pred = a * np.exp(b * x)
         eq = f"y = {a:.5f}·exp({b:.5f}·x)"
 
@@ -669,7 +671,7 @@ def cv_spatial_leave_p_out(df: pd.DataFrame, degree: int, radius: float = 1000.0
 # -- Distance-based exclusion CV: для тестовой скважины исключаются все обучающие наблюдения, расположенные ближе радиуса пространственной корреляции range_corr
 
 # Оценка радиуса пространственной корреляции по медианному межскважинному расстоянию
-def estimate_variogram_range(coords: np.ndarray) -> float:
+def estimate_correlation_range(coords: np.ndarray) -> float:
     distances = pdist(coords)
 
     if len(distances) == 0:
@@ -684,7 +686,7 @@ def cv_variogram(df: pd.DataFrame, degree: int = 1, variogram_factor: float = 1.
     y = _y(df)
 
     coords = df[["X_coord", "Y_coord"]].to_numpy(float)
-    range_corr = (estimate_variogram_range(coords) * variogram_factor)
+    range_corr = (estimate_correlation_range(coords) * variogram_factor)
 
     preds = np.full(len(df), np.nan)
     rows = []
@@ -695,7 +697,7 @@ def cv_variogram(df: pd.DataFrame, degree: int = 1, variogram_factor: float = 1.
         tr = np.where(dist > range_corr)[0]
         te = np.array([i])
 
-        if len(tr) < 3:
+        if len(tr) < degree + 2:
             continue
 
         p, m = run_fold(x, y, preds, tr, te, degree)
@@ -721,6 +723,8 @@ def cv_stratified_zone(df: pd.DataFrame, degree: int = 1, zone_col: str = "tecto
     rows = []
 
     for tr, te in logo.split(x, y, groups=zones):
+        if len(tr) < degree + 2:
+            continue
         p, m = run_fold(x, y, preds, tr, te, degree)
         m["fold"] = str(zones[te][0])
         rows.append(m)
@@ -759,8 +763,10 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
         }
 
     resid = preds[mask] - y_true[mask]
-
-    fold_rmse = (fold_df["rmse"].dropna().to_numpy(float))
+    if fold_df is None or fold_df.empty or "rmse" not in fold_df.columns:
+        fold_rmse = np.array([], dtype=float)
+    else:
+        fold_rmse = fold_df["rmse"].dropna().to_numpy(float)
 
     if len(fold_rmse) == 0:
         rmse_fold_mean = np.nan
