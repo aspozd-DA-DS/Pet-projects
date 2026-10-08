@@ -6,12 +6,16 @@ RU = {
     "step0_full_duplicates_title": "Полные дубликаты строк",
     "step0_full_duplicates_notfound": "Полные дубликаты не обнаружены.",
     "step0_found_full_duplicates": "Найдено полных дублей строк:",
-    "step0_duplicate_wells_title": "Дубликаты well_id",
-    "step0_duplicate_wells_found": "Найдено скважин-дублей:",
-    "step0_duplicate_wells_notfound": "Дубликаты well_id не обнаружены.",
-    "step0_duplicate_coords_title": "Совпадающие координаты скважин",
+    "step0_duplicate_wells_title": "well_id с несколькими записями",
+    "step0_duplicate_wells_found": "Найдено well_id с несколькими записями:",
+    "step0_duplicate_wells_notfound": "well_id с несколькими записями не обнаружено.",
+    "step0_duplicate_wells_hint": (
+        "Для нескольких горизонтов на одну скважину это ожидаемо. "
+        "Реальное дублирование — только если совпадают well_id И horizon_id."
+    ),
+    "step0_duplicate_coords_title": "Совпадающие координаты (с учётом горизонта)",
     "step0_duplicate_coords_found": "Найдено совпадающих координат:",
-    "step0_duplicate_coords_notfound": "Совпадающих координат не обнаружено.",
+    "step0_duplicate_coords_notfound": "Совпадающих координат (в пределах одного горизонта) не обнаружено.",
     "step0_missing_values_title": "Пропуски по колонкам",
     "step0_removed_rows_title": "Строки, удалённые при очистке",
     "step0_removed_rows_count": "Удалено строк при очистке данных:",
@@ -42,6 +46,8 @@ RU = {
         "Pearson — только линейная связь. "
         "Spearman — любая монотонная (экспонента, логарифм, степенная)."
     ),
+    "step0_rows_count_title": "Количество наблюдений (строк)",
+    "step0_unique_wells_title": "Уникальных скважин",
 }
 EN = {
     "step0_title": "Structural QC — Cross-Plot and Cross-Validation",
@@ -51,12 +57,16 @@ EN = {
     "step0_full_duplicates_title": "Duplicate Rows",
     "step0_full_duplicates_notfound": "No duplicate rows found.",
     "step0_found_full_duplicates": "Duplicate rows found:",
-    "step0_duplicate_wells_title": "Duplicate Well IDs",
-    "step0_duplicate_wells_found": "Duplicate wells found:",
-    "step0_duplicate_wells_notfound": "No duplicate well IDs found.",
-    "step0_duplicate_coords_title": "Duplicate Well Coordinates",
+    "step0_duplicate_wells_title": "well_id with multiple records",
+    "step0_duplicate_wells_found": "well_id with multiple records found:",
+    "step0_duplicate_wells_notfound": "No well_id with multiple records found.",
+    "step0_duplicate_wells_hint": (
+        "For multiple horizons per well this is expected. "
+        "Real duplication occurs only if both well_id and horizon_id match."
+    ),
+    "step0_duplicate_coords_title": "Duplicate coordinates (per horizon)",
     "step0_duplicate_coords_found": "Duplicate coordinates found:",
-    "step0_duplicate_coords_notfound": "No duplicate coordinates found.",
+    "step0_duplicate_coords_notfound": "No duplicate coordinates (within the same horizon) found.",
     "step0_missing_values_title": "Missing Values by Column",
     "step0_removed_rows_title": "Rows Removed During Data Cleaning",
     "step0_removed_rows_count": "Rows removed during data cleaning:",
@@ -87,6 +97,8 @@ EN = {
         "Pearson — linear relationship only. "
         "Spearman — any monotonic relationship (exponential, logarithmic, power law)."
     ),
+    "step0_rows_count_title": "Rows (observations)",
+    "step0_unique_wells_title": "Unique wells",
 }
 
 RU.update({

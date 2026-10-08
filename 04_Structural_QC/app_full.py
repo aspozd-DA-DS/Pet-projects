@@ -357,12 +357,17 @@ def prepare_input_dataframe(raw_df, well_col, x_col, y_col, param_1_col,  param_
     df["Zprm_well"] = raw_df[param_1_col]
     df["Zprm_map"] = raw_df[param_2_col]
 
-    # Необязательные колонки
+    # Необязательные колонки: создаём системные алиасы
+    # и убираем исходную колонку, чтобы не было дублей в категориальных списках
     if horizon_col:
         df["horizon_id"] = raw_df[horizon_col]
+        if horizon_col != "horizon_id":
+            df.drop(columns=[horizon_col], inplace=True, errors="ignore")
 
     if zone_col:
         df["tectonic_zone"] = raw_df[zone_col]
+        if zone_col != "tectonic_zone":
+            df.drop(columns=[zone_col], inplace=True, errors="ignore")
 
     # Проверка обязательных колонок
     required = ["well_id", "X_coord", "Y_coord", "Zprm_well", "Zprm_map",]
@@ -1215,7 +1220,9 @@ def compute_spacing_stats(df):
             "n_wells": None,
         }
 
-    coords = df[["X_coord", "Y_coord"]].to_numpy(float)
+    # Уникальные скважины — по координатам, т.к. одна скважина = одна точка (X,Y)
+    coords_df = df[["well_id", "X_coord", "Y_coord"]].drop_duplicates(subset=["well_id"])
+    coords = coords_df[["X_coord", "Y_coord"]].to_numpy(float)
     dists = pdist(coords)
 
     return {
@@ -1223,7 +1230,7 @@ def compute_spacing_stats(df):
         "mean_dist": np.mean(dists) if len(dists) else None,
         "min_dist": np.min(dists) if len(dists) else None,
         "max_dist": np.max(dists) if len(dists) else None,
-        "n_wells": len(df),
+        "n_wells": coords_df["well_id"].nunique(),
     }
 
 spacing = compute_spacing_stats(df)
@@ -1574,6 +1581,9 @@ step0_selected_stats_title = T["step0_selected_stats_title"]
 step0_stats_prefix = T["step0_stats_prefix"]
 step0_corr_spearman_title = T["step0_corr_spearman_title"]
 step0_corr_hint = T["step0_corr_hint"]
+step0_rows_count_title = T["step0_rows_count_title"]
+step0_unique_wells_title = T["step0_unique_wells_title"]
+step0_duplicate_wells_hint = T["step0_duplicate_wells_hint"]
 
 st.markdown('<div id="step-0"></div>', unsafe_allow_html=True)
 # ------------------------------------------------- #
@@ -1632,6 +1642,7 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
 
     # Дубликаты скважин
     st.markdown(f"### {step0_duplicate_wells_title}")
+    st.caption(step0_duplicate_wells_hint)
     dup_wells = (df.groupby("well_id").size().reset_index(name="count"))
     dup_wells = dup_wells[dup_wells["count"] > 1]
     if len(dup_wells) > 0:
@@ -1642,10 +1653,20 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
     else:
         st.caption(step0_duplicate_wells_notfound)
 
-    # Совпадающие координаты
+    # Совпадающие координаты (в пределах одного горизонта)
     st.markdown(f"### {step0_duplicate_coords_title}")
-    dup_coords = (df.groupby(["X_coord", "Y_coord"]).size().reset_index(name="count"))
+
+    coords_group_cols = ["X_coord", "Y_coord"]
+    if "horizon_id" in df.columns:
+        coords_group_cols.append("horizon_id")
+
+    dup_coords = (
+        df.groupby(coords_group_cols)
+          .size()
+          .reset_index(name="count")
+    )
     dup_coords = dup_coords[dup_coords["count"] > 1]
+
     if len(dup_coords) > 0:
         st.warning(f"{step0_duplicate_coords_found}"
             f"{len(dup_coords)}"
@@ -1681,9 +1702,16 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
     else:
         st.caption(step0_notremoved_rows)
 
+n_unique_wells = df["well_id"].nunique()
+
 st.write(
-    f"**{step0_well_count_title}:** "
+    f"**{step0_rows_count_title}:** "
     f"{n_rows}"
+)
+
+st.write(
+    f"**{step0_unique_wells_title}:** "
+    f"{n_unique_wells}"
 )
 
 st.write(
@@ -3256,10 +3284,13 @@ if not step4_ok:
     st.info(step4_filter_hint)
 
 # ------ Сводка ------
-remaining_pct = (100 * len(df_step4) / len(df) if len(df) > 0 else 0)
+n_wells_init = df["well_id"].nunique() if len(df) > 0 else 0
+n_wells_step4 = df_step4["well_id"].nunique() if len(df_step4) > 0 else 0
+remaining_pct = (100 * n_wells_step4 / n_wells_init if n_wells_init > 0 else 0)
+
 st.markdown(
     f"""
-**{step4_summary_initial}:** {len(df)}
+**{step4_summary_initial}:** {n_wells_init}
 
 **{step4_summary_random}:** {len(excluded_wells_random)}
 
@@ -3267,7 +3298,7 @@ st.markdown(
 
 **{step4_summary_click}:** {len(excluded_wells_click)}
 
-**{step4_summary_remaining}:** {len(df_step4)} ({remaining_pct:.1f}%)
+**{step4_summary_remaining}:** {n_wells_step4} ({remaining_pct:.1f}%)
 """
 )
 
