@@ -165,6 +165,7 @@ identity_line_width_label = T["identity_line_width_label"]
 identity_line_dash_label = T["identity_line_dash_label"]
 histogram_expander = T["histogram_expander"]
 hist_line_style_label = T["hist_line_style_label"]
+hist_line_width_label = T["hist_line_width_label"]
 hist_fill_color_label = T["hist_fill_color_label"]
 kde_curve_label = T["kde_curve_label"]
 mean_line_label = T["mean_line_label"]
@@ -172,6 +173,7 @@ median_line_label = T["median_line_label"]
 sigma_line_label = T["sigma_line_label"]
 boxplot_expander = T["boxplot_expander"]
 box_fill_color_label = T["box_fill_color_label"]
+box_line_width_label = T["box_line_width_label"]
 box_mean_label = T["box_mean_label"]
 box_median_label = T["box_median_label"]
 residual_expander = T["residual_expander"]
@@ -195,6 +197,7 @@ approx_types_step2_label = T["approx_types_step2_label"]
 approx_types_step3_label = T["approx_types_step3_label"]
 approx_colors_expander = T["approx_colors_expander"]
 quantile_regression_title = T["quantile_regression_title"]
+approx_line_width_label = T["approx_line_width_label"]
 
 correlation_expander = T["correlation_expander"]
 all_parameters_label = T["all_parameters_label"]
@@ -890,58 +893,52 @@ with st.sidebar.expander(identity_line_expander, expanded=False):
 with st.sidebar.expander(histogram_expander, expanded=False):
 
     # Заливка гистограммы — только цвет
-    hist_color = st.selectbox(hist_fill_color_label, ALL_COLORS, index=ALL_COLORS.index("orange"), key="hist_color")                      # orange
+    hist_color = st.selectbox(hist_fill_color_label, ALL_COLORS, index=ALL_COLORS.index("orange"), key="hist_color")
 
     st.markdown("---")
 
-    # KDE
+    # ---------- KDE ----------
     st.markdown(f"**{kde_curve_label}**")
-    col_c, col_d = st.columns([2, 1])
-    with col_c:
-        kde_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="kde_color", label_visibility="collapsed",)
-    with col_d:
-        kde_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("solid"), key="kde_dash", label_visibility="collapsed",)
-    # Mean
+    kde_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="kde_color", label_visibility="collapsed",)
+    kde_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("solid"), key="kde_dash", label_visibility="collapsed",)
+    kde_width = st.slider(hist_line_width_label, 1, 10, 3, key="kde_width", label_visibility="collapsed",)
+
+    # ---------- Mean ----------
     st.markdown(f"**{mean_line_label}**")
-    col_c, col_d = st.columns([2, 1])
-    with col_c:
-        mean_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("green"), key="mean_color", label_visibility="collapsed",)
-    with col_d:
-        mean_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dash"), key="mean_dash", label_visibility="collapsed",)
-    # Median
+    mean_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("green"), key="mean_color", label_visibility="collapsed",)
+    mean_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dash"), key="mean_dash", label_visibility="collapsed",)
+    mean_width = st.slider(hist_line_width_label, 1, 10, 2, key="mean_width", label_visibility="collapsed",)
+
+    # ---------- Median ----------
     st.markdown(f"**{median_line_label}**")
-    col_c, col_d = st.columns([2, 1])
-    with col_c:
-        median_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("red"), key="median_color", label_visibility="collapsed",)
-    with col_d:
-        median_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dot"), key="median_dash", label_visibility="collapsed",)
-    # ±3σ
+    median_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("red"), key="median_color", label_visibility="collapsed",)
+    median_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dot"), key="median_dash", label_visibility="collapsed",)
+    median_width = st.slider(hist_line_width_label, 1, 10, 2, key="median_width", label_visibility="collapsed",)
+
+    # ---------- ±3σ ----------
     st.markdown(f"**{sigma_line_label}**")
-    col_c, col_d = st.columns([2, 1])
-    with col_c:
-        sigma_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("orange"), key="sigma_color", label_visibility="collapsed",)
-    with col_d:
-        sigma_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dash"), key="sigma_dash", label_visibility="collapsed",)
+    sigma_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("orange"), key="sigma_color", label_visibility="collapsed",)
+    sigma_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dash"), key="sigma_dash", label_visibility="collapsed",)
+    sigma_width = st.slider(hist_line_width_label, 1, 10, 2, key="sigma_width", label_visibility="collapsed",)
 
 with st.sidebar.expander(boxplot_expander, expanded=False):
 
     # Заливка боксплота — только цвет
-    box_color = st.selectbox(box_fill_color_label, ALL_COLORS, index=ALL_COLORS.index("royalblue"), key="box_color")                       # royalblue
+    box_color = st.selectbox(box_fill_color_label, ALL_COLORS, index=ALL_COLORS.index("royalblue"), key="box_color")
+
     st.markdown("---")
-    # Mean
+
+    # ---------- Mean ----------
     st.markdown(f"**{box_mean_label}**")
-    col_c, col_d = st.columns([2, 1])
-    with col_c:
-        box_mean_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("green"), key="box_mean_color", label_visibility="collapsed",)
-    with col_d:
-        box_mean_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dash"), key="box_mean_dash", label_visibility="collapsed", )
-    # Median
+    box_mean_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("green"), key="box_mean_color", label_visibility="collapsed",)
+    box_mean_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dash"), key="box_mean_dash", label_visibility="collapsed",)
+    box_mean_width = st.slider(hist_line_width_label, 1, 10, 2, key="box_mean_width", label_visibility="collapsed",)
+
+    # ---------- Median ----------
     st.markdown(f"**{box_median_label}**")
-    col_c, col_d = st.columns([2, 1])
-    with col_c:
-        box_median_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("red"), key="box_median_color", label_visibility="collapsed",)
-    with col_d:
-        box_median_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dot"), key="box_median_dash", label_visibility="collapsed",)
+    box_median_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("red"), key="box_median_color", label_visibility="collapsed",)
+    box_median_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dot"), key="box_median_dash", label_visibility="collapsed",)
+    box_median_width = st.slider(hist_line_width_label, 1, 10, 2, key="box_median_width", label_visibility="collapsed",)
 
 with st.sidebar.expander(residual_expander, expanded=False):
     residual_color = st.selectbox(residual_color_label, ALL_COLORS, index=ALL_COLORS.index("black"), key="residual_color")       # black
@@ -1098,65 +1095,73 @@ with st.sidebar.expander(approx_expander, expanded=False):
 with st.sidebar.expander(approx_colors_expander, expanded=False):
     user_approx_colors = {}
     user_approx_dashes = {}
+    user_approx_widths = {}
 
     for approx in NON_QUANTILE_APPROX_OPTIONS:
         default_color = DEFAULT_APPROX_COLORS.get(approx, "black")
         default_dash = DEFAULT_APPROX_DASHES.get(approx, "solid")
 
         st.markdown(f"**{approx}**")
-        col_c, col_d = st.columns([2, 1])
 
-        with col_c:
-            user_approx_colors[approx] = st.selectbox(
-                "Color",
-                COLOR_OPTIONS,
-                index=COLOR_OPTIONS.index(default_color),
-                key=f"approx_color_{approx}",
-                label_visibility="collapsed",
-            )
-
-        with col_d:
-            user_approx_dashes[approx] = st.selectbox(
-                "Line style",
-                DASH_OPTIONS,
-                index=DASH_OPTIONS.index(default_dash),
-                key=f"approx_dash_{approx}",
-                label_visibility="collapsed",
-            )
+        user_approx_colors[approx] = st.selectbox(
+            "Color",
+            COLOR_OPTIONS,
+            index=COLOR_OPTIONS.index(default_color),
+            key=f"approx_color_{approx}",
+            label_visibility="collapsed",
+        )
+        user_approx_dashes[approx] = st.selectbox(
+            hist_line_style_label,
+            DASH_OPTIONS,
+            index=DASH_OPTIONS.index(default_dash),
+            key=f"approx_dash_{approx}",
+            label_visibility="collapsed",
+        )
+        user_approx_widths[approx] = st.slider(
+            approx_line_width_label,
+            1, 10, 3,
+            key=f"approx_width_{approx}",
+            label_visibility="collapsed",
+        )
 
     st.markdown("---")
     st.markdown(f"**{quantile_regression_title}**")
 
     quantile_colors = {}
     quantile_dashes = {}
+    quantile_widths = {}
 
     for tau in [0.1, 0.5, 0.9]:
         default = DEFAULT_QUANTILE_COLORS[tau]
 
         st.markdown(f"**τ={tau}**")
-        col_c, col_d = st.columns([2, 1])
 
-        with col_c:
-            quantile_colors[tau] = st.selectbox(
-                "Color",
-                COLOR_OPTIONS,
-                index=COLOR_OPTIONS.index(default),
-                key=f"quantile_color_{tau}",
-                label_visibility="collapsed",
-            )
+        quantile_colors[tau] = st.selectbox(
+            "Color",
+            COLOR_OPTIONS,
+            index=COLOR_OPTIONS.index(default),
+            key=f"quantile_color_{tau}",
+            label_visibility="collapsed",
+        )
+        quantile_dashes[tau] = st.selectbox(
+            hist_line_style_label,
+            DASH_OPTIONS,
+            index=DASH_OPTIONS.index("solid"),
+            key=f"quantile_dash_{tau}",
+            label_visibility="collapsed",
+        )
+        quantile_widths[tau] = st.slider(
+            approx_line_width_label,
+            1, 10, 3,
+            key=f"quantile_width_{tau}",
+            label_visibility="collapsed",
+        )
 
-        with col_d:
-            quantile_dashes[tau] = st.selectbox(
-                "Line style",
-                DASH_OPTIONS,
-                index=DASH_OPTIONS.index("solid"),
-                key=f"quantile_dash_{tau}",
-                label_visibility="collapsed",
-            )
-
-APPROX_COLORS = user_approx_colors
-APPROX_DASHES = user_approx_dashes
+APPROX_COLORS  = user_approx_colors
+APPROX_DASHES  = user_approx_dashes
+APPROX_WIDTHS  = user_approx_widths       # для неквантильных кривых
 QUANTILE_DASHES = quantile_dashes
+QUANTILE_WIDTHS = quantile_widths         # для квантильных кривых (τ)
 
 # ------------------------------------------------- #
 # SIDEBAR: STEP 0 - корреляционный анализ
@@ -2110,7 +2115,9 @@ with col_right:
         approx_colors=APPROX_COLORS,
         quantile_colors=quantile_colors,
         approx_dashes=APPROX_DASHES,          
-        quantile_dashes=QUANTILE_DASHES,      
+        quantile_dashes=QUANTILE_DASHES,    
+        approx_widths=APPROX_WIDTHS,        
+        quantile_widths=QUANTILE_WIDTHS,    
         identity_width=identity_line_width,
         identity_dash=identity_line_dash,
         marker_size=approx_point_size,
@@ -2160,10 +2167,10 @@ with col_h1:
         title=f"{hist_title_t} {PARAM_1}",
         xlabel=PARAM_1_LABEL,
         show_sigma=True,
-        kde_color=kde_color,       kde_dash=kde_dash,
-        mean_color=mean_color,     mean_dash=mean_dash,
-        median_color=median_color, median_dash=median_dash,
-        sigma_color=sigma_color,   sigma_dash=sigma_dash,
+        kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
+        mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
+        median_color=median_color, median_dash=median_dash, median_width=median_width,
+        sigma_color=sigma_color,   sigma_dash=sigma_dash,   sigma_width=sigma_width,
     )
     st.plotly_chart(fig_hw, use_container_width=True)
 with col_h2:
@@ -2176,10 +2183,10 @@ with col_h2:
         title=f"{hist_title_t} {PARAM_2}",
         xlabel=PARAM_2_LABEL,
         show_sigma=True,
-        kde_color=kde_color,       kde_dash=kde_dash,
-        mean_color=mean_color,     mean_dash=mean_dash,
-        median_color=median_color, median_dash=median_dash,
-        sigma_color=sigma_color,   sigma_dash=sigma_dash,
+        kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
+        mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
+        median_color=median_color, median_dash=median_dash, median_width=median_width,
+        sigma_color=sigma_color,   sigma_dash=sigma_dash,   sigma_width=sigma_width,
     )
     st.plotly_chart(fig_hm, use_container_width=True)
 
@@ -2191,8 +2198,8 @@ with col_b1:
         y_ref, box_color, PARAM_1_LABEL, well_label,
         title=f"{boxplot_title_t} {PARAM_1}",
         well_ids=df["well_id"], value_label=PARAM_1_LABEL,
-        mean_color=box_mean_color,     mean_dash=box_mean_dash,
-        median_color=box_median_color, median_dash=box_median_dash,
+        mean_color=box_mean_color,     mean_dash=box_mean_dash,     mean_width=box_mean_width,
+        median_color=box_median_color, median_dash=box_median_dash, median_width=box_median_width,
     )
     st.plotly_chart(fig_bw, use_container_width=True)
 with col_b2:
@@ -2201,8 +2208,8 @@ with col_b2:
         x_ref, box_color, PARAM_2_LABEL, well_label,
         title=f"{boxplot_title_t} {PARAM_2}",
         well_ids=df["well_id"], value_label=PARAM_2_LABEL,
-        mean_color=box_mean_color,     mean_dash=box_mean_dash,
-        median_color=box_median_color, median_dash=box_median_dash,
+        mean_color=box_mean_color,     mean_dash=box_mean_dash,     mean_width=box_mean_width,
+        median_color=box_median_color, median_dash=box_median_dash, median_width=box_median_width,
     )
     st.plotly_chart(fig_bm, use_container_width=True)
 
@@ -2274,10 +2281,10 @@ with col_r1:
         title=f"{hist_title_t} {DELTA_LABEL}",
         xlabel=DELTA_LABEL,
         show_sigma=True,
-        kde_color=kde_color,       kde_dash=kde_dash,
-        mean_color=mean_color,     mean_dash=mean_dash,
-        median_color=median_color, median_dash=median_dash,
-        sigma_color=sigma_color,   sigma_dash=sigma_dash,
+        kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
+        mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
+        median_color=median_color, median_dash=median_dash, median_width=median_width,
+        sigma_color=sigma_color,   sigma_dash=sigma_dash,   sigma_width=sigma_width,
     )
     st.plotly_chart(fig_hr, use_container_width=True)
 
@@ -2288,8 +2295,8 @@ with col_r2:
         resid, box_color, DELTA_LABEL, well_label,
         title=f"{boxplot_title_t} {DELTA_LABEL}",
         well_ids=df["well_id"], value_label=DELTA_LABEL,
-        mean_color=box_mean_color,     mean_dash=box_mean_dash,
-        median_color=box_median_color, median_dash=box_median_dash,
+        mean_color=box_mean_color,     mean_dash=box_mean_dash,     mean_width=box_mean_width,
+        median_color=box_median_color, median_dash=box_median_dash, median_width=box_median_width,
     )
     st.plotly_chart(fig_br, use_container_width=True)
 
@@ -2508,7 +2515,8 @@ fig_rmse = plot_bar_chart(
     orientation="v",
     title=f"{step2_rmse_title}",
     yaxis_title=f"RMSE, {PARAM_1_UNIT}",
-    show_percent= False
+    show_percent= False,
+    legend_title="CV scheme",
 )
 
 st.plotly_chart(fig_rmse, use_container_width=True)
@@ -2616,7 +2624,9 @@ with col_fit:
         approx_colors=APPROX_COLORS,
         quantile_colors=quantile_colors,
         approx_dashes=APPROX_DASHES,          
-        quantile_dashes=QUANTILE_DASHES,      
+        quantile_dashes=QUANTILE_DASHES, 
+        approx_widths=APPROX_WIDTHS,        
+        quantile_widths=QUANTILE_WIDTHS,       
         identity_width=identity_line_width,
         identity_dash=identity_line_dash,
         marker_size=approx_point_size,
@@ -2718,10 +2728,10 @@ with col_hcv:
         title=f"{hist_title_t} CV ({CV_RESIDUAL_LABEL})",
         xlabel=f"{CV_RESIDUAL_LABEL}, {PARAM_1_UNIT}",
         show_sigma=True,
-        kde_color=kde_color,       kde_dash=kde_dash,
-        mean_color=mean_color,     mean_dash=mean_dash,
-        median_color=median_color, median_dash=median_dash,
-        sigma_color=sigma_color,   sigma_dash=sigma_dash,
+        kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
+        mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
+        median_color=median_color, median_dash=median_dash, median_width=median_width,
+        sigma_color=sigma_color,   sigma_dash=sigma_dash,   sigma_width=sigma_width,
     )
     st.plotly_chart(fig_hcv, use_container_width=True)
 
@@ -2736,8 +2746,8 @@ with col_bcv:
         ylabel=f"{CV_RESIDUAL_LABEL}, {PARAM_1_UNIT}",
         well_ids=plot_df["well_id"],
         value_label=f"{CV_RESIDUAL_LABEL}, {PARAM_1_UNIT}",
-        mean_color=box_mean_color,     mean_dash=box_mean_dash,
-        median_color=box_median_color, median_dash=box_median_dash,
+        mean_color=box_mean_color,     mean_dash=box_mean_dash,     mean_width=box_mean_width,
+        median_color=box_median_color, median_dash=box_median_dash, median_width=box_median_width,
     )
     st.plotly_chart(fig_bcv, use_container_width=True)
 
@@ -2897,7 +2907,8 @@ else:
         approx_colors=APPROX_COLORS,
         quantile_colors=quantile_colors,
         approx_dashes=APPROX_DASHES,          
-        quantile_dashes=QUANTILE_DASHES,      
+        quantile_dashes=QUANTILE_DASHES,    
+        approx_widths=APPROX_WIDTHS,   
         point_size=zone_point_size,
         point_opacity=zone_point_opacity,
     )
@@ -2929,6 +2940,7 @@ else:
             quantile_colors=quantile_colors,
             approx_dashes=APPROX_DASHES,          
             quantile_dashes=QUANTILE_DASHES,  
+            approx_widths=APPROX_WIDTHS, 
             point_size=zone_point_size,
             point_opacity=zone_point_opacity,
         )
@@ -3000,6 +3012,7 @@ else:
                 # --- вычисление кривой ---
                 z_fit, eq, color = compute_curve(approx, xz, yz, x_line_z, APPROX_COLORS, quantile_colors)
                 approx_dash = APPROX_DASHES.get(approx, "solid")
+                approx_width = APPROX_WIDTHS.get(approx, 2)
                 if z_fit is not None:
                     fig_zone.add_trace(
                         go.Scatter(
@@ -3007,7 +3020,7 @@ else:
                             y=z_fit,
                             mode="lines",
                             name=approx,
-                            line=dict(width=2, color=zone_line_color, dash=approx_dash)
+                            line=dict(width=approx_width, color=zone_line_color, dash=approx_dash)
                         )
                     )
 
@@ -3335,6 +3348,8 @@ if step4_ok:
             quantile_colors=quantile_colors,
             approx_dashes=APPROX_DASHES,
             quantile_dashes=QUANTILE_DASHES,
+            approx_widths=APPROX_WIDTHS,        
+            quantile_widths=QUANTILE_WIDTHS,  
             identity_width=identity_line_width,
             identity_dash=identity_line_dash,
             marker_size=approx_point_size,
@@ -3404,7 +3419,9 @@ if step4_ok:
             approx_colors=APPROX_COLORS,
             quantile_colors=quantile_colors,
             approx_dashes=APPROX_DASHES,          
-            quantile_dashes=QUANTILE_DASHES,      
+            quantile_dashes=QUANTILE_DASHES,    
+            approx_widths=APPROX_WIDTHS,        
+            quantile_widths=QUANTILE_WIDTHS,    
             identity_width=identity_line_width,
             identity_dash=identity_line_dash,
             marker_size=approx_point_size,

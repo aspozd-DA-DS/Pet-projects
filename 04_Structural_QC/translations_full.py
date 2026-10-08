@@ -458,6 +458,7 @@ RU.update({
     "identity_line_width_label": "Толщина линии Y = X",
     "identity_line_dash_label": "Тип линии Y = X",
     "histogram_expander": "📊 Гистограмма",
+    "hist_line_width_label": "Толщина линии",
     "hist_fill_color_label": "Цвет заливки гистограмм",
     "kde_curve_label": "Кривая KDE",
     "mean_line_label": "Линия среднего значения (Mean)",
@@ -466,6 +467,7 @@ RU.update({
     "hist_line_style_label": "Тип линии",
     "boxplot_expander": "📦 Boxplot",
     "box_fill_color_label": "Цвет заливки boxplot",
+    "box_line_width_label": "Толщина линии",
     "box_mean_label": "Линия среднего значения Mean на boxplot",
     "box_median_label": "Линия медианы Median на boxplot",
     "residual_expander": "📉 График невязок",
@@ -507,6 +509,7 @@ EN.update({
     "identity_line_width_label": "Y = X Line Width",
     "identity_line_dash_label": "Y = X Line Style",
     "histogram_expander": "📊 Histogram",
+    "hist_line_width_label": "Line width",
     "hist_fill_color_label": "Histogram Fill Color",
     "kde_curve_label": "KDE Curve",
     "mean_line_label": "Mean Line",
@@ -515,6 +518,7 @@ EN.update({
     "hist_line_style_label": "Line style",
     "boxplot_expander": "📦 Boxplot",
     "box_fill_color_label": "Boxplot Fill Color",
+    "box_line_width_label": "Line width",
     "box_mean_label": "Mean Line on Boxplot",
     "box_median_label": "Median Line on Boxplot",
     "residual_expander": "📉 Residual Plot",
@@ -541,6 +545,7 @@ RU.update({
     "approx_types_step3_label": "Типы аппроксимаций по категориям (Шаг 3)",
     "approx_colors_expander": "📈 Цвета линий аппроксимаций",
     "quantile_regression_title": "Quantile Regression (τ = 0.1 / 0.5 / 0.9)",
+    "approx_line_width_label": "Толщина линии",
 })
 EN.update({
     "approx_expander": "📈 Approximations",
@@ -553,6 +558,7 @@ EN.update({
     "approx_types_step3_label": "Approximation Types by Categories (Step 3)",
     "approx_colors_expander": "📈 Approximation Line Colors",
     "quantile_regression_title": "Quantile Regression (τ = 0.1 / 0.5 / 0.9)",
+    "approx_line_width_label": "Line width",
 })
 
 RU.update({

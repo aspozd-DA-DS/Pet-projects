@@ -444,15 +444,16 @@ def build_approximation_plot(
     point_color, identity_color,
     wells_label, well_label, error_label,
     approx_colors, quantile_colors,
-    approx_dashes=None, quantile_dashes=None,          
+    approx_dashes=None, quantile_dashes=None,
+    approx_widths=None, quantile_widths=None,       # ← новое
     marker_size=9, marker_opacity=0.8,
     identity_width=3, identity_dash="dash",
 ):
-    if approx_dashes is None:
-        approx_dashes = {}
-    if quantile_dashes is None:
-        quantile_dashes = {}
-
+    if approx_dashes is None:     approx_dashes = {}
+    if quantile_dashes is None:   quantile_dashes = {}
+    if approx_widths is None:     approx_widths = {}
+    if quantile_widths is None:   quantile_widths = {}
+    
     fig_fit = go.Figure()
 
     # Линия Y = X (идеальная карта)
@@ -491,13 +492,14 @@ def build_approximation_plot(
                 curves, eqs, _ = result
                 for tau, y_pred, col in curves:
                     dash_tau = quantile_dashes.get(tau, "solid")
+                    width_tau = quantile_widths.get(tau, 3)      
                     fig_fit.add_trace(
                         go.Scatter(
                             x=z_line,
                             y=y_pred,
                             mode="lines",
                             name=f"{approx} τ={tau}",
-                            line=dict(color=col, width=3, dash=dash_tau),
+                            line=dict(color=col, width=width_tau, dash=dash_tau),
                         )
                     )
 
@@ -520,13 +522,14 @@ def build_approximation_plot(
                 z_fit, eq, color = result
                 if z_fit is not None:
                     dash_approx = approx_dashes.get(approx, "solid")
+                    width_approx = approx_widths.get(approx, 3)
                     fig_fit.add_trace(
                         go.Scatter(
                             x=z_line,
                             y=z_fit,
                             mode="lines",
                             name=approx,
-                            line=dict(color=color, width=3, dash=dash_approx),
+                            line=dict(color=color, width=width_approx, dash=dash_approx),
                         )
                     )
                 stats_fit = sq.compute_fit_stats(x_ref, y_ref, approx,)
@@ -542,7 +545,7 @@ def build_approximation_plot(
 # FUNC: ОФОРМЛЕНИЕ Bar Chart, ГИСТОГРАММ И BOXPLOT
 # ------------------------------------------------------------- #
 # ------ Универсальная функция столбчатой диаграммы bar chart ------
-def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None, show_percent=False, orientation="v"):
+def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None, show_percent=False, orientation="v", legend_title=None,):
 
     colors = PALETTE_DICT.get(palette, px.colors.qualitative.Plotly)
     bar_colors = [
@@ -596,7 +599,7 @@ def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None
         xaxis_title=xaxis_title,
         yaxis_title=yaxis_title,
         showlegend=True,
-        legend_title="CV scheme",
+        legend_title=legend_title,
     )
 
     return fig
@@ -610,10 +613,10 @@ def plot_hist_kde(
     title,
     xlabel,
     show_sigma=True,
-    kde_color="black",    kde_dash="solid",
-    mean_color="green",   mean_dash="dash",
-    median_color="red",   median_dash="dot",
-    sigma_color="orange", sigma_dash="dash",
+    kde_color="black",    kde_dash="solid",     kde_width=3,      
+    mean_color="green",   mean_dash="dash",     mean_width=2,     
+    median_color="red",   median_dash="dot",    median_width=2,   
+    sigma_color="orange", sigma_dash="dash",    sigma_width=2,    
 ):
     data = np.asarray(data)
     data = data[np.isfinite(data)]
@@ -648,7 +651,7 @@ def plot_hist_kde(
         fig.add_trace(
             go.Scatter(
                 x=x_kde, y=kde_y, mode="lines", name="KDE",
-                line=dict(color=kde_color, width=3, dash=kde_dash),
+                line=dict(color=kde_color, width=kde_width, dash=kde_dash),
                 yaxis="y2",
             )
         )
@@ -658,7 +661,7 @@ def plot_hist_kde(
     fig.add_trace(go.Scatter(
         x=[mean, mean], y=[0, ymax], mode="lines",
         name=f"Mean = {mean:.1f}",
-        line=dict(color=mean_color, width=2, dash=mean_dash),
+        line=dict(color=mean_color, width=mean_width, dash=mean_dash),
         yaxis="y2"
     ))
 
@@ -666,7 +669,7 @@ def plot_hist_kde(
     fig.add_trace(go.Scatter(
         x=[median, median], y=[0, ymax], mode="lines",
         name=f"Median = {median:.1f}",
-        line=dict(color=median_color, width=2, dash=median_dash),
+        line=dict(color=median_color, width=median_width, dash=median_dash),
         yaxis="y2"
     ))
 
@@ -675,13 +678,13 @@ def plot_hist_kde(
         fig.add_trace(go.Scatter(
             x=[mean + 3*std, mean + 3*std], y=[0, ymax], mode="lines",
             name=f"+3σ = {mean + 3*std:.1f}",
-            line=dict(color=sigma_color, width=2, dash=sigma_dash),
+            line=dict(color=sigma_color, width=sigma_width, dash=sigma_dash),
             yaxis="y2"
         ))
         fig.add_trace(go.Scatter(
             x=[mean - 3*std, mean - 3*std], y=[0, ymax], mode="lines",
             name=f"-3σ = {mean - 3*std:.1f}",
-            line=dict(color=sigma_color, width=2, dash=sigma_dash),
+            line=dict(color=sigma_color, width=sigma_width, dash=sigma_dash),
             yaxis="y2"
         ))
 
@@ -701,8 +704,8 @@ def plot_hist_kde(
 def plot_box(
     data, color, ylabel, well_label,
     title=None, well_ids=None, value_label=None,
-    mean_color="green",   mean_dash="dash",
-    median_color="red",   median_dash="dot",
+    mean_color="green",   mean_dash="dash",   mean_width=2,     
+    median_color="red",   median_dash="dot",  median_width=2,   
 ):
     data = np.asarray(data)
     if well_ids is not None:
@@ -749,7 +752,7 @@ def plot_box(
             y=[mean, mean],
             mode="lines",
             name=f"Mean = {mean:.2f}",
-            line=dict(color=mean_color, width=2, dash=mean_dash),
+            line=dict(color=mean_color, width=mean_width, dash=mean_dash),
             hoverinfo="skip",
         )
     )
@@ -760,7 +763,7 @@ def plot_box(
             y=[median, median],
             mode="lines",
             name=f"Median = {median:.2f}",
-            line=dict(color=median_color, width=2, dash=median_dash),
+            line=dict(color=median_color, width=median_width, dash=median_dash),
             hoverinfo="skip",
         )
     )
@@ -1210,7 +1213,8 @@ def build_zone_overview_plot(
     zone_marker_colors, zone_curve_colors, approx_types,
     param_1, param_2, well_label,
     approx_colors, quantile_colors,
-    approx_dashes=None, quantile_dashes=None,          
+    approx_dashes=None, quantile_dashes=None,
+    approx_widths=None,                            
     point_size=9, point_opacity=0.8,
 ):
     if approx_dashes is None:
@@ -1254,13 +1258,14 @@ def build_zone_overview_plot(
                 )
                 if z_fit is not None:
                     dash_approx = approx_dashes.get(approx, "solid")
+                    width_approx = approx_widths.get(approx, 2)
                     fig.add_trace(
                         go.Scatter(
                             x=x_line_z,
                             y=z_fit,
                             mode="lines",
                             name=f"{approx} — {zone}",
-                            line=dict(width=2, color=zone_curve_colors[zone], dash=dash_approx),
+                            line=dict(width=width_approx, color=zone_curve_colors[zone], dash=dash_approx),
                         )
                     )
             except Exception:
