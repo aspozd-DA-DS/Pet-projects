@@ -498,7 +498,7 @@ if os.path.isdir(demo_dir):
 else:
     demo_files = []
 
-picked_demo = st.sidebar.selectbox(demo_file_select_label, [NO_DEMO] + demo_files)
+picked_demo = st.sidebar.selectbox(demo_file_select_label, [NO_DEMO] + demo_files, key="demo_file_select",)
 
 # ------ Отслеживание активного источника (demo / uploaded) ------
 st.session_state.setdefault("_last_demo_choice", None)
