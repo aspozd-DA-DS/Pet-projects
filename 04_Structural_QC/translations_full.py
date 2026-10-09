@@ -39,7 +39,7 @@ RU = {
     "step0_plotly_pairplot_info":
         "Plotly Pairplot: поддерживаются интерактивность, масштабирование и hover. "
         "KDE и гистограммы на диагонали доступны только для Seaborn Pairplot.",
-    "step0_selected_stats_title": "Статистика выбранных параметров",
+    "step0_selected_stats_title": "Статистика чиловых параметров",
     "step0_stats_prefix": "Статистика",
     "step0_corr_spearman_title": "Матрица корреляции (Спирмен)",
     "step0_corr_hint": (
@@ -90,7 +90,7 @@ EN = {
     "step0_plotly_pairplot_info":
         "Plotly Pairplot supports interactivity, zooming, and hover information. "
         "KDE and diagonal histograms are available only in Seaborn Pairplot.",
-    "step0_selected_stats_title": "Selected Parameter Statistics",
+    "step0_selected_stats_title": "Numerical parameters statistics",
     "step0_stats_prefix": "Statistics",
     "step0_corr_spearman_title": "Spearman Correlation Matrix",
     "step0_corr_hint": (

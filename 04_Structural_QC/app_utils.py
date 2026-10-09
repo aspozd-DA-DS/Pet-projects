@@ -1208,6 +1208,55 @@ def plot_zone_boxplot(
 
     return fig
 
+# ------ Гисторграмма для категорий в шаге 3 ------
+def plot_zone_overlay_hist(
+    df,
+    value_col,
+    zone_col,
+    value_label,
+    title,
+    bins=40,
+    histnorm="",
+    zone_colors=None,
+    zone_order=None,
+    opacity=0.5,
+    height=380,
+    legend_title=None,
+):
+    """Наложенные гистограммы значений по категориям (зонам)."""
+    fig = go.Figure()
+
+    present = set(df[zone_col].dropna().unique())
+    if zone_order is not None:
+        zones = [z for z in zone_order if z in present]
+    else:
+        zones = sorted(present)
+
+    for zone in zones:
+        part = df.loc[df[zone_col] == zone, value_col].dropna()
+        if part.empty:
+            continue
+        color = zone_colors.get(zone) if zone_colors else None
+        fig.add_trace(go.Histogram(
+            x=part,
+            name=str(zone),
+            nbinsx=bins,
+            histnorm=histnorm,
+            opacity=opacity,
+            marker_color=color,
+        ))
+
+    fig.update_layout(
+        barmode="overlay",
+        title=title,
+        xaxis_title=value_label,
+        yaxis_title="Количество" if histnorm == "" else "Доля",
+        legend_title=legend_title or zone_col,
+        height=height,
+        margin=dict(l=10, r=10, t=50, b=10),
+    )
+    return fig
+
 # ------------------------------------------------------------- #
 # FUNC: ОФОРМЛЕНИЕ КРОСС-ПЛОТОВ КАТЕГОРИЙ (ШАГ 3)
 # ------------------------------------------------------------- #

@@ -40,6 +40,7 @@ from app_utils import (
     plot_hist_kde,
     plot_box,
     plot_zone_boxplot,
+    plot_zone_overlay_hist,
     plot_residual_vs_depth, 
     plot_residual_map, 
     build_qc_crossplot,
@@ -2014,12 +2015,83 @@ if (df is not None and len(corr_columns) >= 2):
 
         st.plotly_chart(fig_pair, use_container_width=True)
 
-    # Статистика выбранных параметров
-    st.markdown(f"### {step0_selected_stats_title}")
-    for col in corr_columns:
-        display_col = display_name(col)
-        with st.expander(f"{step0_stats_prefix}: {display_col}", expanded=False):
+
+
+# ------------------------------------------------- #
+# STEP 0.5.: Статистика, гистограмма и boxplot по всем числовым параметрам
+# (стиль графиков и элементы управления — как в Шаге 1, отдельно для каждого параметра)
+# ------------------------------------------------- #
+numeric_cols = [
+    c for c in df.select_dtypes(include="number").columns
+    if c not in ("well_id", PARAM_1, PARAM_2)
+]
+
+# Словарь подписей нормировки (в Шаге 1 он объявлен ниже, поэтому здесь свой)
+hist_norm_map_step0 = {
+    "none": T["hist_norm_none"],
+    "density": T["hist_norm_density"],
+    "probability": T["hist_norm_probability"],
+    "percent": T["hist_norm_percent"],
+}
+
+st.markdown(f"### {step0_selected_stats_title}")
+
+for col in numeric_cols:
+    display_col = display_name(col)
+    values = df[col].to_numpy(float)
+
+    with st.expander(f"{step0_stats_prefix}: {display_col}", expanded=False):
+
+        # Элементы управления гистограммой — свои для каждого параметра
+        col_ctrl1, col_ctrl2 = st.columns(2)
+        with col_ctrl1:
+            bins_step0 = st.slider(
+                f"{T['hist_bins_label']} {display_col}", 10, 120, 40,
+                key=f"bins_step0_{col}",
+            )
+        with col_ctrl2:
+            histnorm_step0 = st.selectbox(
+                f"{T['hist_norm_label']} {display_col}",
+                ["none", "density", "probability", "percent"],
+                format_func=lambda x: hist_norm_map_step0[x],
+                index=0, key=f"histnorm_step0_{col}",
+            )
+        histnorm_value_step0 = "" if histnorm_step0 == "none" else histnorm_step0
+
+        col_stats, col_hist, col_box = st.columns([2, 2, 1.2])
+
+        with col_stats:
             show_depth_stats(df[col], display_col)
+
+        with col_hist:
+            fig_hist = plot_hist_kde(
+                data=values,
+                bins=bins_step0,
+                histnorm=histnorm_value_step0,
+                color=hist_color,
+                title=f"{T['hist_title']} {display_col}",
+                xlabel=display_col,
+                show_sigma=True,
+                kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
+                mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
+                median_color=median_color, median_dash=median_dash, median_width=median_width,
+                sigma_color=sigma_color,   sigma_dash=sigma_dash,   sigma_width=sigma_width,
+            )
+            st.plotly_chart(fig_hist, use_container_width=True)
+
+        with col_box:
+            fig_box = plot_box(
+                data=values,
+                color=box_color,
+                ylabel=display_col,
+                well_label=well_label,
+                title=f"{T['boxplot_title']} {display_col}",
+                well_ids=df["well_id"],
+                value_label=display_col,
+                mean_color=box_mean_color,     mean_dash=box_mean_dash,     mean_width=box_mean_width,
+                median_color=box_median_color, median_dash=box_median_dash, median_width=box_median_width,
+            )
+            st.plotly_chart(fig_box, use_container_width=True)
 
 # ================================================================================================================================ #
 # ---------------------------------------   ШАГ 1: QC‑кросс‑плот + аппроксимации + таблицы   ---------------------------------------
@@ -2965,6 +3037,38 @@ else:
         st.plotly_chart(fig_box_p2, use_container_width=True)
 
     zone_fit_rows = []
+    # Hist для категорий в шаге 3
+    st.markdown(f"#### {T['hist_title']} по {category_col}")
+    col_hz1, col_hz2 = st.columns(2)
+
+    with col_hz1:
+        fig_hz1 = plot_zone_overlay_hist(
+            df=df,
+            value_col="Zprm_well",
+            zone_col=category_col,
+            value_label=PARAM_1_LABEL,
+            title=f"{T['hist_title']} {PARAM_1}",
+            bins=bins_step1,
+            histnorm=histnorm_value,
+            zone_colors=zone_marker_colors,
+            zone_order=list(zone_marker_colors.keys()) if zone_marker_colors else None,
+        )
+        st.plotly_chart(fig_hz1, use_container_width=True)
+
+    with col_hz2:
+        fig_hz2 = plot_zone_overlay_hist(
+            df=df,
+            value_col="Zprm_map",
+            zone_col=category_col,
+            value_label=PARAM_2_LABEL,
+            title=f"{T['hist_title']} {PARAM_2}",
+            bins=bins_step1,
+            histnorm=histnorm_value,
+            zone_colors=zone_marker_colors,
+            zone_order=list(zone_marker_colors.keys()) if zone_marker_colors else None,
+        )
+        st.plotly_chart(fig_hz2, use_container_width=True)
+
 
     # ------------------------------------------------- #
     # # STEP 3.2.: ОБЩИЙ ГРАФИК ПО ВСЕМ ЗОНАМ
