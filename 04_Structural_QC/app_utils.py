@@ -1167,12 +1167,16 @@ def plot_zone_boxplot(
     df, value_col, well_label,
     zone_col="tectonic_zone", zone_label="Category",
     title="", yaxis_title="", zone_colors=None, value_label=None,
+    zone_order=None,
 ):
     fig = go.Figure()
     if value_label is None:
         value_label = yaxis_title
 
-    zones = sorted(df[zone_col].dropna().unique())
+    if zone_order is not None:
+        zones = [z for z in zone_order if z in set(df[zone_col].dropna().unique())]
+    else:
+        zones = sorted(df[zone_col].dropna().unique())
 
     for zone in zones:
         zone_part = df[df[zone_col] == zone]

@@ -21,7 +21,6 @@ import structural_qc_full as sq
 import ui_examples_full_ru
 import ui_examples_full_en
 from translations_full import RU, EN
-
 from app_utils import (
     compute_stats,
     prepare_zone_data,
@@ -50,6 +49,7 @@ from app_utils import (
     show_depth_stats,
     show_outlier_table,
     show_outlier_tables,
+    PALETTE_DICT,
 )
 
 # ================================================================================================================================ #
@@ -2378,6 +2378,8 @@ step2_crossplot_all_caption = T["step2_crossplot_all_caption"]
 step2_metrics_all_title = T["step2_metrics_all_title"]
 step2_cv_comparison_title = T["step2_cv_comparison_title"]
 step2_rmse_title = T["step2_rmse_title"]
+step2_fold_rmse_title = T["step2_fold_rmse_title"]
+step2_fold_rmse_boxplot_title = T["step2_fold_rmse_boxplot_title"]
 step2_best_scheme_title = T["step2_best_scheme_title"]
 step2_cv_crossplot_title = T["step2_cv_crossplot_title"]
 step2_approximations_title = T["step2_approximations_title"]
@@ -2397,7 +2399,7 @@ st.markdown('<div id="step-2-bcv"></div>', unsafe_allow_html=True)
 # ------------------------------------------------- #
 @st.cache_data(
     show_spinner="Running cross-validation...",
-    hash_funcs={pd.DataFrame: lambda df: (len(df), tuple(df.columns))},
+    hash_funcs={pd.DataFrame: lambda df: pd.util.hash_pandas_object(df, index=True).values.tobytes()},
 )
 def cached_run_all_cv(df, degree, k, grid_n, buffer, variogram_factor,
                        leave_p_percent, spatial_radius, cv_repeats):
@@ -2533,6 +2535,61 @@ st.dataframe(
     }),
     use_container_width=True
 )
+
+# Boxplot разброса RMSE по фолдам для каждой схемы CV (Шаг 2) — в стиле Шага 3
+# Длинная таблица: одна строка на фолд
+rows_fold = []
+for scheme_name in comparison.index:
+    fold_df = results[scheme_name].get("folds")
+    if fold_df is None or len(fold_df) == 0 or "rmse" not in fold_df.columns:
+        continue
+    fold_values = fold_df["rmse"].dropna().to_numpy(float)
+    for fold_idx, fold_rmse in enumerate(fold_values, start=1):
+        rows_fold.append({
+            "cv_scheme": scheme_name,
+            "fold_rmse": fold_rmse,
+            "well_id": f"{scheme_name} · фолд {fold_idx}",   # используется в hover
+        })
+df_fold = pd.DataFrame(rows_fold)
+
+if not df_fold.empty:
+    # Цвета схем — из той же палитры, что и bar chart выше
+    base_colors = PALETTE_DICT.get(rmse_palette, px.colors.qualitative.Plotly)
+    cv_colors = {
+        name: base_colors[i % len(base_colors)]
+        for i, name in enumerate(comparison.index)
+    }
+
+    fig_fold_box = plot_zone_boxplot(
+        df=df_fold,
+        value_col="fold_rmse",
+        well_label="fold",
+        zone_col="cv_scheme",
+        zone_label="CV scheme",
+        title=f"{step2_fold_rmse_boxplot_title}",
+        yaxis_title=f"RMSE fold, {PARAM_1_UNIT}",
+        zone_colors=cv_colors,
+        value_label=f"RMSE fold, {PARAM_1_UNIT}",
+        zone_order=list(comparison.index),
+    )
+
+    st.plotly_chart(fig_fold_box, use_container_width=True)
+else:
+    st.info("Нет данных по фолдам для построения boxplot")
+
+# RMSE_fold bar chart в шаге 2 : среднее RMSE по фолдам для каждой схемы CV
+fig_fold = plot_bar_chart(
+    x=comparison.index,
+    y=comparison["rmse_fold_mean"],
+    palette=rmse_palette,
+    orientation="v",
+    title=f"{step2_fold_rmse_title}",
+    yaxis_title=f"RMSE fold, {PARAM_1_UNIT}",
+    show_percent=False,
+    legend_title="CV scheme",
+)
+
+st.plotly_chart(fig_fold, use_container_width=True)
 
 # RMSE bar chart в шаге 2
 
