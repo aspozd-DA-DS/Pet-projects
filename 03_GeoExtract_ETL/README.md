@@ -1,3 +1,13 @@
+<a id="top"></a>
+
+<p align="right">
+  <a href="#ru">🇷🇺 RU</a> | <a href="#en">🇬🇧 EN</a>
+</p>
+
+---
+
+<a id="ru"></a>
+
 # **GeoExtract ETL: Система интеллектуального анализа и структурирования геологической документации (Oil & Gas)**
 
 ## 📌 Описание
@@ -277,43 +287,361 @@ project/
 
 ---
 
-
 ## 🚀 Как запустить
 1. Склонировать репозиторий:  
    ```bash
    git clone https://github.com/aspozd-DA-DS/Pet-projects.git
-
+   ```
 2. Перейти в папку проекта:
-
    ```bash
    cd Pet-projects/03_GeoExtract_ETL
-
-3. Установить зависимости
+   ```
+3. Установить зависимости:
    ```bash
    pip install -r requirements.txt
-
-3. Запустить ноутбук с ресёрчем:
-
+   ```
+4. Запустить ноутбук с ресёрчем:
    ```bash
    jupyter notebook 01_research_and_pipeline.ipynb
-
-3. Запустить ноутбук с ETL:
+   ```
+5. Запустить ноутбук с ETL:
    ```bash
    jupyter notebook 02_ETL.ipynb
-
-5. Запустить API
-
+   ```
+6. Запустить API:
    ```bash
    uvicorn api:app --reload
-
-6. Открыть Demo‑ноутбук
+   ```
+7. Открыть Demo‑ноутбук:
    ```bash
    jupyter notebook 03_DEMO_API.ipynb
-
+   ```
 
 ## 🏷 Topics
- 
-`ETL` `OCR` `PyMuPDF` `PaddleOCR` `Semantic Search`  `Segmentation`
-`FAISS` `MiniLM` `Regex Extraction` `Geology`  `Python`
-`Document Processing` `NLP` `Machine Learning`  
+`ETL` `OCR` `PyMuPDF` `PaddleOCR` `Semantic Search` `Segmentation`
+`FAISS` `MiniLM` `Regex Extraction` `Geology` `Python`
+`Document Processing` `NLP` `Machine Learning`
 `FastAPI` `Data Science` `Oil & Gas`
+
+<p align="right"><a href="#top">⬆ наверх</a></p>
+
+---
+
+<a id="en"></a>
+
+# **GeoExtract ETL: an intelligent system for analyzing and structuring geological documentation (Oil & Gas)**
+
+## 📌 Description
+
+GeoExtract ETL is a large pet project building a **complete industrial ETL pipeline** for geological documents: seismic survey reports, well data, geological maps, interpretations, and archive materials.
+
+The system automatically:
+
+- extracts text from PDF, DOCX, XLSX, TXT, and images (native + OCR),
+- classifies the document type (scientific_paper / seismic_geology_study / technical_report),
+- segments a document into logical blocks (header, paragraph, list, table, figure),
+- normalizes text and corrects OCR errors,
+- extracts key geological parameters (depth, porosity, formation, lithology, horizon, wavelet),
+- builds embeddings (MiniLM),
+- builds a FAISS index,
+- performs semantic search (Hit@3 = 0.84–1.0),
+- generates search queries (Query Suggestion),
+- provides a REST API for integration into corporate systems.
+
+Practical value:
+
+- automating the analysis of geological reports,
+- speeding up data interpretation (time savings ≈ 99%),
+- preparing data for RAG systems and LLM models,
+- building a corporate knowledge base in geology.
+
+---
+
+## 🔧 Tech stack
+
+### Text extraction
+- PyMuPDF  
+- pdfplumber  
+- pdf2image  
+- PaddleOCR, EasyOCR, Tesseract  
+- python-docx, mammoth  
+- openpyxl, xlrd  
+- Pillow, OpenCV  
+
+### Normalization and text processing
+- chardet  
+- langdetect  
+- regex module (118 geological patterns)  
+- Levenshtein  
+- spaCy  
+
+### ML / NLP
+- scikit‑learn (TF‑IDF, LogisticRegression, LinearSVC)  
+- SentenceTransformers (MiniLM‑L12‑v2)  
+- FAISS (IndexFlatIP)  
+- KMeans, HDBSCAN  
+
+### Metrics
+- CER, WER  
+- Precision, Recall, F1  
+- Hit@3  
+
+### API
+- FastAPI  
+- Uvicorn  
+
+### Visualization
+- Matplotlib  
+- Seaborn  
+
+---
+
+## 📊 Data
+
+The project uses:
+
+- PDF (text-based + scanned)  
+- DOCX/DOC  
+- XLSX/XLS  
+- TXT/RTF  
+- Images (maps, cross-sections)  
+- Golden Set (22 documents with manual annotation)
+
+The pipeline produces:
+
+- cleaned text blocks,  
+- normalized tables,  
+- extracted geological features,  
+- embeddings,  
+- a FAISS index,  
+- structured JSON for the API.
+
+---
+
+## 🧩 Key project stages
+
+### Stage 1 — EDA of geological documents
+- analysis of formats,  
+- assessment of PDF and image quality,  
+- building the Golden Set.
+
+### Stage 2 — Text extraction
+- PyMuPDF for text PDFs,  
+- PaddleOCR for scanned PDFs and images,  
+- DOCX → Mammoth,  
+- XLSX → pandas/openpyxl,  
+- a unified result format.
+
+### Stage 3 — OCR experiments
+- comparison of Tesseract, EasyOCR, PaddleOCR,  
+- CER/WER on the Golden Set,  
+- PaddleOCR selected as the main OCR.
+
+### Stage 4 — Document segmentation
+- rule-based segmentation,  
+- fuzzy matching with the Golden Set,  
+- F1 by block type,  
+- building chunks.
+
+### Stage 5 — Normalization and feature extraction
+- correction of OCR errors,  
+- text cleaning,  
+- regex matching (118 geological parameters),  
+- GT evaluation (precision = 1.0, recall ≈ 0.77).
+
+### Stage 6 — Document classification
+- TF‑IDF + LogisticRegression,  
+- accuracy ≈ 0.83,  
+- fallback logic.
+
+### Stage 7 — Semantic search
+- MiniLM‑L12‑v2 embeddings,  
+- FAISS index,  
+- Hit@3 = 0.84–1.0,  
+- Query Suggestion,  
+- t‑SNE visualization.
+
+### Stage 8 — Full ETL pipeline
+- combining all steps,  
+- building the final JSON.
+
+### Stage 9 — REST API
+- document upload,  
+- viewing meta / blocks / regex / chunks,  
+- semantic search,  
+- Demo notebook.
+
+---
+
+## 📈 Results
+
+- PaddleOCR OCR:  
+  - CER ≈ 0.14 (scanned PDF)  
+  - CER ≈ 0.07 (images)
+
+- Segmentation:  
+  - Weighted F1 = 0.60  
+  - F1 paragraph = 0.64  
+  - F1 header = 0.70  
+
+- Feature extraction:  
+  - precision = 1.0  
+  - recall ≈ 0.77  
+
+- Classification:  
+  - accuracy ≈ 0.83  
+
+- Semantic search:  
+  - Hit@3 = 0.84–1.0  
+  - MiniLM‑L12‑v2 is the best model  
+
+- API:  
+  - fully working REST service  
+  - support for all formats  
+  - FAISS integration  
+
+---
+
+## 📁 Repository structure
+
+```text
+project/
+│
+├── api_results/  
+│   └── API results (responses, JSON, request logs)
+│
+├── api_test_docs/
+│   └── test documents for checking the API
+│
+├── data/                                                                   — source data
+│   ├── golden_set/                                                         — manually annotated Golden Set
+│   │   ├── annotations/                                                    — block annotations
+│   │   ├── gs_data/                                                        — source GS documents
+│   │   ├── for_metadata_gs_features.txt                                    — features for metadata
+│   │   ├── metadata_gs_features.csv                                        — GS metadata table
+│   │   ├── doc_labels.txt                                                  — document labels
+│   │   └── doc_labels_all.txt                                              — extended labels
+│   │
+│   └── raw/                                                                — raw data
+│       ├── pdf_text/                                                       — text PDFs
+│       ├── pdf_scans/                                                      — scanned PDFs
+│       ├── doc_Word/                                                       — DOC/DOCX files
+│       ├── tables/                                                         — tables (XLS/XLSX/CSV)
+│       ├── images/                                                         — images
+│       └── txt/                                                            — text files
+│
+├── log/                                                                    — pipeline logs
+│
+├── results/                                                                — results of all ETL steps
+│   ├── classification/                                                     — classification results
+│   ├── metadata/                                                           — extracted metadata
+│   ├── ocr/                                                                — OCR results
+│   ├── segmentation/                                                       — document segmentation
+│   ├── step1/                                                              — step 1 results
+│   ├── step2/                                                              — step 2 results
+│   ├── step3/
+│   ├── step4/
+│   ├── step5/
+│   ├── step6/
+│   ├── step7/
+│   └── step8/
+│
+├── src/                                                                    — Python project modules
+│   ├── extractors/                                                         — text extraction
+│   │   ├── base.py
+│   │   ├── docx_extractor.py
+│   │   ├── excel_extractor.py
+│   │   ├── image_extractor.py
+│   │   ├── pdf_scan_extractor.py
+│   │   ├── pdf_text_extractor.py
+│   │   ├── rtf_extractor.py
+│   │   ├── table_image_analyzer.py
+│   │   └── txt_extractor.py
+│   │
+│   ├── segmentation/                                                       — document segmentation
+│   │   ├── headers.py
+│   │   ├── normalization.py
+│   │   ├── postprocess.py
+│   │   ├── rule_based.py
+│   │   ├── segment_doc.py
+│   │   ├── segment_docx.py
+│   │   ├── segment_images.py
+│   │   ├── segment_pdf_scans.py
+│   │   ├── segment_pdf_text.py
+│   │   ├── segment_txt.py
+│   │   ├── segment_xlsx.py
+│   │   ├── utils.py
+│   │   └── well_log.py
+│   │
+│   ├── semantic_search/                                                    — global semantic search
+│   │   ├── chunks.py
+│   │   ├── embeddings.py
+│   │   ├── faiss.py
+│   │   ├── loaders.py
+│   │   ├── prepare.py
+│   │   ├── qs_table.py
+│   │   ├── query_suggestions.py
+│   │   ├── search.py
+│   │   └── suggestions.py
+│   │
+│   ├── classifier.py                                                       — document classification
+│   ├── extract_text.py                                                     — universal text extractor
+│   ├── features.py                                                         — features for models
+│   ├── final_json.py                                                       — final JSON structure
+│   ├── normalization.py                                                    — data normalization
+│   └── structuring.py                                                      — document structuring
+│
+├── plan_prj_ETL-serv.pdf                                                   — project plan
+│
+├── 01_research_and_pipeline.ipynb                                          — Steps 1–7 + 10: research, EDA, models
+├── 02_ETL.ipynb                                                            — Step 8: ETL pipeline
+├── 03_DEMO_API.ipynb                                                       — Step 9: API
+│
+├── 01_research_and_pipeline.pdf                                            — notebook export
+├── 02_ETL.pdf                                                              — notebook export
+├── 03_DEMO_API.pdf                                                         — notebook export
+│
+├── api.py                                                                  — FastAPI server
+├── requirements.txt                                                        — project dependencies
+└── README.md                                                               — project documentation
+```
+
+---
+
+## 🚀 How to run
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/aspozd-DA-DS/Pet-projects.git
+   ```
+2. Go to the project folder:
+   ```bash
+   cd Pet-projects/03_GeoExtract_ETL
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Run the research notebook:
+   ```bash
+   jupyter notebook 01_research_and_pipeline.ipynb
+   ```
+5. Run the ETL notebook:
+   ```bash
+   jupyter notebook 02_ETL.ipynb
+   ```
+6. Start the API:
+   ```bash
+   uvicorn api:app --reload
+   ```
+7. Open the Demo notebook:
+   ```bash
+   jupyter notebook 03_DEMO_API.ipynb
+   ```
+
+## 🏷 Topics
+`ETL` `OCR` `PyMuPDF` `PaddleOCR` `Semantic Search` `Segmentation`
+`FAISS` `MiniLM` `Regex Extraction` `Geology` `Python`
+`Document Processing` `NLP` `Machine Learning`
+`FastAPI` `Data Science` `Oil & Gas`
+
+<p align="right"><a href="#top">⬆ back to top</a></p>
