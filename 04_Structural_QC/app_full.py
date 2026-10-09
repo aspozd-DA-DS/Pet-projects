@@ -2462,6 +2462,7 @@ step2_cv_comparison_title = T["step2_cv_comparison_title"]
 step2_rmse_title = T["step2_rmse_title"]
 step2_fold_rmse_title = T["step2_fold_rmse_title"]
 step2_fold_rmse_boxplot_title = T["step2_fold_rmse_boxplot_title"]
+step2_boxplot_caption = T["step2_boxplot_caption"]
 step2_best_scheme_title = T["step2_best_scheme_title"]
 step2_cv_crossplot_title = T["step2_cv_crossplot_title"]
 step2_approximations_title = T["step2_approximations_title"]
@@ -2617,6 +2618,8 @@ st.dataframe(
     }),
     use_container_width=True
 )
+
+st.caption(step2_boxplot_caption)
 
 # Boxplot разброса RMSE по фолдам для каждой схемы CV (Шаг 2) — в стиле Шага 3
 # Длинная таблица: одна строка на фолд

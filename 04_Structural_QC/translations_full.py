@@ -166,6 +166,10 @@ RU.update({
     "step2_cv_comparison_title": "Сравнение схем CV",
     "step2_rmse_title": "RMSE по схемам CV",
     "step2_fold_rmse_title": "RMSE по фолдам (среднее) по схемам CV",
+    "step2_boxplot_caption": (
+        "Boxplot: линия внутри бокса показывает медиану, "
+        "пунктирная линия показывает среднее значение."
+    ),
     "step2_fold_rmse_boxplot_title": "Разброс RMSE по фолдам по схемам CV",
     "step2_best_scheme_title": "Лучшая схема CV",
     "step2_cv_crossplot_title": "Кросс-плот: Прогноз vs Факт",
@@ -192,6 +196,10 @@ EN.update({
     "step2_cv_comparison_title": "CV Scheme Comparison",
     "step2_rmse_title": "RMSE by CV Scheme",
     "step2_fold_rmse_title": "RMSE_fold (mean) by CV Scheme",
+    "step2_boxplot_caption": (
+        "Boxplot: the line inside the box represents the Median, "
+        "and the dashed line represents the Mean."
+    ),
     "step2_fold_rmse_boxplot_title": "RMSE variation across folds for the CV schemes",
     "step2_best_scheme_title": "Best CV Scheme",
     "step2_cv_crossplot_title": "Cross-Plot: Predicted vs Actual",
