@@ -926,6 +926,8 @@ with st.sidebar.expander(histogram_expander, expanded=False):
     sigma_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("orange"), key="sigma_color", label_visibility="collapsed",)
     sigma_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dash"), key="sigma_dash", label_visibility="collapsed",)
     sigma_width = st.slider(hist_line_width_label, 1, 10, 2, key="sigma_width", label_visibility="collapsed",)
+    hist_opacity = st.slider(T["hist_opacity_label"], 0.1, 1.0, 0.85, 0.05, key="hist_opacity")
+    sigma_k = st.slider(T["sigma_k_label"], 1, 3, 3, key="sigma_k")
 
 with st.sidebar.expander(boxplot_expander, expanded=False):
 
@@ -2072,6 +2074,8 @@ for col in numeric_cols:
                 title=f"{T['hist_title']} {display_col}",
                 xlabel=display_col,
                 show_sigma=True,
+                sigma_k=sigma_k,
+                opacity=hist_opacity,
                 kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
                 mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
                 median_color=median_color, median_dash=median_dash, median_width=median_width,
@@ -2267,6 +2271,8 @@ with col_h1:
         title=f"{hist_title_t} {PARAM_1}",
         xlabel=PARAM_1_LABEL,
         show_sigma=True,
+        sigma_k=sigma_k,
+        opacity=hist_opacity,
         kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
         mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
         median_color=median_color, median_dash=median_dash, median_width=median_width,
@@ -2283,6 +2289,8 @@ with col_h2:
         title=f"{hist_title_t} {PARAM_2}",
         xlabel=PARAM_2_LABEL,
         show_sigma=True,
+        sigma_k=sigma_k,
+        opacity=hist_opacity,
         kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
         mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
         median_color=median_color, median_dash=median_dash, median_width=median_width,
@@ -2381,6 +2389,8 @@ with col_r1:
         title=f"{hist_title_t} {DELTA_LABEL}",
         xlabel=DELTA_LABEL,
         show_sigma=True,
+        sigma_k=sigma_k,
+        opacity=hist_opacity,
         kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
         mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
         median_color=median_color, median_dash=median_dash, median_width=median_width,
@@ -2885,6 +2895,8 @@ with col_hcv:
         title=f"{hist_title_t} CV ({CV_RESIDUAL_LABEL})",
         xlabel=f"{CV_RESIDUAL_LABEL}, {PARAM_1_UNIT}",
         show_sigma=True,
+        sigma_k=sigma_k,
+        opacity=hist_opacity,
         kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
         mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
         median_color=median_color, median_dash=median_dash, median_width=median_width,
@@ -3039,6 +3051,37 @@ else:
     zone_fit_rows = []
     # Hist для категорий в шаге 3
     st.markdown(f"#### {T['hist_title']} по {category_col}")
+    # ---- Настройки наложенных гистограмм по зонам (отдельно от Шага 1) ----
+    with st.expander(T["zone_hist_settings_expander"], expanded=False):
+        col_zs1, col_zs2, col_zs3, col_zs4 = st.columns(4)
+        with col_zs1:
+            bins_zone = st.slider(T["hist_bins_label"], 10, 120, 40, key="bins_zone")
+            zone_opacity = st.slider(T["zone_hist_opacity_label"], 0.1, 1.0, 0.5, 0.05, key="zone_hist_opacity")
+        with col_zs2:
+            zone_hist_mode = st.radio(
+                T["zone_hist_mode_label"],
+                ["hist", "kde", "both"],
+                format_func=lambda x: T[f"zone_hist_mode_{x}"],
+                index=2,
+                horizontal=True,
+                key="zone_hist_mode",
+            )
+        with col_zs3:
+            zone_histnorm = st.selectbox(
+                T["zone_histnorm_label"],
+                ["none", "density", "probability", "percent"],
+                format_func=lambda x: hist_norm_map[x],
+                index=0,
+                key="zone_histnorm",
+            )
+        with col_zs4:
+            zone_show_mean = st.checkbox(T["mean_line_label"], value=True, key="zone_show_mean")
+            zone_show_median = st.checkbox(T["median_line_label"], value=True, key="zone_show_median")
+
+    show_hist_zone = zone_hist_mode in ("hist", "both")
+    show_kde_zone = zone_hist_mode in ("kde", "both")
+    zone_histnorm_value = "" if zone_histnorm == "none" else zone_histnorm
+
     col_hz1, col_hz2 = st.columns(2)
 
     with col_hz1:
@@ -3048,10 +3091,21 @@ else:
             zone_col=category_col,
             value_label=PARAM_1_LABEL,
             title=f"{T['hist_title']} {PARAM_1}",
-            bins=bins_step1,
-            histnorm=histnorm_value,
+            bins=bins_zone,
+            histnorm=zone_histnorm_value,
+            opacity=zone_opacity,
             zone_colors=zone_marker_colors,
             zone_order=list(zone_marker_colors.keys()) if zone_marker_colors else None,
+            show_hist=show_hist_zone,
+            show_kde=show_kde_zone,
+            show_mean=zone_show_mean,
+            show_median=zone_show_median,
+            kde_width=kde_width,
+            kde_dash=kde_dash,
+            mean_width=mean_width,
+            mean_dash=mean_dash,
+            median_width=median_width,
+            median_dash=median_dash,
         )
         st.plotly_chart(fig_hz1, use_container_width=True)
 
@@ -3062,13 +3116,23 @@ else:
             zone_col=category_col,
             value_label=PARAM_2_LABEL,
             title=f"{T['hist_title']} {PARAM_2}",
-            bins=bins_step1,
-            histnorm=histnorm_value,
+            bins=bins_zone,
+            histnorm=zone_histnorm_value,
+            opacity=zone_opacity,
             zone_colors=zone_marker_colors,
             zone_order=list(zone_marker_colors.keys()) if zone_marker_colors else None,
+            show_hist=show_hist_zone,
+            show_kde=show_kde_zone,
+            show_mean=zone_show_mean,
+            show_median=zone_show_median,
+            kde_width=kde_width,
+            kde_dash=kde_dash,
+            mean_width=mean_width,
+            mean_dash=mean_dash,
+            median_width=median_width,
+            median_dash=median_dash,
         )
         st.plotly_chart(fig_hz2, use_container_width=True)
-
 
     # ------------------------------------------------- #
     # # STEP 3.2.: ОБЩИЙ ГРАФИК ПО ВСЕМ ЗОНАМ

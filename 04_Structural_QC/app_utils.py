@@ -605,6 +605,13 @@ def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None
     return fig
 
 # ------ Универсальная функция для гистограмм (Шаги 1 и 2) ------
+HIST_YLABEL = {
+    "": "Количество",
+    "probability": "Доля",
+    "density": "Плотность",
+    "percent": "Доля, %",
+}
+
 def plot_hist_kde(
     data,
     bins,
@@ -613,6 +620,9 @@ def plot_hist_kde(
     title,
     xlabel,
     show_sigma=True,
+    sigma_k=3,              # множитель σ: 1, 2 или 3
+    opacity=0.85,           # прозрачность гистограммы
+    ylabel=None,            # подпись оси Y; если не задана, берётся по histnorm
     kde_color="black",    kde_dash="solid",     kde_width=3,      
     mean_color="green",   mean_dash="dash",     mean_width=2,     
     median_color="red",   median_dash="dot",    median_width=2,   
@@ -633,7 +643,7 @@ def plot_hist_kde(
         x=data,
         nbinsx=bins, histnorm=histnorm,
         marker_color=color,
-        opacity=0.85,
+        opacity=opacity,
         name="Histogram"
     ))
 
@@ -676,14 +686,14 @@ def plot_hist_kde(
     # μ±3σ
     if show_sigma:
         fig.add_trace(go.Scatter(
-            x=[mean + 3*std, mean + 3*std], y=[0, ymax], mode="lines",
-            name=f"+3σ = {mean + 3*std:.1f}",
+            x=[mean + sigma_k*std, mean + sigma_k*std], y=[0, ymax], mode="lines",
+            name=f"+{sigma_k}σ = {mean + sigma_k*std:.1f}",
             line=dict(color=sigma_color, width=sigma_width, dash=sigma_dash),
             yaxis="y2"
         ))
         fig.add_trace(go.Scatter(
-            x=[mean - 3*std, mean - 3*std], y=[0, ymax], mode="lines",
-            name=f"-3σ = {mean - 3*std:.1f}",
+            x=[mean - sigma_k*std, mean - sigma_k*std], y=[0, ymax], mode="lines",
+            name=f"-{sigma_k}σ = {mean - sigma_k*std:.1f}",
             line=dict(color=sigma_color, width=sigma_width, dash=sigma_dash),
             yaxis="y2"
         ))
@@ -693,7 +703,7 @@ def plot_hist_kde(
         margin=dict(l=10, r=10, t=70, b=10),
         title=dict(text=title, x=0.01, y=0.995),
         xaxis_title=xlabel,
-        yaxis_title="Histogram",
+        yaxis_title=ylabel or HIST_YLABEL.get(histnorm, "Количество"),
         yaxis2=dict(overlaying="y", side="right", title="KDE", showgrid=False),
         legend=dict(orientation="h", x=0, yanchor="bottom", y=1.02)
     )
@@ -1222,8 +1232,18 @@ def plot_zone_overlay_hist(
     opacity=0.5,
     height=380,
     legend_title=None,
+    show_hist=True,
+    show_kde=False,
+    show_mean=False,
+    show_median=False,
+    kde_width=2,
+    kde_dash="solid",
+    mean_width=2,
+    mean_dash="dash",
+    median_width=2,
+    median_dash="dot",
 ):
-    """Наложенные гистограммы значений по категориям (зонам)."""
+    """Наложенные гистограммы / KDE по зонам с линиями среднего и медианы в цвете зоны."""
     fig = go.Figure()
 
     present = set(df[zone_col].dropna().unique())
@@ -1232,25 +1252,82 @@ def plot_zone_overlay_hist(
     else:
         zones = sorted(present)
 
+    all_vals = df[value_col].dropna().to_numpy(float)
+    if all_vals.size == 0:
+        return fig
+
+    # Общие интервалы для всех зон, одинаковые для гистограмм и KDE
+    edges = np.histogram_bin_edges(all_vals, bins=bins)
+    bw = edges[1] - edges[0]
+    n_total = all_vals.size
+
+    # Перевод плотности KDE в шкалу выбранного histnorm (совпадает с Plotly)
+    kde_scale = {
+        "": n_total * bw,
+        "density": n_total,
+        "probability": bw,
+        "percent": 100 * bw,
+        "probability density": 1.0,
+    }.get(histnorm, n_total * bw)
+
+    xs = np.linspace(edges[0], edges[-1], 200)
+
     for zone in zones:
-        part = df.loc[df[zone_col] == zone, value_col].dropna()
-        if part.empty:
+        part = df.loc[df[zone_col] == zone, value_col].dropna().to_numpy(float)
+        if part.size == 0:
             continue
         color = zone_colors.get(zone) if zone_colors else None
-        fig.add_trace(go.Histogram(
-            x=part,
-            name=str(zone),
-            nbinsx=bins,
-            histnorm=histnorm,
-            opacity=opacity,
-            marker_color=color,
-        ))
+
+        if show_hist:
+            fig.add_trace(go.Histogram(
+                x=part,
+                name=str(zone),
+                xbins=dict(start=edges[0], end=edges[-1], size=bw),
+                histnorm=histnorm,
+                opacity=opacity,
+                marker_color=color,
+                legendgroup=str(zone),
+            ))
+
+        can_kde = part.size > 1 and len(np.unique(part)) > 1
+        kde_y = gaussian_kde(part)(xs) * kde_scale if can_kde else None
+
+        if show_kde and kde_y is not None:
+            fig.add_trace(go.Scatter(
+                x=xs,
+                y=kde_y,
+                mode="lines",
+                name=str(zone),
+                legendgroup=str(zone),
+                showlegend=not show_hist,     # в режиме «только KDE» легенда нужна здесь
+                line=dict(color=color, width=kde_width, dash=kde_dash),
+            ))
+
+        # Линии среднего и медианы: высота берётся по кривой KDE зоны
+        if kde_y is not None and (show_mean or show_median):
+            ymax = float(kde_y.max())
+            if show_mean:
+                m = float(part.mean())
+                fig.add_trace(go.Scatter(
+                    x=[m, m], y=[0, ymax], mode="lines",
+                    name=f"Mean {zone} = {m:.1f}",
+                    legendgroup=str(zone), showlegend=False,
+                    line=dict(color=color, width=mean_width, dash=mean_dash),
+                ))
+            if show_median:
+                md = float(np.median(part))
+                fig.add_trace(go.Scatter(
+                    x=[md, md], y=[0, ymax], mode="lines",
+                    name=f"Median {zone} = {md:.1f}",
+                    legendgroup=str(zone), showlegend=False,
+                    line=dict(color=color, width=median_width, dash=median_dash),
+                ))
 
     fig.update_layout(
         barmode="overlay",
         title=title,
         xaxis_title=value_label,
-        yaxis_title="Количество" if histnorm == "" else "Доля",
+        yaxis_title=HIST_YLABEL.get(histnorm, "Количество"),
         legend_title=legend_title or zone_col,
         height=height,
         margin=dict(l=10, r=10, t=50, b=10),
