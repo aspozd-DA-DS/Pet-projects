@@ -965,6 +965,36 @@ with st.sidebar.expander(bar_chart_expander, expanded=False):
 with st.sidebar.expander(pie_chart_expander, expanded=False):
     pie_palette = st.selectbox(pie_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="pie_palette")
 
+# ------------------------------------------------- #
+# SIDEBAR: STEP 0 - корреляционный анализ
+# ------------------------------------------------- #
+st.sidebar.markdown("---")
+
+with st.sidebar.expander(correlation_expander, expanded=False):
+
+    if df is not None:
+        numeric_columns = [
+            c
+            for c in df.select_dtypes(include=np.number).columns
+            if c not in ["Zprm_well", "Zprm_map"]
+        ]
+    else:
+        numeric_columns = []
+
+    default_corr_cols = [
+        c
+        for c in [PARAM_1, PARAM_2]
+        if c in numeric_columns
+    ]
+
+    all_parameters = st.checkbox(all_parameters_label, value=False, key="step0_all_parameters",)
+    corr_columns = st.multiselect(corr_parameters_label, options=numeric_columns,
+        default=(numeric_columns if all_parameters else default_corr_cols), key="step0_corr_columns",
+    )
+
+    if len(corr_columns) > 10:
+        st.warning(corr_warning)
+
 # ------------------------------------------------------------- #
 # SIDEBAR: Выбор типов и цветов аппроксимаций в Шагах 1–3
 # ------------------------------------------------------------- #
@@ -1170,36 +1200,6 @@ APPROX_DASHES  = user_approx_dashes
 APPROX_WIDTHS  = user_approx_widths       # для неквантильных кривых
 QUANTILE_DASHES = quantile_dashes
 QUANTILE_WIDTHS = quantile_widths         # для квантильных кривых (τ)
-
-# ------------------------------------------------- #
-# SIDEBAR: STEP 0 - корреляционный анализ
-# ------------------------------------------------- #
-st.sidebar.markdown("---")
-
-with st.sidebar.expander(correlation_expander, expanded=False):
-
-    if df is not None:
-        numeric_columns = [
-            c
-            for c in df.select_dtypes(include=np.number).columns
-            if c not in ["Zprm_well", "Zprm_map"]
-        ]
-    else:
-        numeric_columns = []
-
-    default_corr_cols = [
-        c
-        for c in [PARAM_1, PARAM_2]
-        if c in numeric_columns
-    ]
-
-    all_parameters = st.checkbox(all_parameters_label, value=False, key="step0_all_parameters",)
-    corr_columns = st.multiselect(corr_parameters_label, options=numeric_columns,
-        default=(numeric_columns if all_parameters else default_corr_cols), key="step0_corr_columns",
-    )
-
-    if len(corr_columns) > 10:
-        st.warning(corr_warning)
 
 # ------------------------------------------------- #
 # SIDEBAR: Предполагаемые выбросы в шагах 1 и 2
