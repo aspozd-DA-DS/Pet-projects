@@ -108,8 +108,12 @@ def _compute_basic_stats(x: np.ndarray, y: np.ndarray) -> BasicStats:
     n = len(x)
     if n < 2:
         raise ValueError("Not enough data")
+    
+    if np.ptp(x) == 0 or np.ptp(y) == 0:
+        slope = intercept = r = p = np.nan
+    else:
+        slope, intercept, r, p, se = stats.linregress(x, y)
 
-    slope, intercept, r, p, se = stats.linregress(x, y)
     residuals = y - x
     rmse = float(np.sqrt(np.mean(residuals ** 2)))
     mse = float(np.mean(residuals ** 2))

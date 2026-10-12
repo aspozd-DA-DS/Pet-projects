@@ -51,6 +51,7 @@ from app_utils import (
     show_outlier_table,
     show_outlier_tables,
     PALETTE_DICT,
+    corr_pairs_table,
 )
 
 # ================================================================================================================================ #
@@ -75,9 +76,11 @@ from app_utils import (
 st.set_page_config(page_title="Structural QC — cross-plot & cross-validation", layout="wide", page_icon="✳",)
 
 # ------ SIDEBAR: Language ------
+DEFAULT_LANGUAGE = "EN"   # язык интерфейса при первом открытии страницы
+
 with st.sidebar:
     if "sidebar_language" not in st.session_state:
-        st.session_state.sidebar_language = "RU"
+        st.session_state.sidebar_language = DEFAULT_LANGUAGE
     language = st.selectbox(
         "Language",
         ["RU", "EN"],
@@ -995,6 +998,14 @@ with st.sidebar.expander(correlation_expander, expanded=False):
     if len(corr_columns) > 10:
         st.warning(corr_warning)
 
+    corr_threshold = st.slider(
+        T["corr_threshold_label"],
+        min_value=0.0,
+        max_value=1.0,
+        value=0.7,
+        step=0.05,
+        key="corr_threshold",
+    )
 # ------------------------------------------------------------- #
 # SIDEBAR: Выбор типов и цветов аппроксимаций в Шагах 1–3
 # ------------------------------------------------------------- #
@@ -1587,6 +1598,11 @@ step0_corr_hint = T["step0_corr_hint"]
 step0_rows_count_title = T["step0_rows_count_title"]
 step0_unique_wells_title = T["step0_unique_wells_title"]
 step0_duplicate_wells_hint = T["step0_duplicate_wells_hint"]
+corr_pair_labels = (
+        T["corr_pairs_col_param1"],
+        T["corr_pairs_col_param2"],
+        T["corr_pairs_col_cc"],
+    )
 
 st.markdown('<div id="step-0"></div>', unsafe_allow_html=True)
 # ------------------------------------------------- #
@@ -1881,6 +1897,12 @@ if (df is not None and len(corr_columns) >= 2):
     
     # Пояснение: чем Пирсон отличается от Спирмена
     st.caption(step0_corr_hint)
+    st.markdown(f"#### {T['corr_pairs_title']}")
+    pairs_pearson = corr_pairs_table(corr_df, corr_threshold, corr_pair_labels)
+    if pairs_pearson.empty:
+        st.caption(T["corr_pairs_empty"])
+    else:
+        st.dataframe(pairs_pearson, use_container_width=True)
 
     # Матрица корреляции Спирмена
     st.markdown(f"### {step0_corr_spearman_title}")
@@ -1901,6 +1923,12 @@ if (df is not None and len(corr_columns) >= 2):
     fig_corr_sp.update_coloraxes(colorbar_title="Spearman<br>ρ")
     fig_corr_sp.update_layout(height=600, margin=dict(l=10, r=10, t=40, b=10),)
     st.plotly_chart(fig_corr_sp, use_container_width=True)
+    st.markdown(f"#### {T['corr_pairs_title']}")
+    pairs_spearman = corr_pairs_table(corr_df_spearman, corr_threshold, corr_pair_labels)
+    if pairs_spearman.empty:
+        st.caption(T["corr_pairs_empty"])
+    else:
+        st.dataframe(pairs_spearman, use_container_width=True)
 
     # Pairplot и Seaborn Pairplot
     st.markdown(f"### {step0_pairplot_title}")

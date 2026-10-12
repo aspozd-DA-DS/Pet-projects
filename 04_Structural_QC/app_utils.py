@@ -270,6 +270,22 @@ def plot_pairplot(
 
     return g.figure
 
+def corr_pairs_table(corr_matrix, threshold, labels):
+    """Таблица пар параметров, у которых |КК| ≥ threshold (без диагонали и дублей).
+
+    labels: (подпись параметра 1, подпись параметра 2, подпись КК) — берутся из переводов.
+    """
+    cols = list(corr_matrix.columns)
+    col1, col2, col_cc = labels
+    rows = []
+    for i in range(len(cols)):
+        for j in range(i + 1, len(cols)):
+            r = corr_matrix.iloc[i, j]
+            if pd.notna(r) and abs(r) >= threshold:
+                # для только положительной связи замените условие на: r >= threshold
+                rows.append({col1: cols[i], col2: cols[j], col_cc: round(float(r), 3)})
+    return pd.DataFrame(rows, columns=[col1, col2, col_cc])
+
 # ------------------------------------------------------------- #
 # FUNC: ОФОРМЛЕНИЕ КРОСС-ПЛОТОВ
 # ------------------------------------------------------------- #
@@ -655,17 +671,24 @@ def plot_hist_kde(
             xref="paper", yref="paper", x=0.5, y=0.95, showarrow=False
         )
     else:
-        kde = gaussian_kde(data)
-        x_kde = np.linspace(np.min(data), np.max(data), 300)
-        kde_y = kde(x_kde)
-        fig.add_trace(
-            go.Scatter(
-                x=x_kde, y=kde_y, mode="lines", name="KDE",
-                line=dict(color=kde_color, width=kde_width, dash=kde_dash),
-                yaxis="y2",
+        try:
+            kde = gaussian_kde(data)
+            x_kde = np.linspace(np.min(data), np.max(data), 300)
+            kde_y = kde(x_kde)
+            fig.add_trace(
+                go.Scatter(
+                    x=x_kde, y=kde_y, mode="lines", name="KDE",
+                    line=dict(color=kde_color, width=kde_width, dash=kde_dash),
+                    yaxis="y2",
+                )
             )
-        )
-        ymax = float(np.max(kde_y))
+            ymax = float(np.max(kde_y))
+        except (np.linalg.LinAlgError, ValueError):
+            ymax = 1.0
+            fig.add_annotation(
+                text="KDE cannot be computed (data nearly constant)",
+                xref="paper", yref="paper", x=0.5, y=0.95, showarrow=False
+            )
 
     # Mean
     fig.add_trace(go.Scatter(
@@ -798,12 +821,13 @@ def plot_box(
 # ------------------------------------------------------------- #
 # FUNC: Расчёт кривых аппроксимации
 # ------------------------------------------------------------- #
+# ------ Универсальная функция расчёта полиномиальной кривой ------
 def compute_polynomial_curve(x, y, x_line, degree):
-    """Универсальная функция расчёта полиномиальной кривой."""
+    if len(x) < degree + 1 or np.ptp(x) == 0:
+        return np.full(len(x_line), np.nan), "n/a"
     coeffs = np.polyfit(x, y, degree)
     poly = np.poly1d(coeffs)
-    return (poly(x_line), sq.polynomial_equation(coeffs))
-
+    return poly(x_line), sq.polynomial_equation(coeffs)
 
 def get_equation(approx, x, y):
     """Универсальная функция получения текста уравнения."""
@@ -1020,7 +1044,7 @@ def detect_outliers(residuals: np.ndarray, sigma_thr: float) -> tuple:
         else 0.0
     )
 
-    sigma_mask = (np.abs(residuals) > sigma_thr * sigma)
+    sigma_mask = (sigma > 0) & (np.abs(residuals) > sigma_thr * sigma)
 
     q1 = np.percentile(residuals, 25)
     q3 = np.percentile(residuals, 75)
@@ -1289,8 +1313,12 @@ def plot_zone_overlay_hist(
                 legendgroup=str(zone),
             ))
 
-        can_kde = part.size > 1 and len(np.unique(part)) > 1
-        kde_y = gaussian_kde(part)(xs) * kde_scale if can_kde else None
+        kde_y = None
+        if part.size > 1 and len(np.unique(part)) > 1:
+            try:
+                kde_y = gaussian_kde(part)(xs) * kde_scale
+            except (np.linalg.LinAlgError, ValueError):
+                kde_y = None
 
         if show_kde and kde_y is not None:
             fig.add_trace(go.Scatter(
