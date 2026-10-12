@@ -185,8 +185,199 @@ def fitstats_to_dict(stats):
     }
 
 # ------------------------------------------------------------- #
+# FUNC: АНАЛИЗ КАТЕГОРИИ ПРИ ЗАГРУЗКЕ, В ШАГЕ 3 - Plot_Pie, Boxplot
+# ------------------------------------------------------------- #
+# ------ Круговая диаграмма для категорий в шаге 3 ------
+def plot_zone_pie(df, category_col, palette="Plotly", title=""):
+
+    zone_counts = (df[category_col].fillna("Not specified").value_counts().reset_index())
+    zone_counts.columns = ["Category", "Count"]
+
+    fig = px.pie(
+        zone_counts,
+        names="Category",
+        values="Count",
+        hole=0.35,
+        color_discrete_sequence=PALETTE_DICT.get(palette, px.colors.qualitative.Plotly)
+    )
+
+    total = zone_counts["Count"].sum()
+
+    custom_text = [
+        f"{cat}<br>{cnt}<br>{100 * cnt / total:.1f}%"
+        for cat, cnt in zip(zone_counts["Category"], zone_counts["Count"])
+    ]
+
+    fig.update_traces(
+        text=custom_text,
+        textinfo="text",
+        textposition="inside"
+    )
+
+    fig.update_layout(
+        height=420,
+        margin=dict(l=10, r=10, t=70, b=10),
+        title=dict(text=title, x=0.01, y=0.995),
+        legend=dict(orientation="v")
+    )
+
+    return fig
+
+def category_stats_table(df, col, wells_label, records_label, share_label, col_label):
+    """Статистика по категории: число скважин, число записей (скважина-горизонт) и доля скважин."""
+    cat = df[[col, "well_id"]].copy()
+    cat[col] = cat[col].fillna("(not specified)").astype(str)
+    stats = (
+        cat.groupby(col)
+           .agg(wells=("well_id", "nunique"), records=("well_id", "size"))
+           .reset_index()
+    )
+    total_wells = df["well_id"].nunique()
+    stats["share"] = (100 * stats["wells"] / total_wells).round(1) if total_wells > 0 else 0.0
+    return stats.rename(columns={
+        col: col_label,
+        "wells": wells_label,
+        "records": records_label,
+        "share": share_label,
+    })
+
+# ------ Boxplot по нескольким категоримя ------
+def plot_category_crosstab(df, x_col, group_col, title, x_label, y_label,
+                           legend_title=None, palette="Plotly", orientation="v",
+                           outline_color="black", outline_width=0,
+                           agg="count", value_col=None, height=420):
+    """Сгруппированная диаграмма: по X — значения x_col, столбцы внутри — значения group_col.
+    agg="count": число уникальных скважин (well_id), в подписи число и доля от всех скважин.
+    agg="min" / "max" / "median" / "mean" / "std": агрегат по value_col в каждой комбинации,
+    в подписи значение и в скобках число скважин, по которым он посчитан."""
+    data = df.copy()
+    data[x_col] = data[x_col].fillna("(not specified)").astype(str)
+    data[group_col] = data[group_col].fillna("(not specified)").astype(str)
+
+    is_count = (agg == "count") or (value_col is None)
+    if is_count:
+        ct = data.groupby([x_col, group_col])["well_id"].nunique().unstack(fill_value=0)
+        n_ct = None
+    else:
+        vals = pd.to_numeric(data[value_col], errors="coerce")
+        ct = getattr(vals.groupby([data[x_col], data[group_col]]), agg)().unstack()
+        # число скважин с непустым значением в каждой комбинации
+        n_ct = (
+            data.assign(_v=vals.values).dropna(subset=["_v"])
+                .groupby([x_col, group_col])["well_id"].nunique()
+                .unstack(fill_value=0)
+                .reindex(index=ct.index, columns=ct.columns, fill_value=0)
+        )
+
+    colors = PALETTE_DICT.get(palette, px.colors.qualitative.Plotly)
+    cats = [str(v) for v in ct.index]
+    def make_text(group_name, x_name, v):
+        if pd.isna(v):
+            return ""
+        if is_count:
+            v_int = int(v)
+            row_total = float(ct.loc[x_name].sum())
+            if row_total > 0:
+                return f"{v_int}<br>({100 * v_int / row_total:.1f}%)"
+            return f"{v_int}"
+        return f"{v:.2f}<br>(n={int(n_ct.loc[x_name, group_name])})"
+
+    fig = go.Figure()
+    for i, g in enumerate(ct.columns):
+        raw = ct[g].tolist()
+        values = [None if pd.isna(v) else v for v in raw]
+        texts = [make_text(g, cats_raw, v) for cats_raw, v in zip(ct.index, raw)]
+        common = dict(
+            name=str(g),
+            text=texts,
+            textposition="outside",
+            cliponaxis=False,
+            marker=dict(color=colors[i % len(colors)],
+                        line=dict(color=outline_color, width=outline_width)),
+        )
+        if orientation == "h":
+            fig.add_trace(go.Bar(x=values, y=cats, orientation="h", **common))
+        else:
+            fig.add_trace(go.Bar(x=cats, y=values, **common))
+
+    # запас сверху, чтобы подпись самого высокого столбца не обрезалась
+    if ct.size and not np.all(pd.isna(ct.values)):
+        max_val = float(np.nanmax(ct.values))
+        if max_val > 0:
+            if orientation == "h":
+                fig.update_xaxes(range=[0, max_val * 1.25])
+            else:
+                fig.update_yaxes(range=[0, max_val * 1.25])
+
+    if orientation == "h":
+        x_title, y_title = y_label, x_label
+    else:
+        x_title, y_title = x_label, y_label
+
+    fig.update_layout(
+        barmode="group",
+        title=title,
+        xaxis_title=x_title,
+        yaxis_title=y_title,
+        legend_title=legend_title or group_col,
+        height=height,
+        margin=dict(l=10, r=10, t=50, b=10),
+    )
+    return fig
+
+def crosstab_stats_table(df, x_col, group_col, x_label, group_label,
+                         agg="count", value_col=None, total_label="Всего"):
+    """Таблица к сгруппированной диаграмме: строки — значения x_col, столбцы — значения group_col.
+    agg="count": число уникальных скважин и в скобках доля от суммы всех ячеек (как на диаграмме),
+    плюс строка и столбец «Всего» с числами.
+    Иначе: агрегат по value_col и в скобках число скважин, по которым он посчитан."""
+    data = df.copy()
+    data[x_col] = data[x_col].fillna("(not specified)").astype(str)
+    data[group_col] = data[group_col].fillna("(not specified)").astype(str)
+
+    if agg == "count" or value_col is None:
+        ct = data.groupby([x_col, group_col])["well_id"].nunique().unstack(fill_value=0)
+
+        out = ct.astype(object)
+        for r in ct.index:
+            row_total = float(ct.loc[r].sum())
+            for c in ct.columns:
+                v = int(ct.loc[r, c])
+                out.loc[r, c] = (f"{v} ({100 * v / row_total:.1f}%)"
+                                 if row_total > 0 else f"{v}")
+
+        out[total_label] = ct.sum(axis=1).astype(int).values
+        totals_row = list(ct.sum(axis=0).astype(int).values) + [int(ct.values.sum())]
+        out.loc[total_label] = totals_row
+        out.index.name = x_label
+        out.columns.name = group_label
+        return out
+
+    vals = pd.to_numeric(data[value_col], errors="coerce")
+    ct = getattr(vals.groupby([data[x_col], data[group_col]]), agg)().unstack()
+    n_ct = (
+        data.assign(_v=vals.values).dropna(subset=["_v"])
+            .groupby([x_col, group_col])["well_id"].nunique()
+            .unstack(fill_value=0)
+            .reindex(index=ct.index, columns=ct.columns, fill_value=0)
+    )
+    out = ct.astype(object)
+    for r in ct.index:
+        for c in ct.columns:
+            v = ct.loc[r, c]
+            out.loc[r, c] = "" if pd.isna(v) else f"{v:.2f} (n={int(n_ct.loc[r, c])})"
+    out.index.name = x_label
+    out.columns.name = group_label
+    return out
+
+# ------------------------------------------------------------- #
 # FUNC: КОРРЕЛЯЦИОННЫЙ АНАЛИЗ
 # ------------------------------------------------------------- #
+_MPL_LINESTYLE = {
+    "solid": "-", "dash": "--", "dot": ":", "dashdot": "-.",
+    "longdash": (0, (8, 4)), "longdashdot": (0, (8, 4, 2, 4)),
+}
+
 def plot_pairplot(
     df, columns, diag_kind="kde",
     height=1.8,
@@ -195,6 +386,8 @@ def plot_pairplot(
     hist_color="orange", kde_color="black", scale=1.0,
     category_col=None,
     category_colors=None,
+    kde_linewidth=1.5, kde_linestyle="solid", hist_bins=30,
+    hist_outline_color="black", hist_outline_width=0,
 ):
     pair_df = (df[columns].select_dtypes(include=np.number).dropna())
 
@@ -213,6 +406,13 @@ def plot_pairplot(
 
     if len(pair_df) < 2:
         raise ValueError("Not enough data for Pairplot")
+
+    if diag_kind == "kde":
+        diag_kws = dict(color=kde_color, linewidth=kde_linewidth,
+                        linestyle=_MPL_LINESTYLE.get(kde_linestyle, "-"))
+    else:
+        diag_kws = dict(color=hist_color, bins=hist_bins,
+                        edgecolor=hist_outline_color, linewidth=hist_outline_width)
 
     # Если задана категориальная колонка — раскрашиваем точки по категории
     hue_series = None
@@ -239,7 +439,7 @@ def plot_pairplot(
             height=height,
             palette=palette_arg,
             plot_kws=dict(alpha=point_opacity, s=point_size * 8,),
-            diag_kws=dict(color=(kde_color if diag_kind == "kde" else hist_color)),
+            diag_kws=diag_kws,
         )
 
         # Легенда горизонтально НАД графиком, по центру
@@ -261,7 +461,7 @@ def plot_pairplot(
             corner=corner,
             height=height,
             plot_kws=dict(color=point_color, alpha=point_opacity, s=point_size * 8,),
-            diag_kws=dict(color=(kde_color if diag_kind == "kde" else hist_color)),
+            diag_kws=diag_kws,
         )
 
     g.figure.set_size_inches(g.figure.get_size_inches() * scale)
@@ -561,8 +761,7 @@ def build_approximation_plot(
 # FUNC: ОФОРМЛЕНИЕ Bar Chart, ГИСТОГРАММ И BOXPLOT
 # ------------------------------------------------------------- #
 # ------ Универсальная функция столбчатой диаграммы bar chart ------
-def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None, show_percent=False, orientation="v", legend_title=None,):
-
+def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None, show_percent=False, orientation="v", legend_title=None, outline_color="black", outline_width=0,):
     colors = PALETTE_DICT.get(palette, px.colors.qualitative.Plotly)
     bar_colors = [
         colors[i % len(colors)]
@@ -590,7 +789,7 @@ def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None
                     name=str(xi),
                     text=[txt],
                     textposition="outside",
-                    marker_color=col,
+                    marker=dict(color=col, line=dict(color=outline_color, width=outline_width)),
                     showlegend=True,
                 )
             )
@@ -603,7 +802,7 @@ def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None
                     name=str(xi),
                     text=[txt],
                     textposition="outside",
-                    marker_color=col,
+                    marker=dict(color=col, line=dict(color=outline_color, width=outline_width)),
                     showlegend=True,
                 )
             )
@@ -637,6 +836,8 @@ def plot_hist_kde(
     xlabel,
     show_sigma=True,
     sigma_k=3,              # множитель σ: 1, 2 или 3
+    hist_outline_color="black",
+    hist_outline_width=0,
     opacity=0.85,           # прозрачность гистограммы
     ylabel=None,            # подпись оси Y; если не задана, берётся по histnorm
     kde_color="black",    kde_dash="solid",     kde_width=3,      
@@ -658,7 +859,7 @@ def plot_hist_kde(
     fig.add_trace(go.Histogram(
         x=data,
         nbinsx=bins, histnorm=histnorm,
-        marker_color=color,
+        marker=dict(color=color, line=dict(color=hist_outline_color, width=hist_outline_width),),
         opacity=opacity,
         name="Histogram"
     ))
@@ -737,8 +938,10 @@ def plot_hist_kde(
 def plot_box(
     data, color, ylabel, well_label,
     title=None, well_ids=None, value_label=None,
-    mean_color="green",   mean_dash="dash",   mean_width=2,     
-    median_color="red",   median_dash="dot",  median_width=2,   
+    mean_color="green",   mean_dash="dash",   mean_width=2,
+    box_opacity=0.6, box_outline_color=None, box_outline_width=2,
+    median_color="red",   median_dash="dot",  median_width=2,
+    box_orientation="v",
 ):
     data = np.asarray(data)
     if well_ids is not None:
@@ -752,69 +955,71 @@ def plot_box(
 
     mean = np.mean(data)
     median = np.median(data)
+    horizontal = (box_orientation == "h")
 
     fig = go.Figure()
     if value_label is None:
         value_label = ylabel
 
-    # Основной boxplot — фиксируем его в x=0, чтобы числовая ось X
-    # была согласована с линиями Mean/Median ниже
-    fig.add_trace(
-        go.Box(
-            y=data,
-            x=[0] * len(data),                 # ← box в x=0
-            name="Boxplot",
-            marker_color=color,
-            fillcolor=color,
-            opacity=0.6,
-            boxmean=True,
-            boxpoints="outliers",
-            text=well_ids,
-            hovertemplate=(
-                f"{well_label}: %{{text}}"
-                f"<br>{value_label}: %{{y:.2f}}"
-                f"<extra></extra>"
-            ),
-        )
+    box_kwargs = dict(
+        name="Boxplot",
+        marker_color=color,
+        fillcolor=color,
+        opacity=box_opacity,
+        line=dict(color=box_outline_color or color, width=box_outline_width),
+        boxmean=True,
+        boxpoints="outliers",
+        text=well_ids,
     )
+    if horizontal:
+        # box стоит в y=0, значения откладываются по X
+        fig.add_trace(go.Box(
+            x=data, y=[0] * len(data), orientation="h",
+            hovertemplate=(f"{well_label}: %{{text}}"
+                           f"<br>{value_label}: %{{x:.2f}}"
+                           f"<extra></extra>"),
+            **box_kwargs,
+        ))
+    else:
+        # box стоит в x=0, значения откладываются по Y
+        fig.add_trace(go.Box(
+            y=data, x=[0] * len(data),
+            hovertemplate=(f"{well_label}: %{{text}}"
+                           f"<br>{value_label}: %{{y:.2f}}"
+                           f"<extra></extra>"),
+            **box_kwargs,
+        ))
 
-    # Линии Mean и Median — как trace'ы, чтобы клик по легенде скрывал/показывал их
-    fig.add_trace(
-        go.Scatter(
-            x=[-0.5, 0.5],
-            y=[mean, mean],
-            mode="lines",
-            name=f"Mean = {mean:.2f}",
-            line=dict(color=mean_color, width=mean_width, dash=mean_dash),
-            hoverinfo="skip",
-        )
-    )
+    def ref_line(val, name, colr, width, dash):
+        if horizontal:
+            return go.Scatter(x=[val, val], y=[-0.5, 0.5], mode="lines", name=name,
+                              line=dict(color=colr, width=width, dash=dash), hoverinfo="skip")
+        return go.Scatter(x=[-0.5, 0.5], y=[val, val], mode="lines", name=name,
+                          line=dict(color=colr, width=width, dash=dash), hoverinfo="skip")
 
-    fig.add_trace(
-        go.Scatter(
-            x=[-0.5, 0.5],
-            y=[median, median],
-            mode="lines",
-            name=f"Median = {median:.2f}",
-            line=dict(color=median_color, width=median_width, dash=median_dash),
-            hoverinfo="skip",
-        )
-    )
+    fig.add_trace(ref_line(mean, f"Mean = {mean:.2f}", mean_color, mean_width, mean_dash))
+    fig.add_trace(ref_line(median, f"Median = {median:.2f}", median_color, median_width, median_dash))
 
-    fig.update_layout(
-        height=350,
-        margin=dict(l=10, r=10, t=70, b=10),
-        title=dict(text=title, x=0.01, y=0.995),
-        yaxis_title=ylabel,
-        showlegend=True,
-        legend=dict(orientation="h", yanchor="bottom", y=1.02),
-        xaxis=dict(
-            showticklabels=False,     # скрываем числовые tick'и
-            showgrid=False,
-            zeroline=False,
-            range=[-0.75, 0.75],      # чуть шире линий, чтобы box не «прилипал» к краям
-        ),
-    )
+    if horizontal:
+        fig.update_layout(
+            height=350,
+            margin=dict(l=10, r=10, t=70, b=10),
+            title=dict(text=title, x=0.01, y=0.995),
+            xaxis_title=ylabel,
+            showlegend=True,
+            legend=dict(orientation="h", yanchor="bottom", y=1.02),
+            yaxis=dict(showticklabels=False, showgrid=False, zeroline=False, range=[-0.75, 0.75]),
+        )
+    else:
+        fig.update_layout(
+            height=350,
+            margin=dict(l=10, r=10, t=70, b=10),
+            title=dict(text=title, x=0.01, y=0.995),
+            yaxis_title=ylabel,
+            showlegend=True,
+            legend=dict(orientation="h", yanchor="bottom", y=1.02),
+            xaxis=dict(showticklabels=False, showgrid=False, zeroline=False, range=[-0.75, 0.75]),
+        )
 
     return fig
 
@@ -1158,54 +1363,21 @@ def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
     )
 
 # ------------------------------------------------------------- #
-# FUNC: КАТЕГОРИИ В ШАГЕ 3 - Plot_Pie, Boxplot
+# FUNC: КАТЕГОРИИ В ШАГЕ 3 - Boxplot и Гисторграмм
 # ------------------------------------------------------------- #
-# ------ Круговая диаграмма для категорий в шаге 3 ------
-def plot_zone_pie(df, category_col, palette="Plotly", title=""):
-
-    zone_counts = (df[category_col].fillna("Not specified").value_counts().reset_index())
-    zone_counts.columns = ["Category", "Count"]
-
-    fig = px.pie(
-        zone_counts,
-        names="Category",
-        values="Count",
-        hole=0.35,
-        color_discrete_sequence=PALETTE_DICT.get(palette, px.colors.qualitative.Plotly)
-    )
-
-    total = zone_counts["Count"].sum()
-
-    custom_text = [
-        f"{cat}<br>{cnt}<br>{100 * cnt / total:.1f}%"
-        for cat, cnt in zip(zone_counts["Category"], zone_counts["Count"])
-    ]
-
-    fig.update_traces(
-        text=custom_text,
-        textinfo="text",
-        textposition="inside"
-    )
-
-    fig.update_layout(
-        height=420,
-        margin=dict(l=10, r=10, t=70, b=10),
-        title=dict(text=title, x=0.01, y=0.995),
-        legend=dict(orientation="v")
-    )
-
-    return fig
-
 # ------ Диаграмма Boxplot для категорий в шаге 3 ------
 def plot_zone_boxplot(
     df, value_col, well_label,
     zone_col="tectonic_zone", zone_label="Category",
     title="", yaxis_title="", zone_colors=None, value_label=None,
     zone_order=None,
+    box_opacity=0.6, box_outline_width=2, box_outline_color=None,
+    box_orientation="v",
 ):
     fig = go.Figure()
     if value_label is None:
         value_label = yaxis_title
+    horizontal = (box_orientation == "h")
 
     if zone_order is not None:
         zones = [z for z in zone_order if z in set(df[zone_col].dropna().unique())]
@@ -1214,32 +1386,48 @@ def plot_zone_boxplot(
 
     for zone in zones:
         zone_part = df[df[zone_col] == zone]
-        fig.add_trace(
-            go.Box(
-                y=zone_part[value_col],
-                name=str(zone),
-                boxmean=True,
-                boxpoints="outliers",
-                text=zone_part["well_id"],
-                marker_color=(zone_colors.get(zone, "gray") if zone_colors else None),
-                hovertemplate=(
-                    f"{well_label}: %{{text}}"
-                    f"<br>{zone_label}: {zone}"
-                    f"<br>{value_label}: %{{y:.2f}}"
-                    f"<extra></extra>"
-                ),
-            )
+        zc = zone_colors.get(zone, "gray") if zone_colors else None
+        common = dict(
+            name=str(zone),
+            boxmean=True,
+            boxpoints="outliers",
+            text=zone_part["well_id"],
+            marker_color=zc,
+            opacity=box_opacity,
+            line=dict(color=box_outline_color or zc, width=box_outline_width),
         )
+        if horizontal:
+            fig.add_trace(go.Box(
+                x=zone_part[value_col], orientation="h",
+                hovertemplate=(f"{well_label}: %{{text}}"
+                               f"<br>{zone_label}: {zone}"
+                               f"<br>{value_label}: %{{x:.2f}}"
+                               f"<extra></extra>"),
+                **common,
+            ))
+        else:
+            fig.add_trace(go.Box(
+                y=zone_part[value_col],
+                hovertemplate=(f"{well_label}: %{{text}}"
+                               f"<br>{zone_label}: {zone}"
+                               f"<br>{value_label}: %{{y:.2f}}"
+                               f"<extra></extra>"),
+                **common,
+            ))
+
+    if horizontal:
+        x_title, y_title = yaxis_title, zone_label
+    else:
+        x_title, y_title = zone_label, yaxis_title
 
     fig.update_layout(
         height=450,
         title=title,
-        xaxis_title=zone_label,
-        yaxis_title=yaxis_title,
+        xaxis_title=x_title,
+        yaxis_title=y_title,
         showlegend=True,
         legend_title=zone_label,
     )
-
     return fig
 
 # ------ Гисторграмма для категорий в шаге 3 ------
@@ -1262,6 +1450,8 @@ def plot_zone_overlay_hist(
     show_median=False,
     kde_width=2,
     kde_dash="solid",
+    hist_outline_color="black",
+    hist_outline_width=0,
     mean_width=2,
     mean_dash="dash",
     median_width=2,
@@ -1309,7 +1499,7 @@ def plot_zone_overlay_hist(
                 xbins=dict(start=edges[0], end=edges[-1], size=bw),
                 histnorm=histnorm,
                 opacity=opacity,
-                marker_color=color,
+                marker=dict(color=color, line=dict(color=hist_outline_color, width=hist_outline_width),),
                 legendgroup=str(zone),
             ))
 

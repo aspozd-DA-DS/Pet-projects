@@ -52,6 +52,9 @@ from app_utils import (
     show_outlier_tables,
     PALETTE_DICT,
     corr_pairs_table,
+    plot_category_crosstab,
+    crosstab_stats_table,
+    category_stats_table,
 )
 
 # ================================================================================================================================ #
@@ -171,6 +174,11 @@ histogram_expander = T["histogram_expander"]
 hist_line_style_label = T["hist_line_style_label"]
 hist_line_width_label = T["hist_line_width_label"]
 hist_fill_color_label = T["hist_fill_color_label"]
+hist_outline_label = T["hist_outline_label"]
+hist_outline_on_label = T["hist_outline_on_label"]
+hist_opacity_label = T["hist_opacity_label"]
+hist_bins_label = T["hist_bins_label"]
+zone_hist_opacity_label = T["zone_hist_opacity_label"]
 kde_curve_label = T["kde_curve_label"]
 mean_line_label = T["mean_line_label"]
 median_line_label = T["median_line_label"]
@@ -180,6 +188,8 @@ box_fill_color_label = T["box_fill_color_label"]
 box_line_width_label = T["box_line_width_label"]
 box_mean_label = T["box_mean_label"]
 box_median_label = T["box_median_label"]
+box_outline_label = T["box_outline_label"]
+box_opacity_label = T["box_opacity_label"]
 residual_expander = T["residual_expander"]
 residual_color_label = T["residual_color_label"]
 residual_map_expander = T["residual_map_expander"]
@@ -192,6 +202,7 @@ category_bar_palette_label = T["category_bar_palette_label"]
 pie_chart_expander = T["pie_chart_expander"]
 pie_palette_label = T["pie_palette_label"]
 
+approx_group_title = T["approx_group_title"]
 approx_expander = T["approx_expander"]
 all_approximations_label_step1 = T["all_approximations_label_step1"]
 all_approximations_label_step2 = T["all_approximations_label_step2"]
@@ -215,6 +226,7 @@ pairplot_corner_label = T["pairplot_corner_label"]
 
 outlier_expander = T["outlier_expander"]
 sigma_threshold_label = T["sigma_threshold_label"]
+sigma_k_label = T["sigma_k_label"]
 
 category_expander = T["category_expander"]
 category_parameter_label = T["category_parameter_label"]
@@ -277,6 +289,42 @@ spatial_radius_label = T["spatial_radius_label"]
 distance_cv_title = T["distance_cv_title"]
 variogram_factor_label = T["variogram_factor_label"]
 variogram_factor_caption = T["variogram_factor_caption"]
+corr_threshold_label = T["corr_threshold_label"]
+
+crosstab_expander = T["crosstab_expander"]
+crosstab_orientation_label = T["crosstab_orientation_label"]
+crosstab_orient_v = T["crosstab_orient_v"]
+crosstab_orient_h = T["crosstab_orient_h"]
+crosstab_outline_label = T["crosstab_outline_label"]
+step0_crosstab_title = T["step0_crosstab_title"]
+step0_crosstab_x_label = T["step0_crosstab_x_label"]
+step0_crosstab_group_label = T["step0_crosstab_group_label"]
+step0_crosstab_need_two = T["step0_crosstab_need_two"]
+crosstab_agg_label = T["crosstab_agg_label"]
+crosstab_agg_count = T["crosstab_agg_count"]
+crosstab_agg_min = T["crosstab_agg_min"]
+crosstab_agg_max = T["crosstab_agg_max"]
+crosstab_agg_median = T["crosstab_agg_median"]
+crosstab_agg_mean = T["crosstab_agg_mean"]
+crosstab_value_label = T["crosstab_value_label"]
+crosstab_agg_std = T["crosstab_agg_std"]
+
+bar_orientation_label = T["bar_orientation_label"]
+bar_orient_v = T["bar_orient_v"]
+bar_orient_h = T["bar_orient_h"]
+bar_outline_label = T["bar_outline_label"]
+bar_group_load_title = T["bar_group_load_title"]
+bar_group_fold_title = T["bar_group_fold_title"]
+bar_group_rmse_title = T["bar_group_rmse_title"]
+bar_group_step3_title = T["bar_group_step3_title"]
+
+
+cat_stats_wells = T["cat_stats_wells"]
+cat_stats_records = T["cat_stats_records"]
+cat_stats_share = T["cat_stats_share"]
+crosstab_table_title = T["crosstab_table_title"]
+crosstab_table_total = T["crosstab_table_total"]
+
 
 # ------------------------------------------------------------- #
 # SIDEBAR: Подготовка данных
@@ -785,6 +833,32 @@ CATEGORY_PALETTES = [
     "Set3", "Spectral", "Turbo", "Viridis"
 ]
 
+with st.sidebar.expander(crosstab_expander, expanded=False):
+    crosstab_palette = st.selectbox(category_bar_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="crosstab_palette",)
+    crosstab_agg = st.selectbox(
+        crosstab_agg_label,
+        ["count", "min", "max", "median", "mean", "std"],
+        format_func=lambda x: T[f"crosstab_agg_{x}"],
+        index=0, key="crosstab_agg",
+    )
+    crosstab_value_options = [
+        c for c in df.select_dtypes(include=np.number).columns
+        if c not in ("well_id", "X_coord", "Y_coord")
+    ] if df is not None else []
+    crosstab_value_col = None
+    if crosstab_agg != "count" and crosstab_value_options:
+        crosstab_value_col = st.selectbox(crosstab_value_label, crosstab_value_options, format_func=display_name, key="crosstab_value_col",)
+
+    crosstab_orientation = st.radio(
+        crosstab_orientation_label, ["v", "h"], index=0, horizontal=True,
+        format_func=lambda x: crosstab_orient_v if x == "v" else crosstab_orient_h,
+        key="crosstab_orientation",
+    )
+    st.markdown(f"**{crosstab_outline_label}**")
+    st.caption(hist_line_width_label)
+    crosstab_outline_width = st.slider(hist_line_width_label, 0, 5, 0, key="crosstab_outline_width", label_visibility="collapsed")
+    crosstab_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="crosstab_outline_color", label_visibility="collapsed")
+
 with st.sidebar.expander(corr_pairplot_expander, expanded=False):
     corr_palette = st.selectbox(corr_palette_label, MAP_PALETTES, index=MAP_PALETTES.index("RdBu"), key="corr_palette")
     pairplot_point_color = st.selectbox(pairplot_point_color_label, ALL_COLORS, index=ALL_COLORS.index("steelblue"), key="pairplot_point_color")
@@ -863,6 +937,30 @@ with st.sidebar.expander(corr_pairplot_expander, expanded=False):
     if pairplot_engine == "Seaborn Pairplot (static)":
         # Настройки Seaborn Pairplot
         diag_kind = st.selectbox(pairplot_diag_label, ["kde", "hist"], index=0, key="diag_kind",)
+
+        if diag_kind == "kde":
+            st.caption(hist_line_width_label)
+            pairplot_kde_width = st.slider(hist_line_width_label, 1.0, 10.0, 1.5, 0.5, key="pairplot_kde_width", label_visibility="collapsed",)
+            pairplot_kde_linestyle = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("solid"), key="pairplot_kde_linestyle",)
+            pairplot_hist_bins = 30
+            pairplot_hist_outline_color = "black"
+            pairplot_hist_outline_width_eff = 0
+        else:
+            pairplot_kde_width = 1.5
+            pairplot_kde_linestyle = "solid"
+            pairplot_hist_bins = st.slider(hist_bins_label, 5, 120, 30, key="pairplot_hist_bins",)
+
+            st.markdown(f"**{hist_outline_label}**")
+            pairplot_hist_outline_on = st.checkbox(hist_outline_on_label, value=False, key="pairplot_hist_outline_on")
+            pairplot_hist_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="pairplot_hist_outline_color",
+                                                       label_visibility="collapsed", disabled=not pairplot_hist_outline_on)
+            st.caption(hist_line_width_label)
+            pairplot_hist_outline_width = st.slider(hist_line_width_label, 0, 5, 1,
+                                                    key="pairplot_hist_outline_width",
+                                                    label_visibility="collapsed",
+                                                    disabled=not pairplot_hist_outline_on)
+            pairplot_hist_outline_width_eff = (pairplot_hist_outline_width if pairplot_hist_outline_on else 0)
+
         pairplot_scale = st.slider(pairplot_scale_label, 0.5, 6.0, 1.0, 0.1, key="pairplot_scale",)
         pairplot_size = st.slider(pairplot_size_label, 0.8, 6.0, 1.8, 0.1, key="pairplot_size",)
         pairplot_corner = st.checkbox(pairplot_corner_label, value=False, key="pairplot_corner",)
@@ -903,6 +1001,17 @@ with st.sidebar.expander(histogram_expander, expanded=False):
 
     # Заливка гистограммы — только цвет
     hist_color = st.selectbox(hist_fill_color_label, ALL_COLORS, index=ALL_COLORS.index("orange"), key="hist_color")
+    # ---------- Прозрачность ----------
+    hist_opacity = st.slider(hist_opacity_label, 0.1, 1.0, 0.85, 0.05, key="hist_opacity")
+
+    # ---------- Границы блоков ----------
+    st.markdown(f"**{hist_outline_label}**")
+    hist_outline_on = st.checkbox(hist_outline_on_label, value=False, key="hist_outline_on")
+    hist_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="hist_outline_color", label_visibility="collapsed", disabled=not hist_outline_on,)
+    st.caption(hist_line_width_label)
+    hist_outline_width = st.slider(hist_line_width_label, 0, 5, 1, key="hist_outline_width", label_visibility="collapsed", disabled=not hist_outline_on,)
+    # итоговая толщина обводки: 0 означает «без обводки» (вариант как сейчас)
+    hist_outline_width_eff = hist_outline_width if hist_outline_on else 0
 
     st.markdown("---")
 
@@ -910,32 +1019,45 @@ with st.sidebar.expander(histogram_expander, expanded=False):
     st.markdown(f"**{kde_curve_label}**")
     kde_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="kde_color", label_visibility="collapsed",)
     kde_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("solid"), key="kde_dash", label_visibility="collapsed",)
+    st.caption(hist_line_width_label)
     kde_width = st.slider(hist_line_width_label, 1, 10, 3, key="kde_width", label_visibility="collapsed",)
 
     # ---------- Mean ----------
     st.markdown(f"**{mean_line_label}**")
     mean_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("green"), key="mean_color", label_visibility="collapsed",)
     mean_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dash"), key="mean_dash", label_visibility="collapsed",)
+    st.caption(hist_line_width_label)
     mean_width = st.slider(hist_line_width_label, 1, 10, 2, key="mean_width", label_visibility="collapsed",)
 
     # ---------- Median ----------
     st.markdown(f"**{median_line_label}**")
     median_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("red"), key="median_color", label_visibility="collapsed",)
     median_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dot"), key="median_dash", label_visibility="collapsed",)
+    st.caption(hist_line_width_label)
     median_width = st.slider(hist_line_width_label, 1, 10, 2, key="median_width", label_visibility="collapsed",)
 
     # ---------- ±3σ ----------
     st.markdown(f"**{sigma_line_label}**")
     sigma_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("orange"), key="sigma_color", label_visibility="collapsed",)
     sigma_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dash"), key="sigma_dash", label_visibility="collapsed",)
+    st.caption(hist_line_width_label)
     sigma_width = st.slider(hist_line_width_label, 1, 10, 2, key="sigma_width", label_visibility="collapsed",)
-    hist_opacity = st.slider(T["hist_opacity_label"], 0.1, 1.0, 0.85, 0.05, key="hist_opacity")
-    sigma_k = st.slider(T["sigma_k_label"], 1, 3, 3, key="sigma_k")
+    sigma_k = st.slider(sigma_k_label, 1, 3, 3, key="sigma_k")
 
 with st.sidebar.expander(boxplot_expander, expanded=False):
 
     # Заливка боксплота — только цвет
     box_color = st.selectbox(box_fill_color_label, ALL_COLORS, index=ALL_COLORS.index("royalblue"), key="box_color")
+    box_opacity = st.slider(box_opacity_label, 0.1, 1.0, 0.6, 0.05, key="box_opacity")
+
+    st.markdown("---")
+    box_orientation = st.radio(bar_orientation_label, ["v", "h"], index=0, horizontal=True,
+    format_func=lambda x: bar_orient_v if x == "v" else bar_orient_h, key="box_orientation",)
+
+    st.markdown(f"**{box_outline_label}**")
+    st.caption(hist_line_width_label)
+    box_outline_width = st.slider(hist_line_width_label, 0, 6, 2, key="box_outline_width", label_visibility="collapsed",)
+    box_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("royalblue"), key="box_outline_color", label_visibility="collapsed",)
 
     st.markdown("---")
 
@@ -943,13 +1065,23 @@ with st.sidebar.expander(boxplot_expander, expanded=False):
     st.markdown(f"**{box_mean_label}**")
     box_mean_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("green"), key="box_mean_color", label_visibility="collapsed",)
     box_mean_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dash"), key="box_mean_dash", label_visibility="collapsed",)
+    st.caption(hist_line_width_label)
     box_mean_width = st.slider(hist_line_width_label, 1, 10, 2, key="box_mean_width", label_visibility="collapsed",)
 
     # ---------- Median ----------
     st.markdown(f"**{box_median_label}**")
     box_median_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("red"), key="box_median_color", label_visibility="collapsed",)
     box_median_dash = st.selectbox(hist_line_style_label, DASH_OPTIONS, index=DASH_OPTIONS.index("dot"), key="box_median_dash", label_visibility="collapsed",)
+    st.caption(hist_line_width_label)
     box_median_width = st.slider(hist_line_width_label, 1, 10, 2, key="box_median_width", label_visibility="collapsed",)
+
+    # общие стили боксплота: передаются во все вызовы plot_box
+    BOX_STYLE = dict(
+        box_opacity=box_opacity,
+        box_outline_color=box_outline_color,
+        box_outline_width=box_outline_width,
+        box_orientation=box_orientation,
+    )
 
 with st.sidebar.expander(residual_expander, expanded=False):
     residual_color = st.selectbox(residual_color_label, ALL_COLORS, index=ALL_COLORS.index("black"), key="residual_color")       # black
@@ -961,9 +1093,32 @@ with st.sidebar.expander(residual_map_expander, expanded=False):
     residual_map_point_size = st.slider(residual_map_point_size_label, 3, 30, 12,  key="residual_map_point_size",)
     residual_map_point_opacity = st.slider(residual_map_point_opacity_label, 0.1, 1.0, 0.9, 0.05, key="residual_map_point_opacity",)
 
+def bar_style_controls(prefix, group_title, palette_label, default_orientation="v"):
+    """Настройки одного столбчатого графика: палитра, направление, граница столбцов."""
+    st.markdown(f"**{group_title}**")
+    palette = st.selectbox(palette_label, CATEGORY_PALETTES,
+                           index=CATEGORY_PALETTES.index("Plotly"), key=f"{prefix}_palette")
+    orientation = st.radio(
+        T["bar_orientation_label"], ["v", "h"],
+        index=0 if default_orientation == "v" else 1, horizontal=True,
+        format_func=lambda x: T["bar_orient_v"] if x == "v" else T["bar_orient_h"],
+        key=f"{prefix}_orientation",
+    )
+    st.markdown(f"*{T['bar_outline_label']}*")
+    st.caption(hist_line_width_label)
+    outline_width = st.slider(hist_line_width_label, 0, 5, 0,
+                              key=f"{prefix}_outline_width", label_visibility="collapsed")
+    outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"),
+                                 key=f"{prefix}_outline_color", label_visibility="collapsed")
+    st.markdown("---")
+    return dict(palette=palette, orientation=orientation,
+                outline_color=outline_color, outline_width=outline_width)
+
 with st.sidebar.expander(bar_chart_expander, expanded=False):
-    rmse_palette = st.selectbox(rmse_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="rmse_palette")              # Plotly
-    cat_palette = st.selectbox(category_bar_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="cat_palette")              # Plotly
+    style_load = bar_style_controls("bar_load", bar_group_load_title, category_bar_palette_label, "h")
+    style_fold = bar_style_controls("bar_fold", bar_group_fold_title, rmse_palette_label, "v")
+    style_rmse = bar_style_controls("bar_rmse", bar_group_rmse_title, rmse_palette_label, "v")
+    style_step3 = bar_style_controls("bar_step3", bar_group_step3_title, category_bar_palette_label, "h")              # Plotly
 
 with st.sidebar.expander(pie_chart_expander, expanded=False):
     pie_palette = st.selectbox(pie_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="pie_palette")
@@ -999,7 +1154,7 @@ with st.sidebar.expander(correlation_expander, expanded=False):
         st.warning(corr_warning)
 
     corr_threshold = st.slider(
-        T["corr_threshold_label"],
+        corr_threshold_label,
         min_value=0.0,
         max_value=1.0,
         value=0.7,
@@ -1086,7 +1241,7 @@ NON_QUANTILE_APPROX_OPTIONS = [
 ]
 
 st.sidebar.markdown("---")
-
+st.sidebar.markdown(f"### {approx_group_title}")
 with st.sidebar.expander(approx_expander, expanded=False):
 
     # --- Шаг 1 ---
@@ -1166,6 +1321,7 @@ with st.sidebar.expander(approx_colors_expander, expanded=False):
             key=f"approx_dash_{approx}",
             label_visibility="collapsed",
         )
+        st.caption(hist_line_width_label)
         user_approx_widths[approx] = st.slider(
             approx_line_width_label,
             1, 10, 3,
@@ -1199,6 +1355,7 @@ with st.sidebar.expander(approx_colors_expander, expanded=False):
             key=f"quantile_dash_{tau}",
             label_visibility="collapsed",
         )
+        st.caption(hist_line_width_label)
         quantile_widths[tau] = st.slider(
             approx_line_width_label,
             1, 10, 3,
@@ -1603,6 +1760,11 @@ corr_pair_labels = (
         T["corr_pairs_col_param2"],
         T["corr_pairs_col_cc"],
     )
+corr_pairs_title = T["corr_pairs_title"]
+hist_norm_label = T["hist_norm_label"]
+hist_title = T["hist_title"]
+boxplot_title = T["boxplot_title"]
+corr_pairs_empty = T["corr_pairs_empty"]
 
 st.markdown('<div id="step-0"></div>', unsafe_allow_html=True)
 # ------------------------------------------------- #
@@ -1827,13 +1989,78 @@ for col in category_cols:
             fig_bar = plot_bar_chart(
                 x=zone_counts_local.index,
                 y=zone_counts_local.values,
-                palette=cat_palette,
-                orientation="h",
+                **style_load,
                 title=f"{step0_well_count_title} : {display_name(col)}",
                 yaxis_title=well_count_label,
                 show_percent=True,
             )
             st.plotly_chart(fig_bar, use_container_width=True)
+
+        # Таблица статистики по категории: число скважин, записей и доля скважин
+        st.dataframe(
+            category_stats_table(
+                df, col,
+                T["cat_stats_wells"], T["cat_stats_records"], T["cat_stats_share"],
+                display_name(col),
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+# Сгруппированная диаграмма по двум категориям
+# ------------------------------------------------- #
+if category_cols:
+    st.markdown(f"### {step0_crosstab_title}")
+    if len(category_cols) < 2:
+        st.caption(step0_crosstab_need_two)
+    else:
+        col_x_sel, col_g_sel = st.columns(2)
+        with col_x_sel:
+            crosstab_x_col = st.selectbox(
+                step0_crosstab_x_label, category_cols,
+                format_func=display_name, key="crosstab_x_col",
+            )
+        group_options = [c for c in category_cols if c != crosstab_x_col]
+        with col_g_sel:
+            crosstab_group_col = st.selectbox(
+                step0_crosstab_group_label, group_options,
+                format_func=display_name, key="crosstab_group_col",
+            )
+
+        if crosstab_agg == "count" or crosstab_value_col is None:
+            crosstab_y_label = well_count_label
+        else:
+            crosstab_y_label = f"{T['crosstab_agg_' + crosstab_agg]}, {display_name(crosstab_value_col)}"
+
+        fig_crosstab = plot_category_crosstab(
+            df=df,
+            x_col=crosstab_x_col,
+            group_col=crosstab_group_col,
+            title=f"{step0_crosstab_title}: {display_name(crosstab_x_col)} × {display_name(crosstab_group_col)}",
+            x_label=display_name(crosstab_x_col),
+            y_label=crosstab_y_label,
+            legend_title=display_name(crosstab_group_col),
+            palette=crosstab_palette,
+            orientation=crosstab_orientation,
+            outline_color=crosstab_outline_color,
+            outline_width=crosstab_outline_width,
+            agg=crosstab_agg,
+            value_col=crosstab_value_col,
+        )
+        st.plotly_chart(fig_crosstab, use_container_width=True)
+
+        st.markdown(f"#### {crosstab_table_title}")
+        table_crosstab = crosstab_stats_table(
+            df=df,
+            x_col=crosstab_x_col,
+            group_col=crosstab_group_col,
+            x_label=display_name(crosstab_x_col),
+            group_label=display_name(crosstab_group_col),
+            agg=crosstab_agg,
+            value_col=crosstab_value_col,
+            total_label=crosstab_table_total,
+        )
+        st.dataframe(table_crosstab, use_container_width=True)
 
 # --- отображаем пользователю исходные названия параметров ---
 display_df = df.copy()
@@ -1897,10 +2124,10 @@ if (df is not None and len(corr_columns) >= 2):
     
     # Пояснение: чем Пирсон отличается от Спирмена
     st.caption(step0_corr_hint)
-    st.markdown(f"#### {T['corr_pairs_title']}")
+    st.markdown(f"#### {corr_pairs_title}")
     pairs_pearson = corr_pairs_table(corr_df, corr_threshold, corr_pair_labels)
     if pairs_pearson.empty:
-        st.caption(T["corr_pairs_empty"])
+        st.caption(corr_pairs_empty)
     else:
         st.dataframe(pairs_pearson, use_container_width=True)
 
@@ -1923,10 +2150,10 @@ if (df is not None and len(corr_columns) >= 2):
     fig_corr_sp.update_coloraxes(colorbar_title="Spearman<br>ρ")
     fig_corr_sp.update_layout(height=600, margin=dict(l=10, r=10, t=40, b=10),)
     st.plotly_chart(fig_corr_sp, use_container_width=True)
-    st.markdown(f"#### {T['corr_pairs_title']}")
+    st.markdown(f"#### {corr_pairs_title}")
     pairs_spearman = corr_pairs_table(corr_df_spearman, corr_threshold, corr_pair_labels)
     if pairs_spearman.empty:
-        st.caption(T["corr_pairs_empty"])
+        st.caption(corr_pairs_empty)
     else:
         st.dataframe(pairs_spearman, use_container_width=True)
 
@@ -1940,6 +2167,10 @@ if (df is not None and len(corr_columns) >= 2):
             hist_color=pairplot_hist_color, kde_color=pairplot_kde_color, scale=pairplot_scale,
             category_col=pairplot_category,
             category_colors=pairplot_category_colors if pairplot_category_colors else None,
+            kde_linewidth=pairplot_kde_width, kde_linestyle=pairplot_kde_linestyle,
+            hist_bins=pairplot_hist_bins,
+            hist_outline_color=pairplot_hist_outline_color,
+            hist_outline_width=pairplot_hist_outline_width_eff,
         )
         st.pyplot(fig_pair, use_container_width=True)
     
@@ -2076,34 +2307,36 @@ for col in numeric_cols:
         col_ctrl1, col_ctrl2 = st.columns(2)
         with col_ctrl1:
             bins_step0 = st.slider(
-                f"{T['hist_bins_label']} {display_col}", 10, 120, 40,
+                f"{hist_bins_label} {display_col}", 10, 120, 40,
                 key=f"bins_step0_{col}",
             )
         with col_ctrl2:
             histnorm_step0 = st.selectbox(
-                f"{T['hist_norm_label']} {display_col}",
+                f"{hist_norm_label} {display_col}",
                 ["none", "density", "probability", "percent"],
                 format_func=lambda x: hist_norm_map_step0[x],
                 index=0, key=f"histnorm_step0_{col}",
             )
         histnorm_value_step0 = "" if histnorm_step0 == "none" else histnorm_step0
 
-        col_stats, col_hist, col_box = st.columns([2, 2, 1.2])
+        col_stats, col_plots = st.columns([1, 2])
 
         with col_stats:
             show_depth_stats(df[col], display_col)
 
-        with col_hist:
+        with col_plots:
             fig_hist = plot_hist_kde(
                 data=values,
                 bins=bins_step0,
                 histnorm=histnorm_value_step0,
                 color=hist_color,
-                title=f"{T['hist_title']} {display_col}",
+                title=f"{hist_title} {display_col}",
                 xlabel=display_col,
                 show_sigma=True,
                 sigma_k=sigma_k,
                 opacity=hist_opacity,
+                hist_outline_color=hist_outline_color,
+                hist_outline_width=hist_outline_width_eff,
                 kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
                 mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
                 median_color=median_color, median_dash=median_dash, median_width=median_width,
@@ -2111,17 +2344,18 @@ for col in numeric_cols:
             )
             st.plotly_chart(fig_hist, use_container_width=True)
 
-        with col_box:
+        with col_plots:
             fig_box = plot_box(
                 data=values,
                 color=box_color,
                 ylabel=display_col,
                 well_label=well_label,
-                title=f"{T['boxplot_title']} {display_col}",
+                title=f"{boxplot_title} {display_col}",
                 well_ids=df["well_id"],
                 value_label=display_col,
                 mean_color=box_mean_color,     mean_dash=box_mean_dash,     mean_width=box_mean_width,
                 median_color=box_median_color, median_dash=box_median_dash, median_width=box_median_width,
+                **BOX_STYLE,
             )
             st.plotly_chart(fig_box, use_container_width=True)
 
@@ -2145,10 +2379,6 @@ residual_stats_title = T["residual_stats_title"]
 spatial_residuals_title = T["spatial_residuals_title"]
 residual_map_title = T["residual_map_title"]
 outlier_analysis_title = T["outlier_analysis_title"]
-hist_bins_label = T["hist_bins_label"]
-hist_norm_label = T["hist_norm_label"]
-hist_title_t = T["hist_title"]
-boxplot_title_t = T["boxplot_title"]
 hist_norm_map = {
     "none": T["hist_norm_none"],
     "density": T["hist_norm_density"],
@@ -2290,17 +2520,19 @@ histnorm_value = "" if histnorm_step1 == "none" else histnorm_step1
 # Histogram в шаге 1
 col_h1, col_h2 = st.columns(2)
 with col_h1:
-    st.markdown(f"#### {hist_title_t} {PARAM_1}")
+    st.markdown(f"#### {hist_title} {PARAM_1}")
     fig_hw = plot_hist_kde(
         data=y_ref,
         bins=bins_step1,
         histnorm=histnorm_value,
         color=hist_color,
-        title=f"{hist_title_t} {PARAM_1}",
+        title=f"{hist_title} {PARAM_1}",
         xlabel=PARAM_1_LABEL,
         show_sigma=True,
         sigma_k=sigma_k,
         opacity=hist_opacity,
+        hist_outline_color=hist_outline_color,
+        hist_outline_width=hist_outline_width_eff,
         kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
         mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
         median_color=median_color, median_dash=median_dash, median_width=median_width,
@@ -2308,17 +2540,19 @@ with col_h1:
     )
     st.plotly_chart(fig_hw, use_container_width=True)
 with col_h2:
-    st.markdown(f"#### {hist_title_t} {PARAM_2}")
+    st.markdown(f"#### {hist_title} {PARAM_2}")
     fig_hm = plot_hist_kde(
         data=x_ref,
         bins=bins_step1,
         histnorm=histnorm_value,
         color=hist_color,
-        title=f"{hist_title_t} {PARAM_2}",
+        title=f"{hist_title} {PARAM_2}",
         xlabel=PARAM_2_LABEL,
         show_sigma=True,
         sigma_k=sigma_k,
         opacity=hist_opacity,
+        hist_outline_color=hist_outline_color,
+        hist_outline_width=hist_outline_width_eff,
         kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
         mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
         median_color=median_color, median_dash=median_dash, median_width=median_width,
@@ -2329,23 +2563,25 @@ with col_h2:
 # Boxplot в шаге 1
 col_b1, col_b2 = st.columns(2)
 with col_b1:
-    st.markdown(f"#### {boxplot_title_t} {PARAM_1}")
+    st.markdown(f"#### {boxplot_title} {PARAM_1}")
     fig_bw = plot_box(
         y_ref, box_color, PARAM_1_LABEL, well_label,
-        title=f"{boxplot_title_t} {PARAM_1}",
+        title=f"{boxplot_title} {PARAM_1}",
         well_ids=df["well_id"], value_label=PARAM_1_LABEL,
         mean_color=box_mean_color,     mean_dash=box_mean_dash,     mean_width=box_mean_width,
         median_color=box_median_color, median_dash=box_median_dash, median_width=box_median_width,
+        **BOX_STYLE,
     )
     st.plotly_chart(fig_bw, use_container_width=True)
 with col_b2:
-    st.markdown(f"#### {boxplot_title_t} {PARAM_2}")
+    st.markdown(f"#### {boxplot_title} {PARAM_2}")
     fig_bm = plot_box(
         x_ref, box_color, PARAM_2_LABEL, well_label,
-        title=f"{boxplot_title_t} {PARAM_2}",
+        title=f"{boxplot_title} {PARAM_2}",
         well_ids=df["well_id"], value_label=PARAM_2_LABEL,
         mean_color=box_mean_color,     mean_dash=box_mean_dash,     mean_width=box_mean_width,
         median_color=box_median_color, median_dash=box_median_dash, median_width=box_median_width,
+        **BOX_STYLE,
     )
     st.plotly_chart(fig_bm, use_container_width=True)
 
@@ -2408,17 +2644,19 @@ histnorm_resid_value = "" if histnorm_resid == "none" else histnorm_resid
 # Histogram невязок (Шаг 1)
 col_r1, col_r2 = st.columns(2)
 with col_r1:
-    st.markdown(f"#### {hist_title_t} {DELTA_LABEL}")
+    st.markdown(f"#### {hist_title} {DELTA_LABEL}")
     fig_hr = plot_hist_kde(
         data=resid,
         bins=bins_resid,
         histnorm=histnorm_resid_value,
         color=hist_color,
-        title=f"{hist_title_t} {DELTA_LABEL}",
+        title=f"{hist_title} {DELTA_LABEL}",
         xlabel=DELTA_LABEL,
         show_sigma=True,
         sigma_k=sigma_k,
         opacity=hist_opacity,
+        hist_outline_color=hist_outline_color,
+        hist_outline_width=hist_outline_width_eff,
         kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
         mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
         median_color=median_color, median_dash=median_dash, median_width=median_width,
@@ -2428,13 +2666,14 @@ with col_r1:
 
 # Boxplot невязок (Шаг 1)
 with col_r2:
-    st.markdown(f"#### {boxplot_title_t} {DELTA_LABEL}")
+    st.markdown(f"#### {boxplot_title} {DELTA_LABEL}")
     fig_br = plot_box(
         resid, box_color, DELTA_LABEL, well_label,
-        title=f"{boxplot_title_t} {DELTA_LABEL}",
+        title=f"{boxplot_title} {DELTA_LABEL}",
         well_ids=df["well_id"], value_label=DELTA_LABEL,
         mean_color=box_mean_color,     mean_dash=box_mean_dash,     mean_width=box_mean_width,
         median_color=box_median_color, median_dash=box_median_dash, median_width=box_median_width,
+        **BOX_STYLE,
     )
     st.plotly_chart(fig_br, use_container_width=True)
 
@@ -2667,7 +2906,7 @@ df_fold = pd.DataFrame(rows_fold)
 
 if not df_fold.empty:
     # Цвета схем — из той же палитры, что и bar chart выше
-    base_colors = PALETTE_DICT.get(rmse_palette, px.colors.qualitative.Plotly)
+    base_colors = PALETTE_DICT.get(style_fold["palette"], px.colors.qualitative.Plotly)
     cv_colors = {
         name: base_colors[i % len(base_colors)]
         for i, name in enumerate(comparison.index)
@@ -2679,6 +2918,9 @@ if not df_fold.empty:
         well_label="fold",
         zone_col="cv_scheme",
         zone_label="CV scheme",
+        box_opacity=box_opacity,
+        box_outline_width=box_outline_width,
+        box_orientation=box_orientation,
         title=f"{step2_fold_rmse_boxplot_title}",
         yaxis_title=f"RMSE fold, {PARAM_1_UNIT}",
         zone_colors=cv_colors,
@@ -2694,8 +2936,7 @@ else:
 fig_fold = plot_bar_chart(
     x=comparison.index,
     y=comparison["rmse_fold_mean"],
-    palette=rmse_palette,
-    orientation="v",
+    **style_fold,
     title=f"{step2_fold_rmse_title}",
     yaxis_title=f"RMSE fold, {PARAM_1_UNIT}",
     show_percent=False,
@@ -2709,8 +2950,7 @@ st.plotly_chart(fig_fold, use_container_width=True)
 fig_rmse = plot_bar_chart(
     x=comparison.index,
     y=comparison["rmse"],
-    palette=rmse_palette,
-    orientation="v",
+    **style_rmse,
     title=f"{step2_rmse_title}",
     yaxis_title=f"RMSE, {PARAM_1_UNIT}",
     show_percent= False,
@@ -2917,17 +3157,19 @@ col_hcv, col_bcv = st.columns(2)
 
 # Histogram в шаге 2
 with col_hcv:
-    st.markdown(f"#### {hist_title_t} CV ({CV_RESIDUAL_LABEL})")
+    st.markdown(f"#### {hist_title} CV ({CV_RESIDUAL_LABEL})")
     fig_hcv = plot_hist_kde(
         data=resid_cv,
         bins=cv_bins,
         histnorm=cv_histnorm_value,
         color=hist_color,
-        title=f"{hist_title_t} CV ({CV_RESIDUAL_LABEL})",
+        title=f"{hist_title} CV ({CV_RESIDUAL_LABEL})",
         xlabel=f"{CV_RESIDUAL_LABEL}, {PARAM_1_UNIT}",
         show_sigma=True,
         sigma_k=sigma_k,
         opacity=hist_opacity,
+        hist_outline_color=hist_outline_color,
+        hist_outline_width=hist_outline_width_eff,
         kde_color=kde_color,       kde_dash=kde_dash,       kde_width=kde_width,
         mean_color=mean_color,     mean_dash=mean_dash,     mean_width=mean_width,
         median_color=median_color, median_dash=median_dash, median_width=median_width,
@@ -2937,17 +3179,18 @@ with col_hcv:
 
 # Boxplot в шаге 2
 with col_bcv:
-    st.markdown(f"#### {boxplot_title_t} CV ({CV_RESIDUAL_LABEL})")
+    st.markdown(f"#### {boxplot_title} CV ({CV_RESIDUAL_LABEL})")
     fig_bcv = plot_box(
         data=resid_cv,
         color=box_color,
         well_label=well_label,
-        title=f"{boxplot_title_t} CV ({CV_RESIDUAL_LABEL})",
+        title=f"{boxplot_title} CV ({CV_RESIDUAL_LABEL})",
         ylabel=f"{CV_RESIDUAL_LABEL}, {PARAM_1_UNIT}",
         well_ids=plot_df["well_id"],
         value_label=f"{CV_RESIDUAL_LABEL}, {PARAM_1_UNIT}",
         mean_color=box_mean_color,     mean_dash=box_mean_dash,     mean_width=box_mean_width,
         median_color=box_median_color, median_dash=box_median_dash, median_width=box_median_width,
+        **BOX_STYLE,
     )
     st.plotly_chart(fig_bcv, use_container_width=True)
 
@@ -2983,6 +3226,11 @@ step3_selected_categories_title = T["step3_selected_categories_title"]
 step3_no_zone_selected = T["step3_no_zone_selected"]
 step3_individual_categories_title = T["step3_individual_categories_title"]
 step3_metrics_comparison_title = T["step3_metrics_comparison_title"]
+zone_hist_settings_expander = T["zone_hist_settings_expander"]
+zone_hist_mode_label = T["zone_hist_mode_label"]
+zone_histnorm_label = T["zone_histnorm_label"]
+
+
 
 st.markdown('<div id="step-3"></div>', unsafe_allow_html=True)
 # ------------------------------------------------- #
@@ -3018,14 +3266,24 @@ else:
     fig_zones = plot_bar_chart(
         x=zone_counts.index,
         y=zone_counts.values,
-        palette=cat_palette,
-        orientation="h",
+        **style_step3,
         title=f"{step3_well_count_title} : {category_col}",
         yaxis_title= well_count_label,
         show_percent=True
     )
 
     st.plotly_chart(fig_zones, use_container_width=True)
+
+    st.markdown(f"#### {crosstab_table_title}")
+    st.dataframe(
+        category_stats_table(
+            df, category_col,
+            T["cat_stats_wells"], T["cat_stats_records"], T["cat_stats_share"],
+            display_name(category_col),
+        ),
+        use_container_width=True,
+        hide_index=True,
+    )
 
     # Цвета категорий из Sidebar
     zone_marker_colors = {zone: zone_point_colors.get(zone, "gray") for zone in zones}
@@ -3058,6 +3316,9 @@ else:
             well_label=well_label,
             zone_col=category_col,
             zone_label=category_col,
+            box_opacity=box_opacity,
+            box_outline_width=box_outline_width,
+            box_orientation=box_orientation,
             title=f"Boxplot {PARAM_1}",
             yaxis_title=PARAM_1_LABEL,
             zone_colors=zone_marker_colors,
@@ -3072,6 +3333,9 @@ else:
             well_label=well_label,
             zone_col=category_col,
             zone_label=category_col,
+            box_opacity=box_opacity,
+            box_outline_width=box_outline_width,
+            box_orientation=box_orientation,
             title=f"Boxplot {PARAM_2}",
             yaxis_title=PARAM_2_LABEL,
             zone_colors=zone_marker_colors,
@@ -3080,17 +3344,18 @@ else:
         st.plotly_chart(fig_box_p2, use_container_width=True)
 
     zone_fit_rows = []
+
     # Hist для категорий в шаге 3
-    st.markdown(f"#### {T['hist_title']} по {category_col}")
+    st.markdown(f"#### {hist_title} по {category_col}")
     # ---- Настройки наложенных гистограмм по зонам (отдельно от Шага 1) ----
-    with st.expander(T["zone_hist_settings_expander"], expanded=False):
+    with st.expander(zone_hist_settings_expander, expanded=False):
         col_zs1, col_zs2, col_zs3, col_zs4 = st.columns(4)
         with col_zs1:
-            bins_zone = st.slider(T["hist_bins_label"], 10, 120, 40, key="bins_zone")
-            zone_opacity = st.slider(T["zone_hist_opacity_label"], 0.1, 1.0, 0.5, 0.05, key="zone_hist_opacity")
+            bins_zone = st.slider(hist_bins_label, 10, 120, 40, key="bins_zone")
+            zone_opacity = st.slider(zone_hist_opacity_label, 0.1, 1.0, 0.5, 0.05, key="zone_hist_opacity")
         with col_zs2:
             zone_hist_mode = st.radio(
-                T["zone_hist_mode_label"],
+                zone_hist_mode_label,
                 ["hist", "kde", "both"],
                 format_func=lambda x: T[f"zone_hist_mode_{x}"],
                 index=2,
@@ -3099,15 +3364,15 @@ else:
             )
         with col_zs3:
             zone_histnorm = st.selectbox(
-                T["zone_histnorm_label"],
+                zone_histnorm_label,
                 ["none", "density", "probability", "percent"],
                 format_func=lambda x: hist_norm_map[x],
                 index=0,
                 key="zone_histnorm",
             )
         with col_zs4:
-            zone_show_mean = st.checkbox(T["mean_line_label"], value=True, key="zone_show_mean")
-            zone_show_median = st.checkbox(T["median_line_label"], value=True, key="zone_show_median")
+            zone_show_mean = st.checkbox(mean_line_label, value=True, key="zone_show_mean")
+            zone_show_median = st.checkbox(median_line_label, value=True, key="zone_show_median")
 
     show_hist_zone = zone_hist_mode in ("hist", "both")
     show_kde_zone = zone_hist_mode in ("kde", "both")
@@ -3121,10 +3386,12 @@ else:
             value_col="Zprm_well",
             zone_col=category_col,
             value_label=PARAM_1_LABEL,
-            title=f"{T['hist_title']} {PARAM_1}",
+            title=f"{hist_title} {PARAM_1}",
             bins=bins_zone,
             histnorm=zone_histnorm_value,
             opacity=zone_opacity,
+            hist_outline_color=hist_outline_color,
+            hist_outline_width=hist_outline_width_eff,
             zone_colors=zone_marker_colors,
             zone_order=list(zone_marker_colors.keys()) if zone_marker_colors else None,
             show_hist=show_hist_zone,
@@ -3146,10 +3413,12 @@ else:
             value_col="Zprm_map",
             zone_col=category_col,
             value_label=PARAM_2_LABEL,
-            title=f"{T['hist_title']} {PARAM_2}",
+            title=f"{hist_title} {PARAM_2}",
             bins=bins_zone,
             histnorm=zone_histnorm_value,
             opacity=zone_opacity,
+            hist_outline_color=hist_outline_color,
+            hist_outline_width=hist_outline_width_eff,
             zone_colors=zone_marker_colors,
             zone_order=list(zone_marker_colors.keys()) if zone_marker_colors else None,
             show_hist=show_hist_zone,
