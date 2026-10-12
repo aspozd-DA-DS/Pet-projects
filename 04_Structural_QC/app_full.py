@@ -1768,14 +1768,14 @@ corr_pairs_empty = T["corr_pairs_empty"]
 
 st.markdown('<div id="step-0"></div>', unsafe_allow_html=True)
 # ------------------------------------------------- #
-# STEP 0.1.: SHOW SAMPLE FORMAT
+# STEP 0.0.: SHOW SAMPLE FORMAT
 # ------------------------------------------------- #
 st.title(step0_title)
 ui_examples.show_project_introduction()
 ui_examples.show_input_file_example()
 
 # ------------------------------------------------- #
-# STEP 0.2.: QC входных данных
+# STEP 0.1.: QC входных данных
 # ------------------------------------------------- #
 if df is None:
     st.info(step0_load_data_message)
@@ -1901,7 +1901,7 @@ st.write(
 )
 
 # ------------------------------------------------- #
-# STEP 0.3.: Типы данных по колонкам
+# STEP 0.2.: Типы данных по колонкам
 # ------------------------------------------------- #
 st.markdown(f"### {step0_data_types_title}")
 
@@ -1941,8 +1941,42 @@ for col in cols_for_display:
     )
 
 dtype_df = pd.DataFrame(dtype_rows)
-
 st.dataframe(dtype_df, use_container_width=True)
+
+# --- отображаем пользователю исходные названия параметров ---
+display_df = df.copy()
+display_df = display_df.drop(columns=["Zprm_well", "Zprm_map"], errors="ignore")
+front_cols = ["well_id", "X_coord", "Y_coord"]
+
+other_cols = [
+    c
+    for c in display_df.columns
+    if c not in front_cols
+]
+
+display_df = display_df[front_cols + other_cols]
+
+# --- Просмотр данных ---
+st.markdown(f"### {step0_first_rows_title}")
+st.dataframe(display_df.head(5), use_container_width=True)
+
+st.markdown(f"### {step0_last_rows_title}")
+st.dataframe(display_df.tail(5), use_container_width=True)
+
+# --- Статистика параметров
+st.markdown(
+    f"### {step0_parameter_stats_title} "
+    f"{PARAM_1}, {PARAM_2}"
+)
+col_desc1, col_desc2 = st.columns(2)
+with col_desc1:
+    show_depth_stats(df["Zprm_well"], PARAM_1_LABEL)
+with col_desc2:
+    show_depth_stats(df["Zprm_map"], PARAM_2_LABEL)
+
+# ------------------------------------------------- #
+# STEP 0.3.: Категориальные параметры
+# ------------------------------------------------- #
 
 st.markdown(f"### {step0_categorical_features_title}")
 
@@ -2062,37 +2096,6 @@ if category_cols:
         )
         st.dataframe(table_crosstab, use_container_width=True)
 
-# --- отображаем пользователю исходные названия параметров ---
-display_df = df.copy()
-display_df = display_df.drop(columns=["Zprm_well", "Zprm_map"], errors="ignore")
-front_cols = ["well_id", "X_coord", "Y_coord"]
-
-other_cols = [
-    c
-    for c in display_df.columns
-    if c not in front_cols
-]
-
-display_df = display_df[front_cols + other_cols]
-
-# --- Просмотр данных ---
-st.markdown(f"### {step0_first_rows_title}")
-st.dataframe(display_df.head(5), use_container_width=True)
-
-st.markdown(f"### {step0_last_rows_title}")
-st.dataframe(display_df.tail(5), use_container_width=True)
-
-# --- Статистика параметров
-st.markdown(
-    f"### {step0_parameter_stats_title} "
-    f"{PARAM_1}, {PARAM_2}"
-)
-col_desc1, col_desc2 = st.columns(2)
-with col_desc1:
-    show_depth_stats(df["Zprm_well"], PARAM_1_LABEL)
-with col_desc2:
-    show_depth_stats(df["Zprm_map"], PARAM_2_LABEL)
-
 # ------------------------------------------------- #
 # STEP 0.4.: Корреляционный анализ выбранных параметров
 # ------------------------------------------------- #
@@ -2124,7 +2127,7 @@ if (df is not None and len(corr_columns) >= 2):
     
     # Пояснение: чем Пирсон отличается от Спирмена
     st.caption(step0_corr_hint)
-    st.markdown(f"#### {corr_pairs_title}")
+    st.markdown(f"#### {corr_pairs_title.format(threshold=f'{corr_threshold:.2f}')}")
     pairs_pearson = corr_pairs_table(corr_df, corr_threshold, corr_pair_labels)
     if pairs_pearson.empty:
         st.caption(corr_pairs_empty)
@@ -2150,7 +2153,7 @@ if (df is not None and len(corr_columns) >= 2):
     fig_corr_sp.update_coloraxes(colorbar_title="Spearman<br>ρ")
     fig_corr_sp.update_layout(height=600, margin=dict(l=10, r=10, t=40, b=10),)
     st.plotly_chart(fig_corr_sp, use_container_width=True)
-    st.markdown(f"#### {corr_pairs_title}")
+    st.markdown(f"#### {corr_pairs_title.format(threshold=f'{corr_threshold:.2f}')}")
     pairs_spearman = corr_pairs_table(corr_df_spearman, corr_threshold, corr_pair_labels)
     if pairs_spearman.empty:
         st.caption(corr_pairs_empty)
