@@ -771,13 +771,28 @@ st.sidebar.markdown(f"""
 # ------------------------------------------------------------- #
 st.sidebar.markdown("---")
 
+def _reset_picked_horizons():
+    # удаляем сохранённый выбор, чтобы мультиселект пересоздался с новым default
+    st.session_state.pop("sidebar_picked_horizons", None)
+
 with st.sidebar.expander(horizon_expander_title, expanded=False):
 
     if (df is not None and has_col(df, "horizon_id") and df["horizon_id"].nunique() > 1):
 
         horizons = sorted(df["horizon_id"].dropna().unique().tolist())
-        all_horizons = st.checkbox(all_horizons_label, value=True, key="sidebar_all_horizons")
-        picked_horizons = st.multiselect(horizons_label, options=horizons, default=(horizons if all_horizons else []), key="sidebar_picked_horizons",)
+        all_horizons = st.checkbox(
+            all_horizons_label,
+            value=False,                       # по умолчанию выключено
+            key="sidebar_all_horizons",
+            on_change=_reset_picked_horizons,  # при переключении выбор сбрасывается
+        )
+        picked_horizons = st.multiselect(
+            horizons_label,
+            options=horizons,
+            default=(horizons if all_horizons else horizons[:1]),  # один горизонт по умолчанию
+            key="sidebar_picked_horizons",
+        )
+
         st.caption(
             f"{selected_horizons_label} "
             f"{len(picked_horizons)} из {len(horizons)}"
