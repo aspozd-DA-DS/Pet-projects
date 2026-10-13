@@ -133,6 +133,7 @@ Data & Visualization
 ```text
 │
 ├── `data/`                                  # Примеры пакетиков с таблетками
+├── `app_detect_obj`                         # Streamlit-сценарий
 ├── `01_streamlit_ydb_EfficientNet.ipynb`    # Разметка + YOLO + EfficientNet
 ├── `02_sam_yolo_paketik_cls.ipynb`          # SAM, YOLO-detect, YOLO-CLS, YOLO-Seg
 ├── `03_detect_color.ipynb`                  # Полный ML-пайплайн цвета
@@ -305,6 +306,7 @@ Stage 5 — Object colour determination
 ```text
 │
 ├── `data/`                                  # Examples of sachets containing tablets
+├── `app_detect_obj`                         # Streamlit
 ├── `01_streamlit_ydb_EfficientNet.ipynb`    # Labelling + YOLO + EfficientNet
 ├── `02_sam_yolo_paketik_cls.ipynb`          # SAM, YOLO-detect, YOLO-CLS, YOLO-Seg
 ├── `03_detect_color.ipynb`                  # Full ML colour pipeline
