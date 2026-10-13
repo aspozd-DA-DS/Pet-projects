@@ -815,7 +815,7 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
 # - формирует сводную статистику
 # - строит таблицу сравнения схем
 def run_all_cv(df: pd.DataFrame, degree: int = 1, k: int = 5,
-               grid_n: int = 3, seed: int = 0,
+               grid_n: int = 3, seed: int = 42,
                buffer: float = 300.0, variogram_factor: float = 1.0,
                leave_p_percent: int = 10, spatial_radius: float = 1000.0, cv_repeats: int = 50,):
 

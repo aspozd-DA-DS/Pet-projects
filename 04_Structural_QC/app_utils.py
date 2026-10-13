@@ -4,6 +4,7 @@ app_utils.py — вспомогательные функции для Structural
 """
 import numpy as np
 import pandas as pd
+import io
 import seaborn as sns
 import streamlit as st
 import plotly.graph_objects as go
@@ -18,7 +19,7 @@ from sklearn.linear_model import (
 )
 
 import structural_qc_full as sq
-
+from translations_full import RU, EN
 # ------------------------------------------------------------- #
 # FUNC: КОНСТАНТЫ — палитры
 # ------------------------------------------------------------- #
@@ -48,7 +49,8 @@ def show_depth_stats(series, title):
     data = pd.Series(series).dropna()
     if len(data) == 0:
         st.warning("No data available for statistics")
-        return
+        return None
+        
 
     mean = data.mean()
     median = data.median()
@@ -95,6 +97,8 @@ def show_depth_stats(series, title):
 
     st.markdown(f"#### {title}")
     st.dataframe(stats_df.style.format("{:,.2f}"), use_container_width=True)
+
+    return stats_df
 
 def compute_stats(data):
     """Универсальная функция для таблицы статистики невязок (Шаги 1 и 2)."""
@@ -1188,48 +1192,82 @@ def plot_residual_vs_depth(
 def plot_residual_map(
     df, residuals, palette, wells_label, well_label,
     residual_label="Residual", point_size=12, point_opacity=0.9, title=None,
+    category_col=None, highlight_value=None, dim_opacity=0.15, highlight_opacity=1.0,
 ):
     if len(residuals) == 0:
         return go.Figure()
 
+    residuals = np.asarray(residuals, dtype=float)
+    cmin, cmax = float(np.nanmin(residuals)), float(np.nanmax(residuals))
+    symbols = ["circle", "square", "diamond", "cross", "x", "triangle-up", "star", "hexagon"]
+
+    use_cat = category_col is not None and category_col in df.columns
+    if use_cat:
+        cat = df[category_col].fillna("(not specified)").astype(str).values
+        groups = [(str(c), cat == c) for c in pd.unique(cat)]
+    else:
+        groups = [(wells_label, np.ones(len(df), dtype=bool))]
+
     fig = go.Figure()
-    fig.add_trace(
-        go.Scatter(
-            x=df["X_coord"],
-            y=df["Y_coord"],
-            mode="markers",
-            name=wells_label,
-            marker=dict(
-                size=point_size,
-                color=residuals,
-                opacity=point_opacity,
-                colorscale=palette,
-                cmin=np.min(residuals),
-                cmax=np.max(residuals),
-                colorbar=dict(title=residual_label, x=1.02, y=0.5, len=0.9,),
-            ),
-            text=df["well_id"],
-            hovertemplate=(
-                f"{well_label}: %{{text}}"
-                "<br>X=%{x}"
-                "<br>Y=%{y}"
-                f"<br>{residual_label}=%{{marker.color:.2f}}"
-                "<extra></extra>"
-            ),
+    for i, (gname, mask) in enumerate(groups):
+        # подсветка: выбранное значение полностью, остальные почти прозрачны
+        if use_cat and highlight_value is not None:
+            op = highlight_opacity if gname == highlight_value else dim_opacity
+        else:
+            op = point_opacity
+
+        marker = dict(
+            size=point_size,
+            color=residuals[mask],
+            opacity=op,
+            colorscale=palette,
+            cmin=cmin,
+            cmax=cmax,
+            symbol=symbols[i % len(symbols)],
+            showscale=False,
         )
-    )
+
+        hover = f"{well_label}: %{{text}}<br>X=%{{x}}<br>Y=%{{y}}<br>{residual_label}=%{{marker.color:.2f}}"
+        if use_cat:
+            hover += f"<br>{category_col}: {gname}"
+        fig.add_trace(go.Scatter(
+            x=df["X_coord"].values[mask],
+            y=df["Y_coord"].values[mask],
+            mode="markers",
+            name=gname,
+            legendgroup=gname,
+            marker=marker,
+            text=df["well_id"].values[mask],
+            hovertemplate=hover + "<extra></extra>",
+        ))
 
     fig.update_layout(
-        height=420,
-        margin=dict(l=10, r=10, t=50, b=10),
-        showlegend=False,
+        height=460,
+        margin=dict(l=10, r=10, t=50, b=90),
+        showlegend=use_cat and len(groups) > 1,
+        legend=dict(orientation="h", yanchor="top", y=-0.12, xanchor="left", x=0),
     )
+    # служебная трасса только для шкалы: скрыть её из легенды нельзя, поэтому шкала не пропадает
+    fig.add_trace(go.Scatter(
+        x=[None, None],
+        y=[None, None],
+        mode="markers",
+        showlegend=False,
+        hoverinfo="skip",
+        marker=dict(
+            color=[cmin, cmax],
+            colorscale=palette,
+            cmin=cmin,
+            cmax=cmax,
+            size=1,
+            opacity=0,
+            showscale=True,
+            colorbar=dict(title=residual_label, x=1.02, y=0.5, len=0.9),
+        ),
+    ))
 
     if title is not None:
-        fig.update_layout(
-            title=dict(text=title, x=0.01, y=0.98,)
-        )
-
+        fig.update_layout(title=dict(text=title, x=0.01, y=0.98))
     return fig
 
 # ------------------------------------------------------------- #
@@ -1273,7 +1311,7 @@ def detect_outliers(residuals: np.ndarray, sigma_thr: float) -> tuple:
     return (sigma_mask, iqr_mask, modz_mask, q05q95_mask, sigma)
 
 # ------ Универсальная функция отображения выбросов в шаге 1 ------
-def show_outlier_table(title, df, mask, residuals, residual_column_name, columns, no_outliers_label):
+def show_outlier_table(title, df, mask, residuals, residual_column_name, columns, no_outliers_label, file_tag="outliers", key_prefix="step1"):
     st.markdown(title)
     out = df.loc[mask].copy()
     if len(out) > 0:
@@ -1285,14 +1323,16 @@ def show_outlier_table(title, df, mask, residuals, residual_column_name, columns
         ]
 
         st.dataframe(out[cols], use_container_width=True,)
+        excel_download_button(out[cols], f"structural_qc_outliers_{key_prefix}_{file_tag}",
+                              key=f"download_excel_outliers_{key_prefix}_{file_tag}")
 
     else:
         st.caption(no_outliers_label)
 
-
 def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
                         residual_column_name="Residual",
-                        no_outliers_label="No outliers detected."):
+                        no_outliers_label="No outliers detected.", key_prefix="step1",
+                        category_col=None):
 
     (
         sigma_mask,
@@ -1305,7 +1345,13 @@ def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
         sigma_thr,
     )
 
-    base_cols = ["horizon_id", "well_id", "X_coord", "Y_coord", param_1, param_2, residual_column_name,]
+    df = df.copy()
+    if category_col is not None and category_col in df.columns:
+        df["category_plot"] = df[category_col].fillna("(not specified)").astype(str)
+    else:
+        df["category_plot"] = "—"
+
+    base_cols = ["horizon_id", "well_id", "X_coord", "Y_coord", param_1, param_2, residual_column_name, "category_plot"]
     # Sigma
     sigma_cols = base_cols.copy()
     out_sigma = df.loc[sigma_mask].copy()
@@ -1323,6 +1369,8 @@ def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
             residual_column_name,
             sigma_cols,
             no_outliers_label,
+            file_tag="sigma",
+            key_prefix=key_prefix,
         )
 
     else:
@@ -1338,6 +1386,8 @@ def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
         residual_column_name,
         base_cols,
         no_outliers_label,
+        file_tag="iqr",
+        key_prefix=key_prefix,
     )
 
     # Modified Z
@@ -1349,6 +1399,8 @@ def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
         residual_column_name,
         base_cols,
         no_outliers_label,
+        file_tag="modified_z",
+        key_prefix=key_prefix,
     )
 
     # Percentile
@@ -1360,6 +1412,8 @@ def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
         residual_column_name,
         base_cols,
         no_outliers_label,
+        file_tag="percentile",
+        key_prefix=key_prefix,
     )
 
 # ------------------------------------------------------------- #
@@ -1683,3 +1737,28 @@ def prepare_zone_data(df, category_col, category):
     x_line_z = np.linspace(xz.min(), xz.max(), 200)
 
     return (zone_part, xz, yz, x_line_z)
+
+# ------------------------------------------------------------- #
+# FUNC: Экспорт таблиц в Excel
+# ------------------------------------------------------------- #
+def _tr(key):
+    """Подпись из translations_full по текущему языку интерфейса."""
+    lang = st.session_state.get("sidebar_language", "RU")
+    dictionary = RU if lang == "RU" else EN
+    return dictionary.get(key, key)
+
+def dataframe_to_excel_bytes(df, sheet_name="data", index=False):
+    """Таблица в байтах формата .xlsx для st.download_button."""
+    buffer = io.BytesIO()
+    with pd.ExcelWriter(buffer, engine="openpyxl") as writer:
+        df.to_excel(writer, index=index, sheet_name=sheet_name)
+    return buffer.getvalue()
+
+def excel_download_button(df, file_name, key, sheet_name="data", index=False):
+    st.download_button(
+        label=_tr("download_excel_label"),
+        data=dataframe_to_excel_bytes(df, sheet_name=sheet_name, index=index),
+        file_name=f"{file_name}.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        key=key,
+    )

@@ -70,6 +70,9 @@ RU = {
     "cat_stats_share": "Доля скважин, %",
     "crosstab_table_title": "Таблица статистики",
     "crosstab_table_total": "Всего",
+    "download_excel_label": "Скачать в Excel",
+    "footer_data_note": "Данные обрабатываются в памяти сессии и не записываются на диск приложения.",
+    "footer_copyright": "© А.С.Поздняков 2026",
 }
 EN = {
     "step0_title": "Structural QC — Cross-Plot and Cross-Validation",
@@ -143,6 +146,9 @@ EN = {
     "cat_stats_share": "Wells share, %",
     "crosstab_table_title": "Statistics table",
     "crosstab_table_total": "Total",
+    "download_excel_label": "Download as Excel",
+    "footer_data_note": "Data is processed in session memory and is not written to disk.",
+    "footer_copyright": "© A.S.Pozdniakov 2026",
 }
 
 RU.update({
@@ -274,6 +280,7 @@ RU.update({
     "step3_no_zone_selected": "Не выбрана ни одна категория.",
     "step3_individual_categories_title": "Аппроксимации по отдельным категориям",
     "step3_metrics_comparison_title": "Сравнение метрик выбранных кривых аппроксимации",
+    "step3_cat_stats_title": "Таблица статистики по категориям",
 })
 EN.update({
     "step3_title": "Step 3 · Category Analysis",
@@ -292,6 +299,7 @@ EN.update({
     "step3_no_zone_selected": "No category selected.",
     "step3_individual_categories_title": "Approximations by Individual Categories",
     "step3_metrics_comparison_title": "Selected Approximation Metrics Comparison",
+    "step3_cat_stats_title": "Table of statistics by category",
 })
 
 RU.update({
@@ -560,6 +568,12 @@ RU.update({
     "residual_map_palette_label": "Палетка для карты невязок Δ",
     "residual_map_point_size_label": "Размер точек карты",
     "residual_map_point_opacity_label": "Прозрачность точек карты",
+    "residual_map_category_label": "Категория на карте",
+    "residual_map_no_category": "Без категории",
+    "residual_map_highlight_label": "Подсветить значение",
+    "residual_map_no_highlight": "Без подсветки",
+    "residual_map_highlight_opacity_label": "Яркость подсвеченной категории",
+    "residual_map_dim_opacity_label": "Яркость остальных точек",
     "bar_chart_expander": "📊 Столбчатая диаграмма",
     "rmse_palette_label": "Палетка для Bar chart RMSE для CV",
     "category_bar_palette_label": "Палетка для Bar chart по категориям",
@@ -635,6 +649,12 @@ EN.update({
     "residual_map_palette_label": "Residual Map Palette Δ",
     "residual_map_point_size_label": "Map Point Size",
     "residual_map_point_opacity_label": "Map Point Opacity",
+    "residual_map_category_label": "Category on map",
+    "residual_map_no_category": "No category",
+    "residual_map_highlight_label": "Highlight value",
+    "residual_map_no_highlight": "No highlight",
+    "residual_map_highlight_opacity_label": "Highlighted category brightness",
+    "residual_map_dim_opacity_label": "Other points brightness",
     "bar_chart_expander": "📊 Bar Chart",
     "rmse_palette_label": "RMSE Bar Chart Palette",
     "category_bar_palette_label": "Category Bar Chart Palette",

@@ -3,6 +3,7 @@ app_full.py — интерактивный Streamlit-дашборд для ко�
 """
 import numpy as np
 import pandas as pd
+import io
 import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
@@ -55,6 +56,7 @@ from app_utils import (
     plot_category_crosstab,
     crosstab_stats_table,
     category_stats_table,
+    excel_download_button,
 )
 
 # ================================================================================================================================ #
@@ -325,6 +327,12 @@ cat_stats_share = T["cat_stats_share"]
 crosstab_table_title = T["crosstab_table_title"]
 crosstab_table_total = T["crosstab_table_total"]
 
+residual_map_category_label = T["residual_map_category_label"]
+residual_map_no_category = T["residual_map_no_category"]
+residual_map_highlight_label = T["residual_map_highlight_label"]
+residual_map_no_highlight = T["residual_map_no_highlight"]
+residual_map_highlight_opacity_label = T["residual_map_highlight_opacity_label"]
+residual_map_dim_opacity_label = T["residual_map_dim_opacity_label"]
 
 # ------------------------------------------------------------- #
 # SIDEBAR: Подготовка данных
@@ -812,8 +820,8 @@ ALL_COLORS = [
     "black", "blue", "brown", "cadetblue", "chocolate", "coral", "cornflowerblue", "crimson","cyan",
     "darkblue", "darkcyan", "darkgoldenrod", "darkgreen", "darkmagenta", "darkorange", "darkorchid", "darkslateblue", "darkslategray",
     "darkred", "deepskyblue", "dodgerblue","firebrick", "forestgreen", "gold", "goldenrod", "gray", "green", "indianred",
-    "indigo", "limegreen","lightgray", "magenta", "mediumblue", "mediumorchid", "mediumseagreen", "midnightblue","navy", "olive", "orange",
-    "orangered", "peru", "purple", "red", "royalblue", "saddlebrown", "seagreen", "slateblue",
+    "indigo", "limegreen","lightgray", "lightblue", "lightgreen", "magenta", "mediumblue", "mediumorchid", "mediumseagreen", "midnightblue","navy", "olive", "orange",
+    "orangered", "peru", "purple", "red", "royalblue", "saddlebrown", "seagreen", "slateblue", "skyblue",
     "steelblue", "teal", "tomato"
 ]
 
@@ -1092,6 +1100,33 @@ with st.sidebar.expander(residual_map_expander, expanded=False):
     map_palette = st.selectbox(residual_map_palette_label, MAP_PALETTES, index=MAP_PALETTES.index("RdBu"), key="map_palette")                   # RdBu
     residual_map_point_size = st.slider(residual_map_point_size_label, 3, 30, 12,  key="residual_map_point_size",)
     residual_map_point_opacity = st.slider(residual_map_point_opacity_label, 0.1, 1.0, 0.9, 0.05, key="residual_map_point_opacity",)
+
+    if df is not None:
+        residual_map_category_options = [
+            c for c in df.columns
+            if c not in ("Zprm_well", "Zprm_map")
+            and not pd.api.types.is_numeric_dtype(df[c])
+            and c != "well_id"
+        ]
+    else:
+        residual_map_category_options = []
+
+    residual_map_category = st.selectbox(residual_map_category_label, [None] + residual_map_category_options,
+        format_func=lambda x: residual_map_no_category if x is None else display_name(x),
+        index=0, key="residual_map_category",)
+
+    if residual_map_category is not None and df is not None:
+        highlight_options = sorted(
+            df[residual_map_category].fillna("(not specified)").astype(str).unique()
+        )
+    else:
+        highlight_options = []
+
+    residual_map_highlight = st.selectbox(residual_map_highlight_label, [None] + highlight_options,
+        format_func=lambda x: residual_map_no_highlight if x is None else x,
+        index=0, key=f"residual_map_highlight_{residual_map_category}", disabled=not highlight_options,)
+    residual_map_highlight_opacity = st.slider(residual_map_highlight_opacity_label, 0.1, 1.0, 1.0, 0.05, key="residual_map_highlight_opacity",)
+    residual_map_dim_opacity = st.slider(residual_map_dim_opacity_label, 0.05, 1.0, 0.15, 0.05, key="residual_map_dim_opacity",)
 
 def bar_style_controls(prefix, group_title, palette_label, default_orientation="v"):
     """Настройки одного столбчатого графика: палитра, направление, граница столбцов."""
@@ -1658,9 +1693,9 @@ if df is not None:
         elif filter_mode == FILTER_RANDOM:
             percent_exclude = st.slider(percent_exclude_label, 0, 95, 10,key="step4_percent_exclude",)
             if "step4_random_seed" not in st.session_state:
-                st.session_state.step4_random_seed = np.random.randint(0, 10_000_000)
+                st.session_state.step4_random_seed = 42
             if st.button(new_random_set_button, key="step4_new_random_set"):
-                st.session_state.step4_random_seed = np.random.randint(0, 10_000_000)
+                st.session_state.step4_random_seed += 1   # следующий набор тоже воспроизводим
 
             st.caption(random_exclusion_caption)
 
@@ -1771,6 +1806,10 @@ st.markdown('<div id="step-0"></div>', unsafe_allow_html=True)
 # STEP 0.0.: SHOW SAMPLE FORMAT
 # ------------------------------------------------- #
 st.title(step0_title)
+st.caption("CROSSPL✳T.structural")
+st.caption(T["footer_data_note"])
+st.caption(T["footer_copyright"])
+
 ui_examples.show_project_introduction()
 ui_examples.show_input_file_example()
 
@@ -1818,6 +1857,7 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
             f"{len(full_duplicates)}"
         ) 
         st.dataframe(full_duplicates, use_container_width=True)
+        excel_download_button(full_duplicates, "structural_qc_dup_rows", key="download_excel_dup_rows")
     else:
         st.caption(step0_full_duplicates_notfound)
 
@@ -1831,6 +1871,7 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
             f"{len(dup_wells)}"
         )
         st.dataframe(dup_wells, use_container_width=True)
+        excel_download_button(dup_wells, "structural_qc_dup_wells", key="download_excel_dup_wells")
     else:
         st.caption(step0_duplicate_wells_notfound)
 
@@ -1853,6 +1894,7 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
             f"{len(dup_coords)}"
         )
         st.dataframe(dup_coords, use_container_width=True)
+        excel_download_button(dup_coords, "structural_qc_dup_coords", key="download_excel_dup_coords")
     else:
         st.caption(step0_duplicate_coords_notfound)
 
@@ -1863,6 +1905,7 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
         "missing values": [int(df[c].isna().sum()) for c in cols_for_display],
     })
     st.dataframe(na_summary, use_container_width=True)
+    excel_download_button(na_summary, "structural_qc_missing_values", key="download_excel_na_summary")
 
     # Строки удалённые при очистке
     st.markdown(f"### {step0_removed_rows_title}")
@@ -1874,6 +1917,7 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
         )
         removed_display = removed_rows.drop(columns=["Zprm_well", "Zprm_map"], errors="ignore")
         st.dataframe(removed_display.head(20), use_container_width=True)
+        excel_download_button(removed_display, "structural_qc_removed_rows", key="download_excel_removed_rows")
         if len(removed_display) > 20:
             st.caption(
                 f"{step0_removed_rows_show} "
@@ -1942,6 +1986,7 @@ for col in cols_for_display:
 
 dtype_df = pd.DataFrame(dtype_rows)
 st.dataframe(dtype_df, use_container_width=True)
+excel_download_button(dtype_df, "structural_qc_data_type", key="download_excel_data_type")
 
 # --- отображаем пользователю исходные названия параметров ---
 display_df = df.copy()
@@ -1962,17 +2007,24 @@ st.dataframe(display_df.head(5), use_container_width=True)
 
 st.markdown(f"### {step0_last_rows_title}")
 st.dataframe(display_df.tail(5), use_container_width=True)
+excel_download_button(display_df, "structural_qc_data", key="download_excel_display")
 
 # --- Статистика параметров
 st.markdown(
     f"### {step0_parameter_stats_title} "
     f"{PARAM_1}, {PARAM_2}"
 )
+
 col_desc1, col_desc2 = st.columns(2)
 with col_desc1:
-    show_depth_stats(df["Zprm_well"], PARAM_1_LABEL)
+    stats_well_df = show_depth_stats(df["Zprm_well"], PARAM_1_LABEL)
 with col_desc2:
-    show_depth_stats(df["Zprm_map"], PARAM_2_LABEL)
+    stats_map_df = show_depth_stats(df["Zprm_map"], PARAM_2_LABEL)
+
+if stats_well_df is not None and stats_map_df is not None:
+    stats_export_df = pd.concat([stats_well_df, stats_map_df], axis=1)
+    excel_download_button(stats_export_df, "structural_qc_parameter_stats",
+                          key="download_excel_param_stats", index=True)
 
 # ------------------------------------------------- #
 # STEP 0.3.: Категориальные параметры
@@ -2031,15 +2083,14 @@ for col in category_cols:
             st.plotly_chart(fig_bar, use_container_width=True)
 
         # Таблица статистики по категории: число скважин, записей и доля скважин
-        st.dataframe(
-            category_stats_table(
-                df, col,
-                T["cat_stats_wells"], T["cat_stats_records"], T["cat_stats_share"],
-                display_name(col),
-            ),
-            use_container_width=True,
-            hide_index=True,
+        cat_stats_table = category_stats_table(
+            df, col,
+            T["cat_stats_wells"], T["cat_stats_records"], T["cat_stats_share"],
+            display_name(col),
         )
+        st.dataframe(cat_stats_table, use_container_width=True, hide_index=True)
+        excel_download_button(cat_stats_table, f"structural_qc_category_{col}",
+                              key=f"download_excel_cat_stats_{col}")
 
 # Сгруппированная диаграмма по двум категориям
 # ------------------------------------------------- #
@@ -2095,6 +2146,8 @@ if category_cols:
             total_label=crosstab_table_total,
         )
         st.dataframe(table_crosstab, use_container_width=True)
+        excel_download_button(table_crosstab, "structural_qc_crosstab",
+                              key="download_excel_crosstab", index=True)
 
 # ------------------------------------------------- #
 # STEP 0.4.: Корреляционный анализ выбранных параметров
@@ -2123,6 +2176,8 @@ if (df is not None and len(corr_columns) >= 2):
     )
     fig_corr.update_coloraxes(colorbar_title="Correlation<br>coefficient") 
     fig_corr.update_layout(height=600, margin=dict(l=10, r=10, t=40, b=10),)
+    excel_download_button(corr_df, "structural_qc_corr_matrix_pearson",
+                          key="download_excel_corr_matrix_pearson", index=True)
     st.plotly_chart(fig_corr, use_container_width=True)
     
     # Пояснение: чем Пирсон отличается от Спирмена
@@ -2133,6 +2188,8 @@ if (df is not None and len(corr_columns) >= 2):
         st.caption(corr_pairs_empty)
     else:
         st.dataframe(pairs_pearson, use_container_width=True)
+        excel_download_button(pairs_pearson, "structural_qc_corr_pairs_pearson",
+                              key="download_excel_corr_pairs_pearson")
 
     # Матрица корреляции Спирмена
     st.markdown(f"### {step0_corr_spearman_title}")
@@ -2152,6 +2209,8 @@ if (df is not None and len(corr_columns) >= 2):
     )
     fig_corr_sp.update_coloraxes(colorbar_title="Spearman<br>ρ")
     fig_corr_sp.update_layout(height=600, margin=dict(l=10, r=10, t=40, b=10),)
+    excel_download_button(corr_df_spearman, "structural_qc_corr_matrix_spearman",
+                          key="download_excel_corr_matrix_spearman", index=True)
     st.plotly_chart(fig_corr_sp, use_container_width=True)
     st.markdown(f"#### {corr_pairs_title.format(threshold=f'{corr_threshold:.2f}')}")
     pairs_spearman = corr_pairs_table(corr_df_spearman, corr_threshold, corr_pair_labels)
@@ -2159,6 +2218,8 @@ if (df is not None and len(corr_columns) >= 2):
         st.caption(corr_pairs_empty)
     else:
         st.dataframe(pairs_spearman, use_container_width=True)
+        excel_download_button(pairs_spearman, "structural_qc_corr_pairs_spearman",
+                              key="download_excel_corr_pairs_spearman")
 
     # Pairplot и Seaborn Pairplot
     st.markdown(f"### {step0_pairplot_title}")
@@ -2279,8 +2340,6 @@ if (df is not None and len(corr_columns) >= 2):
 
         st.plotly_chart(fig_pair, use_container_width=True)
 
-
-
 # ------------------------------------------------- #
 # STEP 0.5.: Статистика, гистограмма и boxplot по всем числовым параметрам
 # (стиль графиков и элементы управления — как в Шаге 1, отдельно для каждого параметра)
@@ -2325,7 +2384,10 @@ for col in numeric_cols:
         col_stats, col_plots = st.columns([1, 2])
 
         with col_stats:
-            show_depth_stats(df[col], display_col)
+            stats_col_df = show_depth_stats(df[col], display_col)
+            if stats_col_df is not None:
+                excel_download_button(stats_col_df, f"structural_qc_stats_{col}",
+                                      key=f"download_excel_stats_{col}", index=True)
 
         with col_plots:
             fig_hist = plot_hist_kde(
@@ -2458,6 +2520,8 @@ st.markdown(
     f"{PARAM_1} vs {PARAM_2}"
 )
 st.dataframe(qc_metrics_df, use_container_width=True)
+excel_download_button(qc_metrics_df, "structural_qc_step1_metrics",
+                      key="download_excel_step1_metrics", index=True)
 
 # --- APPROX CURVES + METRICS
 with col_right:
@@ -2495,7 +2559,11 @@ st.markdown(
     f"### {step1_approx_comparison_title}: "
     f"{PARAM_1} vs {PARAM_2}"
 )
-st.dataframe(pd.DataFrame(fit_rows), use_container_width=True,)
+
+fit_table = pd.DataFrame(fit_rows)
+st.dataframe(fit_table, use_container_width=True,)
+excel_download_button(fit_table, "structural_qc_step1_approx_comparison",
+                      key="download_excel_step1_approx")
 
 # -------------------------------------------------------------------- #
 # STEP 1.2.: Histogram и Boxplot выбранных параметров
@@ -2628,7 +2696,10 @@ with col_resid_stats:
         f"{DELTA_LABEL}"
     )
     # Статистика невязок (Шаг 1)
-    st.dataframe(compute_stats(resid), use_container_width=True)
+    resid_stats_df = compute_stats(resid)
+    st.dataframe(resid_stats_df, use_container_width=True)
+    excel_download_button(resid_stats_df, "structural_qc_step1_residual_stats",
+                          key="download_excel_step1_resid_stats", index=True)
 
 # HISTOGRAM, KDE и Boxplot невязок (Шаг 1)
 col_ctrl_r1, col_ctrl_r2 = st.columns(2)
@@ -2697,6 +2768,10 @@ fig_map = plot_residual_map(
     point_size=residual_map_point_size,
     point_opacity=residual_map_point_opacity,
     title=f"{residual_map_title} {DELTA_LABEL}",
+    category_col=residual_map_category,
+    highlight_value=residual_map_highlight,
+    highlight_opacity=residual_map_highlight_opacity,
+    dim_opacity=residual_map_dim_opacity,
 )
 st.plotly_chart(fig_map, use_container_width=True)
 
@@ -2706,6 +2781,7 @@ st.markdown(
     f"### {outlier_analysis_title} "
     f"{DELTA_LABEL}"
 )
+
 show_outlier_tables(
     df=df,
     residuals=resid,
@@ -2714,6 +2790,8 @@ show_outlier_tables(
     param_2=PARAM_2,
     residual_column_name=DELTA_LABEL,
     no_outliers_label=no_outliers_label,
+    key_prefix="step1",
+    category_col=residual_map_category,
 )
 
 # ================================================================================================================================ #
@@ -2759,7 +2837,7 @@ def cached_run_all_cv(df, degree, k, grid_n, buffer, variogram_factor,
     return sq.run_all_cv(
         df, degree=degree, k=k, grid_n=grid_n, buffer=buffer,
         variogram_factor=variogram_factor, leave_p_percent=leave_p_percent,
-        spatial_radius=spatial_radius, cv_repeats=cv_repeats,
+        spatial_radius=spatial_radius, cv_repeats=cv_repeats, seed=42,
     )
 
 st.markdown(
@@ -2869,7 +2947,10 @@ for i in range(0, len(scheme_names), 3):
 
 # --- Таблица по всем схемам CV
 st.markdown(f"### {step2_metrics_all_title}")
-st.dataframe(pd.DataFrame(cv_summary_rows), use_container_width=True)
+cv_summary_df = pd.DataFrame(cv_summary_rows)
+st.dataframe(cv_summary_df, use_container_width=True)
+excel_download_button(cv_summary_df, "structural_qc_step2_cv_metrics_all",
+                      key="download_excel_step2_cv_metrics_all")
 
 st.markdown(f"### {step2_cv_comparison_title}")
 st.dataframe(
@@ -2888,9 +2969,10 @@ st.dataframe(
     }),
     use_container_width=True
 )
+excel_download_button(comparison, "structural_qc_step2_cv_comparison",
+                      key="download_excel_step2_cv_comparison", index=True)
 
 st.caption(step2_boxplot_caption)
-
 # Boxplot разброса RMSE по фолдам для каждой схемы CV (Шаг 2) — в стиле Шага 3
 # Длинная таблица: одна строка на фолд
 rows_fold = []
@@ -2934,6 +3016,21 @@ if not df_fold.empty:
     st.plotly_chart(fig_fold_box, use_container_width=True)
 else:
     st.info("Нет данных по фолдам для построения boxplot")
+
+if not df_fold.empty:
+    fold_table = (
+        df_fold.rename(columns={
+            "cv_scheme": "CV scheme",
+            "fold_rmse": f"RMSE fold, {PARAM_1_UNIT}",
+            "well_id": "Fold",
+        })
+        .sort_values(["CV scheme", f"RMSE fold, {PARAM_1_UNIT}"], ascending=[True, False])
+        .reset_index(drop=True)
+    )
+    st.markdown(f"##### {step2_fold_rmse_boxplot_title}")
+    st.dataframe(fold_table, use_container_width=True)
+    excel_download_button(fold_table, "structural_qc_step2_fold_rmse",
+                          key="download_excel_step2_fold_rmse")
 
 # RMSE_fold bar chart в шаге 2 : среднее RMSE по фолдам для каждой схемы CV
 fig_fold = plot_bar_chart(
@@ -3095,12 +3192,19 @@ st.markdown(
     f"— {scheme_for_plot}"
 )
 st.dataframe(cv_metrics_df, use_container_width=True,)
+excel_download_button(cv_metrics_df, "structural_qc_step2_cv_metrics_best",
+                      key="download_excel_step2_cv_metrics_best", index=True)
 
 st.markdown(
     f"### {step2_approx_comparison_title} "
     f"— {scheme_for_plot}"
 )
-st.dataframe(pd.DataFrame(approx_rows), use_container_width=True)
+
+
+approx_cv_df = pd.DataFrame(approx_rows)
+st.dataframe(approx_cv_df, use_container_width=True)
+excel_download_button(approx_cv_df, "structural_qc_step2_cv_approx",
+                      key="download_excel_step2_cv_approx")
 
 # -------------------------------------------------------------------- #
 # STEP 2.3.: CV-невязки (Actual − Predicted) vs PARAM_1 + статистика
@@ -3141,6 +3245,8 @@ with col_cv_resid_stats:
     # Статистика невязок в шаге 2
     cv_stats = compute_stats(resid_cv)
     st.dataframe(cv_stats, use_container_width=True)
+    excel_download_button(cv_stats, "structural_qc_step2_cv_residual_stats",
+                      key="download_excel_step2_cv_resid_stats", index=True)
 
 # --- Histogram и boxplot CV-невязок 
 col_ctrl_r1, col_ctrl_r2 = st.columns(2)
@@ -3208,6 +3314,8 @@ show_outlier_tables(
     param_2=PARAM_2,
     residual_column_name=cv_residual_col_label.format(param=PARAM_1),
     no_outliers_label=no_outliers_label,
+    key_prefix="step2",
+    category_col="category_plot",
 )
 
 # ================================================================================================================================ #
@@ -3232,7 +3340,7 @@ step3_metrics_comparison_title = T["step3_metrics_comparison_title"]
 zone_hist_settings_expander = T["zone_hist_settings_expander"]
 zone_hist_mode_label = T["zone_hist_mode_label"]
 zone_histnorm_label = T["zone_histnorm_label"]
-
+step3_cat_stats_title = T["step3_cat_stats_title"]
 
 
 st.markdown('<div id="step-3"></div>', unsafe_allow_html=True)
@@ -3277,16 +3385,15 @@ else:
 
     st.plotly_chart(fig_zones, use_container_width=True)
 
-    st.markdown(f"#### {crosstab_table_title}")
-    st.dataframe(
-        category_stats_table(
-            df, category_col,
-            T["cat_stats_wells"], T["cat_stats_records"], T["cat_stats_share"],
-            display_name(category_col),
-        ),
-        use_container_width=True,
-        hide_index=True,
+    st.markdown(f"#### {step3_cat_stats_title}")
+    cat_stats_step3 = category_stats_table(
+        df, category_col,
+        T["cat_stats_wells"], T["cat_stats_records"], T["cat_stats_share"],
+        display_name(category_col),
     )
+    st.dataframe(cat_stats_step3, use_container_width=True, hide_index=True)
+    excel_download_button(cat_stats_step3, f"structural_qc_step3_category_stats_{category_col}",
+                          key=f"download_excel_step3_cat_stats_{category_col}")
 
     # Цвета категорий из Sidebar
     zone_marker_colors = {zone: zone_point_colors.get(zone, "gray") for zone in zones}
@@ -3303,10 +3410,15 @@ else:
         with st.expander(f"{category_col}: {zone}", expanded=False):
             col_stat1, col_stat2 = st.columns(2)
             with col_stat1:
-                show_depth_stats(zone_part["Zprm_well"], f"{PARAM_1_LABEL} ({zone})")
+                stats_well_zone = show_depth_stats(zone_part["Zprm_well"], f"{PARAM_1_LABEL} ({zone})")
+                if stats_well_zone is not None:
+                    excel_download_button(stats_well_zone, f"structural_qc_step3_stats_well_{zone}",
+                                          key=f"download_excel_step3_stats_well_{zone}", index=True)
             with col_stat2:
-               show_depth_stats(zone_part["Zprm_map"], f"{PARAM_2_LABEL} ({zone})")
-
+                stats_map_zone = show_depth_stats(zone_part["Zprm_map"], f"{PARAM_2_LABEL} ({zone})")
+                if stats_map_zone is not None:
+                    excel_download_button(stats_map_zone, f"structural_qc_step3_stats_map_{zone}",
+                                          key=f"download_excel_step3_stats_map_{zone}", index=True)
     st.caption(step3_boxplot_caption)
 
     # Boxplot для категорий в шаге 3
@@ -3600,7 +3712,10 @@ else:
         f"### {step3_metrics_comparison_title}: "
         f"{category_col}"
     )
-    st.dataframe(pd.DataFrame(zone_fit_rows), use_container_width=True)
+    zone_fit_df = pd.DataFrame(zone_fit_rows)
+    st.dataframe(zone_fit_df, use_container_width=True)
+    excel_download_button(zone_fit_df, "structural_qc_step3_zone_fit_metrics",
+                          key="download_excel_step3_zone_fit")
 
 # ================================================================================================================================ #
 # --------------------------------------------------   Шаг 4: РУЧНОЕ ИСКЛЮЧЕНИЕ СКВАЖИН   ------------------------------------------
@@ -3993,10 +4108,15 @@ if step4_ok:
     qc_metrics_step4 = build_qc_metrics_table(basic=basic_step4, coeffs_qc=coeffs_qc_step4, left_name=PARAM_1, right_name=PARAM_2,)
     st.markdown(f"### {step4_qc_metrics_title}")
     st.dataframe(qc_metrics_step4, use_container_width=True,)
+    excel_download_button(qc_metrics_step4, "structural_qc_step4_qc_metrics",
+                          key="download_excel_step4_qc_metrics", index=True)
 
     # STEP 4.3.: Таблица метрик кривых аппроксимации
     st.markdown(f"### {step4_approx_comparison_title}")
-    st.dataframe(pd.DataFrame(fit_rows_step4), use_container_width=True,)
+    fit_table_step4 = pd.DataFrame(fit_rows_step4)
+    st.dataframe(fit_table_step4, use_container_width=True,)
+    excel_download_button(fit_table_step4, "structural_qc_step4_approx_comparison",
+                          key="download_excel_step4_approx")
 
     # --------------------------------------------------
     # STEP 4.4.: Таблица метрик до и после фильтрации
@@ -4039,7 +4159,10 @@ if step4_ok:
 
     st.markdown(f"### {step4_before_after_metrics_title}")
     st.dataframe(comparison_df, use_container_width=True,)
+    excel_download_button(comparison_df, "structural_qc_step4_before_after",
+                          key="download_excel_step4_before_after")
 
 st.markdown("---")
-st.caption("CROSSPL✳T.structural · данные не сохраняются на сервере")
-st.caption("© A.S.Pozdniakov 2026")
+st.caption("CROSSPL✳T.structural")
+st.caption(T["footer_data_note"])
+st.caption(T["footer_copyright"])
