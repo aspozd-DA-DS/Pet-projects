@@ -29,15 +29,15 @@ A geological example: **Z_well** (horizon depth from a well) and **Z_map** (dept
 
 ## How it works, step by step
 
-**Step 0 · Data loading.** CSV/XLSX import, column mapping, automatic cleaning (missing values, duplicates, garbage values, data types), correlation analysis of the selected parameters.
+**Step 0 · Data loading.** CSV/XLSX import, column mapping, automatic cleaning (missing values, duplicates, garbage values, data types), correlation analysis of the selected parameters (Pearson and Spearman matrices with a table of pairs above a chosen threshold), descriptive statistics, histograms and boxplots for every numeric column, and a two-category cross-tab. Most tables can be downloaded as Excel.
 
 **Step 1 · Basic QC cross-plot.** Z_well (reference) vs Z_map (compared): the Y=X diagonal, linear regression + a set of approximation curves to choose from, a full set of quality metrics, distributions, residual analysis and a residual map, outlier detection.
 
-**Step 2 · Cross-validation.** The same model, but honestly tested: train on a subset of wells, predict on the remaining ones, repeat across different splitting schemes — to see the real, not "fitted", accuracy. The scheme with the best combination of accuracy and stability is determined automatically.
+**Step 2 · Cross-validation.** The same model, but honestly tested: train on a subset of wells, predict on the remaining ones, repeat across different splitting schemes — to see the real, not "fitted", accuracy. The scheme with the best combination of accuracy and stability is determined automatically. Fold-level RMSE is shown as bar charts and as a boxplot for each scheme. Results are reproducible: the random seed is fixed.
 
-**Step 3 · Analysis by categories.** The same parameter pair — but separately by horizons, tectonic zones, reservoir type, fluid type, or any other categorical column. This helps reveal whether accuracy "drifts" in a particular zone or horizon.
+**Step 3 · Analysis by categories.** The same parameter pair — but separately by horizons, tectonic zones, reservoir type, fluid type, or any other categorical column. This helps reveal whether accuracy "drifts" in a particular zone or horizon. For each zone there is a statistics table, boxplots and overlaid histograms with their own bins, normalization and opacity.
 
-**Step 4 · Well filtering.** Manual exclusion of specific wells or random exclusion of a given percentage (0–95%, with resampling) — to check how stable the result is to reducing the number of wells and to individual observations.
+**Step 4 · Well filtering.** Manual exclusion of specific wells or random exclusion of a given percentage (0–95%, with resampling) — to check how stable the result is to reducing the number of wells and to individual observations. For a given seed the random set is reproducible, and the button generates the next one.
 
 *(Step 4 supports three filtering modes: manual well exclusion by list, random exclusion of a given percentage of wells with resampling, and interactive well selection by clicking points on the cross-plot — one point per click, multiple via Shift+click.)*
 

@@ -705,11 +705,10 @@ def build_approximation_plot(
     for approx in approx_types:
         try:
             # --- вычисление кривой ---
-            result = compute_curve(approx, x_ref, y_ref, z_line, approx_colors, quantile_colors)
-
+            z_res, _ = cached_curve_numeric(approx, x_ref, y_ref, z_line)
             # --- квантильная регрессия ---
             if approx == "Quantile Regression (τ=0.1/0.5/0.9)":
-                curves, eqs, _ = result
+                curves = [(tau, y_pred, quantile_colors[tau]) for tau, y_pred, _ in z_res]
                 for tau, y_pred, col in curves:
                     dash_tau = quantile_dashes.get(tau, "solid")
                     width_tau = quantile_widths.get(tau, 3)      
@@ -739,7 +738,8 @@ def build_approximation_plot(
 
             # --- обычные аппроксимации ---
             else:
-                z_fit, eq, color = result
+                z_fit = z_res
+                color = approx_colors.get(approx, "gray")
                 if z_fit is not None:
                     dash_approx = approx_dashes.get(approx, "solid")
                     width_approx = approx_widths.get(approx, 3)
@@ -1658,9 +1658,7 @@ def build_zone_overview_plot(
         # Линии аппроксимации
         for approx in approx_types:
             try:
-                z_fit, eq, color = compute_curve(
-                    approx, xz, yz, x_line_z, approx_colors, quantile_colors,
-                )
+                z_fit, eq = cached_curve_numeric(approx, xz, yz, x_line_z)
                 if z_fit is not None:
                     dash_approx = approx_dashes.get(approx, "solid")
                     width_approx = approx_widths.get(approx, 2)
@@ -1789,3 +1787,14 @@ def cached_kde_on_grid(values, lo, hi, n_points):
         return gaussian_kde(vals)(xs)
     except (np.linalg.LinAlgError, ValueError):
         return None
+
+@st.cache_data(show_spinner=False, max_entries=1024)
+def cached_curve_numeric(approx, x, y, x_line):
+    """Расчёт кривой аппроксимации без цветов. Цвета подставляются снаружи."""
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+    x_line = np.asarray(x_line, dtype=float)
+    dummy_approx = {approx: "gray"}                      # compute_curve берёт цвет по имени кривой
+    dummy_quantile = {0.1: "gray", 0.5: "gray", 0.9: "gray"}
+    z_fit, eq, _ = compute_curve(approx, x, y, x_line, dummy_approx, dummy_quantile)
+    return z_fit, eq

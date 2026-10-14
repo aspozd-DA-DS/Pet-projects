@@ -59,6 +59,7 @@ from app_utils import (
     excel_download_button,
     cached_fit_stats,
     cached_quantile_stats,
+    cached_curve_numeric,
 )
 
 # ================================================================================================================================ #
@@ -399,6 +400,10 @@ def save_dataset_to_session(df, param_1, param_2, unit_1, unit_2, zone_col=None,
 
 
 # ------ PREPARE INPUT DF ------
+@st.cache_data(
+    show_spinner=False,
+    hash_funcs={pd.DataFrame: lambda df: pd.util.hash_pandas_object(df, index=True).values.tobytes()},
+)
 def prepare_input_dataframe(raw_df, well_col, x_col, y_col, param_1_col,  param_2_col, horizon_col=None, zone_col=None,):
 
     # сохраняем все колонки исходного файла
@@ -1433,6 +1438,30 @@ with st.sidebar.expander(outlier_expander, expanded=False):
 # SIDEBAR: STEP 2 - параметры валидации CV 
 # ------------------------------------------------- #
 # Анализ расстояний между скважинами для рекомендаций по CV
+@st.cache_data(show_spinner=False, max_entries=64)
+def cached_spacing_stats(coords):
+    """Статистика расстояний между скважинами по массиву координат (N×2)."""
+    coords = np.asarray(coords, dtype=float)
+    n = len(coords)
+    if n < 2:
+        return {
+            "median_dist": None,
+            "mean_dist": None,
+            "min_dist": None,
+            "max_dist": None,
+            "n_wells": n,
+        }
+
+    dists = pdist(coords)
+    return {
+        "median_dist": float(np.median(dists)),
+        "mean_dist": float(np.mean(dists)),
+        "min_dist": float(np.min(dists)),
+        "max_dist": float(np.max(dists)),
+        "n_wells": n,
+    }
+
+
 def compute_spacing_stats(df):
     if df is None or len(df) < 2:
         return {
@@ -1446,15 +1475,7 @@ def compute_spacing_stats(df):
     # Уникальные скважины — по координатам, т.к. одна скважина = одна точка (X,Y)
     coords_df = df[["well_id", "X_coord", "Y_coord"]].drop_duplicates(subset=["well_id"])
     coords = coords_df[["X_coord", "Y_coord"]].to_numpy(float)
-    dists = pdist(coords)
-
-    return {
-        "median_dist": np.median(dists) if len(dists) else None,
-        "mean_dist": np.mean(dists) if len(dists) else None,
-        "min_dist": np.min(dists) if len(dists) else None,
-        "max_dist": np.max(dists) if len(dists) else None,
-        "n_wells": coords_df["well_id"].nunique(),
-    }
+    return cached_spacing_stats(coords)
 
 spacing = compute_spacing_stats(df)
 median_dist = spacing["median_dist"]
@@ -3695,7 +3716,7 @@ else:
         for approx in zone_approx_types:
             try:
                 # --- вычисление кривой ---
-                z_fit, eq, color = compute_curve(approx, xz, yz, x_line_z, APPROX_COLORS, quantile_colors)
+                z_fit, eq = cached_curve_numeric(approx, xz, yz, x_line_z)
                 approx_dash = APPROX_DASHES.get(approx, "solid")
                 approx_width = APPROX_WIDTHS.get(approx, 2)
                 if z_fit is not None:
