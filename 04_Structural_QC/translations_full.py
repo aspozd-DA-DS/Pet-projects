@@ -1,7 +1,8 @@
 RU = {
     "step0_title": "Structural QC — cross-plot & cross-validation",
     "step0_load_data_message": "Загрузите CSV/XLSX или выберите демонстрационный файл, чтобы начать анализ.",
-    "step0_loaded_data_title": "Загруженные данные",
+    "step0_loaded_data_title": "Загрузка данных",
+    "step0_loaded_data_pr": "Первичный обзор данных",
     "step0_input_qc_title": "QC входных данных",
     "step0_full_duplicates_title": "Полные дубликаты строк",
     "step0_full_duplicates_notfound": "Полные дубликаты не обнаружены.",
@@ -78,7 +79,8 @@ RU = {
 EN = {
     "step0_title": "Structural QC — Cross-Plot and Cross-Validation",
     "step0_load_data_message": "Upload a CSV/XLSX file or select a demo dataset to start the analysis.",
-    "step0_loaded_data_title": "Loaded Data",
+    "step0_loaded_data_title": "Data Loading",
+    "step0_loaded_data_pr": "Initial Review of the Data",
     "step0_input_qc_title": "Input Data QC",
     "step0_full_duplicates_title": "Duplicate Rows",
     "step0_full_duplicates_notfound": "No duplicate rows found.",
@@ -460,6 +462,9 @@ EN.update({
 RU.update({
     "sidebar_contents_title": "Содержание",
     "contents_data": "Загрузка данных",
+    "contents_data_pr": "Первичный обзор данных",
+    "contents_data_cat": "Категориальные признаки",
+    "contents_data_num": "Анализ выбранных параметров",
     "contents_step1": "Шаг 1 · QC-анализ зависимости между параметрами",
     "contents_step1_cp": "Базовый кросс-плот",
     "contents_step1_hb": "Распределение параметров",
@@ -478,6 +483,9 @@ RU.update({
 EN.update({
     "sidebar_contents_title": "Contents",
     "contents_data": "Data Loading",
+    "contents_data_pr": "Initial Review of the Data",
+    "contents_data_cat": "Categorical Features",
+    "contents_data_num": "Selected Parameter Analysis",
     "contents_step1": "Step 1 · QC Relationship Analysis",
     "contents_step1_cp": "Base Cross-Plot",
     "contents_step1_hb": "Parameter Distribution",

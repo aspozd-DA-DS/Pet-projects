@@ -129,6 +129,9 @@ file_loading_error = T["file_loading_error"]
 
 sidebar_contents_title = T["sidebar_contents_title"]
 contents_data = T["contents_data"]
+contents_data_pr = T["contents_data_pr"]
+contents_data_cat = T["contents_data_cat"]
+contents_data_num = T["contents_data_num"]
 contents_step1 = T["contents_step1"]
 contents_step1_cp = T["contents_step1_cp"]
 contents_step1_hb = T["contents_step1_hb"]
@@ -757,6 +760,9 @@ st.sidebar.markdown(f"### {sidebar_contents_title}")
 
 st.sidebar.markdown(f"""
 - [{contents_data}](#step-0)
+    - [{contents_data_pr}](#step-0-pr)
+    - [{contents_data_cat}](#step-0-cat)
+    - [{contents_data_num}](#step-0-num)
 - [{contents_step1}](#step-1)
     - [{contents_step1_cp}](#step-1-cp)
     - [{contents_step1_hb}](#step-1-hb)
@@ -1790,6 +1796,7 @@ no_outliers_label = T["no_outliers_label"]
 step0_title = T["step0_title"]
 step0_load_data_message = T["step0_load_data_message"]
 step0_loaded_data_title = T["step0_loaded_data_title"]
+step0_loaded_data_pr = T["step0_loaded_data_pr"]
 step0_input_qc_title = T["step0_input_qc_title"]
 step0_full_duplicates_title = T["step0_full_duplicates_title"]
 step0_full_duplicates_notfound = T["step0_full_duplicates_notfound"]
@@ -1851,6 +1858,7 @@ st.caption(T["footer_copyright"])
 ui_examples.show_project_introduction()
 ui_examples.show_input_file_example()
 
+st.markdown('<div id="step-0-pr"></div>', unsafe_allow_html=True)
 # ------------------------------------------------- #
 # STEP 0.1.: QC входных данных
 # ------------------------------------------------- #
@@ -1882,13 +1890,14 @@ badges = " · ".join([badge(c) for c in cols_for_display])
 
 # --- Сводная информация о загруженных данных ---
 st.markdown(f"## {step0_loaded_data_title}")
-# QC входных данных
+st.markdown(f"### {step0_loaded_data_pr}")
 
+# QC входных данных
 with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
 
     # Полные дубликаты строк
     full_duplicates = df[df.duplicated(keep=False)]
-    st.markdown(f"### {step0_full_duplicates_title}")
+    st.markdown(f"#### {step0_full_duplicates_title}")
     if len(full_duplicates) > 0:
         st.warning(
             f"{step0_found_full_duplicates} "
@@ -1900,7 +1909,7 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
         st.caption(step0_full_duplicates_notfound)
 
     # Дубликаты скважин
-    st.markdown(f"### {step0_duplicate_wells_title}")
+    st.markdown(f"#### {step0_duplicate_wells_title}")
     st.caption(step0_duplicate_wells_hint)
     dup_wells = (df.groupby("well_id").size().reset_index(name="count"))
     dup_wells = dup_wells[dup_wells["count"] > 1]
@@ -1914,7 +1923,7 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
         st.caption(step0_duplicate_wells_notfound)
 
     # Совпадающие координаты (в пределах одного горизонта)
-    st.markdown(f"### {step0_duplicate_coords_title}")
+    st.markdown(f"#### {step0_duplicate_coords_title}")
 
     coords_group_cols = ["X_coord", "Y_coord"]
     if "horizon_id" in df.columns:
@@ -1937,7 +1946,7 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
         st.caption(step0_duplicate_coords_notfound)
 
     # Пропуски
-    st.markdown(f"### {step0_missing_values_title}")
+    st.markdown(f"#### {step0_missing_values_title}")
     na_summary = pd.DataFrame({
         "column": [display_name(c) for c in cols_for_display],
         "missing values": [int(df[c].isna().sum()) for c in cols_for_display],
@@ -1946,7 +1955,7 @@ with st.expander(f"✅ {step0_input_qc_title}",  expanded=False):
     excel_download_button(na_summary, "structural_qc_missing_values", key="download_excel_na_summary")
 
     # Строки удалённые при очистке
-    st.markdown(f"### {step0_removed_rows_title}")
+    st.markdown(f"#### {step0_removed_rows_title}")
     removed_rows = st.session_state.get("removed_rows", pd.DataFrame() )
     if len(removed_rows) > 0:
         st.warning(
@@ -1985,7 +1994,7 @@ st.write(
 # ------------------------------------------------- #
 # STEP 0.2.: Типы данных по колонкам
 # ------------------------------------------------- #
-st.markdown(f"### {step0_data_types_title}")
+st.markdown(f"#### {step0_data_types_title}")
 
 dtype_rows = []
 
@@ -2040,16 +2049,16 @@ other_cols = [
 display_df = display_df[front_cols + other_cols]
 
 # --- Просмотр данных ---
-st.markdown(f"### {step0_first_rows_title}")
+st.markdown(f"#### {step0_first_rows_title}")
 st.dataframe(display_df.head(5), use_container_width=True)
 
-st.markdown(f"### {step0_last_rows_title}")
+st.markdown(f"#### {step0_last_rows_title}")
 st.dataframe(display_df.tail(5), use_container_width=True)
 excel_download_button(display_df, "structural_qc_data", key="download_excel_display")
 
 # --- Статистика параметров
 st.markdown(
-    f"### {step0_parameter_stats_title} "
+    f"#### {step0_parameter_stats_title} "
     f"{PARAM_1}, {PARAM_2}"
 )
 
@@ -2067,7 +2076,7 @@ if stats_well_df is not None and stats_map_df is not None:
 # ------------------------------------------------- #
 # STEP 0.3.: Категориальные параметры
 # ------------------------------------------------- #
-
+st.markdown('<div id="step-0-cat"></div>', unsafe_allow_html=True)
 st.markdown(f"### {step0_categorical_features_title}")
 
 category_cols = [
@@ -2133,7 +2142,7 @@ for col in category_cols:
 # Сгруппированная диаграмма по двум категориям
 # ------------------------------------------------- #
 if category_cols:
-    st.markdown(f"### {step0_crosstab_title}")
+    st.markdown(f"#### {step0_crosstab_title}")
     if len(category_cols) < 2:
         st.caption(step0_crosstab_need_two)
     else:
@@ -2190,14 +2199,15 @@ if category_cols:
 # ------------------------------------------------- #
 # STEP 0.4.: Корреляционный анализ выбранных параметров
 # ------------------------------------------------- #
+st.markdown('<div id="step-0-num"></div>', unsafe_allow_html=True)
 if (df is not None and len(corr_columns) >= 2):
-    st.markdown(f"## {step0_selected_params_title}")
+    st.markdown(f"### {step0_selected_params_title}")
 
     if len(corr_columns) > 6:
         st.warning(step0_pairplot_warning)
 
     # Матрица корреляции
-    st.markdown(f"### {step0_corr_matrix_title}")
+    st.markdown(f"#### {step0_corr_matrix_title}")
 
     # специальный случай: выбран один и тот же параметр
     if len(set(corr_columns)) == 1:
@@ -2230,7 +2240,7 @@ if (df is not None and len(corr_columns) >= 2):
                               key="download_excel_corr_pairs_pearson")
 
     # Матрица корреляции Спирмена
-    st.markdown(f"### {step0_corr_spearman_title}")
+    st.markdown(f"#### {step0_corr_spearman_title}")
     if len(set(corr_columns)) == 1:
         col = corr_columns[0]
         corr_df_spearman = pd.DataFrame([[1.0]], index=[col], columns=[col],)
@@ -2260,7 +2270,7 @@ if (df is not None and len(corr_columns) >= 2):
                               key="download_excel_corr_pairs_spearman")
 
     # Pairplot и Seaborn Pairplot
-    st.markdown(f"### {step0_pairplot_title}")
+    st.markdown(f"#### {step0_pairplot_title}")
     show_pairplot = st.toggle(T["show_pairplot_label"], value=False, key="show_pairplot")
     if show_pairplot and pairplot_engine == "Seaborn Pairplot (static)":
         # Pairplot - корреляционный анализ
@@ -2378,10 +2388,8 @@ if (df is not None and len(corr_columns) >= 2):
 
         st.plotly_chart(fig_pair, use_container_width=True)
 
-# ------------------------------------------------- #
-# STEP 0.5.: Статистика, гистограмма и boxplot по всем числовым параметрам
-# (стиль графиков и элементы управления — как в Шаге 1, отдельно для каждого параметра)
-# ------------------------------------------------- #
+
+# Статистика, гистограмма и boxplot по всем числовым параметрам (стиль графиков и элементы управления — как в Шаге 1, отдельно для каждого параметра)
 numeric_cols = [
     c for c in df.select_dtypes(include="number").columns
     if c not in ("well_id", PARAM_1, PARAM_2)
@@ -2395,7 +2403,7 @@ hist_norm_map_step0 = {
     "percent": T["hist_norm_percent"],
 }
 
-st.markdown(f"### {step0_selected_stats_title}")
+st.markdown(f"#### {step0_selected_stats_title}")
 
 for col in numeric_cols:
     display_col = display_name(col)
@@ -3249,7 +3257,7 @@ excel_download_button(approx_cv_df, "structural_qc_step2_cv_approx",
 # -------------------------------------------------------------------- #
 st.markdown('<div id="step-2-res"></div>', unsafe_allow_html=True)
 
-CV_RESIDUAL_LABEL = f"{PARAM_1} − Predicted"
+CV_RESIDUAL_LABEL = f"Δ({PARAM_1} − Predicted)"
 
 st.markdown(f"### {step2_residual_distribution_title} "
     f"({CV_RESIDUAL_LABEL})")
@@ -3340,6 +3348,30 @@ with col_bcv:
         **BOX_STYLE,
     )
     st.plotly_chart(fig_bcv, use_container_width=True)
+
+# Карта CV-невязок
+st.markdown(
+    f"### {spatial_residuals_title} "
+    f"CV {CV_RESIDUAL_LABEL}"
+)
+
+
+fig_map = plot_residual_map(
+    df=plot_df,
+    residuals=resid_cv,
+    palette=map_palette,
+    wells_label=wells_legend,
+    well_label=well_label,
+    residual_label=CV_RESIDUAL_LABEL,
+    point_size=residual_map_point_size,
+    point_opacity=residual_map_point_opacity,
+    title=f"{residual_map_title} CV {CV_RESIDUAL_LABEL}",
+    category_col=residual_map_category,
+    highlight_value=residual_map_highlight,
+    highlight_opacity=residual_map_highlight_opacity,
+    dim_opacity=residual_map_dim_opacity,
+)
+st.plotly_chart(fig_map, use_container_width=True)
 
 # --- Анализ выбросов по результатам CV-невязок
 st.markdown('<div id="step-2-otl"></div>', unsafe_allow_html=True)
