@@ -224,7 +224,7 @@ RU.update({
         "Boxplot: линия внутри бокса показывает медиану, "
         "пунктирная линия показывает среднее значение."
     ),
-    "step2_fold_rmse_boxplot_title": "Разброс RMSE по фолдам по схемам CV",
+    "step2_fold_rmse_boxplot_title": "Boxplot: Разброс RMSE по фолдам по схемам CV",
     "step2_best_scheme_title": "Лучшая схема CV",
     "step2_cv_crossplot_title": "Кросс-плот: Прогноз vs Факт",
     "step2_approximations_title": "Аппроксимации для Прогноза vs Факта",
@@ -254,7 +254,7 @@ EN.update({
         "Boxplot: the line inside the box represents the Median, "
         "and the dashed line represents the Mean."
     ),
-    "step2_fold_rmse_boxplot_title": "RMSE variation across folds for the CV schemes",
+    "step2_fold_rmse_boxplot_title": "Boxplot: RMSE variation across folds for the CV schemes",
     "step2_best_scheme_title": "Best CV Scheme",
     "step2_cv_crossplot_title": "Cross-Plot: Predicted vs Actual",
     "step2_approximations_title": "Approximations for Predicted vs Actual",
