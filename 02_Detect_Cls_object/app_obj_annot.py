@@ -5,14 +5,81 @@ import cv2, numpy as np, json, os
 from PIL import Image, ImageOps   # 🔧 FIX 1
 
 st.set_page_config(layout="wide")
-st.title("Streamlit Capsule Annotator — Crop-Zoom + YOLO + Annotated Image Saving")
+st.title("Streamlit Capsule Annotator — Crop-Zoom + Detect + Annotated Image Saving")
 
-OUTPUT_DIR = "01_Streamlit_result"
+OUTPUT_DIR = "Streamlit_result"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 CLASSES = {0: 'capsule', 1: 'softgel_gelcap', 2: 'meltlet', 3: 'caplet'}
-SHAPES = ["round", "oval", "elongated", "square", "other"]
-COLORS = ["white", "yellow", "red", "black", "green", "brown", "gray", "orange", "other"]
+SHAPES = [
+    "round",          # Круглая
+    "oval",           # Овальная
+    "elongated",      # Удлинённая
+    "oblong",         # Продолговатая, промежуточная форма
+    "capsule_shape",  # Капсулообразная
+    "triangular",     # Треугольная
+    "square",         # Квадратная
+    "irregular",      # Неправильная
+    "other"           # Другая / не определена
+]
+
+COLORS = [
+    # Базовые цвета
+    "white",
+    "black",
+    "gray",
+    "brown",
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "purple",
+    "pink",
+
+    # Светлые и нейтральные оттенки
+    "ivory",
+    "cream",
+    "beige",
+    "tan",
+    "taupe",
+    "charcoal",
+
+    # Оттенки зелёного
+    "mint",
+    "olive",
+    "lime",
+    "teal",
+
+    # Оттенки синего
+    "navy",
+    "cyan",
+    "turquoise",
+
+    # Оттенки красного и розового
+    "maroon",
+    "burgundy",
+    "coral",
+    "magenta",
+
+    # Оттенки жёлтого и оранжевого
+    "gold",
+    "amber",
+
+    # Дополнительные оттенки
+    "lavender",
+    "lilac",
+    "indigo",
+    "bronze",
+    "copper",
+    "silver",
+
+    # Прозрачность и смешанные варианты
+    "transparent",
+    "translucent",
+    "multicolor",
+    "other"
+]
 
 MAX_W, MAX_H = 1200, 900
 
