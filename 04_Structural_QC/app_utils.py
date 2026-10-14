@@ -194,7 +194,7 @@ def fitstats_to_dict(stats):
 # ------------------------------------------------------------- #
 # ------ Круговая диаграмма для категорий в шаге 3 ------
 def plot_zone_pie(df, category_col, palette="Plotly", title="",
-                  opacity=1.0, outline_color="black", outline_width=1):
+                  opacity=1.0, outline_color="black", outline_width=0):
 
     zone_counts = (df[category_col].fillna("Not specified").value_counts().reset_index())
     zone_counts.columns = ["Category", "Count"]
@@ -388,7 +388,7 @@ def crosstab_stats_table(df, x_col, group_col, x_label, group_label,
 
 def plot_category_pies(df, x_col, group_col, title, x_label, group_label,
                        palette="Plotly", n_cols=3, row_height=380,
-                       opacity=1.0, outline_color="black", outline_width=1):
+                       opacity=1.0, outline_color="black", outline_width=0):
     """Круговые диаграммы: по одной на каждое значение x_col.
     Слева от каждого пирога своя легенда (значения group_col).
     Клик по категории скрывает её сектор только в этом пироге."""
@@ -1406,6 +1406,15 @@ def plot_residual_map(
             colorbar=dict(title=residual_label, x=1.02, y=0.5, len=0.9),
         ),
     ))
+
+    # фиксируем диапазоны осей по всем скважинам, чтобы скрытие категории не меняло масштаб карты
+    xs = pd.to_numeric(df["X_coord"], errors="coerce").values
+    ys = pd.to_numeric(df["Y_coord"], errors="coerce").values
+    x_span = (np.nanmax(xs) - np.nanmin(xs)) or 1.0
+    y_span = (np.nanmax(ys) - np.nanmin(ys)) or 1.0
+    x_pad, y_pad = 0.05 * x_span, 0.05 * y_span
+    fig.update_xaxes(range=[np.nanmin(xs) - x_pad, np.nanmax(xs) + x_pad], autorange=False)
+    fig.update_yaxes(range=[np.nanmin(ys) - y_pad, np.nanmax(ys) + y_pad], autorange=False)
 
     if title is not None:
         fig.update_layout(title=dict(text=title, x=0.01, y=0.98))

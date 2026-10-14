@@ -881,7 +881,7 @@ with st.sidebar.expander(multi_pie_expander, expanded=False):
     multi_pie_opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05, key="multi_pie_opacity",)
     st.markdown(f"**{multi_pie_outline_label}**")
     st.caption(hist_line_width_label)
-    multi_pie_outline_width = st.slider(hist_line_width_label, 0, 5, 1, key="multi_pie_outline_width",label_visibility="collapsed",)
+    multi_pie_outline_width = st.slider(hist_line_width_label, 0, 5, 0, key="multi_pie_outline_width",label_visibility="collapsed",)
     multi_pie_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="multi_pie_outline_color", label_visibility="collapsed",)
 
 with st.sidebar.expander(crosstab_expander, expanded=False):
@@ -1208,7 +1208,7 @@ with st.sidebar.expander(pie_chart_expander, expanded=False):
     pie_opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05, key="pie_opacity")
     st.markdown(f"**{multi_pie_outline_label}**")
     st.caption(hist_line_width_label)
-    pie_outline_width = st.slider(hist_line_width_label, 0, 5, 1, key="pie_outline_width", label_visibility="collapsed")
+    pie_outline_width = st.slider(hist_line_width_label, 0, 5, 0, key="pie_outline_width", label_visibility="collapsed")
     pie_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="pie_outline_color", label_visibility="collapsed")
 
 # ------------------------------------------------- #
