@@ -29,6 +29,7 @@ from app_utils import (
     compute_polynomial_curve,
     get_equation,
     plot_pairplot,
+    cached_plotly_pairplot,
     plot_bar_chart,
     plot_zone_pie,
     add_identity_line,
@@ -54,12 +55,14 @@ from app_utils import (
     PALETTE_DICT,
     corr_pairs_table,
     plot_category_crosstab,
+    plot_category_pies,
     crosstab_stats_table,
     category_stats_table,
     excel_download_button,
     cached_fit_stats,
     cached_quantile_stats,
     cached_curve_numeric,
+    add_cv_residual_band,
 )
 
 # ================================================================================================================================ #
@@ -300,11 +303,15 @@ variogram_factor_caption = T["variogram_factor_caption"]
 corr_threshold_label = T["corr_threshold_label"]
 
 crosstab_expander = T["crosstab_expander"]
+multi_pie_expander = T["multi_pie_expander"]
+multi_pie_opacity_label = T["multi_pie_opacity_label"]
+multi_pie_outline_label = T["multi_pie_outline_label"]
 crosstab_orientation_label = T["crosstab_orientation_label"]
 crosstab_orient_v = T["crosstab_orient_v"]
 crosstab_orient_h = T["crosstab_orient_h"]
 crosstab_outline_label = T["crosstab_outline_label"]
 step0_crosstab_title = T["step0_crosstab_title"]
+step0_multi_pie_title = T["step0_multi_pie_title"]
 step0_crosstab_x_label = T["step0_crosstab_x_label"]
 step0_crosstab_group_label = T["step0_crosstab_group_label"]
 step0_crosstab_need_two = T["step0_crosstab_need_two"]
@@ -869,6 +876,14 @@ CATEGORY_PALETTES = [
     "Set3", "Spectral", "Turbo", "Viridis"
 ]
 
+with st.sidebar.expander(multi_pie_expander, expanded=False):
+    multi_pie_palette = st.selectbox(category_bar_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="multi_pie_palette",)
+    multi_pie_opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05, key="multi_pie_opacity",)
+    st.markdown(f"**{multi_pie_outline_label}**")
+    st.caption(hist_line_width_label)
+    multi_pie_outline_width = st.slider(hist_line_width_label, 0, 5, 1, key="multi_pie_outline_width",label_visibility="collapsed",)
+    multi_pie_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="multi_pie_outline_color", label_visibility="collapsed",)
+
 with st.sidebar.expander(crosstab_expander, expanded=False):
     crosstab_palette = st.selectbox(category_bar_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="crosstab_palette",)
     crosstab_agg = st.selectbox(
@@ -890,6 +905,7 @@ with st.sidebar.expander(crosstab_expander, expanded=False):
         format_func=lambda x: crosstab_orient_v if x == "v" else crosstab_orient_h,
         key="crosstab_orientation",
     )
+    crosstab_opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05, key="crosstab_opacity",)
     st.markdown(f"**{crosstab_outline_label}**")
     st.caption(hist_line_width_label)
     crosstab_outline_width = st.slider(hist_line_width_label, 0, 5, 0, key="crosstab_outline_width", label_visibility="collapsed")
@@ -1173,9 +1189,13 @@ def bar_style_controls(prefix, group_title, palette_label, default_orientation="
                               key=f"{prefix}_outline_width", label_visibility="collapsed")
     outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"),
                                  key=f"{prefix}_outline_color", label_visibility="collapsed")
+    
+    opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05,
+                        key=f"{prefix}_opacity")
     st.markdown("---")
     return dict(palette=palette, orientation=orientation,
-                outline_color=outline_color, outline_width=outline_width)
+                outline_color=outline_color, outline_width=outline_width,
+                opacity=opacity)
 
 with st.sidebar.expander(bar_chart_expander, expanded=False):
     style_load = bar_style_controls("bar_load", bar_group_load_title, category_bar_palette_label, "h")
@@ -1185,6 +1205,11 @@ with st.sidebar.expander(bar_chart_expander, expanded=False):
 
 with st.sidebar.expander(pie_chart_expander, expanded=False):
     pie_palette = st.selectbox(pie_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="pie_palette")
+    pie_opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05, key="pie_opacity")
+    st.markdown(f"**{multi_pie_outline_label}**")
+    st.caption(hist_line_width_label)
+    pie_outline_width = st.slider(hist_line_width_label, 0, 5, 1, key="pie_outline_width", label_visibility="collapsed")
+    pie_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="pie_outline_color", label_visibility="collapsed")
 
 # ------------------------------------------------- #
 # SIDEBAR: STEP 0 - корреляционный анализ
@@ -2114,6 +2139,9 @@ for col in category_cols:
                 category_col=col,
                 palette=pie_palette,
                 title=f"{step0_well_count_title} : {display_name(col)}",
+                opacity=pie_opacity,
+                outline_color=pie_outline_color,
+                outline_width=pie_outline_width,
             )
             st.plotly_chart(fig_pie, use_container_width=True)
 
@@ -2138,6 +2166,37 @@ for col in category_cols:
         st.dataframe(cat_stats_table, use_container_width=True, hide_index=True)
         excel_download_button(cat_stats_table, f"structural_qc_category_{col}",
                               key=f"download_excel_cat_stats_{col}")
+
+# Круговые диаграммы по нескольким категориям (перед сгруппированной)
+# ------------------------------------------------- #
+if len(category_cols) >= 2:
+    st.markdown(f"#### {step0_multi_pie_title}")
+    col_pie_x, col_pie_g = st.columns(2)
+    with col_pie_x:
+        pies_x_col = st.selectbox(
+            step0_crosstab_x_label, category_cols,
+            format_func=display_name, key="pies_x_col",
+        )
+    with col_pie_g:
+        pies_group_col = st.selectbox(
+            step0_crosstab_group_label,
+            [c for c in category_cols if c != pies_x_col],
+            format_func=display_name, key="pies_group_col",
+        )
+
+    fig_pies = plot_category_pies(
+        df=df,
+        x_col=pies_x_col,
+        group_col=pies_group_col,
+        title=f"{step0_multi_pie_title}: {display_name(pies_x_col)} × {display_name(pies_group_col)}",
+        x_label=display_name(pies_x_col),
+        group_label=display_name(pies_group_col),
+        palette=multi_pie_palette,
+        opacity=multi_pie_opacity,
+        outline_color=multi_pie_outline_color,
+        outline_width=multi_pie_outline_width,
+    )
+    st.plotly_chart(fig_pies, use_container_width=True)
 
 # Сгруппированная диаграмма по двум категориям
 # ------------------------------------------------- #
@@ -2178,6 +2237,7 @@ if category_cols:
             outline_width=crosstab_outline_width,
             agg=crosstab_agg,
             value_col=crosstab_value_col,
+            opacity=crosstab_opacity,
         )
         st.plotly_chart(fig_crosstab, use_container_width=True)
 
@@ -2335,59 +2395,21 @@ if (df is not None and len(corr_columns) >= 2):
 
         dimensions = [c for c in pair_df.columns if c not in excluded_from_dims]
 
-        if use_category_for_color:
-            cat_display = DISPLAY_NAMES.get(pairplot_category, pairplot_category)
+        cat_display = (
+            DISPLAY_NAMES.get(pairplot_category, pairplot_category)
+            if use_category_for_color else None
+        )
+        color_map = (
+            {str(k): v for k, v in pairplot_category_colors.items()}
+            if (use_category_for_color and pairplot_category_colors) else None
+        )
 
-            # Готовим color_discrete_map из словаря цветов сайдбара
-            color_map = None
-            if pairplot_category_colors:
-                color_map = {str(k): v for k, v in pairplot_category_colors.items()}
-
-            fig_pair = px.scatter_matrix(
-                pair_df,
-                dimensions=dimensions,
-                color=cat_display,
-                hover_name="well_id",
-                color_discrete_map=color_map,
-                title=(
-                    f"{step0_plotly_pairplot_title} "
-                    f"({len(corr_columns)})"
-                ),
-            )
-
-        else:
-            fig_pair = px.scatter_matrix(
-                pair_df,
-                dimensions=dimensions,
-                hover_name="well_id",
-                title=(
-                    f"{step0_plotly_pairplot_title} "
-                    f"({len(corr_columns)})"
-                ),
-            )
-
-        # Если категория НЕ используется — красим точки в один цвет, как раньше
-        if not use_category_for_color:
-            fig_pair.update_traces(
-                marker=dict(
-                    color=pairplot_point_color,
-                    size=pairplot_point_size,
-                    opacity=pairplot_point_opacity,
-                )
-            )
-        else:
-            fig_pair.update_traces(
-                marker=dict(
-                    size=pairplot_point_size,
-                    opacity=pairplot_point_opacity,
-                )
-            )
-
-        fig_pair.update_traces(diagonal_visible=False)
-        fig_pair.update_layout(height=850)
-
+        fig_pair = cached_plotly_pairplot(
+            pair_df, dimensions, cat_display, color_map,
+            pairplot_point_color, pairplot_point_size, pairplot_point_opacity,
+            f"{step0_plotly_pairplot_title} ({len(corr_columns)})",
+        )
         st.plotly_chart(fig_pair, use_container_width=True)
-
 
 # Статистика, гистограмма и boxplot по всем числовым параметрам (стиль графиков и элементы управления — как в Шаге 1, отдельно для каждого параметра)
 numeric_cols = [
@@ -2597,6 +2619,7 @@ with col_right:
         identity_dash=identity_line_dash,
         marker_size=approx_point_size,
         marker_opacity=approx_point_opacity,
+        show_quantile_band=True,
     )
     st.plotly_chart(fig_fit, use_container_width=True)
 
@@ -2743,7 +2766,7 @@ with col_resid_stats:
     )
     # Статистика невязок (Шаг 1)
     resid_stats_df = compute_stats(resid)
-    st.dataframe(resid_stats_df, use_container_width=True)
+    st.dataframe(resid_stats_df.style.format({"Value": "{:.4f}"}), use_container_width=True)
     excel_download_button(resid_stats_df, "structural_qc_step1_residual_stats",
                           key="download_excel_step1_resid_stats", index=True)
 
@@ -3141,6 +3164,9 @@ plot_df["category_plot"] = (
     else "—"
 )
 
+if residual_map_category is not None and residual_map_category in df_cv.columns:
+    plot_df[residual_map_category] = df_cv.loc[valid, residual_map_category].values
+
 # --- Вычисляем невязки один раз ---
 # CV residual = Actual - Predicted
 resid_cv = plot_df["Zprm_well"] - plot_df["Predicted"]
@@ -3178,6 +3204,11 @@ with col_pred:
         marker_opacity=crossplot_point_opacity,
         height=380,
     )
+
+    band_ok = add_cv_residual_band(fig_cv1, z_w_cv, resid_cv.to_numpy(float))
+    if not band_ok:
+        st.caption("Интервал P10–P90 не показан: недостаточно скважин для квантилей.")
+
     st.plotly_chart(fig_cv1, use_container_width=True)
 
 # ---- CV PLOT 2 — кривые аппроксимации
@@ -3290,7 +3321,7 @@ with col_cv_resid_stats:
     st.markdown(f"#### {step2_residual_stats_title} ({CV_RESIDUAL_LABEL})")
     # Статистика невязок в шаге 2
     cv_stats = compute_stats(resid_cv)
-    st.dataframe(cv_stats, use_container_width=True)
+    st.dataframe(cv_stats.style.format({"Value": "{:.4f}"}), use_container_width=True)
     excel_download_button(cv_stats, "structural_qc_step2_cv_residual_stats",
                       key="download_excel_step2_cv_resid_stats", index=True)
 
@@ -3438,7 +3469,11 @@ else:
     )
 
     # Круговая диаграмма в шаге 3
-    fig_zone_pie = plot_zone_pie(df, category_col=category_col, palette=pie_palette, title=f"{step3_well_count_title} : {category_col}")
+    fig_zone_pie = plot_zone_pie(
+        df, category_col=category_col, palette=pie_palette,
+        title=f"{step3_well_count_title} : {category_col}",
+        opacity=pie_opacity, outline_color=pie_outline_color, outline_width=pie_outline_width,
+    )
     st.plotly_chart(fig_zone_pie, use_container_width=True)
     
     # Bar chart в Шаге 3
@@ -4192,43 +4227,30 @@ if step4_ok:
     # STEP 4.4.: Таблица метрик до и после фильтрации
     # --------------------------------------------------
     comparison_df = pd.DataFrame({
-        "Metrics": [
-            "Well",
-            "R²_lin",
-            "RMSE",
-            "MSE",
-            "MAE",
-            "Bias",
-            "Std",
-            "Variance",
-            "MAPE %",
-        ],
+        "Metrics": ["Well", "R²_lin", "RMSE", "MSE", "MAE", "Bias", "Std", "Variance", "MAPE %"],
         "before filt": [
-            len(df),
-            basic.r2,
-            basic.rmse,
-            basic.mse,
-            basic.mae,
-            basic.bias,
-            basic.std,
-            basic.variance,
-            basic.mape_pct,
+            f"{len(df)}",
+            basic.r2, basic.rmse, basic.mse, basic.mae,
+            basic.bias, basic.std, basic.variance, basic.mape_pct,
         ],
         "after filt": [
-            len(df_step4),
-            basic_step4.r2,
-            basic_step4.rmse,
-            basic_step4.mse,
-            basic_step4.mae,
-            basic_step4.bias,
-            basic_step4.std,
-            basic_step4.variance,
-            basic_step4.mape_pct,
+            f"{len(df_step4)}",
+            basic_step4.r2, basic_step4.rmse, basic_step4.mse, basic_step4.mae,
+            basic_step4.bias, basic_step4.std, basic_step4.variance, basic_step4.mape_pct,
         ]
     })
 
+    # формат {:.4f} — только для строк с метриками (все, кроме первой «Well»)
+    numeric_rows = pd.IndexSlice[1:, :]
+
+    styled = (
+        comparison_df.style
+        .format({"before filt": "{:.4f}", "after filt": "{:.4f}"}, subset=numeric_rows)
+        .format({"before filt": "{}",     "after filt": "{}"},     subset=pd.IndexSlice[0:0, :])
+    )
+
     st.markdown(f"### {step4_before_after_metrics_title}")
-    st.dataframe(comparison_df, use_container_width=True,)
+    st.dataframe(styled, use_container_width=True)
     excel_download_button(comparison_df, "structural_qc_step4_before_after",
                           key="download_excel_step4_before_after")
 

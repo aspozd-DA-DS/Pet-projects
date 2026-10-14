@@ -9,6 +9,7 @@ import seaborn as sns
 import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
+from plotly.subplots import make_subplots
 import statsmodels.api as sm
 from scipy.stats import gaussian_kde
 from sklearn.linear_model import (
@@ -163,28 +164,28 @@ def compute_stats(data):
 # ------ Универсальная функция подготовки метрик кросс-плота для Шагов 1 и 2 ------
 def basicstats_to_dict(stats, equation):
     return {
-        "R²_lin": stats.r2,
-        "RMSE": stats.rmse,
-        "MSE": stats.mse,
-        "MAE": stats.mae,
-        "Bias": stats.bias,
-        "Std": stats.std,
-        "Variance": stats.variance,
-        "MAPE %": stats.mape_pct,
+        "R²_lin": f"{stats.r2:.4f}",
+        "RMSE": f"{stats.rmse:.4f}",
+        "MSE": f"{stats.mse:.4f}",
+        "MAE": f"{stats.mae:.4f}",
+        "Bias": f"{stats.bias:.4f}",
+        "Std": f"{stats.std:.4f}",
+        "Variance": f"{stats.variance:.4f}",
+        "MAPE %": f"{stats.mape_pct:.4f}",
         "P-value": f"{stats.p_value:.5e}",
         "Equation": equation,
     }
 # ------ Универсальная функция подготовки метрик аппроксимации для Шагов 1, 2 и 3 ------
 def fitstats_to_dict(stats):
     return {
-        "R²_fit": stats.r2,
-        "RMSE": stats.rmse,
-        "MSE": stats.mse,
-        "MAE": stats.mae,
-        "Bias": stats.bias,
-        "Std": stats.std,
-        "Variance": stats.variance,
-        "MAPE %": stats.mape_pct,
+        "R²_fit": f"{stats.r2:.4f}",
+        "RMSE": f"{stats.rmse:.4f}",
+        "MSE": f"{stats.mse:.4f}",
+        "MAE": f"{stats.mae:.4f}",
+        "Bias": f"{stats.bias:.4f}",
+        "Std": f"{stats.std:.4f}",
+        "Variance": f"{stats.variance:.4f}",
+        "MAPE %": f"{stats.mape_pct:.4f}",
         "Equation": stats.equation,
     }
 
@@ -192,7 +193,8 @@ def fitstats_to_dict(stats):
 # FUNC: АНАЛИЗ КАТЕГОРИИ ПРИ ЗАГРУЗКЕ, В ШАГЕ 3 - Plot_Pie, Boxplot
 # ------------------------------------------------------------- #
 # ------ Круговая диаграмма для категорий в шаге 3 ------
-def plot_zone_pie(df, category_col, palette="Plotly", title=""):
+def plot_zone_pie(df, category_col, palette="Plotly", title="",
+                  opacity=1.0, outline_color="black", outline_width=1):
 
     zone_counts = (df[category_col].fillna("Not specified").value_counts().reset_index())
     zone_counts.columns = ["Category", "Count"]
@@ -215,7 +217,9 @@ def plot_zone_pie(df, category_col, palette="Plotly", title=""):
     fig.update_traces(
         text=custom_text,
         textinfo="text",
-        textposition="inside"
+        textposition="inside",
+        opacity=opacity,
+        marker=dict(line=dict(color=outline_color, width=outline_width)),
     )
 
     fig.update_layout(
@@ -249,7 +253,7 @@ def category_stats_table(df, col, wells_label, records_label, share_label, col_l
 def plot_category_crosstab(df, x_col, group_col, title, x_label, y_label,
                            legend_title=None, palette="Plotly", orientation="v",
                            outline_color="black", outline_width=0,
-                           agg="count", value_col=None, height=420):
+                           agg="count", value_col=None, height=420, opacity=1.0):
     """Сгруппированная диаграмма: по X — значения x_col, столбцы внутри — значения group_col.
     agg="count": число уникальных скважин (well_id), в подписи число и доля от всех скважин.
     agg="min" / "max" / "median" / "mean" / "std": агрегат по value_col в каждой комбинации,
@@ -296,6 +300,7 @@ def plot_category_crosstab(df, x_col, group_col, title, x_label, y_label,
             text=texts,
             textposition="outside",
             cliponaxis=False,
+            opacity=opacity,
             marker=dict(color=colors[i % len(colors)],
                         line=dict(color=outline_color, width=outline_width)),
         )
@@ -324,8 +329,15 @@ def plot_category_crosstab(df, x_col, group_col, title, x_label, y_label,
         xaxis_title=x_title,
         yaxis_title=y_title,
         legend_title=legend_title or group_col,
+        legend=dict(
+            orientation="v",
+            x=-0.02, xanchor="right",
+            y=1.0, yanchor="top",
+            itemclick="toggle",          # клик по категории скрывает/показывает её столбцы
+            itemdoubleclick="toggleothers",  # двойной клик оставляет только выбранную
+        ),
         height=height,
-        margin=dict(l=10, r=10, t=50, b=10),
+        margin=dict(l=170, r=10, t=50, b=10),
     )
     return fig
 
@@ -373,6 +385,112 @@ def crosstab_stats_table(df, x_col, group_col, x_label, group_label,
     out.index.name = x_label
     out.columns.name = group_label
     return out
+
+def plot_category_pies(df, x_col, group_col, title, x_label, group_label,
+                       palette="Plotly", n_cols=3, row_height=380,
+                       opacity=1.0, outline_color="black", outline_width=1):
+    """Круговые диаграммы: по одной на каждое значение x_col.
+    Слева от каждого пирога своя легенда (значения group_col).
+    Клик по категории скрывает её сектор только в этом пироге."""
+    data = df[[x_col, group_col, "well_id"]].copy()
+    data[x_col] = data[x_col].fillna("(not specified)").astype(str)
+    data[group_col] = data[group_col].fillna("(not specified)").astype(str)
+
+    counts = (
+        data.groupby([x_col, group_col])["well_id"].nunique()
+            .unstack(fill_value=0)
+    )
+    x_vals = list(counts.index)
+    groups = list(counts.columns)
+    n = len(x_vals)
+    if n == 0:
+        return go.Figure()
+
+    cols = min(n_cols, n)
+    rows = (n + cols - 1) // cols
+
+    base_colors = PALETTE_DICT.get(palette, px.colors.qualitative.Plotly)
+    color_map = {g: base_colors[i % len(base_colors)] for i, g in enumerate(groups)}
+
+    cell_w = 1.0 / cols
+    cell_h = 1.0 / rows
+    gap_x = 0.02   # отступ справа в ячейке
+    gap_y = 0.10   # место под заголовок пирога
+
+    fig = go.Figure()
+
+    for i, xv in enumerate(x_vals):
+        r, c = divmod(i, cols)
+        cx0, cx1 = c * cell_w, (c + 1) * cell_w
+        cy1 = 1 - r * cell_h
+        cy0 = cy1 - cell_h
+
+        # левая треть ячейки — легенда, правая часть — пирог
+        pie_x0 = cx0 + 0.30 * cell_w
+        pie_x1 = cx1 - gap_x * cell_w
+        pie_y0 = cy0 + gap_y * cell_h
+        pie_y1 = cy1 - gap_y * cell_h
+
+        legend_key = "legend" if i == 0 else f"legend{i + 1}"
+
+        row_counts = counts.loc[xv]
+        row_counts = row_counts[row_counts > 0]
+
+        row_counts = counts.loc[xv]
+        row_counts = row_counts[row_counts > 0]
+
+        # проценты считаем от полного набора, до скрытия категорий в легенде
+        full_total = float(row_counts.sum())
+        pct_texts = [f"{100 * v / full_total:.1f}%" for v in row_counts.values]
+
+        fig.add_trace(go.Pie(
+            labels=list(row_counts.index),
+            values=list(row_counts.values),
+            hole=0.35,
+            sort=False,
+            domain=dict(x=[pie_x0, pie_x1], y=[pie_y0, pie_y1]),
+            marker=dict(
+                colors=[color_map[g] for g in row_counts.index],
+                line=dict(color=outline_color, width=outline_width),
+            ),
+            opacity=opacity,
+            text=pct_texts,
+            textinfo="text",
+            customdata=pct_texts,
+            hovertemplate=(f"{group_label}: %{{label}}<br>"
+                           "%{value} (%{customdata})<extra></extra>"),
+            name=str(xv),
+            legend=legend_key,
+            showlegend=True,
+        ))
+
+        fig.update_layout(**{
+            legend_key: dict(
+                x=cx0 + 0.005, xanchor="left",
+                y=(cy0 + cy1) / 2, yanchor="middle",
+                title=dict(text=group_label, font=dict(size=11)),
+                font=dict(size=11),
+                bgcolor="rgba(0,0,0,0)",
+                itemclick="toggle",
+                itemdoubleclick=False,
+            )
+        })
+
+        fig.add_annotation(
+            x=(pie_x0 + pie_x1) / 2, y=pie_y1,
+            xref="paper", yref="paper",
+            text=f"{x_label}: {xv}",
+            showarrow=False, yanchor="bottom",
+            font=dict(size=13, color="gray"),
+        )
+
+    fig.update_layout(
+        title=dict(text=title, x=0.01, y=0.995),
+        height=max(420, rows * row_height + 80),
+        margin=dict(l=10, r=10, t=80, b=10),
+        showlegend=True,
+    )
+    return fig
 
 # ------------------------------------------------------------- #
 # FUNC: КОРРЕЛЯЦИОННЫЙ АНАЛИЗ
@@ -668,7 +786,9 @@ def build_approximation_plot(
     approx_widths=None, quantile_widths=None,       # ← новое
     marker_size=9, marker_opacity=0.8,
     identity_width=3, identity_dash="dash",
+    show_quantile_band=False, quantile_band_color="rgba(31,119,180,0.2)",
 ):
+
     if approx_dashes is None:     approx_dashes = {}
     if quantile_dashes is None:   quantile_dashes = {}
     if approx_widths is None:     approx_widths = {}
@@ -708,16 +828,33 @@ def build_approximation_plot(
             z_res, _ = cached_curve_numeric(approx, x_ref, y_ref, z_line)
             # --- квантильная регрессия ---
             if approx == "Quantile Regression (τ=0.1/0.5/0.9)":
+
                 curves = [(tau, y_pred, quantile_colors[tau]) for tau, y_pred, _ in z_res]
+                # полоса P10–P90: рисуется первой, чтобы кривые были поверх неё
+                if show_quantile_band:
+                    y_by_tau = {tau: y_pred for tau, y_pred, _ in curves}
+                    if 0.1 in y_by_tau and 0.9 in y_by_tau:
+                        fig_fit.add_trace(
+                            go.Scatter(
+                                x=np.concatenate([z_line, z_line[::-1]]),
+                                y=np.concatenate([y_by_tau[0.9], y_by_tau[0.1][::-1]]),
+                                fill="toself",
+                                fillcolor=quantile_band_color,
+                                line=dict(width=0),
+                                name="P10–P90",
+                                hoverinfo="skip",
+                            )
+                        )
+
                 for tau, y_pred, col in curves:
                     dash_tau = quantile_dashes.get(tau, "solid")
-                    width_tau = quantile_widths.get(tau, 3)      
+                    width_tau = quantile_widths.get(tau, 3)
                     fig_fit.add_trace(
                         go.Scatter(
                             x=z_line,
                             y=y_pred,
                             mode="lines",
-                            name=f"{approx} τ={tau}",
+                            name=f"P{round(tau * 100)}",
                             line=dict(color=col, width=width_tau, dash=dash_tau),
                         )
                     )
@@ -765,7 +902,7 @@ def build_approximation_plot(
 # FUNC: ОФОРМЛЕНИЕ Bar Chart, ГИСТОГРАММ И BOXPLOT
 # ------------------------------------------------------------- #
 # ------ Универсальная функция столбчатой диаграммы bar chart ------
-def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None, show_percent=False, orientation="v", legend_title=None, outline_color="black", outline_width=0,):
+def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None, show_percent=False, orientation="v", legend_title=None, outline_color="black", outline_width=0, opacity=1.0,):
     colors = PALETTE_DICT.get(palette, px.colors.qualitative.Plotly)
     bar_colors = [
         colors[i % len(colors)]
@@ -794,6 +931,7 @@ def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None
                     text=[txt],
                     textposition="outside",
                     marker=dict(color=col, line=dict(color=outline_color, width=outline_width)),
+                    opacity=opacity,
                     showlegend=True,
                 )
             )
@@ -807,6 +945,7 @@ def plot_bar_chart(x, y, palette, title=None, xaxis_title=None, yaxis_title=None
                     text=[txt],
                     textposition="outside",
                     marker=dict(color=col, line=dict(color=outline_color, width=outline_width)),
+                    opacity=opacity,
                     showlegend=True,
                 )
             )
@@ -1174,7 +1313,7 @@ def plot_residual_vs_depth(
             hovertemplate=(
                 f"{well_label}: %{{text}}"
                 f"<br>{xlabel}=%{{x}}"
-                f"<br>{hover_label}=%{{y}}"
+                f"<br>{hover_label}=%{{y:.4f}}"
                 f"<extra></extra>"
             )
         )
@@ -1271,6 +1410,45 @@ def plot_residual_map(
     if title is not None:
         fig.update_layout(title=dict(text=title, x=0.01, y=0.98))
     return fig
+
+# ------------------------------------------------------------- #
+# FUNC: P10, P50, P90 (ШАГ 2)
+# ------------------------------------------------------------- #
+def add_cv_residual_band(fig, x_values, resid, fill_color="rgba(31,119,180,0.2)",
+                         median_color="gray", median_dash="dash", median_width=2,
+                         min_points=10):
+    """Полоса P10–P90 CV-невязок (Actual − Predicted) на кросс-плоте Predicted vs Actual.
+    Точка (x=Actual, y=Predicted) попадает в полосу, если y ∈ [x − q90, x − q10].
+    Центральная линия: y = x − q50. Возвращает False, если точек недостаточно."""
+    resid = np.asarray(resid, dtype=float)
+    resid = resid[np.isfinite(resid)]
+    if resid.size < min_points:
+        return False
+
+    q10, q50, q90 = np.quantile(resid, [0.1, 0.5, 0.9])
+
+    x = np.asarray(x_values, dtype=float)
+    x = x[np.isfinite(x)]
+    x0, x1 = float(x.min()), float(x.max())
+
+    fig.add_trace(go.Scatter(
+        x=[x0, x1, x1, x0],
+        y=[x0 - q90, x1 - q90, x1 - q10, x0 - q10],
+        fill="toself",
+        fillcolor=fill_color,
+        line=dict(width=0),
+        name="P10–P90 CV",
+        hoverinfo="skip",
+    ))
+    fig.add_trace(go.Scatter(
+        x=[x0, x1],
+        y=[x0 - q50, x1 - q50],
+        mode="lines",
+        name="P50 CV",
+        line=dict(color=median_color, width=median_width, dash=median_dash),
+        hoverinfo="skip",
+    ))
+    return True
 
 # ------------------------------------------------------------- #
 # FUNC: АНАЛИЗ ВЫБРОСОВ (ШАГИ 1 И 2)
@@ -1755,15 +1933,19 @@ def dataframe_to_excel_bytes(df, sheet_name="data", index=False):
         df.to_excel(writer, index=index, sheet_name=sheet_name)
     return buffer.getvalue()
 
+@st.cache_data(show_spinner=False, max_entries=128)
+def cached_excel_bytes(df, sheet_name="data", index=False):
+    return dataframe_to_excel_bytes(df, sheet_name=sheet_name, index=index)
+
+
 def excel_download_button(df, file_name, key, sheet_name="data", index=False):
     st.download_button(
         label=_tr("download_excel_label"),
-        data=dataframe_to_excel_bytes(df, sheet_name=sheet_name, index=index),
+        data=cached_excel_bytes(df, sheet_name=sheet_name, index=index),
         file_name=f"{file_name}.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         key=key,
     )
-
 # ------------------------------------------------------------- #
 # CACHE DATA
 # ------------------------------------------------------------- #
@@ -1798,3 +1980,24 @@ def cached_curve_numeric(approx, x, y, x_line):
     dummy_quantile = {0.1: "gray", 0.5: "gray", 0.9: "gray"}
     z_fit, eq, _ = compute_curve(approx, x, y, x_line, dummy_approx, dummy_quantile)
     return z_fit, eq
+
+@st.cache_data(
+    show_spinner=False, max_entries=32,
+    hash_funcs={pd.DataFrame: lambda d: pd.util.hash_pandas_object(d, index=True).values.tobytes()},
+)
+def cached_plotly_pairplot(pair_df, dimensions, color_col, color_map,
+                           point_color, point_size, point_opacity, title):
+    if color_col is not None:
+        fig = px.scatter_matrix(
+            pair_df, dimensions=dimensions, color=color_col,
+            hover_name="well_id", color_discrete_map=color_map, title=title,
+        )
+        fig.update_traces(marker=dict(size=point_size, opacity=point_opacity))
+    else:
+        fig = px.scatter_matrix(
+            pair_df, dimensions=dimensions, hover_name="well_id", title=title,
+        )
+        fig.update_traces(marker=dict(color=point_color, size=point_size, opacity=point_opacity))
+    fig.update_traces(diagonal_visible=False)
+    fig.update_layout(height=850)
+    return fig
