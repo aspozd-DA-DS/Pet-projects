@@ -57,6 +57,8 @@ from app_utils import (
     crosstab_stats_table,
     category_stats_table,
     excel_download_button,
+    cached_fit_stats,
+    cached_quantile_stats,
 )
 
 # ================================================================================================================================ #
@@ -2238,7 +2240,8 @@ if (df is not None and len(corr_columns) >= 2):
 
     # Pairplot и Seaborn Pairplot
     st.markdown(f"### {step0_pairplot_title}")
-    if pairplot_engine == "Seaborn Pairplot (static)":
+    show_pairplot = st.toggle(T["show_pairplot_label"], value=False, key="show_pairplot")
+    if show_pairplot and pairplot_engine == "Seaborn Pairplot (static)":
         # Pairplot - корреляционный анализ
         fig_pair = plot_pairplot(
             df=df, columns=corr_columns, diag_kind=diag_kind, height=pairplot_size, corner=pairplot_corner, 
@@ -2252,8 +2255,7 @@ if (df is not None and len(corr_columns) >= 2):
             hist_outline_width=pairplot_hist_outline_width_eff,
         )
         st.pyplot(fig_pair, use_container_width=True)
-    
-    elif pairplot_engine == "Plotly Pairplot (interactive)":
+    elif show_pairplot and pairplot_engine == "Plotly Pairplot (interactive)":
         st.caption(step0_plotly_pairplot_info) 
 
         extra = [c for c in corr_columns if c != "well_id"]
@@ -3707,7 +3709,7 @@ else:
                         )
                     )
 
-                stats_zone = sq.compute_fit_stats(xz, yz, approx)
+                stats_zone = cached_fit_stats(xz, yz, approx)
 
                 # статистика метрик выбранных кривых аппроксимации в шаге 3
                 zone_fit_rows.append({category_col: zone, "Approximation": approx, **fitstats_to_dict(stats_zone)})

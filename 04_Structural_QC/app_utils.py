@@ -726,7 +726,7 @@ def build_approximation_plot(
                 # Метрики считаем отдельно для каждой τ
                 for tau in [0.1, 0.5, 0.9]:
                     try:
-                        stats_tau = sq.compute_quantile_stats(x_ref, y_ref, tau)
+                        stats_tau = cached_quantile_stats(x_ref, y_ref, tau)
                         fit_rows.append({
                             "Approximation": f"Quantile Regression (τ={tau})",
                             **fitstats_to_dict(stats_tau),
@@ -752,7 +752,7 @@ def build_approximation_plot(
                             line=dict(color=color, width=width_approx, dash=dash_approx),
                         )
                     )
-                stats_fit = sq.compute_fit_stats(x_ref, y_ref, approx,)
+                stats_fit = cached_fit_stats(x_ref, y_ref, approx,)
                 fit_rows.append({"Approximation": approx, **fitstats_to_dict(stats_fit),})
         except Exception as e:
             fit_rows.append({"Approximation": approx, error_label: str(e),})
@@ -877,9 +877,11 @@ def plot_hist_kde(
         )
     else:
         try:
-            kde = gaussian_kde(data)
             x_kde = np.linspace(np.min(data), np.max(data), 300)
-            kde_y = kde(x_kde)
+            kde_y = cached_kde_on_grid(data, np.min(data), np.max(data), 300)
+            if kde_y is None:
+                raise ValueError("KDE is not available")
+
             fig.add_trace(
                 go.Scatter(
                     x=x_kde, y=kde_y, mode="lines", name="KDE",
@@ -1041,7 +1043,7 @@ def compute_polynomial_curve(x, y, x_line, degree):
 def get_equation(approx, x, y):
     """Универсальная функция получения текста уравнения."""
     try:
-        return sq.compute_fit_stats(x, y, approx).equation
+        return cached_fit_stats(x, y, approx).equation
     except Exception:
         return f"{approx} (equation unavailable)"
 
@@ -1560,7 +1562,8 @@ def plot_zone_overlay_hist(
         kde_y = None
         if part.size > 1 and len(np.unique(part)) > 1:
             try:
-                kde_y = gaussian_kde(part)(xs) * kde_scale
+                kde_raw = cached_kde_on_grid(part, edges[0], edges[-1], 200)
+                kde_y = None if kde_raw is None else kde_raw * kde_scale
             except (np.linalg.LinAlgError, ValueError):
                 kde_y = None
 
@@ -1762,3 +1765,27 @@ def excel_download_button(df, file_name, key, sheet_name="data", index=False):
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         key=key,
     )
+
+# ------------------------------------------------------------- #
+# CACHE DATA
+# ------------------------------------------------------------- #
+@st.cache_data(show_spinner=False, max_entries=512)
+def cached_fit_stats(x, y, approx_type):
+    return sq.compute_fit_stats(np.asarray(x, float), np.asarray(y, float), approx_type)
+
+@st.cache_data(show_spinner=False, max_entries=512)
+def cached_quantile_stats(x, y, tau):
+    return sq.compute_quantile_stats(np.asarray(x, float), np.asarray(y, float), tau)
+
+@st.cache_data(show_spinner=False, max_entries=512)
+def cached_kde_on_grid(values, lo, hi, n_points):
+    """Значения KDE на равномерной сетке [lo, hi]. None, если KDE не строится."""
+    vals = np.asarray(values, dtype=float)
+    vals = vals[np.isfinite(vals)]
+    if vals.size < 2 or np.unique(vals).size < 2:
+        return None
+    try:
+        xs = np.linspace(lo, hi, n_points)
+        return gaussian_kde(vals)(xs)
+    except (np.linalg.LinAlgError, ValueError):
+        return None

@@ -73,6 +73,7 @@ RU = {
     "download_excel_label": "Скачать в Excel",
     "footer_data_note": "Данные обрабатываются в памяти сессии и не записываются на диск приложения.",
     "footer_copyright": "© А.С.Поздняков 2026",
+    "show_pairplot_label": "Показать Pairplot",
 }
 EN = {
     "step0_title": "Structural QC — Cross-Plot and Cross-Validation",
@@ -149,6 +150,7 @@ EN = {
     "download_excel_label": "Download as Excel",
     "footer_data_note": "Data is processed in session memory and is not written to disk.",
     "footer_copyright": "© A.S.Pozdniakov 2026",
+    "show_pairplot_label": "Show Pairplot",
 }
 
 RU.update({
