@@ -3961,14 +3961,13 @@ elif filter_mode == FILTER_RANDOM:
     df_step4 = df_step4[~df_step4["well_id"].astype(str).isin(excluded_wells_random)]
 
 # ------ Выделение кликом по точке ------
-excluded_wells_click = []
-if filter_mode == FILTER_CLICK:
+@st.fragment
+def render_step4_click_selector():
+    st.markdown(f"### {step4_click_title}")
+    st.caption(step4_click_hint)
 
     if "step4_click_excluded" not in st.session_state:
         st.session_state.step4_click_excluded = []
-
-    st.markdown(f"### {step4_click_title}")
-    st.caption(step4_click_hint)
 
     df_click_source = df.copy()
     is_excluded_mask = (df_click_source["well_id"].astype(str).isin(st.session_state.step4_click_excluded))
@@ -4011,7 +4010,7 @@ if filter_mode == FILTER_CLICK:
         )
     )
 
-    # Линия регрессии QC — визуальный ориентир для выделения точек
+    # Линия регрессии QC — ориентир для выделения
     x_line_qc = np.linspace(
         df_click_source["Zprm_map"].min(),
         df_click_source["Zprm_map"].max(),
@@ -4028,15 +4027,9 @@ if filter_mode == FILTER_CLICK:
         x_line=x_line_qc,
     )
 
-    # Линия Y = X — второй ориентир
-    lo = min(
-        df_click_source["Zprm_map"].min(),
-        df_click_source["Zprm_well"].min(),
-    )
-    hi = max(
-        df_click_source["Zprm_map"].max(),
-        df_click_source["Zprm_well"].max(),
-    )
+    # Линия Y = X
+    lo = min(df_click_source["Zprm_map"].min(), df_click_source["Zprm_well"].min())
+    hi = max(df_click_source["Zprm_map"].max(), df_click_source["Zprm_well"].max())
     add_identity_line(
         fig_click, lo, hi,
         color=identity_line_color,
@@ -4047,7 +4040,7 @@ if filter_mode == FILTER_CLICK:
     apply_crossplot_layout(fig_click, PARAM_2_LABEL, PARAM_1_LABEL, title=step4_click_title,)
     fig_click.update_layout(clickmode="event+select")
 
-    # --- Только точечное выделение ---
+    # Выделение точек: этот вызов перезапускает только фрагмент
     sel = st.plotly_chart(
         fig_click,
         key="step4_click_plot",
@@ -4081,12 +4074,13 @@ if filter_mode == FILTER_CLICK:
             f"**{step4_click_excluded_count}** {len(st.session_state.step4_click_excluded)}"
         )
 
+    # st.rerun() здесь перезапускает всё приложение,
+    # поэтому сайдбар и шаги ниже обновятся после Apply / Reset
     if reset_clicked:
         st.session_state.step4_click_excluded = []
         st.rerun()
 
     if apply_clicked and selected_wells:
-        # каждое новое выделение ЗАМЕНЯЕТ список исключённых
         st.session_state.step4_click_excluded = list(dict.fromkeys(selected_wells))
         st.rerun()
 
@@ -4102,12 +4096,15 @@ if filter_mode == FILTER_CLICK:
                 st.session_state.step4_click_excluded = list(kept)
                 st.rerun()
 
-    excluded_wells_click = st.session_state.step4_click_excluded
-    if excluded_wells_click:
-        df_step4 = df_step4[
-            ~df_step4["well_id"].astype(str).isin(excluded_wells_click)
-        ]
 
+if filter_mode == FILTER_CLICK:
+    render_step4_click_selector()
+    excluded_wells_click = st.session_state.step4_click_excluded
+else:
+    excluded_wells_click = []
+
+if excluded_wells_click:
+    df_step4 = df_step4[~df_step4["well_id"].astype(str).isin(excluded_wells_click)]
 # ------ Контроль ------
 step4_ok = len(df_step4) >= 3
 if not step4_ok:
