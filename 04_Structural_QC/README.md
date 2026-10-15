@@ -1,12 +1,17 @@
-**Language / Язык:** [Русский](#ru) · [English](#en)
+<a id="top"></a>
 
-<a name="ru"></a>
+<p align="right">
+  <a href="#ru">🇷🇺 RU</a> | <a href="#en">🇬🇧 EN</a>
+</p>
+
+---
+
+<a id="ru"></a>
+
 
 # Structural QC — кросс-плот и кросс-валидация (Oil & Gas)
 
-**Ссылки:** [Онлайн-приложение](https://structural-qc-cv.streamlit.app/) · [Репозиторий](https://github.com/aspozd-DA-DS/Pet-projects) · [Демо-ноутбук](structural_qc_demo.ipynb) · [План проекта (PDF)](structural_qc_plan.pdf) · [Справка в приложении EN](ui_examples_full_en.py) · [Справка в приложении RU](ui_examples_full_ru.py)
-
----
+**Ссылки:** [Онлайн-приложение](https://structural-qc-cv.streamlit.app/) 
 
 ## 📌 Описание
 
@@ -342,13 +347,15 @@ jupyter notebook structural_qc_demo.ipynb
 `Machine Learning` `Data Science` `QC` `Regression` `Residual Analysis`
 `Outlier Detection` `Bilingual UI` `RU/EN`
 
+<p align="right"><a href="#top">⬆ наверх</a></p>
+
 ---
 
-<a name="en"></a>
+<a id="en"></a>
 
 # Structural QC — cross-plot & cross-validation (Oil & Gas)
 
-**Links:** [Live app](https://structural-qc-cv.streamlit.app/) · [Repository](https://github.com/aspozd-DA-DS/Pet-projects) · [Demo notebook](structural_qc_demo.ipynb) · [Project plan (PDF)](structural_qc_plan.pdf) · [In-app reference EN](ui_examples_full_en.py) · [In-app reference RU](ui_examples_full_ru.py)
+**Links:** [Live app](https://structural-qc-cv.streamlit.app/) 
 
 ---
 
@@ -685,3 +692,5 @@ The app is also deployed at [structural-qc-cv.streamlit.app](https://structural-
 `Streamlit` `Plotly` `Python` `Pandas` `NumPy` `scikit-learn` `statsmodels`
 `Machine Learning` `Data Science` `QC` `Regression` `Residual Analysis`
 `Outlier Detection` `Bilingual UI` `RU/EN`
+
+<p align="right"><a href="#top">⬆ back to top</a></p>
