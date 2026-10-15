@@ -1926,7 +1926,7 @@ st.markdown('<div id="step-0"></div>', unsafe_allow_html=True)
 # STEP 0.0.: SHOW SAMPLE FORMAT
 # ------------------------------------------------- #
 st.title(step0_title)
-st.caption("CROSSPL✳T.structural")
+st.caption("CROSSPL✳T↔CROSS⊗VALIDATION")
 st.caption(T["footer_data_note"])
 st.caption(T["footer_copyright"])
 
@@ -4338,6 +4338,6 @@ if step4_ok:
                           key="download_excel_step4_before_after")
 
 st.markdown("---")
-st.caption("CROSSPL✳T.structural")
+st.caption("CROSSPL✳T↔CROSS⊗VALIDATION")
 st.caption(T["footer_data_note"])
 st.caption(T["footer_copyright"])
