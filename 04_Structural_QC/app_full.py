@@ -794,25 +794,33 @@ st.sidebar.markdown(f"""
 # ------------------------------------------------------------- #
 st.sidebar.markdown("---")
 
-def _reset_picked_horizons():
-    # удаляем сохранённый выбор, чтобы мультиселект пересоздался с новым default
-    st.session_state.pop("sidebar_picked_horizons", None)
+def _on_all_horizons_toggle(all_options):
+    # галочка включена — выбираем все горизонты, выключена — оставляем первый
+    if st.session_state.get("sidebar_all_horizons"):
+        st.session_state["sidebar_picked_horizons"] = list(all_options)
+    else:
+        st.session_state["sidebar_picked_horizons"] = list(all_options[:1])
 
 with st.sidebar.expander(horizon_expander_title, expanded=False):
 
     if (df is not None and has_col(df, "horizon_id") and df["horizon_id"].nunique() > 1):
 
         horizons = sorted(df["horizon_id"].dropna().unique().tolist())
+
+        # первичная инициализация (без default= у мультиселекта)
+        if "sidebar_picked_horizons" not in st.session_state:
+            st.session_state["sidebar_picked_horizons"] = horizons[:1]
+
         all_horizons = st.checkbox(
             all_horizons_label,
-            value=False,                       # по умолчанию выключено
+            value=False,
             key="sidebar_all_horizons",
-            on_change=_reset_picked_horizons,  # при переключении выбор сбрасывается
+            on_change=_on_all_horizons_toggle,
+            args=(horizons,),
         )
         picked_horizons = st.multiselect(
             horizons_label,
             options=horizons,
-            default=(horizons if all_horizons else horizons[:1]),  # один горизонт по умолчанию
             key="sidebar_picked_horizons",
         )
 
@@ -1279,11 +1287,27 @@ with st.sidebar.expander(correlation_expander, expanded=False):
         if c in numeric_columns
     ]
 
-    all_parameters = st.checkbox(all_parameters_label, value=False, key="step0_all_parameters",)
-    corr_columns = st.multiselect(corr_parameters_label, options=numeric_columns,
-        default=(numeric_columns if all_parameters else default_corr_cols), key="step0_corr_columns",
-    )
+    def _on_all_params_toggle(numeric_cols, default_cols):
+        if st.session_state.get("step0_all_parameters"):
+            st.session_state["step0_corr_columns"] = list(numeric_cols)
+        else:
+            st.session_state["step0_corr_columns"] = list(default_cols)
 
+    if "step0_corr_columns" not in st.session_state:
+        st.session_state["step0_corr_columns"] = list(default_corr_cols)
+
+    all_parameters = st.checkbox(
+        all_parameters_label,
+        value=False,
+        key="step0_all_parameters",
+        on_change=_on_all_params_toggle,
+        args=(numeric_columns, default_corr_cols),
+    )
+    corr_columns = st.multiselect(
+        corr_parameters_label,
+        options=numeric_columns,
+        key="step0_corr_columns",
+    )
     if len(corr_columns) > 10:
         st.warning(corr_warning)
 
