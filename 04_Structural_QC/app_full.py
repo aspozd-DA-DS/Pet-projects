@@ -794,6 +794,10 @@ st.sidebar.markdown(f"""
 # ------------------------------------------------------------- #
 st.sidebar.markdown("---")
 
+def _on_picked_horizons_change(all_options):
+    picked = st.session_state.get("sidebar_picked_horizons", [])
+    st.session_state["sidebar_all_horizons"] = set(picked) == set(all_options)
+
 def _on_all_horizons_toggle(all_options):
     # галочка включена — выбираем все горизонты, выключена — оставляем первый
     if st.session_state.get("sidebar_all_horizons"):
@@ -822,6 +826,9 @@ with st.sidebar.expander(horizon_expander_title, expanded=False):
             horizons_label,
             options=horizons,
             key="sidebar_picked_horizons",
+            on_change=_on_picked_horizons_change,
+            args=(horizons,),
+
         )
 
         st.caption(
@@ -1287,6 +1294,9 @@ with st.sidebar.expander(correlation_expander, expanded=False):
         if c in numeric_columns
     ]
 
+    def _on_corr_columns_change(numeric_cols):
+        picked = st.session_state.get("step0_corr_columns", [])
+        st.session_state["step0_all_parameters"] = set(picked) == set(numeric_cols)
     def _on_all_params_toggle(numeric_cols, default_cols):
         if st.session_state.get("step0_all_parameters"):
             st.session_state["step0_corr_columns"] = list(numeric_cols)
@@ -1307,7 +1317,10 @@ with st.sidebar.expander(correlation_expander, expanded=False):
         corr_parameters_label,
         options=numeric_columns,
         key="step0_corr_columns",
+        on_change=_on_corr_columns_change,
+        args=(numeric_columns,),
     )
+
     if len(corr_columns) > 10:
         st.warning(corr_warning)
 
