@@ -31,9 +31,9 @@ A geological example: **Z_well** (horizon depth from a well) and **Z_map** (dept
 
 **Step 0 · Data loading.** CSV/XLSX import, column mapping, automatic cleaning (missing values, duplicates, garbage values, data types), correlation analysis of the selected parameters (Pearson and Spearman matrices with a table of pairs above a chosen threshold), descriptive statistics, histograms and boxplots for every numeric column, and a two-category cross-tab. Most tables can be downloaded as Excel.
 
-**Step 1 · Basic QC cross-plot.** Z_well (reference) vs Z_map (compared): the Y=X diagonal, linear regression + a set of approximation curves to choose from, a full set of quality metrics, distributions, residual analysis and a residual map, outlier detection.
+**Step 1 · Basic QC cross-plot.** Z_well (reference) vs Z_map (compared): the Y=X diagonal, linear regression + a set of approximation curves to choose from, a full set of quality metrics, distributions, residual analysis and a residual map, outlier detection. Linear regression (polynomial degree 1) is the model in all steps.
 
-**Step 2 · Cross-validation.** The same model, but honestly tested: train on a subset of wells, predict on the remaining ones, repeat across different splitting schemes — to see the real, not "fitted", accuracy. The scheme with the best combination of accuracy and stability is determined automatically. Fold-level RMSE is shown as bar charts and as a boxplot for each scheme. Results are reproducible: the random seed is fixed.
+**Step 2 · Cross-validation.** The same linear model (degree 1), but honestly tested: train on a subset of wells, predict on the remaining ones, repeat across different splitting schemes — to see the real, not "fitted", accuracy. The scheme with the best combination of accuracy and stability is determined automatically. Fold-level RMSE is shown as bar charts and as a boxplot for each scheme. Results are reproducible: the random seed is fixed.
 
 **Step 3 · Analysis by categories.** The same parameter pair — but separately by horizons, tectonic zones, reservoir type, fluid type, or any other categorical column. This helps reveal whether accuracy "drifts" in a particular zone or horizon. For each zone there is a statistics table, boxplots and overlaid histograms with their own bins, normalization and opacity.
 
@@ -60,7 +60,7 @@ If you simply build a regression on all wells and compute R²/RMSE on those same
 | Leave-P-Out | On each of the repeats, p_percent% of wells are randomly selected (without replacement) — test, training is on the rest; the final prediction for a well is the average over all repeats where it fell into the test set | Estimating the spread of stability under different random test compositions |
 | Spatial Leave-P-Out | On each of the repeats, a center well is randomly selected; all wells within radius ≤ radius from it — test, the rest — train; the prediction is averaged over repeats in the same way as in Leave-P-Out | Closest to the real prediction of a new undrilled area |
 | Stratified by Zone | `LeaveOneGroupOut` by `tectonic_zone`: each entire tectonic zone in turn becomes the test set, training is on wells from the remaining zones (requires ≥2 unique zones) | Checking whether the model transfers to a new zone |
-| Distance-based exclusion CV | For each well i in turn: all wells at a distance ≤ range_corr from it are excluded from training (range_corr = median of pairwise distances between wells × variogram_factor), the test set is only well i | The strictest check for spatial leakage — essentially LOWO with a buffer |
+| Distance-based exclusion CV | For each well i in turn: all wells at a distance ≤ excl_radius from it are excluded from training (excl_radius = median of pairwise distances between wells × variogram_factor), the test set is only well i | The strictest check for spatial leakage — essentially LOWO with a buffer |
 
 *The parameters k, grid_n, buffer, p_percent, radius, variogram_factor, and repeats are not constants but sliders in the sidebar; each also shows a recommended value there.*
 
@@ -110,6 +110,19 @@ Let Δ denote the residual (difference between the two values). On the basic QC 
 
 ---
 
+## Outlier detection
+
+Outliers are searched for in the residuals Δ (Step 1 and Step 2) by four independent rules. Each point is checked against every rule separately, so the results can be compared side by side:
+
+| Rule | Outlier condition | Sidebar parameter |
+|---|---|---|
+| Sigma | $\lvert \Delta \rvert > k\sigma$, where σ is the sample standard deviation of the residuals (ddof = 1) | k = 1.0–6.0, default 2.0 |
+| IQR | $\Delta < Q25 - k\cdot IQR$ or $\Delta > Q75 + k\cdot IQR$ | k = 1.0–3.0, default 1.5 |
+| Modified z-score | $\lvert 0.6745\,(\Delta - \tilde{\Delta})/MAD \rvert > 3.5$, where $\tilde{\Delta}$ is the median of the residuals and MAD is the median absolute deviation; robust to extreme values | fixed threshold 3.5 |
+| Quantile | $\Delta < P_{low}$ or $\Delta > P_{high}$ — the tails outside the chosen percentiles | P_low 0–20%, default 5%; P_high 80–100%, default 95% |
+
+*If σ or MAD equals zero, the corresponding rule flags no points.*
+
 ## Parameter statistics
 
 For PARAM_1 and PARAM_2, extended descriptive statistics are computed separately — here is what each quantity means:
@@ -135,6 +148,8 @@ For PARAM_1 and PARAM_2, extended descriptive statistics are computed separately
 | IQR upper bound | $Q75 + 1.5 \cdot IQR$ — upper bound for the IQR rule |
 
 ---
+
+*The IQR bounds in the statistics table are fixed at k = 1.5. For outlier detection, k is set by a sidebar slider (1.0–3.0, default 1.5).*
 
 *The detailed methodology, formulas, and rationale for each CV scheme — in the project documentation.*
 """)

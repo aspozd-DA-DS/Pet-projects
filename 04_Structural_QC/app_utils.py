@@ -1,6 +1,7 @@
 """
 app_utils.py — вспомогательные функции для Structural QC.
 Автономные утилиты без зависимости от глобалов app_full.py.
+Модуль зависит от structural_qc_full и translations_full
 """
 import numpy as np
 import pandas as pd
@@ -9,7 +10,6 @@ import seaborn as sns
 import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
-from plotly.subplots import make_subplots
 import statsmodels.api as sm
 from scipy.stats import gaussian_kde
 from sklearn.linear_model import (
@@ -196,7 +196,7 @@ def fitstats_to_dict(stats):
 def plot_zone_pie(df, category_col, palette="Plotly", title="",
                   opacity=1.0, outline_color="black", outline_width=0):
 
-    zone_counts = (df[category_col].fillna("Not specified").value_counts().reset_index())
+    zone_counts = (df.assign(_cat=df[category_col].fillna("Not specified")).groupby("_cat")["well_id"].nunique().reset_index())
     zone_counts.columns = ["Category", "Count"]
 
     fig = px.pie(
@@ -1462,7 +1462,8 @@ def add_cv_residual_band(fig, x_values, resid, fill_color="rgba(31,119,180,0.2)"
 # ------------------------------------------------------------- #
 # FUNC: АНАЛИЗ ВЫБРОСОВ (ШАГИ 1 И 2)
 # ------------------------------------------------------------- #
-def detect_outliers(residuals: np.ndarray, sigma_thr: float) -> tuple:
+def detect_outliers(residuals: np.ndarray, sigma_thr: float,
+                    iqr_k: float = 1.5, pct_low: float = 5.0, pct_high: float = 95.0) -> tuple:
     """Универсальная функция поиска выбросов по невязкам (Шаги 1 и 2)."""
     residuals = np.asarray(residuals)
 
@@ -1481,8 +1482,8 @@ def detect_outliers(residuals: np.ndarray, sigma_thr: float) -> tuple:
     q1 = np.percentile(residuals, 25)
     q3 = np.percentile(residuals, 75)
     iqr = q3 - q1
-    iqr_lower = q1 - 1.5 * iqr
-    iqr_upper = q3 + 1.5 * iqr
+    iqr_lower = q1 - iqr_k * iqr
+    iqr_upper = q3 + iqr_k * iqr
     iqr_mask = ((residuals < iqr_lower) | (residuals > iqr_upper))
 
     median = np.median(residuals)
@@ -1493,8 +1494,8 @@ def detect_outliers(residuals: np.ndarray, sigma_thr: float) -> tuple:
     else:
         modz_mask = np.zeros_like(residuals, dtype=bool)
 
-    q05 = np.percentile(residuals, 5)
-    q95 = np.percentile(residuals, 95)
+    q05 = np.percentile(residuals, pct_low)
+    q95 = np.percentile(residuals, pct_high)
     q05q95_mask = ((residuals < q05) | (residuals > q95))
 
     return (sigma_mask, iqr_mask, modz_mask, q05q95_mask, sigma)
@@ -1521,7 +1522,7 @@ def show_outlier_table(title, df, mask, residuals, residual_column_name, columns
 def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
                         residual_column_name="Residual",
                         no_outliers_label="No outliers detected.", key_prefix="step1",
-                        category_col=None):
+                        category_col=None, iqr_k=1.5, pct_low=5.0, pct_high=95.0):
 
     (
         sigma_mask,
@@ -1532,6 +1533,9 @@ def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
     ) = detect_outliers(
         residuals,
         sigma_thr,
+        iqr_k=iqr_k,
+        pct_low=pct_low,
+        pct_high=pct_high,
     )
 
     df = df.copy()
@@ -1568,7 +1572,7 @@ def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
 
     # IQR
     show_outlier_table(
-        "#### IQR rule",
+        f"#### IQR rule (k = {iqr_k:g}·IQR)",
         df,
         iqr_mask,
         residuals,
@@ -1594,7 +1598,7 @@ def show_outlier_tables(df, residuals, sigma_thr, param_1, param_2,
 
     # Percentile
     show_outlier_table(
-        "#### Percentile rule (Q05-Q95)",
+        f"#### Percentile rule (Q{pct_low:02g}-Q{pct_high:02g})",
         df,
         q05q95_mask,
         residuals,

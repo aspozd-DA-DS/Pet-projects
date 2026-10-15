@@ -15,6 +15,8 @@ structural_qc_full.py
    - Buffered CV
    - Distance-based exclusion CV
    - Stratified by Zone
+   - Leave-P-Out
+   - Spatial Leave-P-Out
 3. Диагностика результатов:
    - распределение невязок;
    - карта невязок;
@@ -672,10 +674,11 @@ def cv_spatial_leave_p_out(df: pd.DataFrame, degree: int, radius: float = 1000.0
 
     return preds, pd.DataFrame(fold_rows)
 
-# -- Distance-based exclusion CV: для тестовой скважины исключаются все обучающие наблюдения, расположенные ближе радиуса пространственной корреляции range_corr
+# -- Distance-based exclusion CV: для тестовой скважины исключаются все обучающие наблюдения, расположенные ближе радиуса исключения excl_radius
 
-# Оценка радиуса пространственной корреляции по медианному межскважинному расстоянию
-def estimate_correlation_range(coords: np.ndarray) -> float:
+# Медианное попарное расстояние между скважинами (не вариограмма и не диапазон корреляции).
+# Используется как база для radius исключения: excl_radius = median_pairwise_distance * variogram_factor
+def median_pairwise_distance(coords: np.ndarray) -> float:
     distances = pdist(coords)
 
     if len(distances) == 0:
@@ -684,13 +687,13 @@ def estimate_correlation_range(coords: np.ndarray) -> float:
     return float(np.median(distances))
 
 # Distance-based exclusion CV
-def cv_variogram(df: pd.DataFrame, degree: int = 1, variogram_factor: float = 1.0):
+def cv_distance_exclusion(df: pd.DataFrame, degree: int = 1, variogram_factor: float = 1.0):
 
     x = _x(df)
     y = _y(df)
 
     coords = df[["X_coord", "Y_coord"]].to_numpy(float)
-    range_corr = (estimate_correlation_range(coords) * variogram_factor)
+    excl_radius = (median_pairwise_distance(coords) * variogram_factor)
 
     preds = np.full(len(df), np.nan)
     rows = []
@@ -698,14 +701,14 @@ def cv_variogram(df: pd.DataFrame, degree: int = 1, variogram_factor: float = 1.
     for i in range(len(df)):
 
         dist = np.linalg.norm(coords - coords[i], axis=1)
-        tr = np.where(dist > range_corr)[0]
+        tr = np.where(dist > excl_radius)[0]
         te = np.array([i])
 
         if len(tr) < degree + 2:
             continue
 
         p, m = run_fold(x, y, preds, tr, te, degree)
-        m["fold"] = f"vario_{i}"
+        m["fold"] = f"dist_excl_{i}"
         rows.append(m)
 
     return preds, pd.DataFrame(rows)
@@ -882,11 +885,11 @@ def run_all_cv(df: pd.DataFrame, degree: int = 1, k: int = 5,
         }
 
     # ---------------- Distance-based exclusion CV ----------------
-    preds_vario, folds_vario = cv_variogram(df, degree, variogram_factor)
+    preds_dist, folds_dist = cv_distance_exclusion(df, degree, variogram_factor)
     results["Distance-based exclusion CV"] = {
-        "preds": preds_vario,
-        "folds": folds_vario,
-        "summary": summarize_cv(preds_vario, y, folds_vario)
+        "preds": preds_dist,
+        "folds": folds_dist,
+        "summary": summarize_cv(preds_dist, y, folds_dist)
     }
 
     # ---------------- Таблица сравнения ----------------

@@ -238,6 +238,9 @@ pairplot_corner_label = T["pairplot_corner_label"]
 outlier_expander = T["outlier_expander"]
 sigma_threshold_label = T["sigma_threshold_label"]
 sigma_k_label = T["sigma_k_label"]
+outlier_iqr_k_label = T["outlier_iqr_k_label"]
+outlier_pct_low_label = T["outlier_pct_low_label"]
+outlier_pct_high_label = T["outlier_pct_high_label"]
 
 category_expander = T["category_expander"]
 category_parameter_label = T["category_parameter_label"]
@@ -876,6 +879,85 @@ CATEGORY_PALETTES = [
     "Set3", "Spectral", "Turbo", "Viridis"
 ]
 
+# Круговая диаграмма
+with st.sidebar.expander(pie_chart_expander, expanded=False):
+    pie_palette = st.selectbox(pie_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="pie_palette")
+    pie_opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05, key="pie_opacity")
+    st.markdown(f"**{multi_pie_outline_label}**")
+    st.caption(hist_line_width_label)
+    pie_outline_width = st.slider(hist_line_width_label, 0, 5, 0, key="pie_outline_width", label_visibility="collapsed")
+    pie_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="pie_outline_color", label_visibility="collapsed")
+
+# Столбчатая диаграмма
+def bar_style_controls(prefix, group_title, palette_label, default_orientation="v"):
+    """Настройки одного столбчатого графика: палитра, направление, граница столбцов."""
+    st.markdown(f"**{group_title}**")
+    palette = st.selectbox(palette_label, CATEGORY_PALETTES,
+                           index=CATEGORY_PALETTES.index("Plotly"), key=f"{prefix}_palette")
+    orientation = st.radio(
+        T["bar_orientation_label"], ["v", "h"],
+        index=0 if default_orientation == "v" else 1, horizontal=True,
+        format_func=lambda x: T["bar_orient_v"] if x == "v" else T["bar_orient_h"],
+        key=f"{prefix}_orientation",
+    )
+    st.markdown(f"*{T['bar_outline_label']}*")
+    st.caption(hist_line_width_label)
+    outline_width = st.slider(hist_line_width_label, 0, 5, 0,
+                              key=f"{prefix}_outline_width", label_visibility="collapsed")
+    outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"),
+                                 key=f"{prefix}_outline_color", label_visibility="collapsed")
+    
+    opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05,
+                        key=f"{prefix}_opacity")
+    st.markdown("---")
+    return dict(palette=palette, orientation=orientation,
+                outline_color=outline_color, outline_width=outline_width,
+                opacity=opacity)
+
+crosstab_value_options = [
+    c for c in df.select_dtypes(include=np.number).columns
+    if c not in ("well_id", "X_coord", "Y_coord")
+] if df is not None else []
+
+with st.sidebar.expander(bar_chart_expander, expanded=False):
+    # Что считать на столбцах для категориальных признаков (Загрузка данных)
+    bar_load_agg = st.selectbox(
+        crosstab_agg_label,
+        ["count", "min", "max", "median", "mean", "std"],
+        format_func=lambda x: T[f"crosstab_agg_{x}"],
+        index=0, key="bar_load_agg",
+    )
+    bar_load_value_col = None
+    if bar_load_agg != "count" and crosstab_value_options:
+        bar_load_value_col = st.selectbox(
+            crosstab_value_label, crosstab_value_options,
+            format_func=display_name, key="bar_load_value_col",
+        )
+    style_load = bar_style_controls("bar_load", bar_group_load_title, category_bar_palette_label, "h")
+    style_fold = bar_style_controls("bar_fold", bar_group_fold_title, rmse_palette_label, "v")
+    style_rmse = bar_style_controls("bar_rmse", bar_group_rmse_title, rmse_palette_label, "v")
+
+    
+    # Что считать на столбцах для категориальных признаков (Шаг 3)
+    step3_bar_agg = st.selectbox(
+        crosstab_agg_label,
+        ["count", "min", "max", "median", "mean", "std"],
+        format_func=lambda x: T[f"crosstab_agg_{x}"],
+        index=0, key="step3_bar_agg",
+    )
+    step3_bar_value_options = [
+        c for c in df.select_dtypes(include=np.number).columns
+        if c not in ("well_id", "X_coord", "Y_coord")
+    ] if df is not None else []
+    step3_bar_value_col = None
+    if step3_bar_agg != "count" and step3_bar_value_options:
+        step3_bar_value_col = st.selectbox(
+            crosstab_value_label, step3_bar_value_options,
+            format_func=display_name, key="step3_bar_value_col",
+        )
+    style_step3 = bar_style_controls("bar_step3", bar_group_step3_title, category_bar_palette_label, "h")              # Plotly
+
+# Круговые диаграммы
 with st.sidebar.expander(multi_pie_expander, expanded=False):
     multi_pie_palette = st.selectbox(category_bar_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="multi_pie_palette",)
     multi_pie_opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05, key="multi_pie_opacity",)
@@ -884,6 +966,7 @@ with st.sidebar.expander(multi_pie_expander, expanded=False):
     multi_pie_outline_width = st.slider(hist_line_width_label, 0, 5, 0, key="multi_pie_outline_width",label_visibility="collapsed",)
     multi_pie_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="multi_pie_outline_color", label_visibility="collapsed",)
 
+# Столбчатые диаграммы
 with st.sidebar.expander(crosstab_expander, expanded=False):
     crosstab_palette = st.selectbox(category_bar_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="crosstab_palette",)
     crosstab_agg = st.selectbox(
@@ -892,10 +975,7 @@ with st.sidebar.expander(crosstab_expander, expanded=False):
         format_func=lambda x: T[f"crosstab_agg_{x}"],
         index=0, key="crosstab_agg",
     )
-    crosstab_value_options = [
-        c for c in df.select_dtypes(include=np.number).columns
-        if c not in ("well_id", "X_coord", "Y_coord")
-    ] if df is not None else []
+
     crosstab_value_col = None
     if crosstab_agg != "count" and crosstab_value_options:
         crosstab_value_col = st.selectbox(crosstab_value_label, crosstab_value_options, format_func=display_name, key="crosstab_value_col",)
@@ -1031,24 +1111,7 @@ with st.sidebar.expander(corr_pairplot_expander, expanded=False):
         pairplot_hist_color = "orange"
         pairplot_kde_color = "black"
 
-with st.sidebar.expander(crossplot_expander, expanded=False):
-    crossplot_point_color = st.selectbox(crossplot_point_color_label, ALL_COLORS, index=ALL_COLORS.index("black"), key="crossplot_point_color")
-    crossplot_point_size = st.slider(point_size_label, 3, 20, 7, key="crossplot_point_size",)
-    crossplot_point_opacity = st.slider(point_opacity_label, 0.1, 1.0, 0.8, 0.05, key="crossplot_point_opacity",)
-    approx_point_color = st.selectbox(approx_point_color_label, ALL_COLORS, index=ALL_COLORS.index("brown"), key="approx_point_color")
-    approx_point_size = st.slider(approx_point_size_label, 3, 20, 7, key="approx_point_size",)
-    approx_point_opacity = st.slider(approx_point_opacity_label, 0.1, 1.0, 0.8, 0.05, key="approx_point_opacity",)
-
-with st.sidebar.expander(regression_expander, expanded=False):
-    qc_regression_color = st.selectbox(regression_color_label, ALL_COLORS, index=ALL_COLORS.index("orange"), key="qc_regression_color")
-    qc_regression_width = st.slider(regression_width_label, 1, 8, 3, key="qc_regression_width",)
-    qc_regression_dash = st.selectbox(regression_dash_label, ["solid", "dash", "dot", "dashdot", "longdash", "longdashdot",], index=0, key="qc_regression_dash")
-
-with st.sidebar.expander(identity_line_expander, expanded=False):
-    identity_line_color = st.selectbox(identity_line_color_label, ALL_COLORS, index=ALL_COLORS.index("lightgray"), key="identity_line_color")
-    identity_line_width = st.slider(identity_line_width_label, 1, 8, 3, key="identity_line_width",)
-    identity_line_dash = st.selectbox(identity_line_dash_label, ["solid", "dash", "dot", "dashdot", "longdash", "longdashdot",], index=1, key="identity_line_dash")
-
+# Гисторгамма
 with st.sidebar.expander(histogram_expander, expanded=False):
 
     # Заливка гистограммы — только цвет
@@ -1096,6 +1159,7 @@ with st.sidebar.expander(histogram_expander, expanded=False):
     sigma_width = st.slider(hist_line_width_label, 1, 10, 2, key="sigma_width", label_visibility="collapsed",)
     sigma_k = st.slider(sigma_k_label, 1, 3, 3, key="sigma_k")
 
+# Boxplot
 with st.sidebar.expander(boxplot_expander, expanded=False):
 
     # Заливка боксплота — только цвет
@@ -1135,6 +1199,26 @@ with st.sidebar.expander(boxplot_expander, expanded=False):
         box_orientation=box_orientation,
     )
 
+
+with st.sidebar.expander(crossplot_expander, expanded=False):
+    crossplot_point_color = st.selectbox(crossplot_point_color_label, ALL_COLORS, index=ALL_COLORS.index("black"), key="crossplot_point_color")
+    crossplot_point_size = st.slider(point_size_label, 3, 20, 7, key="crossplot_point_size",)
+    crossplot_point_opacity = st.slider(point_opacity_label, 0.1, 1.0, 0.8, 0.05, key="crossplot_point_opacity",)
+    approx_point_color = st.selectbox(approx_point_color_label, ALL_COLORS, index=ALL_COLORS.index("brown"), key="approx_point_color")
+    approx_point_size = st.slider(approx_point_size_label, 3, 20, 7, key="approx_point_size",)
+    approx_point_opacity = st.slider(approx_point_opacity_label, 0.1, 1.0, 0.8, 0.05, key="approx_point_opacity",)
+
+with st.sidebar.expander(regression_expander, expanded=False):
+    qc_regression_color = st.selectbox(regression_color_label, ALL_COLORS, index=ALL_COLORS.index("orange"), key="qc_regression_color")
+    qc_regression_width = st.slider(regression_width_label, 1, 8, 3, key="qc_regression_width",)
+    qc_regression_dash = st.selectbox(regression_dash_label, ["solid", "dash", "dot", "dashdot", "longdash", "longdashdot",], index=0, key="qc_regression_dash")
+
+with st.sidebar.expander(identity_line_expander, expanded=False):
+    identity_line_color = st.selectbox(identity_line_color_label, ALL_COLORS, index=ALL_COLORS.index("lightgray"), key="identity_line_color")
+    identity_line_width = st.slider(identity_line_width_label, 1, 8, 3, key="identity_line_width",)
+    identity_line_dash = st.selectbox(identity_line_dash_label, ["solid", "dash", "dot", "dashdot", "longdash", "longdashdot",], index=1, key="identity_line_dash")
+
+
 with st.sidebar.expander(residual_expander, expanded=False):
     residual_color = st.selectbox(residual_color_label, ALL_COLORS, index=ALL_COLORS.index("black"), key="residual_color")       # black
     residual_point_size = st.slider(point_size_label, 3, 20, 8, key="residual_point_size",)
@@ -1172,44 +1256,6 @@ with st.sidebar.expander(residual_map_expander, expanded=False):
     residual_map_highlight_opacity = st.slider(residual_map_highlight_opacity_label, 0.1, 1.0, 1.0, 0.05, key="residual_map_highlight_opacity",)
     residual_map_dim_opacity = st.slider(residual_map_dim_opacity_label, 0.05, 1.0, 0.15, 0.05, key="residual_map_dim_opacity",)
 
-def bar_style_controls(prefix, group_title, palette_label, default_orientation="v"):
-    """Настройки одного столбчатого графика: палитра, направление, граница столбцов."""
-    st.markdown(f"**{group_title}**")
-    palette = st.selectbox(palette_label, CATEGORY_PALETTES,
-                           index=CATEGORY_PALETTES.index("Plotly"), key=f"{prefix}_palette")
-    orientation = st.radio(
-        T["bar_orientation_label"], ["v", "h"],
-        index=0 if default_orientation == "v" else 1, horizontal=True,
-        format_func=lambda x: T["bar_orient_v"] if x == "v" else T["bar_orient_h"],
-        key=f"{prefix}_orientation",
-    )
-    st.markdown(f"*{T['bar_outline_label']}*")
-    st.caption(hist_line_width_label)
-    outline_width = st.slider(hist_line_width_label, 0, 5, 0,
-                              key=f"{prefix}_outline_width", label_visibility="collapsed")
-    outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"),
-                                 key=f"{prefix}_outline_color", label_visibility="collapsed")
-    
-    opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05,
-                        key=f"{prefix}_opacity")
-    st.markdown("---")
-    return dict(palette=palette, orientation=orientation,
-                outline_color=outline_color, outline_width=outline_width,
-                opacity=opacity)
-
-with st.sidebar.expander(bar_chart_expander, expanded=False):
-    style_load = bar_style_controls("bar_load", bar_group_load_title, category_bar_palette_label, "h")
-    style_fold = bar_style_controls("bar_fold", bar_group_fold_title, rmse_palette_label, "v")
-    style_rmse = bar_style_controls("bar_rmse", bar_group_rmse_title, rmse_palette_label, "v")
-    style_step3 = bar_style_controls("bar_step3", bar_group_step3_title, category_bar_palette_label, "h")              # Plotly
-
-with st.sidebar.expander(pie_chart_expander, expanded=False):
-    pie_palette = st.selectbox(pie_palette_label, CATEGORY_PALETTES, index=CATEGORY_PALETTES.index("Plotly"), key="pie_palette")
-    pie_opacity = st.slider(multi_pie_opacity_label, 0.1, 1.0, 1.0, 0.05, key="pie_opacity")
-    st.markdown(f"**{multi_pie_outline_label}**")
-    st.caption(hist_line_width_label)
-    pie_outline_width = st.slider(hist_line_width_label, 0, 5, 0, key="pie_outline_width", label_visibility="collapsed")
-    pie_outline_color = st.selectbox("Color", ALL_COLORS, index=ALL_COLORS.index("black"), key="pie_outline_color", label_visibility="collapsed")
 
 # ------------------------------------------------- #
 # SIDEBAR: STEP 0 - корреляционный анализ
@@ -1464,6 +1510,10 @@ st.sidebar.markdown("---")
 with st.sidebar.expander(outlier_expander, expanded=False):
     # ------ рекомендуемый Порог выброса, σ ------
     sigma_thr = st.slider(sigma_threshold_label, 1.0, 6.0, 2.0, 0.1, key="sigma_thr",)
+
+    iqr_k = st.slider(outlier_iqr_k_label, 1.0, 3.0, 1.5, 0.1, key="iqr_k",)
+    pct_low = st.slider(outlier_pct_low_label, 0.0, 20.0, 5.0, 0.5, key="pct_low",)
+    pct_high = st.slider(outlier_pct_high_label, 80.0, 100.0, 95.0, 0.5, key="pct_high",)
 
 # ------------------------------------------------- #
 # SIDEBAR: STEP 2 - параметры валидации CV 
@@ -2146,14 +2196,26 @@ for col in category_cols:
             st.plotly_chart(fig_pie, use_container_width=True)
 
         with col_bar:
-            zone_counts_local = df[col].value_counts().sort_index()
+            if bar_load_agg == "count" or bar_load_value_col is None:
+                # число уникальных скважин в каждой категории
+                bar_series = df.groupby(col)["well_id"].nunique().sort_index()
+                bar_y_label = well_count_label
+                bar_show_percent = True
+            else:
+                vals_local = pd.to_numeric(df[bar_load_value_col], errors="coerce")
+                bar_series = (
+                    getattr(vals_local.groupby(df[col]), bar_load_agg)()
+                    .dropna().sort_index()
+                )
+                bar_y_label = f"{T['crosstab_agg_' + bar_load_agg]}, {display_name(bar_load_value_col)}"
+                bar_show_percent = False
             fig_bar = plot_bar_chart(
-                x=zone_counts_local.index,
-                y=zone_counts_local.values,
+                x=bar_series.index,
+                y=bar_series.values,
                 **style_load,
                 title=f"{step0_well_count_title} : {display_name(col)}",
-                yaxis_title=well_count_label,
-                show_percent=True,
+                yaxis_title=bar_y_label,
+                show_percent=bar_show_percent,
             )
             st.plotly_chart(fig_bar, use_container_width=True)
 
@@ -2524,6 +2586,7 @@ st.markdown('<div id="step-1"></div>', unsafe_allow_html=True)
 # ---------------------------------------------------------------------- #
 # STEP 1.0
 # ---------------------------------------------------------------------- #
+
 st.markdown(
     f"## {step1_title} "
     f"{PARAM_1} vs {PARAM_2}"
@@ -2552,13 +2615,14 @@ z_line = np.linspace(x_ref.min(), x_ref.max(), 300)
 # STEP 1.1. LAYOUT: LEFT (QC CROSSPLOT + METRICS) / RIGHT (APPROX CURVES + METRICS)
 # ---------------------------------------------------------------------- #
 st.markdown('<div id="step-1-cp"></div>', unsafe_allow_html=True)
+st.markdown(f"### {contents_step1_cp}")
 
 col_left, col_right = st.columns([1, 1])
 
 # --- QC CROSSPLOT + METRICS
 with col_left:
     st.markdown(
-        f"### {step1_crossplot_title}: "
+        f"#### {step1_crossplot_title}: "
         f"{PARAM_1} vs {PARAM_2}"
     )
     fig_qc, coeffs_qc = build_qc_crossplot(
@@ -2584,7 +2648,7 @@ with col_left:
 # --- QC METRICS TABLE
 qc_metrics_df = build_qc_metrics_table(basic=basic, coeffs_qc=coeffs_qc, left_name=PARAM_1, right_name=PARAM_2,)
 st.markdown(
-    f"### {step1_qc_metrics_title}: "
+    f"#### {step1_qc_metrics_title}: "
     f"{PARAM_1} vs {PARAM_2}"
 )
 st.dataframe(qc_metrics_df, use_container_width=True)
@@ -2594,7 +2658,7 @@ excel_download_button(qc_metrics_df, "structural_qc_step1_metrics",
 # --- APPROX CURVES + METRICS
 with col_right:
     st.markdown(
-        f"### {step1_approximations_title}: "
+        f"#### {step1_approximations_title}: "
         f"{PARAM_1} vs {PARAM_2}"
     )
     fig_fit, fit_rows = build_approximation_plot(
@@ -2625,7 +2689,7 @@ with col_right:
 
 # --- TABLE: COMPARISON OF ALL APPROXIMATIONS
 st.markdown(
-    f"### {step1_approx_comparison_title}: "
+    f"#### {step1_approx_comparison_title}: "
     f"{PARAM_1} vs {PARAM_2}"
 )
 
@@ -2822,7 +2886,7 @@ with col_r2:
 
 # Карта невязок (Шаг 1)
 st.markdown(
-    f"### {spatial_residuals_title} "
+    f"#### {spatial_residuals_title} "
     f"{DELTA_LABEL}"
 )
 
@@ -2855,6 +2919,9 @@ show_outlier_tables(
     df=df,
     residuals=resid,
     sigma_thr=sigma_thr,
+    iqr_k=iqr_k,
+    pct_low=pct_low,
+    pct_high=pct_high,
     param_1=PARAM_1,
     param_2=PARAM_2,
     residual_column_name=DELTA_LABEL,
@@ -2908,11 +2975,12 @@ def cached_run_all_cv(df, degree, k, grid_n, buffer, variogram_factor,
         variogram_factor=variogram_factor, leave_p_percent=leave_p_percent,
         spatial_radius=spatial_radius, cv_repeats=cv_repeats, seed=42,
     )
-
 st.markdown(
     f"## {step2_title}: "
     f"{PARAM_1} vs {PARAM_2}"
 )
+
+st.markdown(f"### {contents_step2_bcv}")
 
 if st.session_state.get("df_for_cv") is None:
     st.info(cv_not_enough_data_msg)
@@ -2948,7 +3016,7 @@ df_cv = st.session_state["df_for_cv"]
 # ------------------------------------------------- #
 # STEP 2.1.: Сross-plot Predicted vs Actual для схем CV
 # ------------------------------------------------- #
-st.markdown(f"### {step2_crossplot_all_title}")
+st.markdown(f"#### {step2_crossplot_all_title}")
 st.caption(step2_crossplot_all_caption)
 cv_summary_rows = []
 
@@ -3015,13 +3083,13 @@ for i in range(0, len(scheme_names), 3):
 })
 
 # --- Таблица по всем схемам CV
-st.markdown(f"### {step2_metrics_all_title}")
+st.markdown(f"#### {step2_metrics_all_title}")
 cv_summary_df = pd.DataFrame(cv_summary_rows)
 st.dataframe(cv_summary_df, use_container_width=True)
 excel_download_button(cv_summary_df, "structural_qc_step2_cv_metrics_all",
                       key="download_excel_step2_cv_metrics_all")
 
-st.markdown(f"### {step2_cv_comparison_title}")
+st.markdown(f"#### {step2_cv_comparison_title}")
 st.dataframe(
     comparison.style.format({
         "rmse": "{:.2f}",
@@ -3138,6 +3206,7 @@ st.success(
 # STEP 2.2.: Графики кросс-валидации для лучшей модели
 # ------------------------------------------------- #
 st.markdown('<div id="step-2-cp"></div>', unsafe_allow_html=True)
+st.markdown(f"### {contents_step2_cp}")
 
 scheme_for_plot = best_scheme
 preds = best_preds
@@ -3176,7 +3245,7 @@ col_pred, col_fit = st.columns(2)
 # -- CV PLOT 1 — Predicted vs Actual + регрессия
 with col_pred:
     st.markdown(
-        f"### {step2_cv_crossplot_title} "
+        f"#### {step2_cv_crossplot_title} "
         f"— {scheme_for_plot}"
     )
     # Линия Y = X (идеальная карта)
@@ -3214,7 +3283,7 @@ with col_pred:
 # ---- CV PLOT 2 — кривые аппроксимации
 with col_fit:
     st.markdown(
-        f"### {step2_approximations_title} "
+        f"#### {step2_approximations_title} "
         f"— {scheme_for_plot}"
     )
     # -----  ЛИНЕЙНАЯ РЕГРЕССИЯ ДЛЯ CV -----
@@ -3265,7 +3334,7 @@ cv_metrics_df = build_qc_metrics_table(
 
 # Метрики Cross-Plot (Predicted vs Actual) для Шага 2
 st.markdown(
-    f"### {step2_cv_metrics_title} "
+    f"#### {step2_cv_metrics_title} "
     f"— {scheme_for_plot}"
 )
 st.dataframe(cv_metrics_df, use_container_width=True,)
@@ -3273,7 +3342,7 @@ excel_download_button(cv_metrics_df, "structural_qc_step2_cv_metrics_best",
                       key="download_excel_step2_cv_metrics_best", index=True)
 
 st.markdown(
-    f"### {step2_approx_comparison_title} "
+    f"#### {step2_approx_comparison_title} "
     f"— {scheme_for_plot}"
 )
 
@@ -3289,8 +3358,7 @@ excel_download_button(approx_cv_df, "structural_qc_step2_cv_approx",
 st.markdown('<div id="step-2-res"></div>', unsafe_allow_html=True)
 
 CV_RESIDUAL_LABEL = f"Δ({PARAM_1} − Predicted)"
-
-st.markdown(f"### {step2_residual_distribution_title} "
+st.markdown(f"### {contents_step2_res} "
     f"({CV_RESIDUAL_LABEL})")
 st.markdown(
     f"#### {step2_residuals_title} "
@@ -3382,7 +3450,7 @@ with col_bcv:
 
 # Карта CV-невязок
 st.markdown(
-    f"### {spatial_residuals_title} "
+    f"#### {spatial_residuals_title} "
     f"CV {CV_RESIDUAL_LABEL}"
 )
 
@@ -3406,11 +3474,14 @@ st.plotly_chart(fig_map, use_container_width=True)
 
 # --- Анализ выбросов по результатам CV-невязок
 st.markdown('<div id="step-2-otl"></div>', unsafe_allow_html=True)
-st.markdown(f"### {step2_outlier_analysis_title}")
+st.markdown(f"### {contents_step2_otl}")
 show_outlier_tables(
     df=plot_df,
     residuals=resid_cv,
     sigma_thr=sigma_thr,
+    iqr_k=iqr_k,
+    pct_low=pct_low,
+    pct_high=pct_high,
     param_1=PARAM_1,
     param_2=PARAM_2,
     residual_column_name=cv_residual_col_label.format(param=PARAM_1),
@@ -3478,14 +3549,25 @@ else:
     
     # Bar chart в Шаге 3
     zones = sorted(df[category_col].dropna().unique())
-    zone_counts = (df[category_col].value_counts().sort_index())
+    if step3_bar_agg == "count" or step3_bar_value_col is None:
+        zone_series = df.groupby(category_col)["well_id"].nunique().sort_index()
+        zone_y_label = well_count_label
+        zone_show_percent = True
+    else:
+        vals_s3 = pd.to_numeric(df[step3_bar_value_col], errors="coerce")
+        zone_series = (
+            getattr(vals_s3.groupby(df[category_col]), step3_bar_agg)()
+            .dropna().sort_index()
+        )
+        zone_y_label = f"{T['crosstab_agg_' + step3_bar_agg]}, {display_name(step3_bar_value_col)}"
+        zone_show_percent = False
     fig_zones = plot_bar_chart(
-        x=zone_counts.index,
-        y=zone_counts.values,
+        x=zone_series.index,
+        y=zone_series.values,
         **style_step3,
         title=f"{step3_well_count_title} : {category_col}",
-        yaxis_title= well_count_label,
-        show_percent=True
+        yaxis_title=zone_y_label,
+        show_percent=zone_show_percent,
     )
 
     st.plotly_chart(fig_zones, use_container_width=True)
@@ -3506,7 +3588,7 @@ else:
 
     # Статистика параметров по категориям
     st.markdown(
-        f"### {step3_stats_title}: "
+        f"#### {step3_stats_title}: "
         f"{category_col} "
         f"({PARAM_1} vs {PARAM_2})"
     )    
@@ -3658,8 +3740,9 @@ else:
     # # STEP 3.2.: ОБЩИЙ ГРАФИК ПО ВСЕМ ЗОНАМ
     # ------------------------------------------------- #
     st.markdown('<div id="step-3-cp"></div>', unsafe_allow_html=True)
+    st.markdown(f"### {contents_step3_cp}")
     st.markdown(
-        f"### {step3_relationship_title}: "
+        f"#### {step3_relationship_title}: "
         f"{category_col} "
         f"({PARAM_1} vs {PARAM_2})"
     )
@@ -3746,7 +3829,7 @@ else:
     # ------------------------------------------------- #
     # STEP 3.3.: ОТДЕЛЬНЫЕ ЗОНЫ
     # ------------------------------------------------- #
-    st.markdown(f"### {step3_individual_categories_title} ({category_col})")
+    st.markdown(f"#### {step3_individual_categories_title} ({category_col})")
 
     for zone in zones:
 
@@ -3814,7 +3897,7 @@ else:
         st.plotly_chart(fig_zone, use_container_width=True)
 
     st.markdown(
-        f"### {step3_metrics_comparison_title}: "
+        f"#### {step3_metrics_comparison_title}: "
         f"{category_col}"
     )
     zone_fit_df = pd.DataFrame(zone_fit_rows)
@@ -4211,13 +4294,13 @@ if step4_ok:
 
     # STEP 4.3.: Таблица метрик QC Cross-Plot
     qc_metrics_step4 = build_qc_metrics_table(basic=basic_step4, coeffs_qc=coeffs_qc_step4, left_name=PARAM_1, right_name=PARAM_2,)
-    st.markdown(f"### {step4_qc_metrics_title}")
+    st.markdown(f"#### {step4_qc_metrics_title}")
     st.dataframe(qc_metrics_step4, use_container_width=True,)
     excel_download_button(qc_metrics_step4, "structural_qc_step4_qc_metrics",
                           key="download_excel_step4_qc_metrics", index=True)
 
     # STEP 4.3.: Таблица метрик кривых аппроксимации
-    st.markdown(f"### {step4_approx_comparison_title}")
+    st.markdown(f"#### {step4_approx_comparison_title}")
     fit_table_step4 = pd.DataFrame(fit_rows_step4)
     st.dataframe(fit_table_step4, use_container_width=True,)
     excel_download_button(fit_table_step4, "structural_qc_step4_approx_comparison",

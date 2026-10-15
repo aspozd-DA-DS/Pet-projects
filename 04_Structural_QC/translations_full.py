@@ -172,7 +172,7 @@ RU.update({
     "step1_approx_comparison_title": "Сравнение метрик аппроксимаций",
     "step1_crossplot_build_error": "Недостаточно данных для построения кросс-плота.",
     "step1_distribution_title": "Распределение параметров",
-    "residual_distribution_title": "Распределение невязок",
+    "residual_distribution_title": "Невязки",
     "residual_vs_param_title": "Зависимость невязки",
     "residual_stats_title": "Статистика невязок",
     "spatial_residuals_title": "Пространственное распределение невязок",
@@ -197,7 +197,7 @@ EN.update({
     "step1_approx_comparison_title": "Approximation Metrics Comparison",
     "step1_crossplot_build_error": "Not enough data to build the cross-plot.",
     "step1_distribution_title": "Parameter Distribution",
-    "residual_distribution_title": "Residual Distribution",
+    "residual_distribution_title": "Residuals",
     "residual_vs_param_title": "Residual Relationship",
     "residual_stats_title": "Residual Statistics",
     "spatial_residuals_title": "Spatial Distribution of Residuals",
@@ -235,7 +235,7 @@ RU.update({
     "step2_fold_rmse_boxplot_title": "Boxplot: Разброс RMSE по фолдам по схемам CV",
     "step2_best_scheme_title": "Лучшая схема CV",
     "step2_cv_crossplot_title": "Кросс-плот: Прогноз vs Факт",
-    "step2_approximations_title": "Аппроксимации для Прогноза vs Факта",
+    "step2_approximations_title": "Аппроксимации: Прогноза vs Факта",
     "step2_cv_metrics_title": "Метрики кросс-плота Прогноз vs Факт",
     "step2_approx_comparison_title": "Сравнение метрик выбранных кривых аппроксимации",
     "step2_residual_distribution_title": "Распределение CV-невязок Δ",
@@ -265,7 +265,7 @@ EN.update({
     "step2_fold_rmse_boxplot_title": "Boxplot: RMSE variation across folds for the CV schemes",
     "step2_best_scheme_title": "Best CV Scheme",
     "step2_cv_crossplot_title": "Cross-Plot: Predicted vs Actual",
-    "step2_approximations_title": "Approximations for Predicted vs Actual",
+    "step2_approximations_title": "Approximations: Predicted vs Actual",
     "step2_cv_metrics_title": "Cross-Plot Metrics: Predicted vs Actual",
     "step2_approx_comparison_title": "Selected Approximation Metrics Comparison",
     "step2_residual_distribution_title": "CV Residual Distribution Δ",
@@ -474,18 +474,18 @@ RU.update({
     "contents_data_cat": "Категориальные признаки",
     "contents_data_num": "Анализ выбранных параметров",
     "contents_step1": "Шаг 1 · QC-анализ зависимости между параметрами",
-    "contents_step1_cp": "Базовый кросс-плот",
+    "contents_step1_cp": "QC кросс-плот",
     "contents_step1_hb": "Распределение параметров",
     "contents_step1_res": "Невязки",
     "contents_step1_otl": "Анализ выбросов невязок",
     "contents_step2": "Шаг 2 · Кросс-валидация",
     "contents_step2_bcv": "Выбор лучшей CV",
-    "contents_step2_cp": "Базовый кросс-плот лучшей CV",
+    "contents_step2_cp": "QC кросс-плот лучшей CV",
     "contents_step2_res": "Невязки CV",
     "contents_step2_otl": "Анализ выбросов невязок CV",
     "contents_step3": "Шаг 3 · Анализ параметров по категориям",
     "contents_step3_pb": "Распределение параметров по категориям",
-    "contents_step3_cp": "Базовый кросс-плот по категориям",
+    "contents_step3_cp": "QC кросс-плот по категориям",
     "contents_step4": "Шаг 4 · Фильтрация скважин на кросс-плоте",
 })
 EN.update({
@@ -495,18 +495,18 @@ EN.update({
     "contents_data_cat": "Categorical Features",
     "contents_data_num": "Selected Parameter Analysis",
     "contents_step1": "Step 1 · QC Relationship Analysis",
-    "contents_step1_cp": "Base Cross-Plot",
+    "contents_step1_cp": "QC Cross-Plot",
     "contents_step1_hb": "Parameter Distribution",
     "contents_step1_res": "Residuals",
     "contents_step1_otl": "Residual Outlier Analysis",
     "contents_step2": "Step 2 · Cross-Validation",
     "contents_step2_bcv": "Best CV Selection",
-    "contents_step2_cp": "Base Cross-Plot of the Best CV",
+    "contents_step2_cp": "QC Cross-Plot of the Best CV",
     "contents_step2_res": "CV Residuals",
     "contents_step2_otl": "CV Residual Outlier Analysis",
     "contents_step3": "Step 3 · Category Analysis",
     "contents_step3_pb": "Parameter Distribution by Category",
-    "contents_step3_cp": "Category Cross-Plot",
+    "contents_step3_cp": "Category QC Cross-Plot",
     "contents_step4": "Step 4 · Well Filtering on Cross-Plot",
 })
 
@@ -840,7 +840,7 @@ RU.update({
     "spatial_radius_caption": "Скважины внутри радиуса вокруг тестовой точки исключаются из обучения.",
     "spatial_radius_label": "Радиус пространственного исключения Spatial exclusion radius (м)",
     "distance_cv_title": "📈 Distance-based exclusion CV",
-    "variogram_factor_label": "Множитель радиуса корреляции: Distance-based exclusion CV factor",
+    "variogram_factor_label": "Множитель медианного межскважинного расстояния (Distance-based exclusion CV)",
 "variogram_factor_caption":""" 0.5 — мягкая пространственная фильтрация
 
 1.0 — рекомендуемое значение
@@ -877,7 +877,7 @@ EN.update({
     "spatial_radius_caption": "Wells within the radius around the test point are excluded from training.",
     "spatial_radius_label": "Spatial Exclusion Radius (m)",
     "distance_cv_title": "📈 Distance-Based Exclusion CV",
-    "variogram_factor_label": "Correlation Radius Multiplier: Distance-Based Exclusion CV Factor",
+    "variogram_factor_label": "Median inter-well distance multiplier (Distance-based exclusion CV)",
 "variogram_factor_caption": """0.5 — mild spatial filtering
 
 1.0 — recommended value
@@ -885,4 +885,14 @@ EN.update({
 1.5 — strict spatial filtering
 
 2.0–3.0 — very strict validation, nearly independent wells""",
+})
+RU.update({
+    "outlier_iqr_k_label": "Множитель IQR (правило IQR)",
+    "outlier_pct_low_label": "Нижний перцентиль (правило перцентилей), %",
+    "outlier_pct_high_label": "Верхний перцентиль (правило перцентилей), %",
+})
+EN.update({
+    "outlier_iqr_k_label": "IQR multiplier (IQR rule)",
+    "outlier_pct_low_label": "Lower percentile (percentile rule), %",
+    "outlier_pct_high_label": "Upper percentile (percentile rule), %",
 })
