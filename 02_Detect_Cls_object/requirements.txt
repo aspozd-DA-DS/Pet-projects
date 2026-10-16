@@ -2,7 +2,7 @@ torch
 torchvision
 torchaudio
 
-opencv-python
+opencv-python-headless
 albumentations
 albucore
 segment-anything
@@ -26,3 +26,5 @@ tqdm
 joblib
 shapely
 
+streamlit
+streamlit-drawable-canvas
