@@ -10,6 +10,8 @@
 
 # Детекция, классификация и определение цвета объектов в прозрачном пакетике (YOLOv9, EfficientNet, ML)
 
+**Ссылки:** [Онлайн-приложение](https://detect-cls-obj-annot.streamlit.app/) 
+
 ## 📌 Описание
 Масштабный pet‑проект по построению полного компьютерного зрения пайплайна, включающего:
 - детекцию объектов внутри прозрачного пакетика
@@ -194,6 +196,8 @@ Data & Visualization
 <a id="en"></a>
 
 # Detection, classification and colour determination of objects in a transparent bag (YOLOv9, EfficientNet, ML)
+
+**Links:** [Live app](https://structural-qc-cv.streamlit.app/) 
 
 ## 📌 Description
 A large pet project building a full computer vision pipeline that includes:
