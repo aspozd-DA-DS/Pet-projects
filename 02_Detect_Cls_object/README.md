@@ -134,14 +134,15 @@ Data & Visualization
 │
 ├── `data_packet/`                           # Примеры пакетиков с таблетками (синтетика)
 ├── `data_product/`                          # Примеры продукта с пакетиками (синтетика)
-├── `app_detect_obj`                         # Streamlit-сценарий
+├── `app_obj_annot.py`                       # Streamlit-сценарий
+│
 ├── `01_streamlit_ydb_EfficientNet.ipynb`    # Разметка + YOLO + EfficientNet
 ├── `02_sam_yolo_paketik_cls.ipynb`          # SAM, YOLO-detect, YOLO-CLS, YOLO-Seg
 ├── `03_detect_color.ipynb`                  # Полный ML-пайплайн цвета
-│
 ├── `01_streamlit_ydb_EfficientNet.pdf`      # экспорт в PDF
 ├── `02_sam_yolo_paketik_cls.pdf`            # экспорт в PDF
 ├── `03_detect_color.pdf`                    # экспорт в PDF
+│
 ├── `requirements.txt`                       # зависимости проекта
 └── `README.md`                              # эта документация
 ```
@@ -308,14 +309,15 @@ Stage 5 — Object colour determination
 │
 ├── `data_packet/`                           # Examples of pill packets (synthetic)
 ├── `data_product/`                          # Examples of products with pouches (synthetic)
-├── `app_detect_obj`                         # Streamlit-app
+├── `app_obj_annot.py`                       # Streamlit-app
+│
 ├── `01_streamlit_ydb_EfficientNet.ipynb`    # Labelling + YOLO + EfficientNet
 ├── `02_sam_yolo_paketik_cls.ipynb`          # SAM, YOLO-detect, YOLO-CLS, YOLO-Seg
 ├── `03_detect_color.ipynb`                  # Full ML colour pipeline
-│
 ├── `01_streamlit_ydb_EfficientNet.pdf`      # PDF export
 ├── `02_sam_yolo_paketik_cls.pdf`            # PDF export
 ├── `03_detect_color.pdf`                    # PDF export
+│
 ├── `requirements.txt`                       # project dependencies
 └── `README.md`                              # this documentation
 ```
