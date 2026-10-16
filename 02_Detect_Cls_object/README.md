@@ -134,7 +134,7 @@ Data & Visualization
 │
 ├── `data_packet/`                           # Примеры пакетиков с таблетками (синтетика)
 ├── `data_product/`                          # Примеры продукта с пакетиками (синтетика)
-├── `app_obj_annot.py`                       # Streamlit-сценарий
+├── `app_obj_annot_local.py`                 # Streamlit-сценарий для локальной работы
 │
 ├── `01_streamlit_ydb_EfficientNet.ipynb`    # Разметка + YOLO + EfficientNet
 ├── `02_sam_yolo_paketik_cls.ipynb`          # SAM, YOLO-detect, YOLO-CLS, YOLO-Seg
@@ -318,7 +318,7 @@ Stage 5 — Object colour determination
 │
 ├── `data_packet/`                           # Examples of pill packets (synthetic)
 ├── `data_product/`                          # Examples of products with pouches (synthetic)
-├── `app_obj_annot.py`                       # Streamlit-app
+├── `app_obj_annot_local.py`                 # Streamlit-app local work
 │
 ├── `01_streamlit_ydb_EfficientNet.ipynb`    # Labelling + YOLO + EfficientNet
 ├── `02_sam_yolo_paketik_cls.ipynb`          # SAM, YOLO-detect, YOLO-CLS, YOLO-Seg

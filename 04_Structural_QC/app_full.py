@@ -282,6 +282,7 @@ wells_count_text = T["wells_count_text"]
 kfold_caption = T["kfold_caption"]
 kfold_slider_label = T["kfold_slider_label"]
 block_cv_title = T["block_cv_title"]
+buffer_cv_title = T["buffer_cv_title"]
 recommended_grid_text = T["recommended_grid_text"]
 median_distance_text = T["median_distance_text"]
 grid_caption = T["grid_caption"]
@@ -290,10 +291,11 @@ recommended_buffer_text = T["recommended_buffer_text"]
 buffer_based_on_median = T["buffer_based_on_median"]
 buffer_caption = T["buffer_caption"]
 buffer_slider_label = T["buffer_slider_label"]
-leave_p_out_title = T["leave_p_out_title"]
+leave_p_sp_out_title = T["leave_p_sp_out_title"]
 recommended_repeats_text = T["recommended_repeats_text"]
 cv_repeats_label = T["cv_repeats_label"]
 cv_repeats_caption = T["cv_repeats_caption"]
+leave_p_out_title = T["leave_p_out_title"]
 leave_p_percent_label = T["leave_p_percent_label"]
 leave_p_percent_caption = T["leave_p_percent_caption"]
 spatial_leave_p_out_title = T["spatial_leave_p_out_title"]
@@ -1652,7 +1654,7 @@ with st.sidebar.expander(cv_validation_expander, expanded=False):
     # ------ рекомендуемый buffer ------
     if median_dist is not None:
         recommended_buffer = median_dist * 0.5
-
+        st.markdown(f"#### {buffer_cv_title}")
         st.markdown(
             f"**{recommended_buffer_text}: "
             f"{recommended_buffer:.0f} м** "
@@ -1673,7 +1675,7 @@ with st.sidebar.expander(cv_validation_expander, expanded=False):
         buffer = 300
 
     # ------ Количество повторов CV repeats ------
-    st.markdown(f"#### {leave_p_out_title}")
+    st.markdown(f"#### {leave_p_sp_out_title}")
     if n_wells is not None:
 
         if n_wells < 30:
@@ -1696,6 +1698,7 @@ with st.sidebar.expander(cv_validation_expander, expanded=False):
 
     st.caption(cv_repeats_caption)   
     # ------ Leave-P-Out ------
+    st.markdown(f"#### {leave_p_out_title}")
     leave_p_percent = st.slider(leave_p_percent_label, 1, 50, 10, key="leave_p_percent")
     st.caption(leave_p_percent_caption)
     
