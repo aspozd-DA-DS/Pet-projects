@@ -171,6 +171,15 @@ Data & Visualization
    jupyter notebook 03_detect_color.ipynb
    ```
 
+## 🚀 requirements
+- torch, torchvision, torchaudio
+- opencv-python, albumentations, albucore, segment-anything, ultralytics
+- numpy, pandas, matplotlib, seaborn, Pillow
+- scikit-learn, scipy
+- xgboost, lightgbm
+- pyyaml, tqdm, joblib, shapely
+- streamlit, streamlit-drawable-canvas
+
 ## 🏷 Topics
 `Computer Vision` `YOLO` `EfficientNet` `Segmentation` `Machine Learning`  
 `LightGBM` `XGBoost` `Color Detection` `Feature Engineering`  
@@ -345,6 +354,14 @@ Stage 5 — Object colour determination
    ```bash
    jupyter notebook 03_detect_color.ipynb
    ```
+## 🚀 requirements
+- torch, torchvision, torchaudio
+- opencv-python, albumentations, albucore, segment-anything, ultralytics
+- numpy, pandas, matplotlib, seaborn, Pillow
+- scikit-learn, scipy
+- xgboost, lightgbm
+- pyyaml, tqdm, joblib, shapely
+- streamlit, streamlit-drawable-canvas
 
 ## 🏷 Topics
 `Computer Vision` `YOLO` `EfficientNet` `Segmentation` `Machine Learning`  
