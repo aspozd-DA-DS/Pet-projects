@@ -150,6 +150,14 @@ Data & Visualization
 └── `README.md`                              # эта документация
 ```
 
+> **Важно про запуск.** Файлы `app_obj_annot.py` и `app_obj_annot_local_canvas.py` отличаются только шагами 1 и 2:
+> - в `app_obj_annot.py` изображение выводится как картинка, работа идёт кликами (`streamlit-image-coordinates`);
+> - в `app_obj_annot_local_canvas.py` изображение является фоном холста, работа идёт рисованием (`streamlit-drawable-canvas`).
+>
+> Холст удобнее, но на Streamlit Cloud фон холста не отображается, поэтому:
+> - **локально** запускайте `app_obj_annot_local_canvas.py`: `streamlit run app_obj_annot_local_canvas.py`;
+> - **на Streamlit Cloud** разворачивайте `app_obj_annot.py`.
+
 ---
 
 ## 🚀 Как запустить
@@ -336,6 +344,14 @@ Stage 5 — Object colour determination
 ├── `requirements.txt`                       # project dependencies
 └── `README.md`                              # this documentation
 ```
+
+> **Important about running.** The files `app_obj_annot.py` and `app_obj_annot_local_canvas.py` differ only in steps 1 and 2:
+> - in `app_obj_annot.py` the image is shown as a picture and you work by clicking (`streamlit-image-coordinates`);
+> - in `app_obj_annot_local_canvas.py` the image is the background of a drawing canvas and you work by drawing (`streamlit-drawable-canvas`).
+>
+> The canvas is more convenient, but on Streamlit Cloud the canvas background is not displayed, so:
+> - **locally** run `app_obj_annot_local_canvas.py`: `streamlit run app_obj_annot_local_canvas.py`;
+> - **on Streamlit Cloud** deploy `app_obj_annot.py`.
 
 ---
 
