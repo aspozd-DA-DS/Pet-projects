@@ -355,7 +355,7 @@ jupyter notebook structural_qc_demo.ipynb
 
 # Structural QC — cross-plot & cross-validation (Oil & Gas)
 
-**Links:** [Live app](https://structural-qc-cv.streamlit.app/) 
+**Links:** [Live app](https://detect-cls-obj-annot.streamlit.app/) 
 
 ---
 

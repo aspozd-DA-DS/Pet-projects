@@ -687,13 +687,26 @@ def median_pairwise_distance(coords: np.ndarray) -> float:
     return float(np.median(distances))
 
 # Distance-based exclusion CV
-def cv_distance_exclusion(df: pd.DataFrame, degree: int = 1, variogram_factor: float = 1.0):
+def cv_distance_exclusion(
+    df: pd.DataFrame,
+    degree: int = 1,
+    variogram_factor: float = 1.0,
+    excl_radius_mode: str = "median_factor",     # "median_factor" | "absolute"
+    excl_radius_abs: float | None = None,        # метры, если mode == "absolute"
+):
 
     x = _x(df)
     y = _y(df)
 
     coords = df[["X_coord", "Y_coord"]].to_numpy(float)
-    excl_radius = (median_pairwise_distance(coords) * variogram_factor)
+
+    # --- выбор способа задания радиуса исключения ---
+    if excl_radius_mode == "absolute":
+        if excl_radius_abs is None:
+            raise ValueError("excl_radius_abs must be set when excl_radius_mode='absolute'")
+        excl_radius = float(excl_radius_abs)
+    else:  # "median_factor" — поведение по умолчанию, как раньше
+        excl_radius = median_pairwise_distance(coords) * variogram_factor
 
     preds = np.full(len(df), np.nan)
     rows = []
@@ -714,17 +727,24 @@ def cv_distance_exclusion(df: pd.DataFrame, degree: int = 1, variogram_factor: f
     return preds, pd.DataFrame(rows)
 
 # -- Stratified by Zone (по тектоническим зонам)
-def cv_stratified_zone(df: pd.DataFrame, degree: int = 1, zone_col: str = "tectonic_zone"):
-
-    if zone_col not in df.columns:
+def cv_stratified_zone(
+    df: pd.DataFrame,
+    degree: int = 1,
+    zone_col: str | None = "tectonic_zone",
+):
+    if zone_col is None or zone_col not in df.columns:
         return None, None
+
+    # Колонка может быть и категориальной, и числовой (horizon_id часто int).
+    # Приводим к строке, чтобы NaN и разные типы не ломали groups в LeaveOneGroupOut.
 
     x = _x(df)
     y = _y(df)
 
-    zones = df[zone_col].to_numpy()
+    zones = df[zone_col].astype(str).to_numpy()   # приведение, чтобы NaN/типы не ломали groups
     if len(np.unique(zones)) < 2:
         return None, None
+
     logo = LeaveOneGroupOut()
     preds = np.full(len(df), np.nan)
     rows = []
@@ -758,6 +778,7 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
 
     if mask.sum() == 0:
         return {
+            "r2_lin": np.nan,
             "rmse": np.nan,
             "mae": np.nan,
             "bias": np.nan,
@@ -797,7 +818,18 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
 
         rmse_fold_range = (rmse_fold_max - rmse_fold_min)
 
+    # R² для линии Actual = Predicted (через линейную регрессию)
+    # r2_score(y_true, y_pred) = 1 - SS_res / SS_tot
+    y_true_masked = y_true[mask]
+    y_pred_masked = preds[mask]
+    try:
+        r2_lin = float(r2_score(y_true_masked, y_pred_masked))
+    except Exception:
+        r2_lin = float("nan")
+
     return {
+        "r2_lin": r2_lin,
+
         "rmse": float(np.sqrt(np.mean(resid ** 2))),
         "mae": float(np.mean(np.abs(resid))),
         "bias": float(np.mean(resid)),
@@ -812,6 +844,7 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
         "rmse_fold_range": rmse_fold_range,
     }
 
+
 # - запускает все схемы кросс-валидации
 # - собирает предсказания по всем схемам
 # - рассчитывает метрики по фолдам
@@ -820,7 +853,11 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
 def run_all_cv(df: pd.DataFrame, degree: int = 1, k: int = 5,
                grid_n: int = 3, seed: int = 42,
                buffer: float = 300.0, variogram_factor: float = 1.0,
-               leave_p_percent: int = 10, spatial_radius: float = 1000.0, cv_repeats: int = 50,):
+               leave_p_percent: int = 10, spatial_radius: float = 1000.0,
+               cv_repeats: int = 50,
+               strat_zone_col: str | None = "tectonic_zone",
+               excl_radius_mode: str = "median_factor",      
+               excl_radius_abs: float | None = None):        
 
     y = _y(df)
     results = {}
@@ -876,16 +913,22 @@ def run_all_cv(df: pd.DataFrame, degree: int = 1, k: int = 5,
     }
 
     # ---------------- Stratified by Zone ----------------
-    preds_zone, folds_zone = cv_stratified_zone(df, degree)
-    if preds_zone is not None:
-        results["Stratified by Zone"] = {
-            "preds": preds_zone,
-            "folds": folds_zone,
-            "summary": summarize_cv(preds_zone, y, folds_zone)
-        }
+    if strat_zone_col is not None:
+        preds_zone, folds_zone = cv_stratified_zone(df, degree, zone_col=strat_zone_col)
+        if preds_zone is not None:
+            zone_name = f"Stratified by {strat_zone_col}"
+            results[zone_name] = {
+                "preds": preds_zone,
+                "folds": folds_zone,
+                "summary": summarize_cv(preds_zone, y, folds_zone)
+            }
 
     # ---------------- Distance-based exclusion CV ----------------
-    preds_dist, folds_dist = cv_distance_exclusion(df, degree, variogram_factor)
+    preds_dist, folds_dist = cv_distance_exclusion(
+        df, degree, variogram_factor,
+        excl_radius_mode=excl_radius_mode,
+        excl_radius_abs=excl_radius_abs,
+    )
     results["Distance-based exclusion CV"] = {
         "preds": preds_dist,
         "folds": folds_dist,
@@ -897,6 +940,7 @@ def run_all_cv(df: pd.DataFrame, degree: int = 1, k: int = 5,
         name: r["summary"]
         for name, r in results.items()
     }).T[[
+        "r2_lin",
         "rmse",
         "mae",
         "bias",

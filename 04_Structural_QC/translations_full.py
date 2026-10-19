@@ -40,7 +40,7 @@ RU = {
     "step0_plotly_pairplot_info":
         "Plotly Pairplot: поддерживаются интерактивность, масштабирование и hover. "
         "KDE и гистограммы на диагонали доступны только для Seaborn Pairplot.",
-    "step0_selected_stats_title": "Статистика чиловых параметров",
+    "step0_selected_stats_title": "Статистика числовых параметров",
     "step0_stats_prefix": "Статистика",
     "step0_corr_spearman_title": "Матрица корреляции (Спирмен)",
     "step0_corr_hint": (
@@ -815,6 +815,16 @@ EN.update({
 
 RU.update({
     "cv_validation_expander": "⚙️ Параметры валидации (Шаг 2)",
+    "cv_seed_title": "🎲 Random seed: Random K-Fold, Leave-P-Out, Spatial Leave-P-Out (Шаг 2)",
+    "cv_seed_current": "Текущий seed:",
+    "cv_seed_new_button": "🎲 Новый seed",
+    "cv_seed_caption": (
+        "Случайное разбиение заданного seed. "
+        "Влияет только на Random K-Fold, Leave-P-Out и Spatial Leave-P-Out. "
+        "Остальные схемы CV детерминированы и от seed не зависят."
+    ),
+    "cv_seed_reset_button": "♻️ Сбросить seed",
+    "step4_random_seed_reset_button": "♻️ Сбросить seed",
     "random_kfold_title": "🎲 Random K-Fold",
     "recommended_k_text": "Рекомендуемое k",
     "wells_count_text": "скважин",
@@ -841,6 +851,9 @@ RU.update({
     "recommended_radius_text": "Рекомендуемый радиус пространственного исключения",
     "spatial_radius_caption": "Скважины внутри радиуса вокруг тестовой точки исключаются из обучения.",
     "spatial_radius_label": "Радиус пространственного исключения Spatial exclusion radius (м)",
+    "strat_zone_col_label": "📚 Колонка для Stratified by Zone (CV)",
+    "strat_zone_col_none_hint": "Схема Stratified будет отключена.",
+    "strat_zone_col_single_value_hint": "⚠️ В колонке «{col}» только {n} уникальное значение — схема Stratified будет отключена.",
     "distance_cv_title": "📈 Distance-based exclusion CV",
     "variogram_factor_label": "Множитель медианного межскважинного расстояния (Distance-based exclusion CV)",
 "variogram_factor_caption":""" 0.5 — мягкая пространственная фильтрация
@@ -850,10 +863,24 @@ RU.update({
 1.5 — строгая пространственная фильтрация
 
 2.0–3.0 — очень строгая проверка, почти независимые скважины""",
-    
+    "excl_radius_mode_label": "Способ задания радиуса исключения",
+    "excl_radius_mode_median_factor": "Множитель медианного межскважинного расстояния",
+    "excl_radius_mode_absolute": "Абсолютный радиус (м)",
+    "excl_radius_abs_label": "Радиус исключения (м)",
+    "excl_radius_abs_caption": "Скважины ближе этого расстояния к тестовой точке исключаются из обучения.",    
 })
 EN.update({
     "cv_validation_expander": "⚙️ Validation Parameters (Step 2)",
+    "cv_seed_title": "🎲 Random seed: Random K-Fold, Leave-P-Out, Spatial Leave-P-Out (Step 2)",
+    "cv_seed_current": "Current seed:",
+    "cv_seed_new_button": "🎲 New seed",
+    "cv_seed_caption": (
+        "Random split controlled by the seed. "
+        "Affects only Random K-Fold, Leave-P-Out, and Spatial Leave-P-Out. "
+        "Other CV schemes are deterministic and do not depend on the seed."
+    ),
+    "cv_seed_reset_button": "♻️ Reset seed",
+    "step4_random_seed_reset_button": "♻️ Reset seed",
     "random_kfold_title": "🎲 Random K-Fold",
     "recommended_k_text": "Recommended k",
     "wells_count_text": "wells",
@@ -880,6 +907,9 @@ EN.update({
     "recommended_radius_text": "Recommended Spatial Exclusion Radius",
     "spatial_radius_caption": "Wells within the radius around the test point are excluded from training.",
     "spatial_radius_label": "Spatial Exclusion Radius (m)",
+    "strat_zone_col_label": "📚 Column for Stratified by Zone (CV)",
+    "strat_zone_col_none_hint": "The Stratified scheme will be disabled.",
+    "strat_zone_col_single_value_hint": "⚠️ Column '{col}' has only {n} unique value(s) — the Stratified scheme will be disabled.",
     "distance_cv_title": "📈 Distance-Based Exclusion CV",
     "variogram_factor_label": "Median inter-well distance multiplier (Distance-based exclusion CV)",
 "variogram_factor_caption": """0.5 — mild spatial filtering
@@ -889,6 +919,11 @@ EN.update({
 1.5 — strict spatial filtering
 
 2.0–3.0 — very strict validation, nearly independent wells""",
+    "excl_radius_mode_label": "Exclusion radius mode",
+    "excl_radius_mode_median_factor": "Median inter-well distance multiplier",
+    "excl_radius_mode_absolute": "Absolute radius (m)",
+    "excl_radius_abs_label": "Exclusion radius (m)",
+    "excl_radius_abs_caption": "Wells within this distance from the test point are excluded from training.",
 })
 RU.update({
     "outlier_iqr_k_label": "Множитель IQR (правило IQR)",
@@ -900,3 +935,26 @@ EN.update({
     "outlier_pct_low_label": "Lower percentile (percentile rule), %",
     "outlier_pct_high_label": "Upper percentile (percentile rule), %",
 })
+RU.update({
+    "best_scheme_criterion_label": "Критерий выбора лучшей схемы CV",
+    "best_scheme_criterion_rmse_plus_std": "RMSE + RMSE_fold_Std (по умолчанию)",
+    "best_scheme_criterion_rmse": "Минимальный RMSE",
+    "best_scheme_criterion_mae": "Минимальный MAE",
+    "best_scheme_criterion_r2": "Максимальный R²_lin",
+    "best_scheme_criterion_rmse_plus_abs_bias": "RMSE + |Bias|",
+    "best_scheme_criterion_manual": "Выбрать вручную",
+    "best_scheme_manual_label": "Схема CV",
+    "best_scheme_score_caption": "Колонка `score` рассчитана по критерию: **{criterion}**",
+})
+EN.update({
+    "best_scheme_criterion_label": "Best CV scheme selection criterion",
+    "best_scheme_criterion_rmse_plus_std": "RMSE + RMSE_fold_Std (default)",
+    "best_scheme_criterion_rmse": "Min RMSE",
+    "best_scheme_criterion_mae": "Min MAE",
+    "best_scheme_criterion_r2": "Max R²_lin",
+    "best_scheme_criterion_rmse_plus_abs_bias": "RMSE + |Bias|",
+    "best_scheme_criterion_manual": "Select manually",
+    "best_scheme_manual_label": "CV scheme",
+    "best_scheme_score_caption": "The `score` column is calculated by criterion: **{criterion}**",
+})
+

@@ -306,6 +306,17 @@ distance_cv_title = T["distance_cv_title"]
 variogram_factor_label = T["variogram_factor_label"]
 variogram_factor_caption = T["variogram_factor_caption"]
 corr_threshold_label = T["corr_threshold_label"]
+excl_radius_mode_label = T["excl_radius_mode_label"]
+excl_radius_mode_median_factor = T["excl_radius_mode_median_factor"]
+excl_radius_mode_absolute = T["excl_radius_mode_absolute"]
+excl_radius_abs_label = T["excl_radius_abs_label"]
+excl_radius_abs_caption = T["excl_radius_abs_caption"]
+cv_seed_title = T["cv_seed_title"]
+cv_seed_current = T["cv_seed_current"]
+cv_seed_new_button = T["cv_seed_new_button"]
+cv_seed_caption = T["cv_seed_caption"]
+cv_seed_reset_button = T["cv_seed_reset_button"]
+step4_random_seed_reset_button = T["step4_random_seed_reset_button"]
 
 crosstab_expander = T["crosstab_expander"]
 multi_pie_expander = T["multi_pie_expander"]
@@ -352,6 +363,9 @@ residual_map_no_highlight = T["residual_map_no_highlight"]
 residual_map_highlight_opacity_label = T["residual_map_highlight_opacity_label"]
 residual_map_dim_opacity_label = T["residual_map_dim_opacity_label"]
 
+strat_zone_col_label = T["strat_zone_col_label"]
+strat_zone_col_none_hint = T["strat_zone_col_none_hint"]
+strat_zone_col_single_value_hint = T["strat_zone_col_single_value_hint"]
 # ------------------------------------------------------------- #
 # SIDEBAR: Подготовка данных
 # ------------------------------------------------------------- #
@@ -410,6 +424,10 @@ def save_dataset_to_session(df, param_1, param_2, unit_1, unit_2, zone_col=None,
         "category_col",
         "pairplot_category", 
         "step3_selected_zones",
+        "cv_seed", 
+        "step4_random_seed",
+        "best_scheme_criterion",      
+        "best_scheme_manual",          
     ]:
         st.session_state.pop(key, None)
 
@@ -1606,6 +1624,20 @@ n_wells = spacing["n_wells"]
 
 st.sidebar.markdown("---")
 with st.sidebar.expander(cv_validation_expander, expanded=False):
+    # ------ Random seed (влияет на Random K-Fold, Leave-P-Out, Spatial Leave-P-Out) ------
+    st.markdown(f"#### {cv_seed_title}")
+
+    if "cv_seed" not in st.session_state:
+        st.session_state["cv_seed"] = 42
+
+    st.markdown(f"**{cv_seed_current}** `{st.session_state['cv_seed']}`")
+
+    if st.button(cv_seed_new_button, key="cv_new_seed", use_container_width=True):
+        st.session_state["cv_seed"] += 1
+    if st.button(cv_seed_reset_button, key="cv_reset_seed", use_container_width=True):
+        st.session_state["cv_seed"] = 42
+
+    st.caption(cv_seed_caption)
 
     # ------ рекомендуемое k ------
     st.markdown(f"#### {random_kfold_title}")
@@ -1716,11 +1748,96 @@ with st.sidebar.expander(cv_validation_expander, expanded=False):
     else:
         spatial_radius = 1000
 
-    # ------ variogram factor ------
-    st.markdown(f"#### {distance_cv_title}")
-    variogram_factor = st.slider(variogram_factor_label, 0.25, 3.00, 1.00, 0.25, key="variogram_factor")
+    # ------ Stratified by Zone: выбор колонки ------
+    st.markdown(f"#### {T['strat_zone_col_label']}")
+    strat_zone_col_options = [None]
+    if df is not None:
+        for c in df.columns:
+            if c in ("well_id", "X_coord", "Y_coord", "Zprm_well", "Zprm_map"):
+                continue
+            # категориальные ИЛИ числовые с небольшим числом уникальных (horizon_id)
+            if (
+                not pd.api.types.is_numeric_dtype(df[c])
+                or df[c].nunique(dropna=True) <= 20
+            ):
+                strat_zone_col_options.append(c)
 
-    st.caption(variogram_factor_caption)
+    # Умный default: tectonic_zone, если есть; иначе horizon_id; иначе None
+    if "strat_zone_col" not in st.session_state:
+        if "tectonic_zone" in strat_zone_col_options:
+            st.session_state["strat_zone_col"] = "tectonic_zone"
+        elif "horizon_id" in strat_zone_col_options:
+            st.session_state["strat_zone_col"] = "horizon_id"
+        else:
+            st.session_state["strat_zone_col"] = None
+
+    # если выбранного ранее значения больше нет в списке — сброс
+    if st.session_state["strat_zone_col"] not in strat_zone_col_options:
+        st.session_state["strat_zone_col"] = None
+
+    strat_zone_col = st.selectbox(
+        strat_zone_col_label,
+        strat_zone_col_options,
+        format_func=lambda x: T["not_used_label"] if x is None else display_name(x),
+        key="strat_zone_col",
+    )
+
+    # --- предупреждение: колонка выбрана, но в ней < 2 уникальных значений ---
+    if strat_zone_col is not None and df is not None:
+        n_unique = df[strat_zone_col].astype(str).nunique()
+        if n_unique < 2:
+            st.caption(
+                strat_zone_col_single_value_hint.format(
+                    col=strat_zone_col, n=n_unique,
+                )
+            )
+    elif strat_zone_col is None:
+        st.caption(strat_zone_col_none_hint)
+
+    # ------ Distance-based exclusion CV ------
+    st.markdown(f"#### {distance_cv_title}")
+
+    # --- выбор способа задания радиуса ---
+    excl_radius_mode = st.radio(
+        excl_radius_mode_label,
+        ["median_factor", "absolute"],
+        format_func=lambda x: (
+            excl_radius_mode_median_factor if x == "median_factor"
+            else excl_radius_mode_absolute
+        ),
+        index=0,
+        horizontal=True,
+        key="excl_radius_mode",
+    )
+
+    # --- параметры в зависимости от режима ---
+    if excl_radius_mode == "median_factor":
+        variogram_factor = st.slider(
+            variogram_factor_label, 0.25, 3.00, 1.00, 0.25,
+            key="variogram_factor",
+        )
+        st.caption(variogram_factor_caption)
+
+        # абсолютный радиус не используется — передадим None
+        excl_radius_abs = None
+    else:
+        # режим absolute: множитель не нужен, оставляем дефолт (для совместимости с кэшем)
+        variogram_factor = 1.0
+
+        # рекомендуемый диапазон — как в Spatial Leave-P-Out (по медианному расстоянию)
+        if median_dist is not None and median_dist > 0:
+            abs_min = max(1, int(min_dist))
+            abs_max = max(abs_min + 1, int(max_dist))
+            abs_default = max(abs_min, min(int(median_dist), abs_max))
+        else:
+            abs_min, abs_max, abs_default = 1, 5000, 500
+
+        excl_radius_abs = st.slider(
+            excl_radius_abs_label,
+            abs_min, abs_max, abs_default,
+            key="excl_radius_abs",
+        )
+        st.caption(excl_radius_abs_caption)
 
 # ------------------------------------------------------------- #
 # SIDEBAR: STEP 3 — анализ по категориям
@@ -1853,8 +1970,11 @@ if df is not None:
             percent_exclude = st.slider(percent_exclude_label, 0, 95, 10,key="step4_percent_exclude",)
             if "step4_random_seed" not in st.session_state:
                 st.session_state.step4_random_seed = 42
-            if st.button(new_random_set_button, key="step4_new_random_set"):
-                st.session_state.step4_random_seed += 1   # следующий набор тоже воспроизводим
+
+            if st.button(new_random_set_button, key="step4_new_random_set", use_container_width=True):
+                st.session_state.step4_random_seed += 1
+            if st.button(step4_random_seed_reset_button, key="step4_reset_random_set", use_container_width=True):
+                st.session_state.step4_random_seed = 42
 
             st.caption(random_exclusion_caption)
 
@@ -1873,7 +1993,7 @@ if df is not None:
                 f"{n_excluded} "
                 f"{wells_suffix}**" 
             )
-
+        
         # Выделение кликом по точке
         elif filter_mode == FILTER_CLICK:
             st.caption(step4_click_hint)
@@ -2987,6 +3107,15 @@ step2_rmse_title = T["step2_rmse_title"]
 step2_fold_rmse_title = T["step2_fold_rmse_title"]
 step2_fold_rmse_boxplot_title = T["step2_fold_rmse_boxplot_title"]
 step2_boxplot_caption = T["step2_boxplot_caption"]
+best_scheme_criterion_label = T["best_scheme_criterion_label"]
+best_scheme_criterion_rmse_plus_std = T["best_scheme_criterion_rmse_plus_std"]
+best_scheme_criterion_rmse = T["best_scheme_criterion_rmse"]
+best_scheme_criterion_mae = T["best_scheme_criterion_mae"]
+best_scheme_criterion_r2 = T["best_scheme_criterion_r2"]
+best_scheme_criterion_rmse_plus_abs_bias = T["best_scheme_criterion_rmse_plus_abs_bias"]
+best_scheme_criterion_manual = T["best_scheme_criterion_manual"]
+best_scheme_manual_label = T["best_scheme_manual_label"]
+best_scheme_score_caption = T["best_scheme_score_caption"]
 step2_best_scheme_title = T["step2_best_scheme_title"]
 step2_cv_crossplot_title = T["step2_cv_crossplot_title"]
 step2_approximations_title = T["step2_approximations_title"]
@@ -3004,17 +3133,26 @@ st.markdown('<div id="step-2-bcv"></div>', unsafe_allow_html=True)
 # ------------------------------------------------- #
 # STEP 2.0.: 
 # ------------------------------------------------- #
+
 @st.cache_data(
     show_spinner="Running cross-validation...",
     hash_funcs={pd.DataFrame: lambda df: pd.util.hash_pandas_object(df, index=True).values.tobytes()},
 )
 def cached_run_all_cv(df, degree, k, grid_n, buffer, variogram_factor,
-                       leave_p_percent, spatial_radius, cv_repeats):
+                       leave_p_percent, spatial_radius, cv_repeats,
+                       strat_zone_col,
+                       excl_radius_mode, excl_radius_abs,
+                       seed):                                              
     return sq.run_all_cv(
         df, degree=degree, k=k, grid_n=grid_n, buffer=buffer,
         variogram_factor=variogram_factor, leave_p_percent=leave_p_percent,
-        spatial_radius=spatial_radius, cv_repeats=cv_repeats, seed=42,
+        spatial_radius=spatial_radius, cv_repeats=cv_repeats,
+        seed=seed,                                                     
+        strat_zone_col=strat_zone_col,
+        excl_radius_mode=excl_radius_mode,
+        excl_radius_abs=excl_radius_abs,
     )
+
 st.markdown(
     f"## {step2_title}: "
     f"{PARAM_1} vs {PARAM_2}"
@@ -3029,25 +3167,90 @@ if st.session_state.get("df_for_cv") is None:
 results, comparison = cached_run_all_cv(
     st.session_state["df_for_cv"], 1, k_folds, grid_n, buffer,
     variogram_factor, leave_p_percent, spatial_radius, cv_repeats,
+    strat_zone_col,
+    excl_radius_mode, excl_radius_abs,
+    st.session_state["cv_seed"],                                      
 )
 
 if comparison.empty:
     st.warning(cv_not_enough_data_msg)
     st.stop()
 
-# --- Удаляем схему Stratified by Zone при отсутствии tectonic_zone ---
-if "Stratified by Zone" in comparison.index and "tectonic_zone" not in df.columns:
-    comparison = comparison.drop(index="Stratified by Zone")
-    results.pop("Stratified by Zone", None)
+# --- Если схема Stratified не построилась (нет колонки / один класс) ---
+for key in list(results.keys()):
+    if key.startswith("Stratified by ") and results[key].get("preds") is None:
+        comparison = comparison.drop(index=key, errors="ignore")
+        results.pop(key, None)
 
-# --- Выбор лучшей схемы CV по двум критериям ---
-comparison["score"] = (comparison["rmse"] + comparison["rmse_fold_std"])
-valid_scores = comparison["score"].dropna()
-if len(valid_scores) == 0:
-    st.warning(cv_best_scheme_error_msg)
-    st.stop()
+# --- Выбор лучшей схемы CV: критерий + ручной override ---
+st.markdown(f"#### {best_scheme_criterion_label}")
 
-best_scheme = valid_scores.idxmin()
+criterion_options = [
+    "rmse_plus_std",
+    "rmse",
+    "mae",
+    "r2",
+    "rmse_plus_abs_bias",
+    "manual",
+]
+
+criterion_labels = {
+    "rmse_plus_std": best_scheme_criterion_rmse_plus_std,
+    "rmse": best_scheme_criterion_rmse,
+    "mae": best_scheme_criterion_mae,
+    "r2": best_scheme_criterion_r2,
+    "rmse_plus_abs_bias": best_scheme_criterion_rmse_plus_abs_bias,
+    "manual": best_scheme_criterion_manual,
+}
+
+if "best_scheme_criterion" not in st.session_state:
+    st.session_state["best_scheme_criterion"] = "rmse_plus_std"
+
+criterion = st.selectbox(
+    best_scheme_criterion_label,
+    criterion_options,
+    format_func=lambda x: criterion_labels[x],
+    index=criterion_options.index(st.session_state["best_scheme_criterion"]),
+    key="best_scheme_criterion",
+    label_visibility="collapsed",
+)
+
+# --- Считаем score по выбранному критерию ---
+# Все критерии приводим к виду "чем меньше — тем лучше"
+comparison["score"] = np.nan
+
+if criterion == "rmse_plus_std":
+    comparison["score"] = comparison["rmse"] + comparison["rmse_fold_std"]
+elif criterion == "rmse":
+    comparison["score"] = comparison["rmse"]
+elif criterion == "mae":
+    comparison["score"] = comparison["mae"]
+elif criterion == "r2":
+    comparison["score"] = -comparison["r2_lin"]           # инверсия: max R² → min −R²
+elif criterion == "rmse_plus_abs_bias":
+    comparison["score"] = comparison["rmse"] + comparison["bias"].abs()
+
+# --- Ручной выбор override ---
+if criterion == "manual":
+    st.session_state.setdefault("best_scheme_manual", comparison.index[0])
+
+    # если сохранённое значение больше не в списке — сброс
+    if st.session_state["best_scheme_manual"] not in comparison.index:
+        st.session_state["best_scheme_manual"] = comparison.index[0]
+
+    best_scheme = st.selectbox(
+        best_scheme_manual_label,
+        list(comparison.index),
+        index=list(comparison.index).index(st.session_state["best_scheme_manual"]),
+        key="best_scheme_manual",
+    )
+else:
+    valid_scores = comparison["score"].dropna()
+    if len(valid_scores) == 0:
+        st.warning(cv_best_scheme_error_msg)
+        st.stop()
+    best_scheme = valid_scores.idxmin()
+
 best_preds = results[best_scheme]["preds"]
 
 # "Замороженный" датасет, на котором обучалась CV — используется далее во всём Шаге 2
@@ -3129,9 +3332,17 @@ st.dataframe(cv_summary_df, use_container_width=True)
 excel_download_button(cv_summary_df, "structural_qc_step2_cv_metrics_all",
                       key="download_excel_step2_cv_metrics_all")
 
+# --- caption-связка: score пересчитан по выбранному критерию ---
+st.caption(
+    best_scheme_score_caption.format(
+        criterion=criterion_labels[st.session_state["best_scheme_criterion"]]
+    )
+)
+
 st.markdown(f"#### {step2_cv_comparison_title}")
 st.dataframe(
     comparison.style.format({
+        "r2_lin": "{:.4f}",
         "rmse": "{:.2f}",
         "mae": "{:.2f}",
         "bias": "{:+.2f}",
