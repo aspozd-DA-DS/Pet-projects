@@ -221,7 +221,7 @@ TEXT = {
         "results": "Step 5. All annotations",
         "export": "Prepare export",
         "download": "Download ZIP",
-        "export_hint": "ZIP contains: YOLO .txt, per-image .json, annotations_all.json, annotated .jpg and crops/ (PNG bounding-box crop of each object)",
+        "export_hint": "ZIP contains: YOLO .txt, per-image .json, annotations_all.json, classes.txt, annotated .jpg and crops/ (PNG bounding-box crop of each object)",
         "prev": "← Previous",
         "next": "Next →",
         "counter": "Image {i}/{n}: {name}",
@@ -232,6 +232,10 @@ TEXT = {
         "chart_expander": "Charts",
         "chart_palette": "Chart palette",
         "count": "Count",
+        "ann_upload": "Resume: upload annotations_all.json from a previous export",
+        "ann_loaded": "Annotations restored for {n} image(s) from the file",
+        "ann_bad": "Could not read annotations_all.json",
+        "progress": "Annotated: {k} of {m}",
     },
     "ru": {
         "title": "Разметка капсул",
@@ -315,7 +319,7 @@ TEXT = {
         "results": "Шаг 5. Все аннотации",
         "export": "Подготовить выгрузку",
         "download": "Скачать ZIP",
-        "export_hint": "В ZIP: YOLO .txt, json на каждое изображение, annotations_all.json, аннотированный .jpg и папка crops/ (PNG-кроп по прямоугольнику каждого объекта)",
+        "export_hint": "В ZIP: YOLO .txt, json на каждое изображение, annotations_all.json, classes.txt, аннотированный .jpg и папка crops/ (PNG-кроп по прямоугольнику каждого объекта)",
         "prev": "← Назад",
         "next": "Вперёд →",
         "counter": "Изображение {i}/{n}: {name}",
@@ -326,6 +330,10 @@ TEXT = {
         "chart_expander": "Диаграммы",
         "chart_palette": "Палитра диаграмм",
         "count": "Количество",
+        "ann_upload": "Продолжить: загрузите annotations_all.json из прошлой выгрузки",
+        "ann_loaded": "Восстановлена разметка для изображений: {n}",
+        "ann_bad": "Не удалось прочитать annotations_all.json",
+        "progress": "Размечено: {k} из {m}",
     },
 }
 
@@ -640,6 +648,8 @@ def build_zip(results, style):
                 z.writestr(f"crops/{stem}_{i:02d}_{CLASSES[o['class_id']]}.png", crop_png(img0, o))
 
         z.writestr("annotations_all.json", json.dumps(all_ann, indent=4, ensure_ascii=False))
+        # названия классов по номерам (порядок совпадает с class_id в YOLO .txt)
+        z.writestr("classes.txt", "\n".join(CLASSES[i] for i in sorted(CLASSES)) + "\n")
     return buf.getvalue()
 
 # Рисует рамки зума на исходном изображении для предпросмотра
@@ -691,7 +701,7 @@ if "S" not in st.session_state:
     )
 S = st.session_state.S
 # Дополнение состояния для сессий, запущенных до обновления схемы
-for _k, _v in dict(groups=[], pending=[], zoom_pts=[], seen={}, sel=None).items():
+for _k, _v in dict(groups=[], pending=[], zoom_pts=[], seen={}, sel=None, loaded_ann={}).items():
     S.setdefault(_k, _v)
 
 # Устанавливает новый источник изображений и сбрасывает состояние разметки
@@ -709,6 +719,27 @@ def reset_work(**extra):
 def go(delta):
     S["packets"] = []
     reset_work(index=S["index"] + delta)
+
+# Восстанавливает результат изображения из загруженного annotations_all.json
+def restore_result(fname, stem, img0):
+    inv = {v: k for k, v in CLASSES.items()}
+    objs = []
+    for rec in S["loaded_ann"][stem]["IMG"]:
+        if rec["kind"] == "box":
+            x1, y1, x2, y2 = rec["bbox"]
+            pts = [[x1, y1], [x2, y1], [x2, y2], [x1, y2]]
+        else:
+            pts = rec["points"]
+        objs.append({
+            "kind": rec["kind"], "points": pts, "bbox": rec["bbox"],
+            "shape": rec["shape"], "color": rec["color"],
+            "class_id": inv.get(rec["class"], 0),
+            "transparency": rec.get("transparency", "opaque"),
+            "packet": rec.get("packet", 1),
+        })
+    h0, w0 = img0.shape[:2]
+    return {"file": fname, "src": S["src_map"][fname], "w": w0, "h": h0,
+            "objects": objs, "zooms": []}
 
 EDIT_R = 10      # радиус захвата вершины или стороны мышью, в пикселях отображения
 ROT_OFF = 30     # расстояние маркера поворота от бокса, в пикселях отображения
@@ -889,6 +920,19 @@ with st.sidebar:
     if S["files"]:
         st.caption(t("loaded", n=len(S["files"])))
 
+    ann_up = st.file_uploader(t("ann_upload"), type=["json"], key="ann_upload")
+    if ann_up is not None and S.get("ann_sig") != (ann_up.name, ann_up.size):
+        S["ann_sig"] = (ann_up.name, ann_up.size)
+        try:
+            S["loaded_ann"] = json.loads(ann_up.getvalue().decode("utf-8"))
+        except Exception:
+            S["loaded_ann"] = {}
+            st.error(t("ann_bad"))
+    if S["loaded_ann"]:
+        n_match = sum(1 for f in S["files"] if os.path.splitext(f)[0] in S["loaded_ann"])
+        st.caption(t("ann_loaded", n=n_match))
+    PROG_SLOT = st.empty()
+
     # Секция режима пакетиков
     st.markdown("---")
     st.header(t("sec_mode"))
@@ -960,6 +1004,11 @@ fname = S["files"][idx]
 stem = os.path.splitext(fname)[0]
 img0 = load_image(S["src_map"][fname])
 h0, w0 = img0.shape[:2]
+if fname not in S["results"] and stem in S["loaded_ann"]:
+    try:
+        S["results"][fname] = restore_result(fname, stem, img0)
+    except (KeyError, TypeError, ValueError):
+        pass
 
 st.subheader(t("counter", i=idx + 1, n=len(S["files"]), name=fname))
 st.caption(t("orig_size", w=w0, h=h0))
@@ -1029,8 +1078,9 @@ with right_col:
         # Шаг 2: разметка объектов кликами (кнопки обрабатываются до отрисовки изображения)
         st.markdown(f"**{t('step2')}**")
         st.caption(t("pts_hint"))
-        tool = st.radio(t("tool"), [0, 1, 2, 3], horizontal=True, key="tool",
+        tool = st.radio(t("tool"), [0, 1, 2, 3], horizontal=False, key="tool",
                         format_func=lambda i: t(TOOL_LABELS[i]))
+        img_box = st.container()  # рисунок выводится в это место, после кнопок и списка выбора выше
         if S["sel"] is not None and S["sel"] >= len(S["groups"]):
             S["sel"] = None
         if S["groups"]:
@@ -1040,16 +1090,16 @@ with right_col:
                                     key="sel_pick")
             S["sel"] = sel_pick
         b_fin, b_del, b_cap, b_reset = st.columns(4)
-        can_finish = tool in (1, 2) and len(S["pending"]) >= 3
+        can_finish = len(S["pending"]) >= 3
         if b_fin.button(t("finish_obj"), disabled=not can_finish, use_container_width=True):
-            S["groups"].append({"kind": "polygon" if tool == 1 else "points", "points": S["pending"]})
+            S["groups"].append({"kind": "points" if tool == 2 else "polygon", "points": S["pending"]})
             S["pending"] = []
         if b_del.button(t("del_obj"), disabled=S["sel"] is None or not S["groups"], use_container_width=True):
             S["groups"].pop(S["sel"])
             S["sel"] = None
         if b_cap.button(t("capture"), use_container_width=True):
-            if tool in (1, 2) and len(S["pending"]) >= 3:
-                S["groups"].append({"kind": "polygon" if tool == 1 else "points", "points": S["pending"]})
+            if len(S["pending"]) >= 3:
+                S["groups"].append({"kind": "points" if tool == 2 else "polygon", "points": S["pending"]})
                 S["pending"] = []
             objs = []
             for g in S["groups"]:
@@ -1097,7 +1147,8 @@ with right_col:
                     S["pending"] = []
         sel_draw = S["sel"] if tool == 3 else None
         bg = overlay_groups(disp, S["groups"], zs, ox1, oy1, px, py, pending=S["pending"], sel=sel_draw)
-        streamlit_image_coordinates(Image.fromarray(bg), key=key2, width="content", click_and_drag=True)
+        with img_box:
+            streamlit_image_coordinates(Image.fromarray(bg), key=key2, width="content", click_and_drag=True)
 
 # ---- Редактор объектов (на всю ширину, под двумя панелями) -----------------------
 if S["objects"]:
@@ -1219,3 +1270,8 @@ n2.button(t("next"), on_click=go, args=(1,), disabled=idx == len(S["files"]) - 1
 st.caption("Annotator✳Obj")
 st.caption(t("footer_data_note"))
 st.caption(t("footer_copyright"))
+
+# Прогресс по набору: выводится в конце прогона, чтобы учитывать сохранение в том же прогоне
+if S["files"]:
+    _done = sum(1 for f in S["files"] if f in S["results"])
+    PROG_SLOT.progress(_done / len(S["files"]), text=t("progress", k=_done, m=len(S["files"])))

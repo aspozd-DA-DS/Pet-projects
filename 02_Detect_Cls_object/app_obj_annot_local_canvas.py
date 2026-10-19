@@ -222,7 +222,7 @@ TEXT = {
         "results": "Step 5. All annotations",
         "export": "Prepare export",
         "download": "Download ZIP",
-        "export_hint": "ZIP contains: YOLO .txt, per-image .json, annotations_all.json, annotated .jpg and crops/ (PNG bounding-box crop of each object)",
+        "export_hint": "ZIP contains: YOLO .txt, per-image .json, annotations_all.json, classes.txt, annotated .jpg and crops/ (PNG bounding-box crop of each object)",
         "prev": "← Previous",
         "next": "Next →",
         "counter": "Image {i}/{n}: {name}",
@@ -233,6 +233,12 @@ TEXT = {
         "chart_expander": "Charts",
         "chart_palette": "Chart palette",
         "count": "Count",
+        "box_pick": "Box to delete",
+        "del_box": "Delete selected box",
+        "ann_upload": "Resume: upload annotations_all.json from a previous export",
+        "ann_loaded": "Annotations restored for {n} image(s) from the file",
+        "ann_bad": "Could not read annotations_all.json",
+        "progress": "Annotated: {k} of {m}",
     },
     "ru": {
         "title": "Разметка капсул",
@@ -314,7 +320,7 @@ TEXT = {
         "results": "Шаг 5. Все аннотации",
         "export": "Подготовить выгрузку",
         "download": "Скачать ZIP",
-        "export_hint": "В ZIP: YOLO .txt, json на каждое изображение, annotations_all.json, аннотированный .jpg и папка crops/ (PNG-кроп по прямоугольнику каждого объекта)",
+        "export_hint": "В ZIP: YOLO .txt, json на каждое изображение, annotations_all.json, classes.txt, аннотированный .jpg и папка crops/ (PNG-кроп по прямоугольнику каждого объекта)",
         "prev": "← Назад",
         "next": "Вперёд →",
         "counter": "Изображение {i}/{n}: {name}",
@@ -325,6 +331,12 @@ TEXT = {
         "chart_expander": "Диаграммы",
         "chart_palette": "Палитра диаграмм",
         "count": "Количество",
+        "box_pick": "Бокс для удаления",
+        "del_box": "Удалить выбранный бокс",
+        "ann_upload": "Продолжить: загрузите annotations_all.json из прошлой выгрузки",
+        "ann_loaded": "Восстановлена разметка для изображений: {n}",
+        "ann_bad": "Не удалось прочитать annotations_all.json",
+        "progress": "Размечено: {k} из {m}",
     },
 }
 
@@ -695,7 +707,30 @@ def build_zip(results, style):
                 z.writestr(f"crops/{stem}_{i:02d}_{CLASSES[o['class_id']]}.png", crop_png(img0, o))
 
         z.writestr("annotations_all.json", json.dumps(all_ann, indent=4, ensure_ascii=False))
+        # названия классов по номерам (порядок совпадает с class_id в YOLO .txt)
+        z.writestr("classes.txt", "\n".join(CLASSES[i] for i in sorted(CLASSES)) + "\n")
     return buf.getvalue()
+
+# Восстанавливает результат изображения из загруженного annotations_all.json
+def restore_result(fname, stem, img0):
+    inv = {v: k for k, v in CLASSES.items()}
+    objs = []
+    for rec in S["loaded_ann"][stem]["IMG"]:
+        if rec["kind"] == "box":
+            x1, y1, x2, y2 = rec["bbox"]
+            pts = [[x1, y1], [x2, y1], [x2, y2], [x1, y2]]
+        else:
+            pts = rec["points"]
+        objs.append({
+            "kind": rec["kind"], "points": pts, "bbox": rec["bbox"],
+            "shape": rec["shape"], "color": rec["color"],
+            "class_id": inv.get(rec["class"], 0),
+            "transparency": rec.get("transparency", "opaque"),
+            "packet": rec.get("packet", 1),
+        })
+    h0, w0 = img0.shape[:2]
+    return {"file": fname, "src": S["src_map"][fname], "w": w0, "h": h0,
+            "objects": objs, "zooms": []}
 
 # Рисует рамки зума на исходном изображении для предпросмотра
 def draw_zoom_frames(img0, boxes, zst):
@@ -745,6 +780,8 @@ if "S" not in st.session_state:
         canvas_json=None, groups=[], init_draw=None, results={}, preview=None, zip=None, ann_style=None,
     )
 S = st.session_state.S
+S.setdefault("loaded_ann", {})
+S.setdefault("ann_sig", None)
 
 # Устанавливает новый источник изображений и сбрасывает состояние разметки
 def set_source(src_map, source_key):
@@ -878,6 +915,19 @@ with st.sidebar:
     if S["files"]:
         st.caption(t("loaded", n=len(S["files"])))
 
+    ann_up = st.file_uploader(t("ann_upload"), type=["json"], key="ann_upload")
+    if ann_up is not None and S.get("ann_sig") != (ann_up.name, ann_up.size):
+        S["ann_sig"] = (ann_up.name, ann_up.size)
+        try:
+            S["loaded_ann"] = json.loads(ann_up.getvalue().decode("utf-8"))
+        except Exception:
+            S["loaded_ann"] = {}
+            st.error(t("ann_bad"))
+    if S["loaded_ann"]:
+        n_match = sum(1 for f in S["files"] if os.path.splitext(f)[0] in S["loaded_ann"])
+        st.caption(t("ann_loaded", n=n_match))
+    PROG_SLOT = st.empty()
+
     # Секция режима пакетиков
     st.markdown("---")
     st.header(t("sec_mode"))
@@ -949,6 +999,11 @@ fname = S["files"][idx]
 stem = os.path.splitext(fname)[0]
 img0 = load_image(S["src_map"][fname])
 h0, w0 = img0.shape[:2]
+if fname not in S["results"] and stem in S["loaded_ann"]:
+    try:
+        S["results"][fname] = restore_result(fname, stem, img0)
+    except (KeyError, TypeError, ValueError):
+        pass
 
 st.subheader(t("counter", i=idx + 1, n=len(S["files"]), name=fname))
 st.caption(t("orig_size", w=w0, h=h0))
@@ -1016,7 +1071,7 @@ with right_col:
         S["zoom_json"] = None
         st.markdown(f"**{t('step2')}**")
         st.caption(t("pts_hint"))
-        tool = st.radio(t("tool"), [0, 1, 2, 3], horizontal=True, key="tool",
+        tool = st.radio(t("tool"), [0, 1, 2, 3], horizontal=False, key="tool",
                         format_func=lambda i: t(TOOL_LABELS[i]))
         if tool == 0:
             stroke, sw, fill = DEF_BOX["color"], DEF_BOX["width"], "rgba(0,0,0,0)"
@@ -1037,7 +1092,15 @@ with right_col:
 
         objs_now = (S["canvas_json"] or {}).get("objects", [])
         has_pending = bool(pending) or any(o.get("type") not in ("rect", "circle") for o in objs_now)
-        b_fin, b_cap, b_reset = st.columns(3)
+        box_idx = [i for i, o in enumerate(objs_now) if o.get("type") == "rect"]
+        pick = None
+        if box_idx:
+            pick = st.selectbox(
+                t("box_pick"), box_idx,
+                format_func=lambda i: f"{t('t_rect')} {t('obj', i=box_idx.index(i) + 1)}",
+                key=f"box_pick_{fname}_{S.get('cv_ver', 0)}",
+            )
+        b_fin, b_del, b_cap, b_reset = st.columns(4)
         # Завершение объекта: переносит точки и полигоны в группы, боксы остаются на холсте
         if b_fin.button(t("finish_obj"), disabled=not has_pending, use_container_width=True):
             done = canvas_to_shapes({"objects": [o for o in objs_now if o.get("type") != "rect"]},
@@ -1047,6 +1110,14 @@ with right_col:
             S["init_draw"] = dict(S["canvas_json"] or {}, objects=rects)
             S["cv_ver"] = S.get("cv_ver", 0) + 1
             S["canvas_json"] = None
+            st.rerun()
+
+        # Удаление выбранного бокса
+        if b_del.button(t("del_box"), disabled=pick is None, use_container_width=True):
+            objs = [o for i, o in enumerate(objs_now) if i != pick]
+            S["init_draw"] = dict(S["canvas_json"] or {}, objects=objs)
+            S["canvas_json"] = None
+            S["cv_ver"] = S.get("cv_ver", 0) + 1
             st.rerun()
 
         # Захват всех нарисованных объектов
@@ -1208,3 +1279,8 @@ n2.button(t("next"), on_click=go, args=(1,), disabled=idx == len(S["files"]) - 1
 st.caption("Annotator✳Obj")
 st.caption(t("footer_data_note"))
 st.caption(t("footer_copyright"))
+
+# Прогресс по набору: выводится в конце прогона, чтобы учитывать сохранение в том же прогоне
+if S["files"]:
+    _done = sum(1 for f in S["files"] if f in S["results"])
+    PROG_SLOT.progress(_done / len(S["files"]), text=t("progress", k=_done, m=len(S["files"])))
