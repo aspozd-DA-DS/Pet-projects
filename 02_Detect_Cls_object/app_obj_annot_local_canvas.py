@@ -118,7 +118,7 @@ ABOUT_EN = """
 4. **Preview and display settings (Step 4).** Compare the original and annotated images. Colors, line types, font and point size set in the sidebar apply to the preview and the export.
 5. **All annotations (Step 5).** A table of all objects with sizes and areas, bar charts by color, shape and class, and the ZIP export.
 
-**Export (ZIP):** a YOLO .txt and a JSON per image, annotations_all.json with all images, an annotated .jpg per image, and a crops/ folder with a PNG of each object cropped by its bounding box.
+**Export (ZIP):** a YOLO .txt and a JSON per image, annotations_all.json with all images, an annotated .jpg per image, a zoomed crop with annotations per zoom frame, and a crops/ folder with a PNG of each object cropped by its bounding box.
 
 **Data:** images are processed in session memory and are not written to disk by the application. Download the ZIP to keep the results.
 """
@@ -136,7 +136,7 @@ ABOUT_RU = """
 4. **Предпросмотр и настройки отображения (Шаг 4).** Сравните исходное и размеченное изображения. Цвета, типы линий, шрифт и размер точек, заданные в боковой панели, применяются к предпросмотру и выгрузке.
 5. **Все аннотации (Шаг 5).** Таблица всех объектов с размерами и площадями, столбчатые диаграммы по цвету, форме и классу, выгрузка ZIP.
 
-**Выгрузка (ZIP):** YOLO .txt и JSON на каждое изображение, annotations_all.json со всеми изображениями, аннотированный .jpg на каждое изображение и папка crops/ с PNG-кропом каждого объекта по прямоугольнику.
+**Выгрузка (ZIP):** YOLO .txt и JSON на каждое изображение, annotations_all.json со всеми изображениями, аннотированный .jpg на каждое изображение, кроп по рамке зума с аннотацией и папка crops/ с PNG-кропом каждого объекта по прямоугольнику.
 
 **Данные:** изображения обрабатываются в памяти сессии и приложением на диск не записываются. Чтобы сохранить результаты, скачайте ZIP.
 """
@@ -150,6 +150,9 @@ TEXT = {
         "about_title": "📖 About the project and how it works",
         "about_md": ABOUT_EN,
         "refresh_canvas": "🔄 Refresh canvas",
+        "zoom_mode": "Frame editing",
+        "zm_rect": "Draw frame",
+        "zm_transform": "Move / resize frame",
         "sec_source": "Data source",
         "btn_demo": "Load demo folder (data_packet)",
         "demo_select": "Demo file (data_packet)",
@@ -222,7 +225,7 @@ TEXT = {
         "results": "Step 5. All annotations",
         "export": "Prepare export",
         "download": "Download ZIP",
-        "export_hint": "ZIP contains: YOLO .txt, per-image .json, annotations_all.json, classes.txt, annotated .jpg and crops/ (PNG bounding-box crop of each object)",
+        "export_hint": "ZIP contains: YOLO .txt, per-image .json, annotations_all.json, classes.txt, annotated .jpg, *_zoom_annotated.jpg (zoomed crop with annotations) and crops/ (PNG bounding-box crop of each object)",
         "prev": "← Previous",
         "next": "Next →",
         "counter": "Image {i}/{n}: {name}",
@@ -239,6 +242,8 @@ TEXT = {
         "ann_loaded": "Annotations restored for {n} image(s) from the file",
         "ann_bad": "Could not read annotations_all.json",
         "progress": "Annotated: {k} of {m}",
+        "custom_opt": "✎ Custom…",
+        "custom_text": "Type your own value",
     },
     "ru": {
         "title": "Разметка капсул",
@@ -248,6 +253,9 @@ TEXT = {
         "about_title": "📖 О проекте и логика работы",
         "about_md": ABOUT_RU,
         "refresh_canvas": "🔄 Обновить холст",
+        "zoom_mode": "Режим рамки",
+        "zm_rect": "Рисовать рамку",
+        "zm_transform": "Двигать / менять размер",
         "sec_source": "Источник данных",
         "btn_demo": "Загрузить демо-папку (data_packet)",
         "demo_select": "Демо-файл (data_packet)",
@@ -320,7 +328,7 @@ TEXT = {
         "results": "Шаг 5. Все аннотации",
         "export": "Подготовить выгрузку",
         "download": "Скачать ZIP",
-        "export_hint": "В ZIP: YOLO .txt, json на каждое изображение, annotations_all.json, classes.txt, аннотированный .jpg и папка crops/ (PNG-кроп по прямоугольнику каждого объекта)",
+        "export_hint": "В ZIP: YOLO .txt, json на каждое изображение, annotations_all.json, classes.txt, аннотированный .jpg, *_zoom_annotated.jpg (кроп по зуму с аннотацией) и папка crops/ (PNG-кроп по прямоугольнику каждого объекта)",
         "prev": "← Назад",
         "next": "Вперёд →",
         "counter": "Изображение {i}/{n}: {name}",
@@ -337,6 +345,8 @@ TEXT = {
         "ann_loaded": "Восстановлена разметка для изображений: {n}",
         "ann_bad": "Не удалось прочитать annotations_all.json",
         "progress": "Размечено: {k} из {m}",
+        "custom_opt": "✎ Свой вариант…",
+        "custom_text": "Введите свой вариант",
     },
 }
 
@@ -664,6 +674,8 @@ def to_record(o):
     }
     if o["kind"] in ("polygon", "points"):
         rec["points"] = o["points"]
+    if o.get("zoom"):
+        rec["zoom"] = o["zoom"]
     return rec
 
 # Формирует текстовое представление объектов в формате YOLO (bbox или segmentation)
@@ -704,7 +716,18 @@ def build_zip(results, style):
             render_annotated(img0, r["objects"], style).save(jb, "JPEG", quality=95)
             z.writestr(f"{stem}_annotated.jpg", jb.getvalue())
             for i, o in enumerate(r["objects"], 1):
-                z.writestr(f"crops/{stem}_{i:02d}_{CLASSES[o['class_id']]}.png", crop_png(img0, o))
+                cname = CLASSES[o["class_id"]].replace(" ", "_").replace("/", "_")
+                z.writestr(f"crops/{stem}_{i:02d}_{cname}.png", crop_png(img0, o))
+            # кроп по рамке зума с аннотацией объектов, размеченных в этом зуме
+            zooms = r.get("zooms", [])
+            for k, zb in enumerate(zooms, 1):
+                zb = tuple(zb)
+                zobjs = [o for o in r["objects"] if o.get("zoom") and tuple(o["zoom"]) == zb]
+                zimg = render_annotated(img0, zobjs, style).crop(zb)
+                jz = io.BytesIO()
+                zimg.save(jz, "JPEG", quality=95)
+                zname = f"{stem}_zoom_annotated.jpg" if len(zooms) == 1 else f"{stem}_zoom{k}_annotated.jpg"
+                z.writestr(zname, jz.getvalue())
 
         z.writestr("annotations_all.json", json.dumps(all_ann, indent=4, ensure_ascii=False))
         # названия классов по номерам (порядок совпадает с class_id в YOLO .txt)
@@ -724,13 +747,15 @@ def restore_result(fname, stem, img0):
         objs.append({
             "kind": rec["kind"], "points": pts, "bbox": rec["bbox"],
             "shape": rec["shape"], "color": rec["color"],
-            "class_id": inv.get(rec["class"], 0),
+            "class_id": class_id_for(rec["class"]),
             "transparency": rec.get("transparency", "opaque"),
             "packet": rec.get("packet", 1),
+            "zoom": rec.get("zoom"),
         })
     h0, w0 = img0.shape[:2]
     return {"file": fname, "src": S["src_map"][fname], "w": w0, "h": h0,
-            "objects": objs, "zooms": []}
+            "objects": objs,
+            "zooms": [list(z) for z in sorted({tuple(o["zoom"]) for o in objs if o.get("zoom")})]}
 
 # Рисует рамки зума на исходном изображении для предпросмотра
 def draw_zoom_frames(img0, boxes, zst):
@@ -780,8 +805,32 @@ if "S" not in st.session_state:
         canvas_json=None, groups=[], init_draw=None, results={}, preview=None, zip=None, ann_style=None,
     )
 S = st.session_state.S
+CLASSES.update(S.setdefault("custom_classes", {}))
 S.setdefault("loaded_ann", {})
 S.setdefault("ann_sig", None)
+
+CUSTOM = "__custom__"
+
+# Возвращает id класса по названию; новое название регистрируется как пользовательский класс
+def class_id_for(name):
+    inv = {v: k for k, v in CLASSES.items()}
+    if name in inv:
+        return inv[name]
+    cid = max(CLASSES) + 1
+    CLASSES[cid] = name
+    S.setdefault("custom_classes", {})[cid] = name
+    return cid
+
+# Выпадающий список с пунктом «Свой вариант»: при его выборе появляется поле для ручного ввода
+def pick_or_type(box, title, options, current, key, fmt=lambda v: v):
+    is_custom = current not in options
+    idx = len(options) if is_custom else options.index(current)
+    choice = box.selectbox(title, options + [CUSTOM], index=idx, key=key,
+                           format_func=lambda v: t("custom_opt") if v == CUSTOM else fmt(v))
+    if choice != CUSTOM:
+        return choice
+    typed = box.text_input(t("custom_text"), value=current if is_custom else "", key=key + "_txt")
+    return typed.strip() or current
 
 # Устанавливает новый источник изображений и сбрасывает состояние разметки
 def set_source(src_map, source_key):
@@ -1056,10 +1105,12 @@ with right_col:
             else:
                 st.info(t("all_packets_done"))
         st.markdown(f"**{t('step1')}**")
+        zmode = st.radio(t("zoom_mode"), ["rect", "transform"], horizontal=True, key="zoom_mode",
+                         format_func=lambda m: t("zm_" + m))
         zc = st_canvas(
             fill_color="rgba(0,0,0,0)", stroke_color=DEF_ZOOM["color"], stroke_width=DEF_ZOOM["width"],
             background_image=Image.fromarray(disp), update_streamlit=True,
-            height=dh, width=dw, drawing_mode="rect",
+            height=dh, width=dw, drawing_mode=zmode,
             key=f"zoom_{fname}_{S['cap_id']}_{len(S['packets'])}_{disp_hash}_{S.get('cv_ver', 0)}",
             initial_drawing=zoom_restyled,
         )
@@ -1169,19 +1220,12 @@ if S["objects"]:
         c_img.image(img0[y1:y2, x1:x2], width=120, caption=t("obj", i=i + 1))
         c_img.caption(f"{x2 - x1} × {y2 - y1} px")
         key_base = f"{stem}_{S['cap_id']}_{i}"
-        o["class_id"] = c_cls.selectbox(
-            t("cls"), list(CLASSES), index=o["class_id"],
-            format_func=lambda k: CLASSES[k], key=f"cls_{key_base}")
-        o["shape"] = c_shape.selectbox(
-            t("shape"), SHAPES,
-            index=SHAPES.index(o["shape"]) if o["shape"] in SHAPES else len(SHAPES) - 1,
-            format_func=lambda s: label("shape", s),
-            key=f"shape_{key_base}")
-        o["color"] = c_col.selectbox(
-            t("color"), COLORS,
-            index=COLORS.index(o["color"]) if o["color"] in COLORS else COLORS.index("other"),
-            format_func=lambda c: label("color", c),
-            key=f"color_{key_base}")
+        o["class_id"] = class_id_for(pick_or_type(
+            c_cls, t("cls"), list(CLASSES.values()), CLASSES[o["class_id"]], key=f"cls_{key_base}"))
+        o["shape"] = pick_or_type(c_shape, t("shape"), SHAPES, o["shape"], key=f"shape_{key_base}",
+                                  fmt=lambda s: label("shape", s))
+        o["color"] = pick_or_type(c_col, t("color"), COLORS, o["color"], key=f"color_{key_base}",
+                                  fmt=lambda c: label("color", c))
         o["transparency"] = c_tr.selectbox(
             t("transp_lbl"), TRANSPARENCY,
             index=TRANSPARENCY.index(o.get("transparency", "opaque")),
