@@ -3109,6 +3109,9 @@ step2_cv_comparison_title = T["step2_cv_comparison_title"]
 step2_rmse_title = T["step2_rmse_title"]
 step2_fold_rmse_title = T["step2_fold_rmse_title"]
 step2_fold_rmse_boxplot_title = T["step2_fold_rmse_boxplot_title"]
+step2_fold_table_title = T["step2_fold_table_title"]
+step2_fold_table_empty = T["step2_fold_table_empty"]
+step2_fold_boxplot_empty = T["step2_fold_boxplot_empty"]
 step2_boxplot_caption = T["step2_boxplot_caption"]
 best_scheme_criterion_label = T["best_scheme_criterion_label"]
 best_scheme_criterion_rmse_plus_std = T["best_scheme_criterion_rmse_plus_std"]
@@ -3416,22 +3419,52 @@ if not df_fold.empty:
 
     st.plotly_chart(fig_fold_box, use_container_width=True)
 else:
-    st.info("Нет данных по фолдам для построения boxplot")
+    st.info(step2_fold_boxplot_empty)
 
-if not df_fold.empty:
-    fold_table = (
-        df_fold.rename(columns={
-            "cv_scheme": "CV scheme",
-            "fold_rmse": f"RMSE fold, {PARAM_1_UNIT}",
-            "well_id": "Fold",
-        })
-        .sort_values(["CV scheme", f"RMSE fold, {PARAM_1_UNIT}"], ascending=[True, False])
-        .reset_index(drop=True)
+# ---- Таблица фолдов: отдельная таблица для каждой схемы CV (Шаг 2) ----
+FOLD_TABLE_COLUMNS = [
+    "Fold", "n_train", "n_test",
+    f"RMSE_fold, {PARAM_1_UNIT}",
+    f"MAE_fold, {PARAM_1_UNIT}",
+    f"Bias_fold, {PARAM_1_UNIT}",
+]
+
+def build_fold_table(fold_df):
+    d = fold_df.copy()
+    if "n_test" in d.columns and "n" in d.columns:
+        d = d.drop(columns="n")
+    d = d.rename(columns={
+        "fold": "Fold",
+        "n": "n_test",
+        "rmse": f"RMSE_fold, {PARAM_1_UNIT}",
+        "mae": f"MAE_fold, {PARAM_1_UNIT}",
+        "bias": f"Bias_fold, {PARAM_1_UNIT}",
+    })
+    d = d.reindex(columns=FOLD_TABLE_COLUMNS)
+    d["Fold"] = d["Fold"].astype(str)
+    return d
+
+st.markdown(f"#### {step2_fold_table_title}")
+
+any_fold_table = False
+for i, scheme_name in enumerate(comparison.index):
+    fold_df = results[scheme_name].get("folds")
+    if fold_df is None or len(fold_df) == 0:
+        continue
+
+    any_fold_table = True
+    fold_table_scheme = build_fold_table(fold_df)
+
+    st.markdown(f"##### {scheme_name}")
+    st.dataframe(fold_table_scheme, use_container_width=True)
+    excel_download_button(
+        fold_table_scheme,
+        f"structural_qc_step2_fold_table_{i + 1}",
+        key=f"download_excel_step2_fold_table_{i}",
     )
-    st.markdown(f"##### {step2_fold_rmse_boxplot_title}")
-    st.dataframe(fold_table, use_container_width=True)
-    excel_download_button(fold_table, "structural_qc_step2_fold_rmse",
-                          key="download_excel_step2_fold_rmse")
+
+if not any_fold_table:
+    st.info(step2_fold_table_empty)
 
 # RMSE_fold bar chart в шаге 2 : среднее RMSE по фолдам для каждой схемы CV
 fig_fold = plot_bar_chart(

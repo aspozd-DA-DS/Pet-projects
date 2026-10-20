@@ -10,6 +10,7 @@ structural_qc_full.py
 
    Используемые схемы:
    - Random K-Fold
+   - Random K-Fold (buffered)
    - Leave-One-Well-Out
    - Block CV
    - Buffered CV
@@ -467,6 +468,7 @@ def run_fold(
 # ================================================================================ #
 # Реализованы следующие схемы кросс-валидации:
 # - Random K-Fold
+# - Random K-Fold (buffered)
 # - Leave-One-Well-Out
 # - Leave-P-Out
 # - Block CV
@@ -505,11 +507,45 @@ def cv_random_kfold(df: pd.DataFrame, degree: int = 1, k: int = 5, seed: int = 4
     for i, (tr, te) in enumerate(kf.split(x)):
         if len(tr) < degree + 2:
             rows.append({"fold": f"fold_{i+1}_skipped (n_train={len(tr)} < {degree + 2})",
-                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
+                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan, "n_train": len(tr)})
             continue
 
         p, m = run_fold(x, y, preds, tr, te, degree )
         m["fold"] = f"fold_{i+1}"
+        m["n_train"] = len(tr) 
+        rows.append(m)
+
+    return preds, pd.DataFrame(rows)
+
+# -- Random K-Fold с буфером (без утечки соседних скважин)
+def cv_random_kfold_buffered(df: pd.DataFrame, degree: int = 1, k: int = 5,
+                             seed: int = 42, buffer: float = 300.0):
+
+    x = _x(df)
+    y = _y(df)
+    xy = df[["X_coord", "Y_coord"]].to_numpy(float)
+
+    k = min(k, len(df))
+    if k < 2:
+        raise ValueError("At least two samples are required for cross-validation")
+
+    kf = KFold(n_splits=k, shuffle=True, random_state=seed)
+    preds = np.full(len(df), np.nan)
+    rows = []
+
+    for i, (tr, te) in enumerate(kf.split(x)):
+        # расстояние каждой обучающей точки до ближайшей тестовой
+        d_min = cdist(xy[tr], xy[te]).min(axis=1)
+        tr = tr[d_min > buffer]
+
+        if len(tr) < degree + 2:
+            rows.append({"fold": f"buf_fold_{i+1}_skipped (n_train={len(tr)} < {degree + 2})",
+                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan, "n_train": len(tr)})
+            continue
+
+        p, m = run_fold(x, y, preds, tr, te, degree)
+        m["fold"] = f"buf_fold_{i+1}"
+        m["n_train"] = len(tr)
         rows.append(m)
 
     return preds, pd.DataFrame(rows)
@@ -529,10 +565,11 @@ def cv_lowo(df: pd.DataFrame, degree: int = 1):
     for tr, te in logo.split(x, y, groups=groups):
         if len(tr) < degree + 2:
             rows.append({"fold": f"{groups[te][0]}_skipped (n_train={len(tr)} < {degree + 2})",
-                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
+                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan, "n_train": len(tr)})
             continue
         p, m = run_fold(x, y, preds, tr, te, degree)
         m["fold"] = str(groups[te][0])
+        m["n_train"] = len(tr)
         rows.append(m)
 
     return preds, pd.DataFrame(rows)
@@ -599,11 +636,12 @@ def cv_blocked(df: pd.DataFrame, degree: int = 1, grid_n: int = 3):
         if len(te) == 0 or len(tr) < degree + 2:
             if len(te) > 0:
                 rows.append({"fold": f"block_{b}_skipped (n_train={len(tr)} < {degree + 2})",
-                             "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
+                             "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan, "n_train": len(tr)})
             continue
 
         p, m = run_fold(x, y, preds, tr, te, degree)
         m["fold"] = f"block_{b}"
+        m["n_train"] = len(tr)
         rows.append(m)
 
     return (preds, pd.DataFrame(rows), block_id)
@@ -636,11 +674,12 @@ def cv_buffered(df: pd.DataFrame, degree: int = 1, grid_n: int = 3, buffer: floa
 
         if len(tr) < degree + 2:
             rows.append({"fold": f"buffered_block_{b}_skipped (n_train={len(tr)} < {degree + 2})",
-                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
+                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan, "n_train": len(tr)})
             continue
 
         p, m = run_fold(x, y, preds, tr, te, degree)
         m["fold"] = (f"buffered_block_{b}")
+        m["n_train"] = len(tr)
         rows.append(m)
 
     return (preds, pd.DataFrame(rows), block_id)
@@ -668,7 +707,7 @@ def cv_spatial_leave_p_out(df: pd.DataFrame, degree: int, radius: float = 1000.0
         train_idx = np.where(dist > radius)[0]
         if len(train_idx) < degree + 2:
             fold_rows.append({"fold": f"{fold + 1}_skipped (n_train={len(train_idx)} < {degree + 2})",
-                              "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
+                              "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan, "n_train": len(train_idx)})
             continue
         if len(test_idx) < 1:
             continue
@@ -736,12 +775,13 @@ def cv_distance_exclusion(
             # явный пропуск: прогноз для точки остаётся NaN, в таблице фолдов фиксируется причина
             rows.append({
                 "fold": f"dist_excl_{i}_skipped (n_train={len(tr)} < {degree + 2})",
-                "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan,
+                "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan, "n_train": len(tr),
             })
             continue
 
         p, m = run_fold(x, y, preds, tr, te, degree)
         m["fold"] = f"dist_excl_{i}"
+        m["n_train"] = len(tr)
         rows.append(m)
 
     return preds, pd.DataFrame(rows)
@@ -772,10 +812,11 @@ def cv_stratified_zone(
     for tr, te in logo.split(x, y, groups=zones):
         if len(tr) < degree + 2:
             rows.append({"fold": f"{zones[te][0]}_skipped (n_train={len(tr)} < {degree + 2})",
-                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
+                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan, "n_train": len(tr)})
             continue
         p, m = run_fold(x, y, preds, tr, te, degree)
         m["fold"] = str(zones[te][0])
+        m["n_train"] = len(tr)
         rows.append(m)
 
     return preds, pd.DataFrame(rows)
@@ -892,6 +933,14 @@ def run_all_cv(df: pd.DataFrame, degree: int = 1, k: int = 5,
         "preds": preds_rk,
         "folds": folds_rk,
         "summary": summarize_cv(preds_rk, y, folds_rk)
+    }
+
+    # ---------------- Random K-Fold + buffer----------------
+    preds_rkb, folds_rkb = cv_random_kfold_buffered(df, degree, k, seed, buffer)
+    results["Random K-Fold (buffered)"] = {
+        "preds": preds_rkb,
+        "folds": folds_rkb,
+        "summary": summarize_cv(preds_rkb, y, folds_rkb)
     }
 
     # ---------------- Leave-One-Well-Out ----------------
