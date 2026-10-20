@@ -196,7 +196,7 @@ def fitstats_to_dict(stats):
 def plot_zone_pie(df, category_col, palette="Plotly", title="",
                   opacity=1.0, outline_color="black", outline_width=0):
 
-    zone_counts = (df.assign(_cat=df[category_col].fillna("Not specified")).groupby("_cat")["well_id"].nunique().reset_index())
+    zone_counts = (df.assign(_cat=df[category_col].fillna("not specified")).groupby("_cat")["well_id"].nunique().reset_index())
     zone_counts.columns = ["Category", "Count"]
 
     fig = px.pie(
@@ -432,9 +432,6 @@ def plot_category_pies(df, x_col, group_col, title, x_label, group_label,
         pie_y1 = cy1 - gap_y * cell_h
 
         legend_key = "legend" if i == 0 else f"legend{i + 1}"
-
-        row_counts = counts.loc[xv]
-        row_counts = row_counts[row_counts > 0]
 
         row_counts = counts.loc[xv]
         row_counts = row_counts[row_counts > 0]
@@ -967,6 +964,7 @@ HIST_YLABEL = {
     "": "Количество",
     "probability": "Доля",
     "density": "Плотность",
+    "probability density": "Плотность вероятности",
     "percent": "Доля, %",
 }
 

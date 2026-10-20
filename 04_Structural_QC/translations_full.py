@@ -36,7 +36,7 @@ RU = {
     "step0_corr_matrix_plot_title": "Матрица корреляции, количество параметров:",
     "step0_plotly_pairplot_title": "Plotly Pairplot, количество параметров:",
     "step0_pairplot_title": "Pairplot",
-    "step0_pairplot_warning": "Для Pairplot рекомендуется выбирать не более 6 параметров.",
+    "step0_pairplot_warning": "Для Pairplot рекомендуется выбирать не более 10 параметров.",
     "step0_plotly_pairplot_info":
         "Plotly Pairplot: поддерживаются интерактивность, масштабирование и hover. "
         "KDE и гистограммы на диагонали доступны только для Seaborn Pairplot.",
@@ -118,7 +118,7 @@ EN = {
     "step0_corr_matrix_plot_title": "Correlation Matrix, parameter count:",
     "step0_plotly_pairplot_title": "Plotly Pairplot, parameter count:",
     "step0_pairplot_title": "Pairplot",
-    "step0_pairplot_warning": "For Pairplot, it is recommended to select no more than 6 parameters.",
+    "step0_pairplot_warning": "For Pairplot, it is recommended to select no more than 10 parameters.",
     "step0_plotly_pairplot_info":
         "Plotly Pairplot supports interactivity, zooming, and hover information. "
         "KDE and diagonal histograms are available only in Seaborn Pairplot.",
@@ -250,7 +250,7 @@ EN.update({
     "cv_best_scheme_error_msg": "Unable to determine the best CV scheme.",
     "step2_crossplot_all_title": "Cross-Plot: Predicted vs Actual for All CV Schemes",
     "step2_crossplot_all_caption": (
-        "Schemes are ordered from the most optimistic (Random K-Fold) to the most honest "
+        "Schemes are ordered from the most optimistic (Random K-Fold) to the most objective "
         "(Distance-based exclusion CV). Notice how the shape of the point cloud and the metrics "
         "change. The scheme marked with ⭐ is shown as the best one."
     ),
@@ -595,9 +595,6 @@ RU.update({
     "bar_chart_expander": "📊 Столбчатая диаграмма",
     "rmse_palette_label": "Палетка для Bar chart RMSE для CV",
     "category_bar_palette_label": "Палетка для Bar chart по категориям",
-    "bar_orientation_label": "Направление",
-    "bar_orient_v": "Вертикальное",
-    "bar_orient_h": "Горизонтальное",
     "bar_outline_label": "Граница столбцов",
     "bar_group_load_title": "Загрузка данных: категориальные признаки",
     "bar_group_fold_title": "Шаг 2: RMSE по фолдам",
@@ -676,9 +673,6 @@ EN.update({
     "bar_chart_expander": "📊 Bar Chart",
     "rmse_palette_label": "RMSE Bar Chart Palette",
     "category_bar_palette_label": "Category Bar Chart Palette",
-    "bar_orientation_label": "Orientation",
-    "bar_orient_v": "Vertical",
-    "bar_orient_h": "Horizontal",
     "bar_outline_label": "Bar outline",
     "bar_group_load_title": "Data loading: categorical features",
     "bar_group_fold_title": "Step 2: fold RMSE",
@@ -838,7 +832,7 @@ RU.update({
     "buffer_cv_title": "🧱 Buffered Cross Validation",
     "recommended_buffer_text": "Рекомендуемый buffer",
     "buffer_based_on_median": "основано на медианном расстоянии между скважинами",
-    "buffer_caption": "Buffer исключает точки рядом с тестовым блоком, снижая пространственную зависимость между обучением и тестом.",
+    "buffer_caption": "Buffer исключает точки рядом с тестовым блоком, снижая пространственную зависимость между обучением и тестом. Координаты X_coord и Y_coord — в метрах.",
     "buffer_slider_label": "Буферная зона Buffer zone (м)",
     "leave_p_sp_out_title": "🔁 Leave-P-Out/Spatial Leave-P-Out",
     "recommended_repeats_text": "Рекомендуемое количество повторов",
@@ -849,7 +843,7 @@ RU.update({
     "leave_p_percent_caption": "На каждом повторе случайно исключается P% скважин для проверки модели.",
     "spatial_leave_p_out_title": "📍 Spatial Leave-P-Out",
     "recommended_radius_text": "Рекомендуемый радиус пространственного исключения",
-    "spatial_radius_caption": "Скважины внутри радиуса вокруг тестовой точки исключаются из обучения.",
+    "spatial_radius_caption": "Скважины внутри радиуса вокруг тестовой точки исключаются из обучения. Координаты X_coord и Y_coord — в метрах.",
     "spatial_radius_label": "Радиус пространственного исключения Spatial exclusion radius (м)",
     "strat_zone_col_label": "📚 Колонка для Stratified by Zone (CV)",
     "strat_zone_col_none_hint": "Схема Stratified будет отключена.",
@@ -867,7 +861,7 @@ RU.update({
     "excl_radius_mode_median_factor": "Множитель медианного межскважинного расстояния",
     "excl_radius_mode_absolute": "Абсолютный радиус (м)",
     "excl_radius_abs_label": "Радиус исключения (м)",
-    "excl_radius_abs_caption": "Скважины ближе этого расстояния к тестовой точке исключаются из обучения.",    
+    "excl_radius_abs_caption": "Скважины ближе этого расстояния (м) к тестовой точке исключаются из обучения. Координаты X_coord и Y_coord — в метрах.",    
 })
 EN.update({
     "cv_validation_expander": "⚙️ Validation Parameters (Step 2)",
@@ -894,7 +888,7 @@ EN.update({
     "buffer_cv_title": "🧱 Buffered Cross Validation",
     "recommended_buffer_text": "Recommended Buffer",
     "buffer_based_on_median": "based on median distance between wells",
-    "buffer_caption": "Buffer removes points near the test block, reducing spatial dependence between training and testing.",
+    "buffer_caption": "Buffer removes points near the test block, reducing spatial dependence between training and testing. X_coord and Y_coord are in metres.",
     "buffer_slider_label": "Buffer Zone (m)",
     "leave_p_sp_out_title": "🔁 Leave-P-Out/Spatial Leave-P-Out",
     "recommended_repeats_text": "Recommended Number of Repeats",
@@ -905,7 +899,7 @@ EN.update({
     "leave_p_percent_caption": "At each iteration, P% of wells are randomly excluded for validation.",
     "spatial_leave_p_out_title": "📍 Spatial Leave-P-Out",
     "recommended_radius_text": "Recommended Spatial Exclusion Radius",
-    "spatial_radius_caption": "Wells within the radius around the test point are excluded from training.",
+    "spatial_radius_caption": "Wells within the radius around the test point are excluded from training. X_coord and Y_coord are in metres.",
     "spatial_radius_label": "Spatial Exclusion Radius (m)",
     "strat_zone_col_label": "📚 Column for Stratified by Zone (CV)",
     "strat_zone_col_none_hint": "The Stratified scheme will be disabled.",
@@ -923,7 +917,7 @@ EN.update({
     "excl_radius_mode_median_factor": "Median inter-well distance multiplier",
     "excl_radius_mode_absolute": "Absolute radius (m)",
     "excl_radius_abs_label": "Exclusion radius (m)",
-    "excl_radius_abs_caption": "Wells within this distance from the test point are excluded from training.",
+    "excl_radius_abs_caption": "Wells within this distance (m) from the test point are excluded from training. X_coord and Y_coord are in metres.",
 })
 RU.update({
     "outlier_iqr_k_label": "Множитель IQR (правило IQR)",
@@ -940,7 +934,7 @@ RU.update({
     "best_scheme_criterion_rmse_plus_std": "RMSE + RMSE_fold_Std (по умолчанию)",
     "best_scheme_criterion_rmse": "Минимальный RMSE",
     "best_scheme_criterion_mae": "Минимальный MAE",
-    "best_scheme_criterion_r2": "Максимальный R²_lin",
+    "best_scheme_criterion_r2": "Максимальный R² (Actual = Predicted)",
     "best_scheme_criterion_rmse_plus_abs_bias": "RMSE + |Bias|",
     "best_scheme_criterion_manual": "Выбрать вручную",
     "best_scheme_manual_label": "Схема CV",
@@ -951,10 +945,27 @@ EN.update({
     "best_scheme_criterion_rmse_plus_std": "RMSE + RMSE_fold_Std (default)",
     "best_scheme_criterion_rmse": "Min RMSE",
     "best_scheme_criterion_mae": "Min MAE",
-    "best_scheme_criterion_r2": "Max R²_lin",
+    "best_scheme_criterion_r2": "Max R² (Actual = Predicted)",
     "best_scheme_criterion_rmse_plus_abs_bias": "RMSE + |Bias|",
     "best_scheme_criterion_manual": "Select manually",
     "best_scheme_manual_label": "CV scheme",
     "best_scheme_score_caption": "The `score` column is calculated by criterion: **{criterion}**",
 })
-
+RU.update({
+    "cv_r2_col_label": "R² (Actual = Predicted)",
+})
+EN.update({
+    "cv_r2_col_label": "R² (Actual = Predicted)",
+})
+RU.update({
+    "cv_npred_mismatch_warning": "Схемы CV покрывают разное число точек: {n_min}–{n_max}. Сравнивать их напрямую не совсем корректно.",
+})
+EN.update({
+    "cv_npred_mismatch_warning": "CV schemes cover different numbers of points: {n_min}–{n_max}. It's not entirely accurate to compare them directly.",
+})
+RU.update({
+    "cv_pearson_r2_col_label": "R² (Pearson, Predicted vs Actual)",
+})
+EN.update({
+    "cv_pearson_r2_col_label": "R² (Pearson, Predicted vs Actual)",
+})

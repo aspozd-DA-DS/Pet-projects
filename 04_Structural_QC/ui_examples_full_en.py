@@ -33,7 +33,7 @@ A geological example: **Z_well** (horizon depth from a well) and **Z_map** (dept
 
 **Step 1 · Basic QC cross-plot.** Z_well (reference) vs Z_map (compared): the Y=X diagonal, linear regression + a set of approximation curves to choose from, a full set of quality metrics, distributions, residual analysis and a residual map, outlier detection. Linear regression (polynomial degree 1) is the model in all steps.
 
-**Step 2 · Cross-validation.** The same linear model (degree 1), but honestly tested: train on a subset of wells, predict on the remaining ones, repeat across different splitting schemes — to see the real, not "fitted", accuracy. The scheme with the best combination of accuracy and stability is determined automatically. Fold-level RMSE is shown as bar charts and as a boxplot for each scheme. Results are reproducible: the random seed is fixed.
+**Step 2 · Cross-validation.** The same linear model (degree 1), but honestly tested: train on a subset of wells, predict on the remaining ones, repeat across different splitting schemes — to see the real, not "fitted", accuracy. The best scheme is selected automatically by the criterion chosen in the sidebar: RMSE + RMSE_fold_std (default), RMSE, MAE, max R² (Actual = Predicted), RMSE + |Bias|, or manual selection. All schemes, including Random K-Fold, take part in the selection. Fold-level RMSE is shown as bar charts and as a boxplot for each scheme. Results are reproducible: the random seed defaults to 42 and can be changed with the buttons in the sidebar. If a fold has fewer than degree + 2 training points, it is marked as skipped in the fold table. The comparison table shows the number of predicted points (n_pred); if schemes cover different numbers of points, the app shows a warning.
 
 **Step 3 · Analysis by categories.** The same parameter pair — but separately by horizons, tectonic zones, reservoir type, fluid type, or any other categorical column. This helps reveal whether accuracy "drifts" in a particular zone or horizon. For each zone there is a statistics table, boxplots and overlaid histograms with their own bins, normalization and opacity.
 
@@ -55,14 +55,14 @@ If you simply build a regression on all wells and compute R²/RMSE on those same
 |---|---|---|
 | Random K-Fold | `sklearn.KFold(shuffle=True)`: wells are randomly shuffled and divided into k equal parts (if the given k exceeds the number of points n, it is automatically reduced to n); each part in turn becomes the test set, training is on the remaining parts | ⚠️ Not for spatial data — gives inflated accuracy |
 | Leave-One-Well-Out (LOWO) | `LeaveOneGroupOut` by `well_id`: each entire well in turn (all its rows/horizons) is excluded from training and becomes the sole test — so every well is tested once | Standard for a small number of wells (<20–30) |
-| Block CV | The area is divided by a regular grid_n×grid_n grid over X_coord/Y_coord; each entire block in turn becomes the test set, training is on wells outside the block (a block is skipped if it contains <3 training wells) | Uniform well grid |
+| Block CV | The area is divided by a regular grid_n×grid_n grid over X_coord/Y_coord; each entire block in turn becomes the test set, training is on wells outside the block (a block is skipped if fewer than degree + 2 training points remain, i.e. fewer than 3 for the linear model) | Uniform well grid |
 | Buffered CV | Like Block CV, but wells whose minimum distance to the nearest test point of the block ≤ buffer are additionally removed from training | Reduces leakage across the block boundary |
-| Leave-P-Out | On each of the repeats, p_percent% of wells are randomly selected (without replacement) — test, training is on the rest; the final prediction for a well is the average over all repeats where it fell into the test set | Estimating the spread of stability under different random test compositions |
+| Leave-P-Out | On each of the repeats, p_percent% of wells are randomly selected (without replacement) — test, training is on the rest; the final prediction for a well is the average over all repeats where it fell into the test set; wells that never fell into a test set get an empty prediction (NaN) | Estimating the spread of stability under different random test compositions |
 | Spatial Leave-P-Out | On each of the repeats, a center well is randomly selected; all wells within radius ≤ radius from it — test, the rest — train; the prediction is averaged over repeats in the same way as in Leave-P-Out | Closest to the real prediction of a new undrilled area |
-| Stratified by Zone | `LeaveOneGroupOut` by `tectonic_zone`: each entire tectonic zone in turn becomes the test set, training is on wells from the remaining zones (requires ≥2 unique zones) | Checking whether the model transfers to a new zone |
-| Distance-based exclusion CV | For each well i in turn: all wells at a distance ≤ excl_radius from it are excluded from training (excl_radius = median of pairwise distances between wells × variogram_factor), the test set is only well i | The strictest check for spatial leakage — essentially LOWO with a buffer |
+| Stratified by Zone | `LeaveOneGroupOut` by `tectonic_zone`: each entire tectonic zone in turn becomes the test set, training is on wells from the remaining zones (by default the `tectonic_zone` column, or `horizon_id` if it is absent; another column can be selected in the sidebar; at least two unique values are required) | Checking whether the model transfers to a new zone |
+| Distance-based exclusion CV | For each well i in turn: all wells at a distance ≤ excl_radius from it are excluded from training (excl_radius = median of pairwise distances between wells × variogram_factor), the test set is only well i. Folds are single points, so the fold RMSE std is the spread of absolute residuals across points; if fewer than degree + 2 (3) training points remain, the well is skipped: the fold is marked as skipped in the table, prediction NaN | The strictest check for spatial leakage — essentially LOWO with a buffer |
 
-*The parameters k, grid_n, buffer, p_percent, radius, variogram_factor, and repeats are not constants but sliders in the sidebar; each also shows a recommended value there.*
+*The parameters k, grid_n, buffer, p_percent, radius, variogram_factor, and repeats are not constants but sliders in the sidebar; each also shows a recommended value there. X_coord and Y_coord are assumed to be in metres; buffer, radius and excl_radius are in the same units.*
 
 ---
 
@@ -91,11 +91,14 @@ Besides a straight line, one of 17 curves can be overlaid on the cross-plot — 
 
 ## Cross-plot metrics and notation
 
-Let Δ denote the residual (difference between the two values). On the basic QC cross-plot (Step 1), Δ = Z_well − Z_map; on approximation curves and in cross-validation (Steps 1–3), Δ = Predicted − Actual (the opposite sign — this is normal, they are different comparisons in meaning).
+Let Δ denote the residual (difference between the two values). On the basic QC cross-plot (Step 1), Δ = Z_well − Z_map; on approximation curves (Steps 1 and 3), Δ = Predicted − Actual; for cross-validation residuals (Step 2), Δ = Actual − Predicted, i.e. Z_well − Predicted, as in the code. Squared and absolute metrics (RMSE, MSE, MAE, R²) do not depend on the sign, while the signed Bias changes sign with the convention.
 
 | Metric | Formula |
 |---|---|
-| R² (coefficient of determination / squared correlation) | $R^2_{lin} = r^2$ (Pearson, linear relationship) &nbsp;·&nbsp; $R^2_{fit} = 1 - \dfrac{\sum(\Delta)^2}{\sum(y-\bar y)^2}$ (any curve shape) |
+| R²_lin (coefficient of determination, Step 1) | $R^2_{lin} = r^2$ (squared Pearson correlation, linear relationship only) |
+| R²_fit (approximation curves) | $R^2_{fit} = 1 - \dfrac{\sum(\Delta)^2}{\sum(y-\bar y)^2}$ (any curve shape) |
+| R² (Actual = Predicted), CV | the $R^2_{fit}$ formula applied to out-of-fold predictions (`r2_score`) |
+| R² (Pearson, Predicted vs Actual), Step 2 metrics table | $r^2$ between Predicted and Actual (`linregress`) |
 | RMSE (root mean squared error) | $\sqrt{\dfrac{1}{N}\sum (\Delta)^2}$ |
 | MSE (mean squared error) | $\dfrac{1}{N}\sum (\Delta)^2$ |
 | MAE (mean absolute error) | $\dfrac{1}{N}\sum \lvert \Delta \rvert$ |
@@ -146,10 +149,13 @@ For PARAM_1 and PARAM_2, extended descriptive statistics are computed separately
 | IQR | $Q75 - Q25$ — interquartile range |
 | IQR lower bound | $Q25 - 1.5 \cdot IQR$ — lower bound for the IQR rule |
 | IQR upper bound | $Q75 + 1.5 \cdot IQR$ — upper bound for the IQR rule |
+| RMSE | $\sqrt{\dfrac{1}{N}\sum x_i^2}$ — root mean square; for residuals, the RMSE relative to zero |
+| μ+3σ | $\mu + 3\sigma$ — upper ±3σ bound |
+| μ−3σ | $\mu - 3\sigma$ — lower ±3σ bound |
 
 ---
 
-*The IQR bounds in the statistics table are fixed at k = 1.5. For outlier detection, k is set by a sidebar slider (1.0–3.0, default 1.5).*
+*The IQR bounds in the statistics table are fixed at k = 1.5. For outlier detection, k is set by a sidebar slider (1.0–3.0, default 1.5). RMSE and μ±3σ are residual statistics (Steps 1 and 2) and are not computed for PARAM_1 and PARAM_2.*
 
 *The detailed methodology, formulas, and rationale for each CV scheme — in the project documentation.*
 """)
@@ -162,8 +168,8 @@ def show_input_file_example():
 
         st.markdown("""
         - **well_id** — well identifier
-        - **X_coord** — X coordinate
-        - **Y_coord** — Y coordinate
+        - **X_coord** — X coordinate (metres)
+        - **Y_coord** — Y coordinate (metres)
         - **Parameter 1** — reference parameter (well, map, attribute, etc.)
         - **Parameter 2** — parameter being compared (well, map, attribute, etc.)
 
@@ -190,6 +196,7 @@ def show_input_file_example():
         - **tectonic_zone** — tectonic zone
         - **reservoir_flag** — reservoir type
         - **fluid_type** — fluid type
+        - **well_category** — well category (used in Step 3)
         - any additional categorical or numeric parameters
         """)
 

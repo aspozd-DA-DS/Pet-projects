@@ -89,7 +89,8 @@ class FitStats:
 #   p-value, коэффициенты регрессии
 # - Возвращает объект BasicStats
 # Шаг 2:
-# - Невязки: Residual = y - x
+# - Невязки: Residual = y − x = Actual − Predicted (x = Predicted, y = Actual; так вызывает app_full)
+# - Кривые аппроксимации (compute_fit_stats) используют pred − y (Predicted − Actual)
 # - Возвращает объект BasicStats
 # ================================================================================ #
 
@@ -487,7 +488,7 @@ def _y(df: pd.DataFrame) -> np.ndarray:
     return df["Zprm_well"].to_numpy(float)
 
 # -- Random K‑Fold
-def cv_random_kfold(df: pd.DataFrame, degree: int = 1, k: int = 5, seed: int = 0):
+def cv_random_kfold(df: pd.DataFrame, degree: int = 1, k: int = 5, seed: int = 42):
 
     x = _x(df)
     y = _y(df)
@@ -503,7 +504,10 @@ def cv_random_kfold(df: pd.DataFrame, degree: int = 1, k: int = 5, seed: int = 0
 
     for i, (tr, te) in enumerate(kf.split(x)):
         if len(tr) < degree + 2:
+            rows.append({"fold": f"fold_{i+1}_skipped (n_train={len(tr)} < {degree + 2})",
+                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
             continue
+
         p, m = run_fold(x, y, preds, tr, te, degree )
         m["fold"] = f"fold_{i+1}"
         rows.append(m)
@@ -524,6 +528,8 @@ def cv_lowo(df: pd.DataFrame, degree: int = 1):
 
     for tr, te in logo.split(x, y, groups=groups):
         if len(tr) < degree + 2:
+            rows.append({"fold": f"{groups[te][0]}_skipped (n_train={len(tr)} < {degree + 2})",
+                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
             continue
         p, m = run_fold(x, y, preds, tr, te, degree)
         m["fold"] = str(groups[te][0])
@@ -532,7 +538,7 @@ def cv_lowo(df: pd.DataFrame, degree: int = 1):
     return preds, pd.DataFrame(rows)
 
 # -- Leave-P-Out CV
-def cv_leave_p_out(df: pd.DataFrame, degree: int, p_percent: int = 10, repeats: int = 50, seed: int = 0):
+def cv_leave_p_out(df: pd.DataFrame, degree: int, p_percent: int = 10, repeats: int = 50, seed: int = 42):
 
     rng = np.random.default_rng(seed)
     n = len(df)
@@ -555,8 +561,10 @@ def cv_leave_p_out(df: pd.DataFrame, degree: int, p_percent: int = 10, repeats: 
         train_mask[test_idx] = False
         train_idx = np.where(train_mask)[0]
         if len(train_idx) < degree + 2:
+            fold_rows.append({"fold": f"{fold + 1}_skipped (n_train={len(train_idx)} < {degree + 2})",
+                              "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan,
+                              "n_train": len(train_idx), "n_test": len(test_idx)})
             continue
-
         model = _fit_calibration(x[train_idx], y[train_idx], degree,)
         pred = _predict_calibration(model, x[test_idx],)
         preds_sum[test_idx] += pred
@@ -588,7 +596,10 @@ def cv_blocked(df: pd.DataFrame, degree: int = 1, grid_n: int = 3):
         te = np.where(block_id == b)[0]
         tr = np.where(block_id != b)[0]
 
-        if len(te) == 0 or len(tr) < 3:
+        if len(te) == 0 or len(tr) < degree + 2:
+            if len(te) > 0:
+                rows.append({"fold": f"block_{b}_skipped (n_train={len(tr)} < {degree + 2})",
+                             "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
             continue
 
         p, m = run_fold(x, y, preds, tr, te, degree)
@@ -623,7 +634,9 @@ def cv_buffered(df: pd.DataFrame, degree: int = 1, grid_n: int = 3, buffer: floa
 
         tr = np.where((block_id != b)& (dist > buffer))[0]
 
-        if len(tr) < 3:
+        if len(tr) < degree + 2:
+            rows.append({"fold": f"buffered_block_{b}_skipped (n_train={len(tr)} < {degree + 2})",
+                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
             continue
 
         p, m = run_fold(x, y, preds, tr, te, degree)
@@ -633,7 +646,7 @@ def cv_buffered(df: pd.DataFrame, degree: int = 1, grid_n: int = 3, buffer: floa
     return (preds, pd.DataFrame(rows), block_id)
 
 # -- Spatial Leave-P-Out
-def cv_spatial_leave_p_out(df: pd.DataFrame, degree: int, radius: float = 1000.0, repeats: int = 50, seed: int = 0):
+def cv_spatial_leave_p_out(df: pd.DataFrame, degree: int, radius: float = 1000.0, repeats: int = 50, seed: int = 42):
 
     rng = np.random.default_rng(seed)
     n = len(df)
@@ -654,6 +667,8 @@ def cv_spatial_leave_p_out(df: pd.DataFrame, degree: int, radius: float = 1000.0
         test_idx = np.where(dist <= radius)[0]
         train_idx = np.where(dist > radius)[0]
         if len(train_idx) < degree + 2:
+            fold_rows.append({"fold": f"{fold + 1}_skipped (n_train={len(train_idx)} < {degree + 2})",
+                              "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
             continue
         if len(test_idx) < 1:
             continue
@@ -718,6 +733,11 @@ def cv_distance_exclusion(
         te = np.array([i])
 
         if len(tr) < degree + 2:
+            # явный пропуск: прогноз для точки остаётся NaN, в таблице фолдов фиксируется причина
+            rows.append({
+                "fold": f"dist_excl_{i}_skipped (n_train={len(tr)} < {degree + 2})",
+                "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan,
+            })
             continue
 
         p, m = run_fold(x, y, preds, tr, te, degree)
@@ -751,6 +771,8 @@ def cv_stratified_zone(
 
     for tr, te in logo.split(x, y, groups=zones):
         if len(tr) < degree + 2:
+            rows.append({"fold": f"{zones[te][0]}_skipped (n_train={len(tr)} < {degree + 2})",
+                         "n": 0, "rmse": np.nan, "mae": np.nan, "bias": np.nan})
             continue
         p, m = run_fold(x, y, preds, tr, te, degree)
         m["fold"] = str(zones[te][0])
@@ -788,6 +810,7 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
             "rmse_fold_max": np.nan,
             "rmse_fold_std": np.nan,
             "rmse_fold_range": np.nan,
+            "n_pred": 0,
         }
 
     resid = preds[mask] - y_true[mask]
@@ -829,6 +852,7 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
 
     return {
         "r2_lin": r2_lin,
+        "n_pred": int(mask.sum()),
 
         "rmse": float(np.sqrt(np.mean(resid ** 2))),
         "mae": float(np.mean(np.abs(resid))),
@@ -940,6 +964,7 @@ def run_all_cv(df: pd.DataFrame, degree: int = 1, k: int = 5,
         name: r["summary"]
         for name, r in results.items()
     }).T[[
+        "n_pred",
         "r2_lin",
         "rmse",
         "mae",

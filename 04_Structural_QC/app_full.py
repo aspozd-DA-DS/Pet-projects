@@ -3099,6 +3099,9 @@ show_outlier_tables(
 step2_title = T["step2_title"]
 cv_not_enough_data_msg = T["cv_not_enough_data_msg"]
 cv_best_scheme_error_msg = T["cv_best_scheme_error_msg"]
+cv_npred_mismatch_warning = T["cv_npred_mismatch_warning"]
+cv_pearson_r2_col_label = T["cv_pearson_r2_col_label"]
+cv_r2_col_label = T["cv_r2_col_label"]
 step2_crossplot_all_title = T["step2_crossplot_all_title"]
 step2_crossplot_all_caption = T["step2_crossplot_all_caption"]
 step2_metrics_all_title = T["step2_metrics_all_title"]
@@ -3181,6 +3184,13 @@ for key in list(results.keys()):
     if key.startswith("Stratified by ") and results[key].get("preds") is None:
         comparison = comparison.drop(index=key, errors="ignore")
         results.pop(key, None)
+
+# --- Предупреждение: схемы CV покрывают разное число точек ---
+if comparison["n_pred"].nunique() > 1:
+    st.warning(cv_npred_mismatch_warning.format(
+        n_min=int(comparison["n_pred"].min()),
+        n_max=int(comparison["n_pred"].max()),
+    ))
 
 # --- Выбор лучшей схемы CV: критерий + ручной override ---
 st.markdown(f"#### {best_scheme_criterion_label}")
@@ -3317,13 +3327,14 @@ for i in range(0, len(scheme_names), 3):
                 f"{coeffs_tmp[1]:.5f}"
             )
             # Расчёт метрик кросс-плота для Шага 2
+            cv_row = {
+                (cv_pearson_r2_col_label if k == "R²_lin" else k): v
+                for k, v in basicstats_to_dict(stats_tmp, eq_tmp).items()
+            }
             cv_summary_rows.append({
                 "CV scheme": scheme_name,
-                **basicstats_to_dict(
-                stats_tmp,
-                eq_tmp
-            )
-})
+                **cv_row,
+            })
 
 # --- Таблица по всем схемам CV
 st.markdown(f"#### {step2_metrics_all_title}")
@@ -3340,10 +3351,12 @@ st.caption(
 )
 
 st.markdown(f"#### {step2_cv_comparison_title}")
+comparison_display = comparison.rename(columns={"r2_lin": cv_r2_col_label})
 st.dataframe(
-    comparison.style.format({
-        "r2_lin": "{:.4f}",
+    comparison_display.style.format({
+        cv_r2_col_label: "{:.4f}",
         "rmse": "{:.2f}",
+
         "mae": "{:.2f}",
         "bias": "{:+.2f}",
 
@@ -3357,7 +3370,7 @@ st.dataframe(
     }),
     use_container_width=True
 )
-excel_download_button(comparison, "structural_qc_step2_cv_comparison",
+excel_download_button(comparison_display, "structural_qc_step2_cv_comparison",
                       key="download_excel_step2_cv_comparison", index=True)
 
 st.caption(step2_boxplot_caption)
@@ -3582,6 +3595,8 @@ cv_metrics_df = build_qc_metrics_table(
     left_name="Predicted",
     right_name="Actual",
 )
+
+cv_metrics_df = cv_metrics_df.rename(columns={"R²_lin": cv_pearson_r2_col_label})
 
 # Метрики Cross-Plot (Predicted vs Actual) для Шага 2
 st.markdown(
