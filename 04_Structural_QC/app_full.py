@@ -366,6 +366,9 @@ residual_map_dim_opacity_label = T["residual_map_dim_opacity_label"]
 strat_zone_col_label = T["strat_zone_col_label"]
 strat_zone_col_none_hint = T["strat_zone_col_none_hint"]
 strat_zone_col_single_value_hint = T["strat_zone_col_single_value_hint"]
+
+step4_n_sets_label = T["step4_n_sets_label"]
+
 # ------------------------------------------------------------- #
 # SIDEBAR: Подготовка данных
 # ------------------------------------------------------------- #
@@ -1942,6 +1945,10 @@ if df is not None:
         if "step4_filter_mode" not in st.session_state:
             st.session_state.step4_filter_mode = FILTER_NONE
 
+        # Seed для случайных выборок (шаг 4) — инициализируется независимо от режима фильтрации
+        if "step4_random_seed" not in st.session_state:
+            st.session_state.step4_random_seed = 42
+
         filter_mode = st.radio(
             filter_mode_label,
             [FILTER_NONE, FILTER_MANUAL, FILTER_RANDOM, FILTER_CLICK],
@@ -1950,6 +1957,20 @@ if df is not None:
         st.caption(
             f"{current_filter_mode} "
             f"{filter_mode_labels[filter_mode]}"
+        )
+
+        # Seed общий для случайного исключения и серии шага 4.5
+        if st.button(new_random_set_button, key="step4_new_random_set", use_container_width=True):
+            st.session_state.step4_random_seed += 1
+        if st.button(step4_random_seed_reset_button, key="step4_reset_random_set", use_container_width=True):
+            st.session_state.step4_random_seed = 42
+        st.caption(f"{current_random_set} {st.session_state.step4_random_seed}")
+
+        # Число случайных наборов для серии шага 4.5
+        st.slider(
+            step4_n_sets_label,
+            min_value=50, max_value=2000, value=500, step=50,
+            key="step4_n_sets",
         )
 
         # Ручное исключение
@@ -1968,13 +1989,6 @@ if df is not None:
         # Процентное исключение
         elif filter_mode == FILTER_RANDOM:
             percent_exclude = st.slider(percent_exclude_label, 0, 95, 10,key="step4_percent_exclude",)
-            if "step4_random_seed" not in st.session_state:
-                st.session_state.step4_random_seed = 42
-
-            if st.button(new_random_set_button, key="step4_new_random_set", use_container_width=True):
-                st.session_state.step4_random_seed += 1
-            if st.button(step4_random_seed_reset_button, key="step4_reset_random_set", use_container_width=True):
-                st.session_state.step4_random_seed = 42
 
             st.caption(random_exclusion_caption)
 
@@ -3106,6 +3120,9 @@ step2_crossplot_all_title = T["step2_crossplot_all_title"]
 step2_crossplot_all_caption = T["step2_crossplot_all_caption"]
 step2_metrics_all_title = T["step2_metrics_all_title"]
 step2_cv_comparison_title = T["step2_cv_comparison_title"]
+step2_fold_r2_table_title = T["step2_fold_r2_table_title"]
+step2_fold_r2_boxplot_title = T["step2_fold_r2_boxplot_title"]
+step2_fold_r2_nan_note = T["step2_fold_r2_nan_note"]
 step2_rmse_title = T["step2_rmse_title"]
 step2_fold_rmse_title = T["step2_fold_rmse_title"]
 step2_fold_rmse_boxplot_title = T["step2_fold_rmse_boxplot_title"]
@@ -3157,6 +3174,16 @@ def cached_run_all_cv(df, degree, k, grid_n, buffer, variogram_factor,
         strat_zone_col=strat_zone_col,
         excl_radius_mode=excl_radius_mode,
         excl_radius_abs=excl_radius_abs,
+    )
+
+@st.cache_data(show_spinner=False)
+def cached_random_exclusion_series(df_in, levels, n_repeats, seed, min_remaining):
+    return sq.random_exclusion_series(
+        df_in,
+        levels=levels,
+        n_repeats=n_repeats,
+        seed=seed,
+        min_remaining=min_remaining,
     )
 
 st.markdown(
@@ -3353,10 +3380,85 @@ st.caption(
     )
 )
 
+summary_df = pd.DataFrame({
+    name: results[name]["summary"] for name in comparison.index
+}).T
+
+r2_table_cols = [
+    "n_pred", "n_test_min", "n_test_max", "r2_pearson_pooled",
+    "r2_fold_min", "r2_fold_max", "r2_fold_std",
+    "r2_fold_mean", "r2_fold_median",
+]
+r2_table = summary_df[r2_table_cols].rename(columns={
+    "r2_pearson_pooled": "R² (Pearson, Predicted vs Actual)", 
+})
+r2_table = r2_table.rename_axis("CV scheme").reset_index()
+
+st.markdown(f"#### {step2_fold_r2_table_title}")
+st.dataframe(
+    r2_table.style.format({
+        "n_pred": "{:.0f}",
+        "n_test_min": "{:.0f}",
+        "n_test_max": "{:.0f}",
+        **{c: "{:.4f}" for c in [
+            "r2_fold_min", "r2_fold_max", "r2_fold_std",
+            "r2_fold_mean", "r2_fold_median",
+        ]},
+        "R² (Pearson, Predicted vs Actual)": "{:.4f}",
+    }),
+    use_container_width=True,
+)
+excel_download_button(r2_table, "structural_qc_step2_cv_r2_folds",
+                      key="download_excel_step2_cv_r2_folds", index=True)
+
+rows_r2 = []
+for scheme_name in comparison.index:
+    fold_df = results[scheme_name].get("folds")
+    if fold_df is None or len(fold_df) == 0 or "r2" not in fold_df.columns:
+        continue
+    for fold_idx, v in enumerate(fold_df["r2"].dropna().to_numpy(float), start=1):
+        rows_r2.append({
+            "cv_scheme": scheme_name,
+            "fold_r2": v,
+            "well_id": f"{scheme_name} · фолд {fold_idx}",
+        })
+df_fold_r2 = pd.DataFrame(rows_r2)
+
+if not df_fold_r2.empty:
+    base_colors = PALETTE_DICT.get(style_fold["palette"], px.colors.qualitative.Plotly)
+    cv_colors_r2 = {
+        name: base_colors[i % len(base_colors)]
+        for i, name in enumerate(comparison.index)
+    }
+    fig_fold_r2 = plot_zone_boxplot(
+        df=df_fold_r2,
+        value_col="fold_r2",
+        well_label="fold",
+        zone_col="cv_scheme",
+        zone_label="CV scheme",
+        box_opacity=box_opacity,
+        box_outline_width=box_outline_width,
+        box_orientation=box_orientation,
+        title=f"{step2_fold_r2_boxplot_title}",
+        yaxis_title="R² fold",
+        zone_colors=cv_colors_r2,
+        value_label="R² fold",
+        zone_order=list(comparison.index),
+    )
+    st.plotly_chart(fig_fold_r2, use_container_width=True)
+    st.caption(step2_fold_r2_nan_note)
+else:
+    st.info(step2_fold_boxplot_empty)
+
 st.markdown(f"#### {step2_cv_comparison_title}")
 comparison_display = comparison.rename(columns={"r2_lin": cv_r2_col_label})
+comparison_display = comparison_display.reset_index()
 st.dataframe(
     comparison_display.style.format({
+        "n_pred": "{:.0f}",
+        "n_test_min": "{:.0f}",
+        "n_test_max": "{:.0f}",
+
         cv_r2_col_label: "{:.4f}",
         "rmse": "{:.2f}",
 
@@ -3377,6 +3479,7 @@ excel_download_button(comparison_display, "structural_qc_step2_cv_comparison",
                       key="download_excel_step2_cv_comparison", index=True)
 
 st.caption(step2_boxplot_caption)
+
 # Boxplot разброса RMSE по фолдам для каждой схемы CV (Шаг 2) — в стиле Шага 3
 # Длинная таблица: одна строка на фолд
 rows_fold = []
@@ -3423,7 +3526,7 @@ else:
 
 # ---- Таблица фолдов: отдельная таблица для каждой схемы CV (Шаг 2) ----
 FOLD_TABLE_COLUMNS = [
-    "Fold", "n_train", "n_test",
+    "Fold", "n_train", "n_test", 
     f"RMSE_fold, {PARAM_1_UNIT}",
     f"MAE_fold, {PARAM_1_UNIT}",
     f"Bias_fold, {PARAM_1_UNIT}",
@@ -3436,6 +3539,7 @@ def build_fold_table(fold_df):
     d = d.rename(columns={
         "fold": "Fold",
         "n": "n_test",
+        "r2": "R2_fold",
         "rmse": f"RMSE_fold, {PARAM_1_UNIT}",
         "mae": f"MAE_fold, {PARAM_1_UNIT}",
         "bias": f"Bias_fold, {PARAM_1_UNIT}",
@@ -4233,6 +4337,28 @@ step4_crossplot_title_before = T["step4_crossplot_title_before"]
 step4_cp_title_before = T["step4_cp_title_before"]
 step4_approximations_title_before = T["step4_approximations_title_before"]
 step4_appr_title_before = T["step4_appr_title_before"]
+step4_rand_series_title = T["step4_rand_series_title"]
+step4_rand_series_title_in = T["step4_rand_series_title_in"]
+step4_rand_series_title_out = T["step4_rand_series_title_out"]
+step4_rand_series_caption = T["step4_rand_series_caption"]
+step4_rand_series_seed_label = T["step4_rand_series_seed_label"]
+step4_rand_series_run = T["step4_rand_series_run"]
+step4_rand_series_spinner = T["step4_rand_series_spinner"]
+step4_rand_series_not_run = T["step4_rand_series_not_run"]
+step4_rand_series_seed_changed = T["step4_rand_series_seed_changed"]
+step4_rand_series_status_ok = T["step4_rand_series_status_ok"]
+step4_rand_series_status_skipped = T["step4_rand_series_status_skipped"]
+step4_rand_series_status_no_valid = T["step4_rand_series_status_no_valid"]
+step4_rand_series_box_step = T["step4_rand_series_box_step"]
+step4_rand_series_box_title_in = T["step4_rand_series_box_title_in"]
+step4_rand_series_box_title_out = T["step4_rand_series_box_title_out"]
+step4_rand_series_zone_label = T["step4_rand_series_zone_label"]
+step4_rand_series_no_data = T["step4_rand_series_no_data"]
+step4_n_sets_shown = T["step4_n_sets_shown"]
+
+
+
+RAND_SERIES_MIN_REMAINING = 5
 
 st.markdown('<div id="step-4"></div>', unsafe_allow_html=True)
 # --------------------------------------------------
@@ -4632,6 +4758,117 @@ if step4_ok:
     st.dataframe(styled, use_container_width=True)
     excel_download_button(comparison_df, "structural_qc_step4_before_after",
                           key="download_excel_step4_before_after")
+
+# --------------------------------------------------
+# STEP 4.5.: Распределение R² (Pearson) при случайном исключении скважин
+# --------------------------------------------------
+
+# ------ Серия случайных исключений: распределение r² по уровням ------
+st.markdown(f"### {step4_rand_series_title}")
+st.caption(step4_rand_series_caption)
+st.markdown(f"**{step4_rand_series_seed_label}:** {st.session_state.step4_random_seed}")
+st.markdown(f"**{step4_n_sets_shown}:** {st.session_state.step4_n_sets}")
+
+if st.button(step4_rand_series_run, key="step4_run_rand_series", use_container_width=True):
+    with st.spinner(step4_rand_series_spinner):
+        st.session_state["step4_rand_series"] = {
+            "seed": st.session_state.step4_random_seed,
+            "n_sets": st.session_state.step4_n_sets,
+            "data": cached_random_exclusion_series(
+                df,
+                sq.RAND_SERIES_LEVELS,
+                st.session_state.step4_n_sets,
+                st.session_state.step4_random_seed,
+                RAND_SERIES_MIN_REMAINING,
+            ),
+        }
+
+res_pack = st.session_state.get("step4_rand_series")
+
+if res_pack is None:
+    st.info(step4_rand_series_not_run)
+else:
+    long_df, summary_df = res_pack["data"]
+
+    if (res_pack["seed"] != st.session_state.step4_random_seed
+            or res_pack["n_sets"] != st.session_state.step4_n_sets):
+        st.warning(step4_rand_series_seed_changed)
+
+    status_labels = {
+        "ok": step4_rand_series_status_ok,
+        "skipped": step4_rand_series_status_skipped,
+        "no_valid": step4_rand_series_status_no_valid,
+    }
+    rand_titles = {"in": step4_rand_series_title_in, "out": step4_rand_series_title_out}
+    rand_box_titles = {"in": step4_rand_series_box_title_in, "out": step4_rand_series_box_title_out}
+
+    for mode in ("in", "out"):
+        st.markdown(f"#### {rand_titles[mode]}")
+
+        s_mode = summary_df[summary_df["mode"] == mode].drop(columns="mode").copy()
+        s_mode["status"] = s_mode["status"].map(status_labels)
+
+        if mode == "in":
+            cols = ["level_pct", "n_excluded", "n_remaining", "n_train",
+                    "n_sets", "status", "min", "max", "mean", "median"]
+        else:
+            cols = ["level_pct", "n_excluded", "n_remaining", "n_train", "n_test",
+                    "n_sets", "status", "min", "max", "mean", "median"]
+        s_mode = s_mode[cols]
+
+        st.dataframe(
+            s_mode.style.format({
+                "level_pct": "{:.0f} %",
+                "n_excluded": "{:.0f}",
+                "n_remaining": "{:.0f}",
+                "n_sets": "{:.0f}",
+                "min": "{:.4f}", "max": "{:.4f}",
+                "mean": "{:.4f}", "median": "{:.4f}",
+            }, na_rep="—"),
+            use_container_width=True,
+        )
+        excel_download_button(s_mode, f"structural_qc_step4_rand_{mode}_summary",
+                              key=f"download_excel_step4_rand_{mode}_summary", index=True)
+
+        box_step = st.radio(
+            step4_rand_series_box_step,
+            [10, 5],
+            format_func=lambda v: f"{v} %",
+            horizontal=True,
+            key=f"step4_rand_series_box_step_{mode}",
+        )
+        box_df = long_df[
+            (long_df["level_pct"] % box_step == 0) & long_df[f"r2_{mode}"].notna()
+        ].copy()
+
+        if box_df.empty:
+            st.info(step4_rand_series_no_data)
+            continue
+
+        box_df["level_label"] = box_df["level_pct"].astype(int).astype(str) + " %"
+        box_df["well_id"] = box_df["level_label"] + " · " + box_df["set_no"].astype(str)
+        box_df["r2_val"] = box_df[f"r2_{mode}"]
+        order = [f"{int(p)} %" for p in sorted(box_df["level_pct"].unique())]
+
+        base_colors = PALETTE_DICT.get(style_fold["palette"], px.colors.qualitative.Plotly)
+        level_colors = {lab: base_colors[i % len(base_colors)] for i, lab in enumerate(order)}
+
+        fig_rand = plot_zone_boxplot(
+            df=box_df,
+            value_col="r2_val",
+            well_label="set",
+            zone_col="level_label",
+            zone_label=step4_rand_series_zone_label,
+            box_opacity=box_opacity,
+            box_outline_width=box_outline_width,
+            box_orientation=box_orientation,
+            title=rand_box_titles[mode],
+            yaxis_title="R² (Pearson)",
+            zone_colors=level_colors,
+            value_label="R² (Pearson)",
+            zone_order=order,
+        )
+        st.plotly_chart(fig_rand, use_container_width=True)
 
 st.markdown("---")
 st.caption("CROSSPL✳T↔CROSS⊗VALIDATION")

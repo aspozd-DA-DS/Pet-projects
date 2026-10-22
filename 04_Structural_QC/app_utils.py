@@ -1643,7 +1643,9 @@ def plot_zone_boxplot(
         )
         if horizontal:
             fig.add_trace(go.Box(
-                x=zone_part[value_col], orientation="h",
+                x=zone_part[value_col],
+                y=[str(zone)] * len(zone_part),
+                orientation="h",                                # ------
                 hovertemplate=(f"{well_label}: %{{text}}"
                                f"<br>{zone_label}: {zone}"
                                f"<br>{value_label}: %{{x:.2f}}"
@@ -1653,6 +1655,7 @@ def plot_zone_boxplot(
         else:
             fig.add_trace(go.Box(
                 y=zone_part[value_col],
+                x=[str(zone)] * len(zone_part),                 # ------
                 hovertemplate=(f"{well_label}: %{{text}}"
                                f"<br>{zone_label}: {zone}"
                                f"<br>{value_label}: %{{y:.2f}}"

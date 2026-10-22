@@ -226,6 +226,9 @@ RU.update({
     ),
     "step2_metrics_all_title": "Метрики кросс-плота Прогноз vs Факт для всех схем кросс-валидации",
     "step2_cv_comparison_title": "Сравнение схем CV",
+    "step2_fold_r2_table_title": "Таблица R² (Pearson) по фолдам по схемам CV",
+    "step2_fold_r2_boxplot_title": "Boxplot: Разброс R² (Pearson) по фолдам по схемам CV",
+    "step2_fold_r2_nan_note": "Фолды с R² = NaN (меньше 3 точек или постоянные значения y или прогноза, например одноточечные фолды Distance-based CV) не показаны на boxplot и не входят в статистику.",
     "step2_rmse_title": "RMSE по схемам CV",
     "step2_fold_rmse_title": "RMSE по фолдам (среднее) по схемам CV",
     "step2_boxplot_caption": (
@@ -259,6 +262,9 @@ EN.update({
     ),
     "step2_metrics_all_title": "Cross-Plot Metrics: Predicted vs Actual for All CV Schemes",
     "step2_cv_comparison_title": "CV Scheme Comparison",
+    "step2_fold_r2_table_title": "R² (Pearson) by fold for the CV schemes",
+    "step2_fold_r2_boxplot_title": "Boxplot: R² (Pearson) variation across folds for the CV schemes",
+    "step2_fold_r2_nan_note": "Folds with R² = NaN (fewer than 3 points, or constant y or predictions, e.g. single-point Distance-based folds) are excluded from the boxplot and the statistics.",
     "step2_rmse_title": "RMSE by CV Scheme",
     "step2_fold_rmse_title": "RMSE_fold (mean) by CV Scheme",
     "step2_boxplot_caption": (
@@ -790,7 +796,7 @@ RU.update({
     "exclude_wells_label": "Исключить скважины",
     "excluded_wells_count": "Исключено скважин:",
     "percent_exclude_label": "Процент исключаемых скважин",
-    "new_random_set_button": "🎲 Новый набор",
+    "new_random_set_button": "🎲 Новый seed",
     "random_exclusion_caption": "Случайное исключение заданного процента скважин.",
     "current_random_set": "Текущий набор:",
     "will_be_excluded": "Будет исключено:",
@@ -975,3 +981,49 @@ RU.update({
 EN.update({
     "cv_pearson_r2_col_label": "R² (Pearson, Predicted vs Actual)",
 })
+
+RU.update({
+    "step4_rand_series_title": "Распределение R² (Pearson) при случайном исключении скважин",
+    "step4_rand_series_title_in": "Распределение R² (Pearson), in-sample, при случайном исключении скважин",
+    "step4_rand_series_title_out": "Распределение R² (Pearson), out-of-sample, при случайном исключении скважин",
+    "step4_rand_series_box_title_in": "Boxplot: разброс R² (Pearson), in-sample, по уровням исключения",
+    "step4_rand_series_box_title_out": "Boxplot: разброс R² (Pearson), out-of-sample, по уровням исключения",
+    "step4_rand_series_caption": "Для каждого уровня (5–95 %) выбирается заданное в сайдбаре число случайных наборов скважин; каждая скважина исключается целиком. In-sample: r² считается по оставшимся скважинам, на которых обучалась линия. Out-of-sample: линия обучается на оставшихся скважинах, а r² считается по исключённым, которых модель не видела. Оба режима используют одни и те же наборы.",  
+    "step4_n_sets_label": "Число наборов на уровень",
+    "step4_n_sets_shown": "Число наборов",
+    "step4_rand_series_seed_label": "Текущий seed", 
+    "step4_rand_series_run": "Запустить расчёт",  
+    "step4_rand_series_spinner": "Расчёт серии исключений...",  
+    "step4_rand_series_not_run": "Нажмите «Запустить расчёт», чтобы получить распределение.",  
+    "step4_rand_series_seed_changed": "Seed или число наборов изменены после последнего расчёта. Нажмите «Запустить расчёт», чтобы обновить результат.",  
+    "step4_rand_series_status_ok": "OK",  
+    "step4_rand_series_status_skipped": "не считалось: осталось мало скважин", 
+    "step4_rand_series_status_no_valid": "нет валидных значений",  
+    "step4_rand_series_box_step": "Шаг уровней для boxplot",  
+    "step4_rand_series_zone_label": "Уровень исключения",  
+    "step4_rand_series_no_data": "Нет данных для выбранного шага уровней.",  
+})
+EN.update({
+    "step4_rand_series_title": "Pearson R² distribution under random well exclusion",
+    "step4_rand_series_title_in": "Pearson R² distribution, in-sample, under random well exclusion",
+    "step4_rand_series_title_out": "Pearson R² distribution, out-of-sample, under random well exclusion",
+    "step4_rand_series_box_title_in": "Boxplot: Pearson R² spread, in-sample, by exclusion level",
+    "step4_rand_series_box_title_out": "Boxplot: Pearson R² spread, out-of-sample, by exclusion level",
+    "step4_rand_series_caption": "For each level (5–95 %), the number of random well sets set in the sidebar is drawn; each well is excluded entirely. In-sample: r² is computed on the remaining wells, which the line was fitted on. Out-of-sample: the line is fitted on the remaining wells, and r² is computed on the excluded wells the model has not seen. Both modes use the same sets.",
+    "step4_n_sets_label": "Number of sets per level",
+    "step4_n_sets_shown": "Number of sets",
+    "step4_rand_series_seed_label": "Current seed",
+    "step4_rand_series_run": "Run calculation",
+    "step4_rand_series_spinner": "Computing exclusion series...",
+    "step4_rand_series_not_run": "Press «Run calculation» to get the distribution.",
+    "step4_rand_series_seed_changed": "Seed or number of sets changed since the last run. Press «Run calculation» to update the result.",
+    "step4_rand_series_status_ok": "OK",
+    "step4_rand_series_status_skipped": "not computed: too few wells left",
+    "step4_rand_series_status_no_valid": "no valid values",
+    "step4_rand_series_box_step": "Level step for boxplot",
+    "step4_rand_series_zone_label": "Exclusion level",
+    "step4_rand_series_no_data": "No data for the selected level step.",
+})
+
+
+

@@ -152,6 +152,108 @@ def basic_crossplot_stats_xy(x: np.ndarray, y: np.ndarray) -> BasicStats:
     return _compute_basic_stats(x, y)
 
 # ================================================================================ #
+# Серия случайных исключений скважин (Шаг 4): распределение Pearson r² по уровням
+# ================================================================================ #
+RAND_SERIES_LEVELS = tuple(range(5, 96, 5))   # 5, 10, ..., 95 %
+
+
+def _pearson_r2(x: np.ndarray, y: np.ndarray) -> float:
+    """Pearson r² (= R²_lin шага 4). NaN, если точек < 3 или нет разброса."""
+    if len(x) < 3 or np.ptp(x) == 0 or np.ptp(y) == 0:
+        return np.nan
+    r = np.corrcoef(x, y)[0, 1]
+    return float(r * r)
+
+
+def _oos_r2(x_tr, y_tr, x_te, y_te) -> float:
+    """Out-of-sample: линия обучена на train, r² (Pearson, pred vs fact) на test."""
+    if len(x_tr) < 3 or len(x_te) < 3 or np.ptp(x_tr) == 0:
+        return np.nan
+    slope, intercept, *_ = stats.linregress(x_tr, y_tr)
+    pred = intercept + slope * x_te
+    return _pearson_r2(y_te, pred)
+
+def _fmt_count(vals) -> str:
+    """Одно число, если у всех наборов совпадает; иначе диапазон 'min–max'."""
+    lo, hi = int(min(vals)), int(max(vals))
+    return str(lo) if lo == hi else f"{lo}–{hi}"
+
+
+def _level_summary(vals, pct, n_excl, n_left, mode, n_tr, n_te) -> dict:
+    s = pd.Series(vals, dtype=float).dropna()
+    ok = len(s) > 0
+    return {
+        "mode": mode,
+        "level_pct": pct,
+        "n_excluded": n_excl,
+        "n_remaining": n_left,
+        "n_train": _fmt_count(n_tr),
+        "n_test": _fmt_count(n_te),
+        "n_sets": int(len(s)),
+        "status": "ok" if ok else "no_valid",
+        "min": s.min() if ok else np.nan,
+        "max": s.max() if ok else np.nan,
+        "mean": s.mean() if ok else np.nan,
+        "median": s.median() if ok else np.nan,
+    }
+
+def random_exclusion_series(df, levels=RAND_SERIES_LEVELS, n_repeats=500, seed=42, min_remaining=5):
+    """
+    Для каждого уровня и набора скважин (целиком) считает два r²:
+      r2_in  — in-sample: по оставшимся скважинам;
+      r2_out — out-of-sample: линия по оставшимся, r² по исключённым.
+    Возвращает long_df (по набору) и summary_df (две строки на уровень: mode = "in" / "out").
+    """
+    codes, uniques = pd.factorize(df["well_id"].astype(str))
+    n_wells = len(uniques)
+    x_all = _x(df)
+    y_all = _y(df)
+
+    long_rows, summary_rows = [], []
+
+    for pct in levels:
+        n_excl = int(round(n_wells * pct / 100))
+        n_left = n_wells - n_excl
+
+        if n_left < min_remaining:
+            for mode in ("in", "out"):
+                summary_rows.append({
+                    "mode": mode, "level_pct": pct, "n_excluded": n_excl,
+                    "n_remaining": n_left, "n_train": "—", "n_test": "—",
+                    "n_sets": 0, "status": "skipped",
+                    "min": np.nan, "max": np.nan, "mean": np.nan, "median": np.nan,
+                })
+            continue
+            continue
+
+        rng = np.random.default_rng([seed, int(pct)])
+        r2_in_vals, r2_out_vals, n_tr, n_te = [], [], [], []
+
+        for k in range(1, n_repeats + 1):
+            excl = rng.choice(n_wells, size=n_excl, replace=False)
+            test = np.isin(codes, excl)
+            train = ~test
+
+            r2_in = _pearson_r2(x_all[train], y_all[train])
+            r2_out = _oos_r2(x_all[train], y_all[train], x_all[test], y_all[test])
+
+            r2_in_vals.append(r2_in)
+            r2_out_vals.append(r2_out)
+            n_tr.append(int(train.sum()))
+            n_te.append(int(test.sum()))
+
+            long_rows.append({
+                "level_pct": pct, "set_no": k,
+                "n_train": int(train.sum()), "n_test": int(test.sum()),
+                "r2_in": r2_in, "r2_out": r2_out,
+            })
+
+        summary_rows.append(_level_summary(r2_in_vals, pct, n_excl, n_left, "in", n_tr, n_te))
+        summary_rows.append(_level_summary(r2_out_vals, pct, n_excl, n_left, "out", n_tr, n_te))
+
+    return pd.DataFrame(long_rows), pd.DataFrame(summary_rows)
+
+# ================================================================================ #
 # FitStats — аппроксимации зависимости y(x) в Шагах 1, 2 и 3
 # ================================================================================ #
 # - принимает: x = сравниваемый параметр (PARAM_2) и y = эталонный параметр (PARAM_1)
@@ -413,13 +515,21 @@ def fold_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
             "rmse": np.nan,
             "mae": np.nan,
             "bias": np.nan,
+            "r2": np.nan
         }
+
+    if len(y_true) >= 3 and np.std(y_true) > 0 and np.std(y_pred) > 0:
+        r_pearson = float(np.corrcoef(y_true, y_pred)[0, 1])
+        r2 = r_pearson ** 2
+    else:
+        r2 = np.nan
 
     return {
         "n": len(y_true),
         "rmse": float(np.sqrt(np.mean(resid ** 2))),
         "mae": float(np.mean(np.abs(resid))),
         "bias": float(np.mean(resid)),
+        "r2": float(r2),
     }
 
 # Построение пространственных блоков для Block CV
@@ -835,6 +945,31 @@ def cv_stratified_zone(
 # - диапазон Range RMSE по фолдам
 # ================================================================================ #
 
+def _n_test_stats(fold_df) -> dict:
+    if fold_df is None or fold_df.empty or "n" not in fold_df.columns:
+        return {"n_test_min": np.nan, "n_test_max": np.nan}
+    n = fold_df["n"].to_numpy(float)
+    n = n[n > 0]   # пропущенные фолды с n=0 не учитываем
+    if len(n) == 0:
+        return {"n_test_min": np.nan, "n_test_max": np.nan}
+    return {"n_test_min": float(np.min(n)), "n_test_max": float(np.max(n))}
+
+def _r2_fold_stats(fold_df) -> dict:
+    keys = ["r2_fold_mean", "r2_fold_median", "r2_fold_min",
+            "r2_fold_max", "r2_fold_std"]
+    if fold_df is None or fold_df.empty or "r2" not in fold_df.columns:
+        return {k: np.nan for k in keys}
+    v = fold_df["r2"].dropna().to_numpy(float)
+    if len(v) == 0:
+        return {k: np.nan for k in keys}
+    return {
+        "r2_fold_mean": float(np.mean(v)),
+        "r2_fold_median": float(np.median(v)),
+        "r2_fold_min": float(np.min(v)),
+        "r2_fold_max": float(np.max(v)),
+        "r2_fold_std": float(np.std(v, ddof=1)) if len(v) > 1 else np.nan,
+    }
+
 def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -> dict:
 
     mask = ~np.isnan(preds)
@@ -852,6 +987,9 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
             "rmse_fold_std": np.nan,
             "rmse_fold_range": np.nan,
             "n_pred": 0,
+            "r2_pearson_pooled": np.nan,
+            **_r2_fold_stats(None),
+            **_n_test_stats(None),
         }
 
     resid = preds[mask] - y_true[mask]
@@ -891,6 +1029,12 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
     except Exception:
         r2_lin = float("nan")
 
+    try:
+        r_pooled = float(np.corrcoef(y_true[mask], preds[mask])[0, 1])
+        r2_pearson_pooled = r_pooled ** 2 if mask.sum() >= 3 else np.nan
+    except Exception:
+        r2_pearson_pooled = np.nan
+
     return {
         "r2_lin": r2_lin,
         "n_pred": int(mask.sum()),
@@ -907,6 +1051,10 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
 
         "rmse_fold_std": rmse_fold_std,
         "rmse_fold_range": rmse_fold_range,
+
+        "r2_pearson_pooled": r2_pearson_pooled,
+        **_r2_fold_stats(fold_df),
+        **_n_test_stats(fold_df),
     }
 
 
@@ -1014,6 +1162,8 @@ def run_all_cv(df: pd.DataFrame, degree: int = 1, k: int = 5,
         for name, r in results.items()
     }).T[[
         "n_pred",
+        "n_test_min",
+        "n_test_max",
         "r2_lin",
         "rmse",
         "mae",
@@ -1025,6 +1175,7 @@ def run_all_cv(df: pd.DataFrame, degree: int = 1, k: int = 5,
         "rmse_fold_max",
         "rmse_fold_std",
         "rmse_fold_range",
+
     ]]
 
     comparison.index.name = "CV scheme"

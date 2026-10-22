@@ -33,8 +33,8 @@ Structural QC — интерактивный **Streamlit-дашборд** для
 - загружает CSV/XLSX и проводит полный QC входных данных (дубликаты, пропуски, типы, мусорные значения);
 - строит базовый QC-кросс-плот с линией Y = X, линейной регрессией и полным набором метрик;
 - накладывает **17 типов аппроксимаций** (полиномы 1–10 степени, степенная, экспонента, логарифм, Huber, Theil-Sen, RANSAC, LOWESS) и **квантильную регрессию** (τ = 0.1 / 0.5 / 0.9);
-- оценивает предсказательную способность по **8 схемам кросс-валидации**: Random K-Fold, Leave-One-Well-Out, Block, Buffered, Leave-P-Out, Spatial Leave-P-Out, Stratified by Zone, Distance-based exclusion CV;
-- автоматически выбирает лучшую схему CV по критерию `score = RMSE + RMSE_fold_std` среди всех восьми схем, **включая Random K-Fold**: он участвует в сравнении как контрольная схема, заведомо оптимистичная (см. «Ограничения»);
+- оценивает предсказательную способность по **схемам кросс-валидации** (до 9): Random K-Fold, Random K-Fold (buffered), Leave-One-Well-Out, Block, Buffered, Leave-P-Out, Spatial Leave-P-Out, Distance-based exclusion CV и Stratified by Zone (при наличии колонки зоны);
+- автоматически выбирает лучшую схему CV по критерию, заданному в сайдбаре (по умолчанию `score = RMSE + RMSE_fold_std`), среди всех схем, **включая Random K-Fold**: он участвует в сравнении как контрольная схема, заведомо оптимистичная (см. «Ограничения»);
 - анализирует невязки, строит **карту невязок** в плане и выявляет выбросы **четырьмя независимыми методами**;
 - проводит диагностику по категориям (горизонты, тектонические зоны, тип коллектора, тип флюида и т.д.);
 - позволяет интерактивно фильтровать скважины для стресс-теста устойчивости;
@@ -56,7 +56,7 @@ Structural QC — интерактивный **Streamlit-дашборд** для
 
 - **Модель:** во всех шагах, включая кросс-валидацию, используется обычная линейная регрессия (полином степени 1). Аппроксимации более высокой степени доступны только как кривые для визуального сравнения, а не как модель, которая участвует в CV.
 - **Знак невязки:** в базовом QC-кросс-плоте Δ = PARAM_1 − PARAM_2. Метрики аппроксимаций и CV считаются по Predicted − Actual. Графики CV-невязок в Шаге 2 строятся как PARAM_1 − Predicted. Это разные соглашения намеренно; знак указан на каждом графике.
-- **Выбор лучшей схемы:** `score = RMSE + RMSE_fold_std` минимизируется по всем восьми схемам. Random K-Fold включён намеренно, чтобы контраст с пространственными схемами оставался видимым. Его оптимистичный результат может выиграть выбор, поэтому «лучшую» схему интерпретируйте вместе с пространственными.
+- **Выбор лучшей схемы:** по умолчанию минимизируется `score = RMSE + RMSE_fold_std` по всем схемам; в сайдбаре доступны также RMSE, MAE, максимальный R² (Actual = Predicted), RMSE + |Bias| и ручной выбор. Random K-Fold включён намеренно, чтобы контраст с пространственными схемами оставался видимым. Его оптимистичный результат может выиграть выбор, поэтому «лучшую» схему интерпретируйте вместе с пространственными.
 - **Distance-based exclusion CV:** радиус исключения `excl_radius = медианное попарное расстояние между скважинами × variogram_factor`. Это эвристика по расстояниям, а не подогнанная вариограмма.
 
 ---
@@ -131,7 +131,7 @@ Structural QC — интерактивный **Streamlit-дашборд** для
 - типы данных и категориальные признаки;
 - описательная статистика `PARAM_1` и `PARAM_2`;
 - статистика по каждой числовой колонке: таблица, гистограмма с KDE, среднее, медиана и ±3σ, boxplot; число интервалов и нормировка задаются для каждой колонки отдельно;
-- корреляционный анализ: Пирсон (только линейная связь) и Спирмен (любая монотонная связь), а также pairplot (Seaborn или Plotly; для pairplot рекомендуется не более 6 параметров).
+- корреляционный анализ: Пирсон (только линейная связь) и Спирмен (любая монотонная связь), а также pairplot (Seaborn или Plotly; для pairplot и корреляционного блока рекомендуется не более 10 параметров).
 
 ### Шаг 1 — Базовый QC-кросс-плот
 - кросс-плот с линией Y = X и линейной регрессией (степень 1);
@@ -143,11 +143,12 @@ Structural QC — интерактивный **Streamlit-дашборд** для
 - **детекция выбросов 4 методами** (см. раздел «Детекция выбросов» ниже).
 
 ### Шаг 2 — Кросс-валидация
-- 8 схем CV с рекомендуемыми параметрами, подбираемыми автоматически в сайдбаре;
+- до 9 схем CV с рекомендуемыми параметрами, подбираемыми автоматически в сайдбаре;
 - для каждой схемы: кросс-плот Predicted vs Actual, метрики, статистика по фолдам;
 - сводная таблица всех схем, столбчатые диаграммы RMSE и среднего RMSE по фолдам;
 - boxplot разброса RMSE по фолдам для каждой схемы (медиана, среднее, выбросы); порядок схем совпадает с таблицей;
-- автоматический выбор лучшей схемы по `score = RMSE + RMSE_fold_std` (Random K-Fold участвует как контрольная схема);
+- автоматический выбор лучшей схемы по критерию из сайдбара (по умолчанию `score = RMSE + RMSE_fold_std`; Random K-Fold участвует как контрольная схема);
+- таблицы фолдов с номером, n_train, n_test, RMSE, MAE, Bias; пропущенные фолды (n_train < degree + 2) отмечаются строками с n = 0; сравнительная таблица содержит n_pred и предупреждает, если схемы покрывают разное число точек;
 - детальный разбор лучшей схемы: кросс-плот, аппроксимации, распределение CV-невязок, выбросы.
 
 ### Шаг 3 — Диагностика по категориям
@@ -163,6 +164,7 @@ Structural QC — интерактивный **Streamlit-дашборд** для
 ### Шаг 4 — Фильтрация скважин (стресс-тест)
 - четыре режима: без фильтра, ручное исключение скважин, случайное исключение по проценту (0–95%, с пересэмплированием) и **выделение точек кликом** на кросс-плоте (клик по точке, Shift+клик — несколько, рамка Box или лассо Lasso; кнопки «Применить исключение» и «Сбросить всё»);
 - после фильтрации пересчитываются кросс-плот, аппроксимации и таблица метрик;
+- серия случайного исключения (шаг 4.5): уровни 5–95 % с шагом 5 %, in-sample и out-of-sample R² (Pearson) по наборам;
 - сравнение «до / после»: n скважин, R²_lin, R²_fit, RMSE, MSE, MAE, Bias, Std, Variance, MAPE %.
 
 ---
@@ -219,6 +221,7 @@ R²_lin и R²_fit — разные величины. Для OLS-прямой о
 - **Random K-Fold** участвует в сравнении как контрольная схема. Он игнорирует пространственную корреляцию, поэтому его результат не следует использовать как оценку реальной точности. Поскольку он участвует в автоматическом выборе, его может выбрать «лучшей» схемой. Это известная проблема, которая намеренно сохранена в текущей версии.
 - **Квантильная регрессия** выводится отдельно для каждой τ на графиках и в строках метрик по каждой τ. Общая таблица аппроксимаций (`compute_fit_stats`) учитывает только τ = 0.5. Для τ = 0.1 и 0.9 R²_fit может быть отрицательным; такие кривые оценивайте по уравнению и Bias.
 - **Выделение точек кликом** доступно только в интерактивном приложении (`app_full.py`). В Jupyter-ноутбуке этот режим не воспроизводится: там фильтрация задаётся списком скважин или процентом.
+- **Несколько горизонтов одновременно.** Random K-Fold, Random K-Fold (buffered), Leave-P-Out и Spatial Leave-P-Out разбивают записи «скважина — горизонт», а не скважины целиком: одна скважина может попасть одновременно в обучение и в тест. Для строгой оценки используйте один горизонт или LOWO / Block / Buffered.
 - **Выводы зависят от данных.** Инструмент даёт диагностику и ориентиры, но не заменяет геологическую интерпретацию и проверку на реальном наборе скважин.
 
 ---
@@ -355,7 +358,7 @@ jupyter notebook structural_qc_demo.ipynb
 
 # Structural QC — cross-plot & cross-validation (Oil & Gas)
 
-**Links:** [Live app](https://detect-cls-obj-annot.streamlit.app/) 
+**Links:** [Live app](https://structural-qc-cv.streamlit.app/) 
 
 ---
 
@@ -379,8 +382,8 @@ The tool is **generic**: it works for any pair of numeric parameters, not only "
 - loads CSV/XLSX and runs a full QC of the input (duplicates, gaps, data types, garbage values);
 - builds the basic QC cross-plot with the Y = X line, linear regression and a full metric set;
 - overlays **17 approximation curves** (polynomials of degree 1–10, power law, exponential, logarithmic, Huber, Theil-Sen, RANSAC, LOWESS) and **quantile regression** (τ = 0.1 / 0.5 / 0.9);
-- estimates predictive ability with **8 cross-validation schemes**: Random K-Fold, Leave-One-Well-Out, Block, Buffered, Leave-P-Out, Spatial Leave-P-Out, Stratified by Zone, Distance-based exclusion CV;
-- selects the best CV scheme automatically by `score = RMSE + RMSE_fold_std` across all eight schemes, **including Random K-Fold**, which takes part as a control scheme that is known to be optimistic (see *Limitations*);
+- estimates predictive ability with **up to 9 cross-validation schemes**: Random K-Fold, Random K-Fold (buffered), Leave-One-Well-Out, Block, Buffered, Leave-P-Out, Spatial Leave-P-Out, Distance-based exclusion CV and Stratified by Zone (when a zone column is available);
+- selects the best CV scheme automatically by the criterion chosen in the sidebar (default `score = RMSE + RMSE_fold_std`) across all schemes, **including Random K-Fold**, which takes part as a control scheme that is known to be optimistic (see *Limitations*);
 - analyses residuals, draws a **residual map** and detects outliers with **4 independent rules**;
 - runs category diagnostics (horizons, tectonic zones, reservoir type, fluid type, etc.);
 - lets you filter wells interactively for a stability stress test;
@@ -402,7 +405,7 @@ The tool is **generic**: it works for any pair of numeric parameters, not only "
 
 - **Model:** ordinary linear regression (polynomial degree 1) is used in all steps, including cross-validation. Higher-degree fits are available only as approximation curves for visual comparison, not as the model used in CV.
 - **Residual sign:** the basic QC cross-plot uses Δ = PARAM_1 − PARAM_2. Approximation metrics and CV metrics use Predicted − Actual. CV residual plots in Step 2 use PARAM_1 − Predicted. These are different conventions by design; the sign is shown on every plot.
-- **Best-scheme selection:** `score = RMSE + RMSE_fold_std` is minimised over all eight schemes. Random K-Fold is included on purpose, so that the contrast with spatial schemes stays visible. Its optimistic result can win the selection; interpret the "best" scheme together with the spatial schemes.
+- **Best-scheme selection:** by default `score = RMSE + RMSE_fold_std` is minimised over all schemes; the sidebar also offers RMSE, MAE, maximum R² (Actual = Predicted), RMSE + |Bias| and manual choice. Random K-Fold is included on purpose, so that the contrast with spatial schemes stays visible. Its optimistic result can win the selection; interpret the "best" scheme together with the spatial schemes.
 - **Distance-based exclusion CV:** the exclusion radius is `excl_radius = median pairwise distance between wells × variogram_factor`. This is a distance heuristic, not a fitted variogram.
 
 ---
@@ -477,7 +480,7 @@ The input is a CSV or XLSX file with the following columns.
 - data types and categorical features;
 - descriptive statistics of `PARAM_1` and `PARAM_2`;
 - statistics for every numeric column: table, histogram with KDE, mean, median and ±3σ, boxplot; bins and normalisation are set per column;
-- correlation analysis: Pearson (linear relationships only) and Spearman (any monotonic relationship), plus pairplot (Seaborn or Plotly; at most about 6 parameters recommended for the pairplot).
+- correlation analysis: Pearson (linear relationships only) and Spearman (any monotonic relationship), plus pairplot (Seaborn or Plotly; at most 10 parameters recommended for the pairplot and the correlation block).
 
 ### Step 1 — Basic QC cross-plot
 - cross-plot with the Y = X line and linear regression (degree 1);
@@ -489,11 +492,12 @@ The input is a CSV or XLSX file with the following columns.
 - **outlier detection with 4 methods** (see *Outlier detection* below).
 
 ### Step 2 — Cross-validation
-- 8 CV schemes, with recommended parameters computed automatically in the sidebar;
+- up to 9 CV schemes, with recommended parameters computed automatically in the sidebar;
 - for each scheme: cross-plot Predicted vs Actual, metrics, fold statistics;
 - summary table of all schemes, bar charts of RMSE and of mean fold RMSE;
 - boxplot of fold RMSE spread for each scheme (median, mean, outliers); the scheme order matches the table;
-- automatic best-scheme selection by `score = RMSE + RMSE_fold_std` (Random K-Fold included as a control);
+- automatic best-scheme selection by the sidebar criterion (default `score = RMSE + RMSE_fold_std`; Random K-Fold included as a control);
+- fold tables with fold number, n_train, n_test, RMSE, MAE, Bias; skipped folds (n_train < degree + 2) appear as rows with n = 0; the comparison table reports n_pred and warns when schemes cover different numbers of points;
 - detailed review of the best scheme: cross-plot, approximations, CV residual distribution, outliers.
 
 ### Step 3 — Category diagnostics
@@ -509,6 +513,7 @@ The input is a CSV or XLSX file with the following columns.
 ### Step 4 — Well filtering (stress test)
 - four modes: no filter, manual exclusion of wells, random exclusion by percentage (0–95%, with resampling), and **click selection on the cross-plot** (click a point, Shift+click for several, Box or Lasso selection; Apply exclusion / Reset all);
 - the cross-plot, approximations and metric table are recalculated after filtering;
+- random exclusion series (step 4.5): levels 5–95 % in 5 % steps, in-sample and out-of-sample Pearson R² across sets;
 - before / after comparison: n wells, R²_lin, R²_fit, RMSE, MSE, MAE, Bias, Std, Variance, MAPE %.
 
 ---
@@ -565,6 +570,7 @@ If σ or MAD is zero, the corresponding rule flags no points. The IQR bounds in 
 - **Random K-Fold** is part of the comparison as a control. It ignores spatial correlation, so its result should not be used as an estimate of real accuracy. Because it participates in the automatic selection, it can be selected as the "best" scheme. This is a known issue, kept on purpose in the current version.
 - **Quantile regression** is reported per τ in the plots and in the per-τ metric rows. The general approximation table (`compute_fit_stats`) uses only τ = 0.5. For τ = 0.1 and 0.9, R²_fit can be negative; judge those curves by Equation and Bias.
 - **Click selection of points** exists only in the interactive app (`app_full.py`). The Jupyter notebook does not reproduce it; there, filtering uses a list of wells or a percentage.
+- **Several horizons at once.** Random K-Fold, Random K-Fold (buffered), Leave-P-Out and Spatial Leave-P-Out split individual well–horizon records rather than whole wells, so one well can end up in both training and test sets. For a strict estimate, use one horizon or LOWO / Block / Buffered.
 - **Results depend on the data.** The tool gives diagnostics and reference values. It does not replace geological interpretation or validation on a real well set.
 
 ---
