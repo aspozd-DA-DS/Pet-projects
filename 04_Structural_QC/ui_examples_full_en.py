@@ -69,7 +69,7 @@ If you simply build a regression on all wells and compute R²/RMSE on those same
 
 ## Approximation curves
 
-Besides a straight line, one of 17 curves can be overlaid on the cross-plot — from simple polynomials to methods robust to outliers:
+Besides a straight line, one of 17 curves can be overlaid on the cross-plot — from simple polynomials to methods robust to outliers, as well as quantile regression (τ = 0.1 / 0.5 / 0.9):
 
 | Method | General equation form | When it is useful |
 |---|---|---|
@@ -92,14 +92,20 @@ Besides a straight line, one of 17 curves can be overlaid on the cross-plot — 
 
 ## Cross-plot metrics and notation
 
-Let Δ denote the residual (difference between the two values). On the basic QC cross-plot (Step 1), Δ = Z_well − Z_map; on approximation curves (Steps 1 and 3), Δ = Predicted − Actual; for cross-validation residuals (Step 2), Δ = Actual − Predicted, i.e. Z_well − Predicted, as in the code. Squared and absolute metrics (RMSE, MSE, MAE, R²) do not depend on the sign, while the signed Bias changes sign with the convention.
+Let Δ denote the residual (difference between the two values). On the basic QC cross-plot (Step 1, BasicStats), Δ = y − x = Z_well − Z_map; in approximations and cross-validation metrics (Steps 1–4, FitStats and fold_metrics), Δ = Predicted − Actual; the Step 2 CV-residual plots are built as Actual − Predicted (Z_well − Predicted). Squared and absolute metrics (RMSE, MSE, MAE, R²) do not depend on the sign, while the signed Bias changes sign with the convention.
 
 | Metric | Formula |
 |---|---|
-| R²_lin (coefficient of determination, Step 1) | $R^2_{lin} = r^2$ (squared Pearson correlation, linear relationship only) |
-| R²_fit (approximation curves) | $R^2_{fit} = 1 - \dfrac{\sum(\Delta)^2}{\sum(y-\bar y)^2}$ (any curve shape) |
-| R² (Actual = Predicted), CV | the $R^2_{fit}$ formula applied to out-of-fold predictions (`r2_score`) |
-| R² (Pearson, Predicted vs Actual), Step 2 metrics table | $r^2$ between Predicted and Actual (`linregress`) |
+| Pearson r (correlation coefficient, Step 0) | $r = \dfrac{\mathrm{cov}(a,b)}{\sigma_a\,\sigma_b}$; not R², cannot be expressed through Δ |
+| Spearman ρ (correlation coefficient, Step 0) | Pearson coefficient on ranks; not R², cannot be expressed through Δ |
+| R²_lin (coefficient of determination, Steps 1 and 4) | $R^2_{lin} = 1 - \dfrac{\sum(\Delta_{OLS})^2}{\sum(y-\bar y)^2} = r^2$, where $\Delta_{OLS} = y - (a + bx)$ is the linear regression residual (`linregress`); linear relationship only |
+| R²_fit (approximation curves, Steps 1, 3, 4) | $R^2_{fit} = 1 - \dfrac{\sum(\Delta)^2}{\sum(y-\bar y)^2}$, $\Delta = Predicted - Actual$ (any curve shape) |
+| R²_fit (CV approximations, Step 2) | $R^2_{fit} = 1 - \dfrac{\sum(\Delta)^2}{\sum(y-\bar y)^2}$, $\Delta = model(Actual) - Predicted$; the roles deliberately differ from Step 1: $x = Actual$ (PARAM_1), $y = Predicted$ |
+| R² (Actual = Predicted), Step 2 | $1 - \dfrac{\sum(\Delta)^2}{\sum(Actual-\overline{Actual})^2}$, $\Delta = Predicted - Actual$, on out-of-fold predictions (`r2_score`) |
+| R² (Pearson, Predicted vs Actual), Step 2, pooled | $1 - \dfrac{\sum(\Delta_{OLS})^2}{\sum(Actual-\overline{Actual})^2} = r^2$, $\Delta_{OLS} = Actual - (a + b\cdot Predicted)$ on out-of-fold predictions (`linregress`) |
+| R² (Pearson) per fold, Step 2 | same as above, within each fold; at least 3 points and non-zero variance are required |
+| R² (Pearson), in-sample, Step 4.5 | $1 - \dfrac{\sum(\Delta_{OLS})^2}{\sum(PARAM_1-\overline{PARAM_1})^2} = r^2$, $\Delta_{OLS} = PARAM_1 - (a + b\cdot PARAM_2)$ on the remaining wells |
+| R² (Pearson), out-of-sample, Step 4.5 | $r^2 = corrcoef(PARAM_1, pred)^2$ on the excluded wells, $pred = a + b\cdot PARAM_2$ fitted on the remaining wells; cannot be expressed through Δ, since the line is fitted on a different sample |
 | RMSE (root mean squared error) | $\sqrt{\dfrac{1}{N}\sum (\Delta)^2}$ |
 | MSE (mean squared error) | $\dfrac{1}{N}\sum (\Delta)^2$ |
 | MAE (mean absolute error) | $\dfrac{1}{N}\sum \lvert \Delta \rvert$ |
@@ -110,7 +116,7 @@ Let Δ denote the residual (difference between the two values). On the basic QC 
 | P-value (significance of linear correlation) | $t = r\sqrt{\dfrac{N-2}{1-r^2}}$, &nbsp; $p = 2\left(1-F_{t,\,N-2}(\lvert t\rvert)\right)$ |
 | Linear regression equation | $y = a + bx$; slope b and intercept a — from `linregress` |
 
-*P-value answers the question: how likely it is to observe the linear relationship between PARAM_1 and PARAM_2 (or a stronger one) by chance if no true linear relationship exists (null hypothesis H₀: the true regression slope b = 0). The smaller the p-value, the less evidence there is that the observed relationship arose purely by chance. A relationship is commonly considered statistically significant when p < 0.05. This metric is calculated only for the basic QC cross-plot (Step 1) using `scipy.stats.linregress`.*
+*P-value answers the question: how likely it is to observe the linear relationship between PARAM_1 and PARAM_2 (or a stronger one) by chance if no true linear relationship exists (null hypothesis H₀: the true regression slope b = 0). The smaller the p-value, the less evidence there is that the observed relationship arose purely by chance. A relationship is commonly considered statistically significant when p < 0.05. This metric is calculated for the basic QC cross-plot (Step 1) and for the Step 2 cross-plot on out-of-fold predictions, using `scipy.stats.linregress`.*
 
 ---
 
@@ -148,15 +154,10 @@ For PARAM_1 and PARAM_2, extended descriptive statistics are computed separately
 | max | maximum value |
 | range | $\max - \min$ |
 | IQR | $Q75 - Q25$ — interquartile range |
-| IQR lower bound | $Q25 - 1.5 \cdot IQR$ — lower bound for the IQR rule |
-| IQR upper bound | $Q75 + 1.5 \cdot IQR$ — upper bound for the IQR rule |
-| RMSE | $\sqrt{\dfrac{1}{N}\sum x_i^2}$ — root mean square; for residuals, the RMSE relative to zero |
-| μ+3σ | $\mu + 3\sigma$ — upper ±3σ bound |
-| μ−3σ | $\mu - 3\sigma$ — lower ±3σ bound |
 
 ---
 
-*The IQR bounds in the statistics table are fixed at k = 1.5. For outlier detection, k is set by a sidebar slider (1.0–3.0, default 1.5). RMSE and μ±3σ are residual statistics (Steps 1 and 2) and are not computed for PARAM_1 and PARAM_2.*
+*For outlier detection, k is set by a sidebar slider (1.0–3.0, default 1.5). The IQR bounds at k = 1.5, RMSE and μ±3σ are shown in the residual statistics (Steps 1 and 2), not in the descriptive statistics of PARAM_1 and PARAM_2.*
 
 *The detailed methodology, formulas, and rationale for each CV scheme — in the project documentation.*
 """)
@@ -183,10 +184,10 @@ def show_input_file_example():
           - Vint_map
           - Vav_well
           - Vav_map
-          - ΔT_well
-          - ΔT_map
-          - ΔZ_well
-          - ΔZ_map
+          - dT_well
+          - dT_map
+          - dZ_well
+          - dZ_map
           - any other numeric attribute
         """)
 
