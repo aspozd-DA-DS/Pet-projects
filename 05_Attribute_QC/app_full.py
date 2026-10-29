@@ -630,6 +630,17 @@ def show_column_mapping_sidebar(cols, prefix_label="", prefix_key="",):
     zone_col = st.sidebar.selectbox(f"{prefix_label}tectonic_zone", optional_cols,
                                     index=_opt_idx(["tectonic_zone", "tectonic", "zone"]), key=f"{prefix_key}_zone",)
 
+    detected = {
+        "well_id": _guess_col(cols, ["well_id", "well"]),
+        "X_coord": _guess_col(cols, ["x"]),
+        "Y_coord": _guess_col(cols, ["y"]),
+        "horizon_id": _guess_col(cols, ["horizon_id", "horizon"]),
+        "tectonic_zone": _guess_col(cols, ["tectonic_zone", "tectonic", "zone"]),
+    }
+    detected_text = ", ".join(f"{k_} ← {v}" for k_, v in detected.items() if v is not None)
+    if detected_text:
+        st.sidebar.caption(f"{T['auto_detect_caption']} {detected_text}")
+
     return (well_col, x_col, y_col, h_col, phi_col, unit_h, unit_phi, horizon_col, zone_col)
 
 # ------------------------------------------------------------- #
@@ -1404,13 +1415,13 @@ with st.sidebar.expander(corr_pairplot_expander, expanded=False):
     #   1. zone_col (если пользователь явно выбрал его при загрузке данных)
     #   2. первая доступная категория
     #   3. "— не использовать —" (если категорий нет)
+
     default_pairplot_category = pairplot_category_none
     zone_col_default = st.session_state.get("zone_col")
 
-    if (
-        zone_col_default is not None
-        and zone_col_default in pairplot_category_candidates
-    ):
+    if "tectonic_zone" in pairplot_category_candidates:
+        default_pairplot_category = "tectonic_zone"
+    elif zone_col_default is not None and zone_col_default in pairplot_category_candidates:
         default_pairplot_category = zone_col_default
     elif pairplot_category_candidates:
         default_pairplot_category = pairplot_category_candidates[0]
@@ -2219,14 +2230,13 @@ if df is not None:
         )
     ]
 
-    default_category = st.session_state.get("zone_col")
     default_index = 0
-
-    if (
-        default_category is not None
-        and default_category in category_candidates
-    ):
-        default_index = category_candidates.index(default_category)
+    if "tectonic_zone" in category_candidates:
+        default_index = category_candidates.index("tectonic_zone")
+    else:
+        default_category = st.session_state.get("zone_col")
+        if default_category is not None and default_category in category_candidates:
+            default_index = category_candidates.index(default_category)
 
     if len(category_candidates) > 0:
         st.sidebar.markdown("---")
@@ -2444,6 +2454,11 @@ hist_norm_label = T["hist_norm_label"]
 hist_title = T["hist_title"]
 boxplot_title = T["boxplot_title"]
 corr_pairs_empty = T["corr_pairs_empty"]
+
+def back_to_data_load():
+    st.markdown(f'<a href="#data-load">{T["back_to_data_load_label"]}</a>', unsafe_allow_html=True)
+
+st.markdown('<div id="data-load"></div>', unsafe_allow_html=True)
 
 st.markdown('<div id="step-0"></div>', unsafe_allow_html=True)
 
@@ -2997,6 +3012,7 @@ hist_norm_map = {
 }
 step1_data_hint = T["step1_data_hint"]
 
+back_to_data_load()
 st.markdown('<div id="step-1"></div>', unsafe_allow_html=True)
 st.markdown("---")
 st.markdown(
@@ -3186,7 +3202,7 @@ step2_residual_stats_title = T["step2_residual_stats_title"]
 step2_outlier_analysis_title = T["step2_outlier_analysis_title"]
 cv_residual_col_label = T["cv_residual_col_label"]
 
-
+back_to_data_load()
 st.markdown('<div id="step-2"></div>', unsafe_allow_html=True)
 st.markdown('<div id="step-2-bcv"></div>', unsafe_allow_html=True)
 st.markdown("---")
@@ -3958,7 +3974,7 @@ zone_hist_mode_label = T["zone_hist_mode_label"]
 zone_histnorm_label = T["zone_histnorm_label"]
 step3_cat_stats_title = T["step3_cat_stats_title"]
 
-
+back_to_data_load()
 st.markdown('<div id="step-3"></div>', unsafe_allow_html=True)
 st.markdown("---")
 st.markdown(
@@ -4407,10 +4423,8 @@ step4_rand_series_zone_label = T["step4_rand_series_zone_label"]
 step4_rand_series_no_data = T["step4_rand_series_no_data"]
 step4_n_sets_shown = T["step4_n_sets_shown"]
 
-
-
 RAND_SERIES_MIN_REMAINING = 5
-
+back_to_data_load()
 st.markdown('<div id="step-4"></div>', unsafe_allow_html=True)
 st.markdown("---")
 st.markdown(f"## {step4_title}") 
@@ -4954,6 +4968,7 @@ else:
 # ================================================================================================================================ #
 step5_title = T["step5_title"]
 
+back_to_data_load()
 @st.cache_data(show_spinner=False, max_entries=8)
 def cached_step5(df_in, cands, phi_upper):
     return sq.step5_run(df_in, list(cands), phi_upper=phi_upper, seed=sq.S5_SEED)

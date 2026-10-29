@@ -18,6 +18,9 @@ from sklearn.linear_model import (
     LinearRegression
 )
 
+import re
+import hashlib
+
 import structural_qc_full as sq
 import ui_examples_full_ru
 import ui_examples_full_en
@@ -54,6 +57,7 @@ from app_utils import (
     show_outlier_tables,
     PALETTE_DICT,
     corr_pairs_table,
+    corr_pairs_table_low,
     plot_category_crosstab,
     plot_category_pies,
     crosstab_stats_table,
@@ -118,6 +122,7 @@ param1_units_label = T["param1_units_label"]
 param2_units_label = T["param2_units_label"]
 not_used_label = T["not_used_label"]
 no_demo_label = T["no_demo_label"]
+auto_detect_caption = T["auto_detect_caption"]
 
 demo_file_select_label = T["demo_file_select_label"]
 demo_column_mapping_title = T["demo_column_mapping_title"]
@@ -306,6 +311,8 @@ distance_cv_title = T["distance_cv_title"]
 variogram_factor_label = T["variogram_factor_label"]
 variogram_factor_caption = T["variogram_factor_caption"]
 corr_threshold_label = T["corr_threshold_label"]
+corr_low_threshold_label = T["corr_low_threshold_label"]
+corr_pairs_low_title = T["corr_pairs_low_title"]
 excl_radius_mode_label = T["excl_radius_mode_label"]
 excl_radius_mode_median_factor = T["excl_radius_mode_median_factor"]
 excl_radius_mode_absolute = T["excl_radius_mode_absolute"]
@@ -382,10 +389,15 @@ def read_input_file(path_or_file):
 
     filename = (path_or_file.name if hasattr(path_or_file, "name") else str(path_or_file)).lower()
     if filename.endswith((".xls", ".xlsx")):
+        if hasattr(path_or_file, "seek"):
+            path_or_file.seek(0)
         return pd.read_excel(path_or_file)
 
     encodings = ["utf-8", "cp1251", "windows-1251", "latin1",]
     for encoding in encodings:
+        # перед каждой попыткой возвращаем курсор в начало файла
+        if hasattr(path_or_file, "seek"):
+            path_or_file.seek(0)
         try:
             return pd.read_csv(path_or_file, encoding=encoding, sep=None, engine="python",)
         except Exception:
@@ -430,10 +442,16 @@ def save_dataset_to_session(df, param_1, param_2, unit_1, unit_2, zone_col=None,
         "cv_seed", 
         "step4_random_seed",
         "best_scheme_criterion",      
-        "best_scheme_manual",          
+        "best_scheme_manual",
+        "best_scheme_manual",
+        "pies_x_col",
+        "pies_group_col",
+        "crosstab_x_col",
+        "crosstab_group_col",
+        "residual_map_category",
+        "strat_zone_col",
     ]:
-        st.session_state.pop(key, None)
-
+        st.session_state.pop(key, None)          
 
 # ------ PREPARE INPUT DF ------
 @st.cache_data(
@@ -559,11 +577,57 @@ defaults = {
 for key, value in defaults.items():
     st.session_state.setdefault(key, value)
 
-def show_column_mapping_sidebar(cols, prefix_label="", prefix_key="",):
+AUTO_COLUMN_SYNONYMS = {
+    "well_id": ["well_id", "wellid", "well", "wellname", "well_name", "uwi", "bhid", "borehole", "wellnumber", "well_no"],
+    "X_coord": ["X_coord", "xcoord", "x", "xcoordinate", "easting", "east", "utm_x", "xutm", "x_m"],
+    "Y_coord": ["Y_coord", "ycoord", "y", "ycoordinate", "northing", "north", "utm_y", "yutm", "y_m"],
+    "horizon_id": ["horizon_id", "horizonid", "horizon", "horizon_name", "horizonname", "surface", "layer"],
+    "tectonic_zone": ["tectonic_zone", "tectoniczone", "zone", "tectonic", "tectonicunit", "structural_zone", "structuralzone"],
+}
 
-    well_col = st.sidebar.selectbox(f"{prefix_label}well_id", cols, key=f"{prefix_key}_well",)
-    x_col = st.sidebar.selectbox(f"{prefix_label}X_coord", cols, key=f"{prefix_key}_x",)
-    y_col = st.sidebar.selectbox(f"{prefix_label}Y_coord", cols, key=f"{prefix_key}_y",)
+def _norm_col(name):
+    return re.sub(r"[\W_]+", "", str(name).lower())
+
+def _guess_col(cols, keywords):
+    norm = lambda s: "".join(ch for ch in str(s).lower() if ch.isalnum())
+    ncols = [(c, norm(c)) for c in cols]
+    for kw in keywords:
+        for c, n in ncols:
+            if n == norm(kw):
+                return c
+    for kw in keywords:
+        k = norm(kw)
+        for c, n in ncols:
+            if n.startswith(k):
+                return c
+    for kw in keywords:
+        k = norm(kw)
+        if len(k) >= 3:
+            for c, n in ncols:
+                if k in n:
+                    return c
+    return None
+
+def auto_detect_column(cols, canonical):
+    return _guess_col(cols, AUTO_COLUMN_SYNONYMS[canonical])
+
+def _default_index(options, value):
+    return options.index(value) if value is not None and value in options else 0
+
+def show_column_mapping_sidebar(cols, prefix_label="", prefix_key="",):
+    # ключ зависит от набора колонок, поэтому при смене файла автоподбор срабатывает заново
+    sig = hashlib.md5("|".join(map(str, cols)).encode("utf-8")).hexdigest()[:8]
+    k = f"{prefix_key}_{sig}"
+
+    well_default = auto_detect_column(cols, "well_id")
+    x_default = auto_detect_column(cols, "X_coord")
+    y_default = auto_detect_column(cols, "Y_coord")
+    horizon_default = auto_detect_column(cols, "horizon_id")
+    zone_default = auto_detect_column(cols, "tectonic_zone")
+
+    well_col = st.sidebar.selectbox(f"{prefix_label}well_id", cols, index=_default_index(cols, well_default), key=f"{k}_well",)
+    x_col = st.sidebar.selectbox(f"{prefix_label}X_coord", cols, index=_default_index(cols, x_default), key=f"{k}_x",)
+    y_col = st.sidebar.selectbox(f"{prefix_label}Y_coord", cols, index=_default_index(cols, y_default), key=f"{k}_y",)
 
     excluded_cols = {well_col, x_col, y_col}
     analysis_cols = [c for c in cols if c not in excluded_cols]
@@ -571,13 +635,20 @@ def show_column_mapping_sidebar(cols, prefix_label="", prefix_key="",):
     if len(analysis_cols) == 0:
         raise ValueError(no_columns_for_analysis)
 
-    param_1_col = st.sidebar.selectbox(f"{prefix_label}{param1_reference_label}", analysis_cols, key=f"{prefix_key}_p1",)
-    param_2_col = st.sidebar.selectbox(f"{prefix_label}{param2_reference_label}", analysis_cols, index=min(1, len(analysis_cols) - 1), key=f"{prefix_key}_p2",)
-    unit_1 = st.sidebar.selectbox(f"{prefix_label}{param1_units_label}", UNIT_OPTIONS, key=f"{prefix_key}_unit1",)
-    unit_2 = st.sidebar.selectbox(f"{prefix_label}{param2_units_label}", UNIT_OPTIONS, index=UNIT_OPTIONS.index(unit_1), key=f"{prefix_key}_unit2",)
+    param_1_col = st.sidebar.selectbox(f"{prefix_label}{param1_reference_label}", analysis_cols, key=f"{k}_p1",)
+    param_2_col = st.sidebar.selectbox(f"{prefix_label}{param2_reference_label}", analysis_cols, index=min(1, len(analysis_cols) - 1), key=f"{k}_p2",)
+    unit_1 = st.sidebar.selectbox(f"{prefix_label}{param1_units_label}", UNIT_OPTIONS, key=f"{k}_unit1",)
+    unit_2 = st.sidebar.selectbox(f"{prefix_label}{param2_units_label}", UNIT_OPTIONS, index=UNIT_OPTIONS.index(unit_1), key=f"{k}_unit2",)
+
     optional_cols = [NOT_USED] + cols
-    horizon_col = st.sidebar.selectbox(f"{prefix_label}horizon_id", optional_cols, key=f"{prefix_key}_horizon",)
-    zone_col = st.sidebar.selectbox(f"{prefix_label}tectonic_zone", optional_cols, key=f"{prefix_key}_zone",)
+    horizon_col = st.sidebar.selectbox(f"{prefix_label}horizon_id", optional_cols, index=_default_index(optional_cols, horizon_default), key=f"{k}_horizon",)
+    zone_col = st.sidebar.selectbox(f"{prefix_label}tectonic_zone", optional_cols, index=_default_index(optional_cols, zone_default), key=f"{k}_zone",)
+
+    detected = {"well_id": well_default, "X_coord": x_default, "Y_coord": y_default,
+                "horizon_id": horizon_default, "tectonic_zone": zone_default}
+    detected_text = ", ".join(f"{k_} ← {v}" for k_, v in detected.items() if v is not None)
+    if detected_text:
+        st.sidebar.caption(f"{auto_detect_caption} {detected_text}")
 
     return (
         well_col,
@@ -1052,16 +1123,17 @@ with st.sidebar.expander(corr_pairplot_expander, expanded=False):
     #   1. zone_col (если пользователь явно выбрал его при загрузке данных)
     #   2. первая доступная категория
     #   3. "— не использовать —" (если категорий нет)
+
     default_pairplot_category = pairplot_category_none
     zone_col_default = st.session_state.get("zone_col")
 
-    if (
-        zone_col_default is not None
-        and zone_col_default in pairplot_category_candidates
-    ):
+    if "tectonic_zone" in pairplot_category_candidates:
+        default_pairplot_category = "tectonic_zone"
+    elif zone_col_default is not None and zone_col_default in pairplot_category_candidates:
         default_pairplot_category = zone_col_default
     elif pairplot_category_candidates:
         default_pairplot_category = pairplot_category_candidates[0]
+
 
     pairplot_category = st.selectbox(
         pairplot_category_label,
@@ -1277,9 +1349,11 @@ with st.sidebar.expander(residual_map_expander, expanded=False):
     else:
         residual_map_category_options = []
 
-    residual_map_category = st.selectbox(residual_map_category_label, [None] + residual_map_category_options,
+    residual_map_category_all = [None] + residual_map_category_options
+    residual_map_category = st.selectbox(residual_map_category_label, residual_map_category_all,
         format_func=lambda x: residual_map_no_category if x is None else display_name(x),
-        index=0, key="residual_map_category",)
+        index=residual_map_category_all.index("tectonic_zone") if "tectonic_zone" in residual_map_category_options else 0,
+        key="residual_map_category",)
 
     if residual_map_category is not None and df is not None:
         highlight_options = sorted(
@@ -1301,52 +1375,6 @@ with st.sidebar.expander(residual_map_expander, expanded=False):
 st.sidebar.markdown("---")
 
 with st.sidebar.expander(correlation_expander, expanded=False):
-
-    if df is not None:
-        numeric_columns = [
-            c
-            for c in df.select_dtypes(include=np.number).columns
-            if c not in ["Zprm_well", "Zprm_map"]
-        ]
-    else:
-        numeric_columns = []
-
-    default_corr_cols = [
-        c
-        for c in [PARAM_1, PARAM_2]
-        if c in numeric_columns
-    ]
-
-    def _on_corr_columns_change(numeric_cols):
-        picked = st.session_state.get("step0_corr_columns", [])
-        st.session_state["step0_all_parameters"] = set(picked) == set(numeric_cols)
-    def _on_all_params_toggle(numeric_cols, default_cols):
-        if st.session_state.get("step0_all_parameters"):
-            st.session_state["step0_corr_columns"] = list(numeric_cols)
-        else:
-            st.session_state["step0_corr_columns"] = list(default_cols)
-
-    if "step0_corr_columns" not in st.session_state:
-        st.session_state["step0_corr_columns"] = list(default_corr_cols)
-
-    all_parameters = st.checkbox(
-        all_parameters_label,
-        value=False,
-        key="step0_all_parameters",
-        on_change=_on_all_params_toggle,
-        args=(numeric_columns, default_corr_cols),
-    )
-    corr_columns = st.multiselect(
-        corr_parameters_label,
-        options=numeric_columns,
-        key="step0_corr_columns",
-        on_change=_on_corr_columns_change,
-        args=(numeric_columns,),
-    )
-
-    if len(corr_columns) > 10:
-        st.warning(corr_warning)
-
     corr_threshold = st.slider(
         corr_threshold_label,
         min_value=0.0,
@@ -1355,6 +1383,15 @@ with st.sidebar.expander(correlation_expander, expanded=False):
         step=0.05,
         key="corr_threshold",
     )
+    corr_low_threshold = st.slider(
+        corr_low_threshold_label,
+        min_value=0.0,
+        max_value=1.0,
+        value=0.5,
+        step=0.05,
+        key="corr_low_threshold",
+    )
+
 # ------------------------------------------------------------- #
 # SIDEBAR: Выбор типов и цветов аппроксимаций в Шагах 1–3
 # ------------------------------------------------------------- #
@@ -1895,14 +1932,13 @@ if df is not None:
         )
     ]
 
-    default_category = st.session_state.get("zone_col")
     default_index = 0
-
-    if (
-        default_category is not None
-        and default_category in category_candidates
-    ):
-        default_index = category_candidates.index(default_category)
+    if "tectonic_zone" in category_candidates:
+        default_index = category_candidates.index("tectonic_zone")
+    else:
+        default_category = st.session_state.get("zone_col")
+        if default_category is not None and default_category in category_candidates:
+            default_index = category_candidates.index(default_category)
 
     if len(category_candidates) > 0:
         st.sidebar.markdown("---")
@@ -2095,6 +2131,11 @@ hist_title = T["hist_title"]
 boxplot_title = T["boxplot_title"]
 corr_pairs_empty = T["corr_pairs_empty"]
 
+def back_to_data_load():
+    st.markdown(f'<a href="#data-load">{T["back_to_data_load_label"]}</a>', unsafe_allow_html=True)
+
+st.markdown('<div id="data-load"></div>', unsafe_allow_html=True)
+
 st.markdown('<div id="step-0"></div>', unsafe_allow_html=True)
 # ------------------------------------------------- #
 # STEP 0.0.: SHOW SAMPLE FORMAT
@@ -2108,6 +2149,7 @@ ui_examples.show_project_introduction()
 ui_examples.show_input_file_example()
 
 st.markdown('<div id="step-0-pr"></div>', unsafe_allow_html=True)
+st.markdown("---")
 # ------------------------------------------------- #
 # STEP 0.1.: QC входных данных
 # ------------------------------------------------- #
@@ -2336,6 +2378,15 @@ category_cols = [
         and c != "well_id"
     )
 ]
+def _zone_index(options):
+    return options.index("tectonic_zone") if "tectonic_zone" in options else 0
+
+def _group_index(options):
+    candidates = [c for c in options if c != "horizon_id"]
+    if not candidates:
+        return 0
+    first = min(candidates, key=lambda c: str(display_name(c)).lower())
+    return options.index(first)
 
 for col in category_cols:
     unique_vals = sorted(map(str, df[col].dropna().unique()))
@@ -2411,12 +2462,15 @@ if len(category_cols) >= 2:
     with col_pie_x:
         pies_x_col = st.selectbox(
             step0_crosstab_x_label, category_cols,
+            index=_zone_index(category_cols),
             format_func=display_name, key="pies_x_col",
         )
     with col_pie_g:
+        pies_group_options = [c for c in category_cols if c != pies_x_col]
         pies_group_col = st.selectbox(
             step0_crosstab_group_label,
-            [c for c in category_cols if c != pies_x_col],
+            pies_group_options,
+            index=_group_index(pies_group_options),
             format_func=display_name, key="pies_group_col",
         )
 
@@ -2445,15 +2499,16 @@ if category_cols:
         with col_x_sel:
             crosstab_x_col = st.selectbox(
                 step0_crosstab_x_label, category_cols,
+                index=_zone_index(category_cols),
                 format_func=display_name, key="crosstab_x_col",
             )
         group_options = [c for c in category_cols if c != crosstab_x_col]
         with col_g_sel:
             crosstab_group_col = st.selectbox(
                 step0_crosstab_group_label, group_options,
+                index=_group_index(group_options),
                 format_func=display_name, key="crosstab_group_col",
             )
-
         if crosstab_agg == "count" or crosstab_value_col is None:
             crosstab_y_label = well_count_label
         else:
@@ -2496,8 +2551,57 @@ if category_cols:
 # STEP 0.4.: Корреляционный анализ выбранных параметров
 # ------------------------------------------------- #
 st.markdown('<div id="step-0-num"></div>', unsafe_allow_html=True)
+
+# Выбор параметров для анализа (перенесено из сайдбара)
+if df is not None:
+    numeric_columns = [
+        c
+        for c in df.select_dtypes(include=np.number).columns
+        if c not in ["Zprm_well", "Zprm_map"]
+    ]
+else:
+    numeric_columns = []
+
+default_corr_cols = [
+    c
+    for c in [PARAM_1, PARAM_2]
+    if c in numeric_columns
+]
+
+def _on_corr_columns_change(numeric_cols):
+    picked = st.session_state.get("step0_corr_columns", [])
+    st.session_state["step0_all_parameters"] = set(picked) == set(numeric_cols)
+
+def _on_all_params_toggle(numeric_cols, default_cols):
+    if st.session_state.get("step0_all_parameters"):
+        st.session_state["step0_corr_columns"] = list(numeric_cols)
+    else:
+        st.session_state["step0_corr_columns"] = list(default_cols)
+
+if "step0_corr_columns" not in st.session_state:
+    st.session_state["step0_corr_columns"] = list(numeric_columns)
+    st.session_state["step0_all_parameters"] = True
+
+st.markdown(f"### {step0_selected_params_title}")
+
+all_parameters = st.checkbox(
+    all_parameters_label,
+    key="step0_all_parameters",
+    on_change=_on_all_params_toggle,
+    args=(numeric_columns, default_corr_cols),
+)
+corr_columns = st.multiselect(
+    corr_parameters_label,
+    options=numeric_columns,
+    key="step0_corr_columns",
+    on_change=_on_corr_columns_change,
+    args=(numeric_columns,),
+)
+
+if len(corr_columns) > 10:
+    st.warning(corr_warning)
+
 if (df is not None and len(corr_columns) >= 2):
-    st.markdown(f"### {step0_selected_params_title}")
 
     if len(corr_columns) > 6:
         st.warning(step0_pairplot_warning)
@@ -2535,6 +2639,15 @@ if (df is not None and len(corr_columns) >= 2):
         excel_download_button(pairs_pearson, "structural_qc_corr_pairs_pearson",
                               key="download_excel_corr_pairs_pearson")
 
+    st.markdown(f"#### {corr_pairs_low_title.format(threshold=f'{corr_low_threshold:.2f}')}")
+    pairs_pearson_low = corr_pairs_table_low(corr_df, corr_low_threshold, corr_pair_labels)
+    if pairs_pearson_low.empty:
+        st.caption(corr_pairs_empty)
+    else:
+        st.dataframe(pairs_pearson_low, use_container_width=True)
+        excel_download_button(pairs_pearson_low, "structural_qc_corr_pairs_pearson_low",
+                              key="download_excel_corr_pairs_pearson_low")
+
     # Матрица корреляции Спирмена
     st.markdown(f"#### {step0_corr_spearman_title}")
     if len(set(corr_columns)) == 1:
@@ -2564,6 +2677,16 @@ if (df is not None and len(corr_columns) >= 2):
         st.dataframe(pairs_spearman, use_container_width=True)
         excel_download_button(pairs_spearman, "structural_qc_corr_pairs_spearman",
                               key="download_excel_corr_pairs_spearman")
+
+    st.markdown(f"#### {corr_pairs_low_title.format(threshold=f'{corr_low_threshold:.2f}')}")
+    pairs_spearman_low = corr_pairs_table_low(corr_df_spearman, corr_low_threshold, corr_pair_labels)
+    if pairs_spearman_low.empty:
+        st.caption(corr_pairs_empty)
+    else:
+        st.dataframe(pairs_spearman_low, use_container_width=True)
+        excel_download_button(pairs_spearman_low, "structural_qc_corr_pairs_spearman_low",
+                              key="download_excel_corr_pairs_spearman_low")
+
 
     # Pairplot и Seaborn Pairplot
     st.markdown(f"#### {step0_pairplot_title}")
@@ -2757,6 +2880,8 @@ hist_norm_map = {
 step1_data_hint = T["step1_data_hint"]
 
 st.markdown('<div id="step-1"></div>', unsafe_allow_html=True)
+back_to_data_load()
+st.markdown("---")
 # ---------------------------------------------------------------------- #
 # STEP 1.0
 # ---------------------------------------------------------------------- #
@@ -3153,6 +3278,8 @@ cv_residual_col_label = T["cv_residual_col_label"]
 
 st.markdown('<div id="step-2"></div>', unsafe_allow_html=True)
 st.markdown('<div id="step-2-bcv"></div>', unsafe_allow_html=True)
+back_to_data_load()
+st.markdown("---")
 # ------------------------------------------------- #
 # STEP 2.0.: 
 # ------------------------------------------------- #
@@ -3919,6 +4046,8 @@ step3_cat_stats_title = T["step3_cat_stats_title"]
 
 
 st.markdown('<div id="step-3"></div>', unsafe_allow_html=True)
+back_to_data_load()
+st.markdown("---")
 # ------------------------------------------------- #
 # STEP 3.0.: 
 # ------------------------------------------------- #
@@ -4361,6 +4490,8 @@ step4_n_sets_shown = T["step4_n_sets_shown"]
 RAND_SERIES_MIN_REMAINING = 5
 
 st.markdown('<div id="step-4"></div>', unsafe_allow_html=True)
+back_to_data_load()
+st.markdown("---")
 # --------------------------------------------------
 # STEP 4.1.: ФИЛЬТРАЦИЯ СКВАЖИН
 # ------------------------------------------------- #
@@ -4715,7 +4846,11 @@ if step4_ok:
         st.plotly_chart(fig_fit_step4, use_container_width=True)
 
     # STEP 4.3.: Таблица метрик QC Cross-Plot
-    qc_metrics_step4 = build_qc_metrics_table(basic=basic_step4, coeffs_qc=coeffs_qc_step4, left_name=PARAM_1, right_name=PARAM_2,)
+    qc_metrics_before = build_qc_metrics_table(basic=basic, coeffs_qc=coeffs_qc, left_name=PARAM_1, right_name=PARAM_2,)
+    qc_metrics_after = build_qc_metrics_table(basic=basic_step4, coeffs_qc=coeffs_qc_step4, left_name=PARAM_1, right_name=PARAM_2,)
+    qc_metrics_before.insert(0, T["step4_stage_col"], T["step4_stage_before"])
+    qc_metrics_after.insert(0, T["step4_stage_col"], T["step4_stage_after"])
+    qc_metrics_step4 = pd.concat([qc_metrics_before, qc_metrics_after], ignore_index=True)
     st.markdown(f"#### {step4_qc_metrics_title}")
     st.dataframe(qc_metrics_step4, use_container_width=True,)
     excel_download_button(qc_metrics_step4, "structural_qc_step4_qc_metrics",
@@ -4723,7 +4858,10 @@ if step4_ok:
 
     # STEP 4.3.: Таблица метрик кривых аппроксимации
     st.markdown(f"#### {step4_approx_comparison_title}")
-    fit_table_step4 = pd.DataFrame(fit_rows_step4)
+    fit_before = pd.DataFrame(fit_rows).assign(**{T["step4_stage_col"]: T["step4_stage_before"]})
+    fit_after = pd.DataFrame(fit_rows_step4).assign(**{T["step4_stage_col"]: T["step4_stage_after"]})
+    fit_table_step4 = pd.concat([fit_before, fit_after], ignore_index=True)
+    fit_table_step4 = fit_table_step4[[T["step4_stage_col"]] + [c for c in fit_table_step4.columns if c != T["step4_stage_col"]]]
     st.dataframe(fit_table_step4, use_container_width=True,)
     excel_download_button(fit_table_step4, "structural_qc_step4_approx_comparison",
                           key="download_excel_step4_approx")
@@ -4870,6 +5008,7 @@ else:
         )
         st.plotly_chart(fig_rand, use_container_width=True)
 
+back_to_data_load()
 st.markdown("---")
 st.caption("CROSSPL✳T↔CROSS⊗VALIDATION")
 st.caption(T["footer_data_note"])

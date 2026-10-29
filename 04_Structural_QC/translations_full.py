@@ -346,8 +346,8 @@ RU.update({
     "step4_cp_title_before": "QC кросс-плот до фильтрации",
     "step4_approximations_title_before": "Аппроксимации до фильтрации",
     "step4_appr_title_before":  "Аппроксимации до фильтрации",
-    "step4_qc_metrics_title": "Метрики QC кросс-плота после фильтрации",
-    "step4_approx_comparison_title": "Сравнение аппроксимаций после фильтрации",
+    "step4_qc_metrics_title": "Метрики QC кросс-плота",
+    "step4_approx_comparison_title": "Сравнение аппроксимаций",
     "step4_before_after_metrics_title": "Сравнение метрик до и после фильтрации",
     "filter_mode_click": "Выделение кликом по точке",
     "step4_click_title": "Выделение скважин кликом по точкам",
@@ -385,8 +385,8 @@ EN.update({
     "step4_cp_title_before": "QC Cross-Plot Before Filtering",
     "step4_approximations_title_before": "Approximations Before Filtering",
     "step4_appr_title_before":  "Approximations Before Filtering",
-    "step4_qc_metrics_title": "QC Cross-Plot Metrics After Filtering",
-    "step4_approx_comparison_title": "Approximation Comparison After Filtering",
+    "step4_qc_metrics_title": "QC Cross-Plot Metrics",
+    "step4_approx_comparison_title": "Approximation Comparison",
     "step4_before_after_metrics_title": "Metrics Comparison Before and After Filtering",
     "filter_mode_click": "Click-to-exclude",
     "step4_click_title": "Well selection by clicking points",
@@ -434,6 +434,7 @@ RU.update({
     "param2_reference_label": "Параметр 2 (сравниваемый)",
     "param1_units_label": "Единицы параметра 1",
     "param2_units_label": "Единицы параметра 2",
+    "auto_detect_caption": "Автоопределено:",
 })
 EN.update({
     "sidebar_data_title": "Data",
@@ -445,6 +446,7 @@ EN.update({
     "param2_reference_label": "Parameter 2 (Compared)",
     "param1_units_label": "Parameter 1 Units",
     "param2_units_label": "Parameter 2 Units",
+    "auto_detect_caption": "Auto-detected:",
 })
 
 RU.update({
@@ -734,6 +736,8 @@ RU.update({
     "pairplot_size_label": "Размер Seaborn Pairplot",
     "pairplot_corner_label": "Отображать только нижний треугольник (Corner)",
     "corr_threshold_label": "Порог КК (|КК| ≥)",
+    "corr_low_threshold_label": "Порог КК (|КК| ≤)",
+    "corr_pairs_low_title": "Пары параметров с коэффициентом корреляции меньше или равно {threshold}",
     "corr_pairs_title": "Пары параметров с коэффициентом корреляции больше или равно {threshold}",
     "corr_pairs_empty": "Нет пар параметров с |КК| выше выбранного порога",
     "corr_pairs_col_param1": "Параметр 1",
@@ -751,6 +755,8 @@ EN.update({
     "pairplot_size_label": "Seaborn Pairplot Size",
     "pairplot_corner_label": "Show Lower Triangle Only (Corner)",
     "corr_threshold_label": "CC threshold (|CC| ≥)",
+    "corr_low_threshold_label": "CC threshold (|CC| ≤)",
+    "corr_pairs_low_title": "Parameter pairs with correlation coefficient less than or equal to {threshold}",
     "corr_pairs_title": "Parameter pairs with correlation coefficient greater or equal to {threshold}",
     "corr_pairs_empty": "No parameter pairs with |CC| above the selected threshold",
     "corr_pairs_col_param1": "Parameter 1",
@@ -1025,5 +1031,8 @@ EN.update({
     "step4_rand_series_no_data": "No data for the selected level step.",
 })
 
+RU.update({"back_to_data_load_label": "⬆ К загрузке"})
+EN.update({"back_to_data_load_label": "⬆ To data loading"})
 
-
+RU.update({"step4_stage_col": "Этап", "step4_stage_before": "до фильтрации", "step4_stage_after": "после фильтрации"})
+EN.update({"step4_stage_col": "Stage", "step4_stage_before": "before filtering", "step4_stage_after": "after filtering"})

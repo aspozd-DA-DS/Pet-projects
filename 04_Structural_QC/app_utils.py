@@ -605,6 +605,21 @@ def corr_pairs_table(corr_matrix, threshold, labels):
                 rows.append({col1: cols[i], col2: cols[j], col_cc: round(float(r), 3)})
     return pd.DataFrame(rows, columns=[col1, col2, col_cc])
 
+def corr_pairs_table_low(corr_matrix, threshold, labels):
+    """Таблица пар параметров, у которых |КК| ≤ threshold (без диагонали и дублей).
+
+    labels: (подпись параметра 1, подпись параметра 2, подпись КК) — берутся из переводов.
+    """
+    cols = list(corr_matrix.columns)
+    col1, col2, col_cc = labels
+    rows = []
+    for i in range(len(cols)):
+        for j in range(i + 1, len(cols)):
+            r = corr_matrix.iloc[i, j]
+            if pd.notna(r) and abs(r) <= threshold:
+                rows.append({col1: cols[i], col2: cols[j], col_cc: round(float(r), 3)})
+    return pd.DataFrame(rows, columns=[col1, col2, col_cc])
+
 # ------------------------------------------------------------- #
 # FUNC: ОФОРМЛЕНИЕ КРОСС-ПЛОТОВ
 # ------------------------------------------------------------- #

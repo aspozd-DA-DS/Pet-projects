@@ -1313,3 +1313,8 @@ EN.update({
     "step5_manual_label": "Attributes for multi-attribute regression",
     "step5_manual_empty": "Select at least one attribute.",
 })
+RU.update({"back_to_data_load_label": "⬆ К загрузке"})
+EN.update({"back_to_data_load_label": "⬆ To data loading"})
+
+RU.update({"auto_detect_caption": "Автоопределено:"})
+EN.update({"auto_detect_caption": "Auto-detected:"})
