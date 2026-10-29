@@ -1,0 +1,1315 @@
+RU = {
+    "step0_title": "Attribute QC — cross-plot & cross-validation",
+    "step0_load_data_message": "Загрузите CSV/XLSX или выберите демонстрационный файл, чтобы начать анализ.",
+    "step0_loaded_data_title": "Загрузка данных",
+    "step0_loaded_data_pr": "Первичный обзор данных",
+    "step0_input_qc_title": "QC входных данных",
+    "step0_full_duplicates_title": "Полные дубликаты строк",
+    "step0_full_duplicates_notfound": "Полные дубликаты не обнаружены.",
+    "step0_found_full_duplicates": "Найдено полных дублей строк:",
+    "step0_duplicate_wells_title": "well_id с несколькими записями",
+    "step0_duplicate_wells_found": "Найдено well_id с несколькими записями:",
+    "step0_duplicate_wells_notfound": "well_id с несколькими записями не обнаружено.",
+    "step0_duplicate_wells_hint": (
+        "Для нескольких горизонтов на одну скважину это ожидаемо. "
+        "Реальное дублирование — только если совпадают well_id И horizon_id."
+    ),
+    "step0_duplicate_coords_title": "Совпадающие координаты (с учётом горизонта)",
+    "step0_duplicate_coords_found": "Найдено совпадающих координат:",
+    "step0_duplicate_coords_notfound": "Совпадающих координат (в пределах одного горизонта) не обнаружено.",
+    "step0_missing_values_title": "Пропуски по колонкам",
+    "step0_removed_rows_title": "Строки, удалённые при очистке",
+    "step0_removed_rows_count": "Удалено строк при очистке данных:",
+    "step0_removed_rows_show": "Показаны первые 20 из",
+    "step0_removed_rows_deleted": "удалённых строк",
+    "step0_notremoved_rows": "Строки не удалялись.",
+    "step0_well_count_title": "Количество скважин",
+    "step0_columns_title": "Колонки",
+    "step0_data_types_title": "Типы данных по колонкам",
+    "step0_categorical_features_title": "Категориальные признаки",
+    "step0_first_rows_title": "Первые 5 строк",
+    "step0_last_rows_title": "Последние 5 строк",
+    "step0_parameter_stats_title": "Статистика параметров",
+    "step0_selected_params_title": "Анализ выбранных параметров",
+    "step0_category_values_preview": "Показаны первые значения категории",
+    "step0_corr_matrix_title": "Матрица корреляции",
+    "step0_corr_matrix_plot_title": "Матрица корреляции, количество параметров:",
+    "step0_plotly_pairplot_title": "Plotly Pairplot, количество параметров:",
+    "step0_pairplot_title": "Pairplot",
+    "step0_pairplot_warning": "Для Pairplot рекомендуется выбирать не более 10 параметров.",
+    "step0_plotly_pairplot_info":
+        "Plotly Pairplot: поддерживаются интерактивность, масштабирование и hover. "
+        "KDE и гистограммы на диагонали доступны только для Seaborn Pairplot.",
+    "step0_selected_stats_title": "Статистика числовых параметров",
+    "step0_stats_prefix": "Статистика",
+    "step0_corr_spearman_title": "Матрица корреляции (Спирмен)",
+    "step0_corr_hint": (
+        "Pearson — только линейная связь. "
+        "Spearman — любая монотонная (экспонента, логарифм, степенная)."
+    ),
+    "step0_rows_count_title": "Количество наблюдений (строк)",
+    "step0_unique_wells_title": "Уникальных скважин",
+    "crosstab_expander": "📊 Столбчатая диаграмма по нескольким категориям",
+    "crosstab_orientation_label": "Направление",
+    "crosstab_orient_v": "Вертикальное",
+    "crosstab_orient_h": "Горизонтальное",
+    "crosstab_outline_label": "Граница столбцов",
+    "step0_crosstab_title": "Распределение по двум категориям",
+    "step0_crosstab_x_label": "Категория по оси X",
+    "step0_crosstab_group_label": "Категория для групп (цвет столбцов)",
+    "step0_crosstab_need_two": "Для этого графика нужно минимум две категориальные колонки",
+    "multi_pie_expander": "🥧 Круговые диаграммы по нескольким категориям",
+    "multi_pie_opacity_label": "Прозрачность",
+    "multi_pie_outline_label": "Граница секторов",
+    "step0_multi_pie_title": "Круговые диаграммы по нескольким категориям",
+    "crosstab_agg_label": "Что считать на столбцах",
+    "crosstab_agg_count": "Количество скважин",
+    "crosstab_agg_min": "Минимум",
+    "crosstab_agg_max": "Максимум",
+    "crosstab_agg_median": "Медиана",
+    "crosstab_agg_mean": "Среднее",
+    "crosstab_value_label": "Параметр для расчёта",
+    "crosstab_agg_std": "Стандартное отклонение",
+    "cat_stats_wells": "Скважин",
+    "cat_stats_records": "Записей (скважина-горизонт)",
+    "cat_stats_share": "Доля скважин, %",
+    "crosstab_table_title": "Таблица статистики",
+    "crosstab_table_total": "Всего",
+    "download_excel_label": "Скачать в Excel",
+    "footer_data_note": "Данные обрабатываются в памяти сессии и не записываются на диск приложения.",
+    "footer_copyright": "© А.С.Поздняков 2026",
+    "show_pairplot_label": "Показать Pairplot",
+}
+EN = {
+    "step0_title": "Attribute QC — cross-plot & cross-validation",
+    "step0_load_data_message": "Upload a CSV/XLSX file or select a demo dataset to start the analysis.",
+    "step0_loaded_data_title": "Data Loading",
+    "step0_loaded_data_pr": "Initial Review of the Data",
+    "step0_input_qc_title": "Input Data QC",
+    "step0_full_duplicates_title": "Duplicate Rows",
+    "step0_full_duplicates_notfound": "No duplicate rows found.",
+    "step0_found_full_duplicates": "Duplicate rows found:",
+    "step0_duplicate_wells_title": "well_id with multiple records",
+    "step0_duplicate_wells_found": "well_id with multiple records found:",
+    "step0_duplicate_wells_notfound": "No well_id with multiple records found.",
+    "step0_duplicate_wells_hint": (
+        "For multiple horizons per well this is expected. "
+        "Real duplication occurs only if both well_id and horizon_id match."
+    ),
+    "step0_duplicate_coords_title": "Duplicate coordinates (per horizon)",
+    "step0_duplicate_coords_found": "Duplicate coordinates found:",
+    "step0_duplicate_coords_notfound": "No duplicate coordinates (within the same horizon) found.",
+    "step0_missing_values_title": "Missing Values by Column",
+    "step0_removed_rows_title": "Rows Removed During Data Cleaning",
+    "step0_removed_rows_count": "Rows removed during data cleaning:",
+    "step0_removed_rows_show": "Showing first 20 of",
+    "step0_removed_rows_deleted": "removed rows",
+    "step0_notremoved_rows": "No rows were removed.",
+    "step0_well_count_title": "Well Count",
+    "step0_columns_title": "Columns",
+    "step0_data_types_title": "Column Data Types",
+    "step0_categorical_features_title": "Categorical Features",
+    "step0_first_rows_title": "First 5 Rows",
+    "step0_last_rows_title": "Last 5 Rows",
+    "step0_parameter_stats_title": "Parameter Statistics",
+    "step0_selected_params_title": "Selected Parameter Analysis",
+    "step0_category_values_preview": "Showing category values",
+    "step0_corr_matrix_title": "Correlation Matrix",
+    "step0_corr_matrix_plot_title": "Correlation Matrix, parameter count:",
+    "step0_plotly_pairplot_title": "Plotly Pairplot, parameter count:",
+    "step0_pairplot_title": "Pairplot",
+    "step0_pairplot_warning": "For Pairplot, it is recommended to select no more than 10 parameters.",
+    "step0_plotly_pairplot_info":
+        "Plotly Pairplot supports interactivity, zooming, and hover information. "
+        "KDE and diagonal histograms are available only in Seaborn Pairplot.",
+    "step0_selected_stats_title": "Numerical parameters statistics",
+    "step0_stats_prefix": "Statistics",
+    "step0_corr_spearman_title": "Spearman Correlation Matrix",
+    "step0_corr_hint": (
+        "Pearson — linear relationship only. "
+        "Spearman — any monotonic relationship (exponential, logarithmic, power law)."
+    ),
+    "step0_rows_count_title": "Rows (observations)",
+    "step0_unique_wells_title": "Unique wells",
+    "crosstab_expander": "📊 Bar Chart by Multiple Categories",
+    "crosstab_orientation_label": "Orientation",
+    "crosstab_orient_v": "Vertical",
+    "crosstab_orient_h": "Horizontal",
+    "crosstab_outline_label": "Bar outline",
+    "step0_crosstab_title": "Distribution by two categories",
+    "step0_crosstab_x_label": "Category on X axis",
+    "step0_crosstab_group_label": "Grouping category (bar colors)",
+    "step0_crosstab_need_two": "At least two categorical columns are required for this chart",
+    "multi_pie_expander": "🥧 Multi-category pie charts",
+    "multi_pie_opacity_label": "Opacity",
+    "multi_pie_outline_label": "Slice border",
+    "step0_multi_pie_title": "Pie charts by several categories",
+    "crosstab_agg_label": "Value shown on bars",
+    "crosstab_agg_count": "Number of wells",
+    "crosstab_agg_min": "Minimum",
+    "crosstab_agg_max": "Maximum",
+    "crosstab_agg_median": "Median",
+    "crosstab_agg_mean": "Mean",
+    "crosstab_value_label": "Parameter to aggregate",
+    "crosstab_agg_std": "Standard deviation",
+    "cat_stats_wells": "Wells",
+    "cat_stats_records": "Records (well-horizon)",
+    "cat_stats_share": "Wells share, %",
+    "crosstab_table_title": "Statistics table",
+    "crosstab_table_total": "Total",
+    "download_excel_label": "Download as Excel",
+    "footer_data_note": "Data is processed in session memory and is not written to disk.",
+    "footer_copyright": "© A.S.Pozdniakov 2026",
+    "show_pairplot_label": "Show Pairplot",
+}
+
+RU.update({
+    "step1_title": "Шаг 1 · QC-анализ зависимости",
+    "step1_not_enough_data": "Недостаточно данных для Шага 1.",
+    "step1_crossplot_title": "Кросс-плот",
+    "step1_qc_metrics_title": "Метрики QC кросс-плота",
+    "step1_approximations_title": "Аппроксимации",
+    "step1_approx_comparison_title": "Сравнение метрик аппроксимаций",
+    "step1_crossplot_build_error": "Недостаточно данных для построения кросс-плота.",
+    "step1_distribution_title": "Распределение параметров",
+    "residual_distribution_title": "Невязки",
+    "residual_vs_param_title": "Зависимость невязки",
+    "residual_stats_title": "Статистика невязок",
+    "spatial_residuals_title": "Пространственное распределение невязок",
+    "residual_map_title": "Карта невязок",
+    "outlier_analysis_title": "Анализ выбросов невязок",
+    "hist_bins_label": "Кол-во бинов гистограммы:",
+    "hist_norm_label": "Нормализация гистограммы:",
+    "hist_title": "Гистограмма:",
+    "boxplot_title": "Boxplot:",
+    "hist_norm_none": "нет",
+    "hist_norm_density": "плотность",
+    "hist_norm_probability": "вероятность",
+    "hist_norm_percent": "проценты",
+    "step1_data_hint": "Выберите другой файл или демо-данные в сайдбаре, чтобы продолжить.",
+})
+EN.update({
+    "step1_title": "Step 1 · QC Relationship Analysis",
+    "step1_not_enough_data": "Not enough data for Step 1.",
+    "step1_crossplot_title": "Cross-Plot",
+    "step1_qc_metrics_title": "QC Cross-Plot Metrics",
+    "step1_approximations_title": "Approximations",
+    "step1_approx_comparison_title": "Approximation Metrics Comparison",
+    "step1_crossplot_build_error": "Not enough data to build the cross-plot.",
+    "step1_distribution_title": "Parameter Distribution",
+    "residual_distribution_title": "Residuals",
+    "residual_vs_param_title": "Residual Relationship",
+    "residual_stats_title": "Residual Statistics",
+    "spatial_residuals_title": "Spatial Distribution of Residuals",
+    "residual_map_title": "Residual Map",
+    "outlier_analysis_title": "Residual Outlier Analysis",
+    "hist_bins_label": "Histogram bin count:",
+    "hist_norm_label": "Histogram normalization:",
+    "hist_title": "Histogram:",
+    "boxplot_title": "Boxplot:",
+    "hist_norm_none": "none",
+    "hist_norm_density": "density",
+    "hist_norm_probability": "probability",
+    "hist_norm_percent": "percent",
+    "step1_data_hint": "Select another file or demo dataset in the sidebar to continue.",
+})
+
+RU.update({
+    "step2_title": "Шаг 2 · Кросс-валидация (CV)",
+    "cv_not_enough_data_msg": "Недостаточно данных для выполнения кросс-валидации.",
+    "cv_best_scheme_error_msg": "Не удалось определить лучшую схему CV.",
+    "step2_crossplot_all_title": "Кросс-плот: Прогноз vs Факт для всех схем кросс-валидации",
+    "step2_crossplot_all_caption": (
+        "Схемы упорядочены от самой оптимистичной (Random K-Fold) к самой объективной "
+        "(Distance-based exclusion CV). Обратите внимание, как меняется форма облака "
+        "и метрики. Схема со значком ⭐ показана как лучшая."
+    ),
+    "step2_metrics_all_title": "Метрики кросс-плота Прогноз vs Факт для всех схем кросс-валидации",
+    "step2_cv_comparison_title": "Сравнение схем CV",
+    "step2_fold_r2_table_title": "Таблица R² (Pearson) по фолдам по схемам CV",
+    "step2_fold_r2_boxplot_title": "Boxplot: Разброс R² (Pearson) по фолдам по схемам CV",
+    "step2_fold_r2_nan_note": "Фолды с R² = NaN (меньше 3 точек или постоянные значения y или прогноза, например одноточечные фолды Leave-One-Well-Out и Distance-based CV) не показаны на boxplot и не входят в статистику.",
+    "step2_rmse_title": "RMSE по схемам CV",
+    "step2_fold_rmse_title": "RMSE по фолдам (среднее) по схемам CV",
+    "step2_boxplot_caption": (
+        "Boxplot: линия внутри бокса показывает медиану, "
+        "пунктирная линия показывает среднее значение."
+    ),
+    "step2_fold_rmse_boxplot_title": "Boxplot: Разброс RMSE по фолдам по схемам CV",
+    "step2_fold_table_title": "Таблица фолдов по схемам CV",
+    "step2_fold_table_empty": "Нет данных по фолдам",
+    "step2_fold_boxplot_empty": "Нет данных по фолдам для построения boxplot",
+    "step2_best_scheme_title": "Лучшая схема CV",
+    "step2_cv_crossplot_title": "Кросс-плот: Прогноз vs Факт",
+    "step2_approximations_title": "Аппроксимации: Прогноза vs Факта",
+    "step2_cv_metrics_title": "Метрики кросс-плота Прогноз vs Факт",
+    "step2_approx_comparison_title": "Сравнение метрик выбранных кривых аппроксимации",
+    "step2_residual_distribution_title": "Распределение CV-невязок Δ",
+    "step2_residuals_title": "Зависимость CV-невязки Δ",
+    "step2_residual_stats_title": "Статистика CV-невязок Δ",
+    "step2_outlier_analysis_title": "Анализ предполагаемых выбросов по результатам CV-невязок",
+    "cv_residual_col_label": "CV-невязка ({param})",
+})
+EN.update({
+    "step2_title": "Step 2 · Cross-Validation",
+    "cv_not_enough_data_msg": "Not enough data for cross-validation.",
+    "cv_best_scheme_error_msg": "Unable to determine the best CV scheme.",
+    "step2_crossplot_all_title": "Cross-Plot: Predicted vs Actual for All CV Schemes",
+    "step2_crossplot_all_caption": (
+        "Schemes are ordered from the most optimistic (Random K-Fold) to the most objective "
+        "(Distance-based exclusion CV). Notice how the shape of the point cloud and the metrics "
+        "change. The scheme marked with ⭐ is shown as the best one."
+    ),
+    "step2_metrics_all_title": "Cross-Plot Metrics: Predicted vs Actual for All CV Schemes",
+    "step2_cv_comparison_title": "CV Scheme Comparison",
+    "step2_fold_r2_table_title": "R² (Pearson) by fold for the CV schemes",
+    "step2_fold_r2_boxplot_title": "Boxplot: R² (Pearson) variation across folds for the CV schemes",
+    "step2_fold_r2_nan_note": "Folds with R² = NaN (fewer than 3 points, or constant y or predictions, e.g. single-point Leave-One-Well-Out and Distance-based folds) are excluded from the boxplot and the statistics.",
+    "step2_rmse_title": "RMSE by CV Scheme",
+    "step2_fold_rmse_title": "RMSE_fold (mean) by CV Scheme",
+    "step2_boxplot_caption": (
+        "Boxplot: the line inside the box represents the Median, "
+        "and the dashed line represents the Mean."
+    ),
+    "step2_fold_rmse_boxplot_title": "Boxplot: RMSE variation across folds for the CV schemes",
+    "step2_fold_table_title": "Fold table by CV scheme",
+    "step2_fold_table_empty": "No fold data",
+    "step2_fold_boxplot_empty": "No fold data to build the boxplot",
+    "step2_best_scheme_title": "Best CV Scheme",
+    "step2_cv_crossplot_title": "Cross-Plot: Predicted vs Actual",
+    "step2_approximations_title": "Approximations: Predicted vs Actual",
+    "step2_cv_metrics_title": "Cross-Plot Metrics: Predicted vs Actual",
+    "step2_approx_comparison_title": "Selected Approximation Metrics Comparison",
+    "step2_residual_distribution_title": "CV Residual Distribution Δ",
+    "step2_residuals_title": "Relationship CV Residuals Δ",
+    "step2_residual_stats_title": "CV Residual Statistics Δ",
+    "step2_outlier_analysis_title": "Potential Outlier Analysis Based on CV Residuals",
+    "cv_residual_col_label": "CV residual ({param})",
+})
+
+RU.update({
+    "step3_title": "Шаг 3 · Анализ параметров по категориям",
+    "step3_no_categories": "Нет доступных категориальных колонок для Шага 3.",
+    "step3_distribution_title": "Распределение параметров по категориям",
+    "step3_well_count_title": "Количество скважин по категориям",
+    "step3_stats_title": "Статистика параметров по категориям",
+    "step3_boxplot_caption": (
+        "Boxplot: линия внутри бокса показывает медиану, "
+        "пунктирная линия показывает среднее значение."
+    ),
+    "step3_relationship_title": "Аппроксимации зависимости параметров",
+    "step3_select_zones_title": "Категории для общего графика",
+    "step3_all_categories_title": "Все категории",
+    "step3_selected_categories_title": "Только выбранные категории",
+    "step3_no_zone_selected": "Не выбрана ни одна категория.",
+    "step3_individual_categories_title": "Аппроксимации по отдельным категориям",
+    "step3_metrics_comparison_title": "Сравнение метрик выбранных кривых аппроксимации",
+    "step3_cat_stats_title": "Таблица статистики по категориям",
+})
+EN.update({
+    "step3_title": "Step 3 · Category Analysis",
+    "step3_no_categories": "No categorical columns available for Step 3.",
+    "step3_distribution_title": "Parameter Distribution Across Categories",
+    "step3_well_count_title": "Well Count by Category",
+    "step3_stats_title": "Parameter Statistics by Category",
+    "step3_boxplot_caption": (
+        "Boxplot: the line inside the box represents the Median, "
+        "and the dashed line represents the Mean."
+    ),
+    "step3_relationship_title": "Parameter Relationship Approximations",
+    "step3_select_zones_title": "Categories for Overview Plot",
+    "step3_all_categories_title": "All Categories",
+    "step3_selected_categories_title": "Selected Categories Only",
+    "step3_no_zone_selected": "No category selected.",
+    "step3_individual_categories_title": "Approximations by Individual Categories",
+    "step3_metrics_comparison_title": "Selected Approximation Metrics Comparison",
+    "step3_cat_stats_title": "Table of statistics by category",
+})
+
+RU.update({
+    "step4_title": "Шаг 4 · Фильтрация скважин",
+    "step4_less_than_3_wells": "После фильтрации осталось менее 3 скважин.",
+    "step4_summary_initial": "Исходно скважин",
+    "step4_summary_random": "Случайно исключено",
+    "step4_summary_manual": "Исключено вручную",
+    "step4_summary_remaining": "Осталось для анализа",
+    "step4_excluded_wells_title": "Показать исключённые скважины",
+    "step4_excluded_manual_title": "Исключённые вручную",
+    "step4_excluded_random_title": "Случайно исключённые",
+    "step4_before_filter_plots": "Графики до фильтрации",
+    "step4_after_filter_plots": "Графики после фильтрации",
+    "step4_crossplot_title": "Кросс-плот после фильтрации",
+    "step4_cp_title": "QC кросс-плот после фильтрации",
+    "step4_approximations_title": "Аппроксимации после фильтрации",
+    "step4_appr_title": "Аппроксимации после фильтрации",
+    "step4_crossplot_title_before": "Кросс-плот до фильтрации",
+    "step4_cp_title_before": "QC кросс-плот до фильтрации",
+    "step4_approximations_title_before": "Аппроксимации до фильтрации",
+    "step4_appr_title_before":  "Аппроксимации до фильтрации",
+    "step4_qc_metrics_title": "Метрики QC кросс-плота",
+    "step4_approx_comparison_title": "Сравнение аппроксимаций",
+    "step4_stage_label": "Стадия",
+    "step4_stage_before": "До фильтрации",
+    "step4_stage_after": "После фильтрации",
+    "step4_before_after_metrics_title": "Сравнение метрик до и после фильтрации",
+    "filter_mode_click": "Выделение кликом по точке",
+    "step4_click_title": "Выделение скважин кликом по точкам",
+    "step4_click_hint": (
+        "Выделите точки одним из способов: клик по точке (Shift+клик — несколько), "
+        "рамка (Box) или лассо (Lasso). Переключение режимов — иконки "
+        "в правом верхнем углу графика. Затем нажмите «Применить исключение»."
+    ),
+    "step4_click_selected_count": "Выделено точек:",
+    "step4_click_excluded_count": "Исключено кликом:",
+    "step4_click_apply_button": "✅ Применить исключение",
+    "step4_click_reset_button": "♻️ Сбросить всё",
+    "step4_click_excluded_expander": "Исключённые кликом скважины",
+    "step4_click_excluded_wells": "Исключённые",
+    "step4_summary_click": "Исключено кликом",
+    "step4_filter_hint": "Измените фильтр в сайдбаре — «Фильтрация скважин (Шаг 4)» — чтобы продолжить.",
+})
+EN.update({
+    "step4_title": "Step 4 · Well Filtering",
+    "step4_less_than_3_wells": "Fewer than 3 wells remain after filtering.",
+    "step4_summary_initial": "Initial Wells",
+    "step4_summary_random": "Randomly Excluded",
+    "step4_summary_manual": "Manually Excluded",
+    "step4_summary_remaining": "Remaining for Analysis",
+    "step4_excluded_wells_title": "Show Excluded Wells",
+    "step4_excluded_manual_title": "Manually Excluded",
+    "step4_excluded_random_title": "Randomly Excluded",
+    "step4_before_filter_plots": "Plots Before Filtering",
+    "step4_after_filter_plots": "Plots After Filtering",
+    "step4_crossplot_title": "Cross-Plot After Filtering",
+    "step4_cp_title": "QC Cross-Plot After Filtering",
+    "step4_approximations_title": "Approximations After Filtering",
+    "step4_appr_title": "Approximations After Filtering",
+    "step4_crossplot_title_before": "Cross-Plot Before Filtering",
+    "step4_cp_title_before": "QC Cross-Plot Before Filtering",
+    "step4_approximations_title_before": "Approximations Before Filtering",
+    "step4_appr_title_before":  "Approximations Before Filtering",
+    "step4_qc_metrics_title": "QC Cross-Plot Metrics",
+    "step4_approx_comparison_title": "Approximation Comparison",
+    "step4_stage_label": "Stage",
+    "step4_stage_before": "Before filtering",
+    "step4_stage_after": "After filtering",
+    "step4_before_after_metrics_title": "Metrics Comparison Before and After Filtering",
+    "filter_mode_click": "Click-to-exclude",
+    "step4_click_title": "Well selection by clicking points",
+    "step4_click_hint": (
+        "Select points using one of the modes: click a point (Shift+click for multiple), "
+        "Box, or Lasso. Switch modes via the icons in the top-right corner of the chart. "
+        "Then press 'Apply exclusion'."
+    ),
+    "step4_click_selected_count": "Points selected:",
+    "step4_click_excluded_count": "Excluded by click:",
+    "step4_click_apply_button": "✅ Apply exclusion",
+    "step4_click_reset_button": "♻️ Reset all",
+    "step4_click_excluded_expander": "Wells excluded by click",
+    "step4_click_excluded_wells": "Excluded",
+    "step4_summary_click": "Excluded by click",
+    "step4_filter_hint": "Change the filter in the sidebar — 'Well Filtering (Step 4)' — to continue.",
+})
+
+RU.update({
+    "wells_legend": "Скважины",
+    "well_label": "Скважина",
+    "regression_qc_label": "Регрессия (QC)",
+    "regression_cv_label": "Регрессия (CV)",
+    "well_count_label": "Количество скважин",
+    "error_column_label": "Ошибка",
+    "no_outliers_label": "Выбросов не обнаружено.",
+})
+EN.update({
+    "wells_legend": "Wells",
+    "well_label": "Well",
+    "regression_qc_label": "Regression (QC)",
+    "regression_cv_label": "Regression (CV)",
+    "well_count_label": "Well Count",
+    "error_column_label": "Error",
+    "no_outliers_label": "No outliers detected.",
+})
+
+RU.update({
+    "sidebar_data_title": "Данные",
+    "csv_encoding_error": "Не удалось определить кодировку CSV-файла.",
+    "required_columns_not_mapped": "Не сопоставлены обязательные колонки:",
+    "no_valid_rows_after_cleaning": "После очистки данных не осталось корректных строк.",
+    "no_columns_for_analysis": "Нет доступных колонок для анализа.",
+    "param1_reference_label": "Параметр 1 (эталонный)",
+    "param2_reference_label": "Параметр 2 (сравниваемый)",
+    "param1_units_label": "Единицы параметра 1",
+    "param2_units_label": "Единицы параметра 2",
+})
+EN.update({
+    "sidebar_data_title": "Data",
+    "csv_encoding_error": "Unable to determine CSV file encoding.",
+    "required_columns_not_mapped": "Required columns are not mapped:",
+    "no_valid_rows_after_cleaning": "No valid rows remain after data cleaning.",
+    "no_columns_for_analysis": "No columns available for analysis.",
+    "param1_reference_label": "Parameter 1 (Reference)",
+    "param2_reference_label": "Parameter 2 (Compared)",
+    "param1_units_label": "Parameter 1 Units",
+    "param2_units_label": "Parameter 2 Units",
+})
+
+RU.update({
+    "not_used_label": "Не использовать",
+    "no_demo_label": "Не использовать демонстрацию",
+    "demo_file_select_label": "Выбрать демонстрационный файл",
+    "demo_column_mapping_title": "Сопоставление колонок DEMO-файла",
+    "demo_prefix_label": "DEMO: ",
+    "demo_removed_rows_warning": "DEMO: удалено строк при очистке данных:",
+    "demo_loading_error": "Ошибка при загрузке демонстрационного файла:",
+})
+EN.update({
+    "not_used_label": "Not Used",
+    "no_demo_label": "Do Not Use Demo",
+    "demo_file_select_label": "Select Demo Dataset",
+    "demo_column_mapping_title": "Demo File Column Mapping",
+    "demo_prefix_label": "DEMO: ",
+    "demo_removed_rows_warning": "DEMO: rows removed during data cleaning:",
+    "demo_loading_error": "Error loading demo file:",
+})
+
+RU.update({
+    "upload_file_label": "Загрузить CSV/XLSX",
+    "column_mapping_title": "Сопоставление колонок",
+    "removed_rows_warning": "Удалено строк при очистке данных:",
+    "file_loading_error": "Ошибка при загрузке файла:",
+})
+EN.update({
+    "upload_file_label": "Upload CSV/XLSX",
+    "column_mapping_title": "Column Mapping",
+    "removed_rows_warning": "Rows removed during data cleaning:",
+    "file_loading_error": "Error loading file:",
+})
+
+RU.update({
+    "sidebar_contents_title": "Содержание",
+    "contents_data": "Загрузка данных",
+    "contents_data_pr": "Первичный обзор данных",
+    "contents_data_cat": "Категориальные признаки",
+    "contents_data_num": "Анализ выбранных параметров",
+    "contents_step1": "Шаг 1 · QC-анализ зависимости между параметрами",
+    "contents_step1_cp": "QC кросс-плот",
+    "contents_step1_hb": "Распределение параметров",
+    "contents_step2": "Шаг 2 · Кросс-валидация",
+    "contents_step2_bcv": "Выбор лучшей CV",
+    "contents_step2_cp": "QC кросс-плот лучшей CV",
+    "contents_step2_res": "Невязки CV",
+    "contents_step2_otl": "Анализ выбросов невязок CV",
+    "contents_step3": "Шаг 3 · Анализ параметров по категориям",
+    "contents_step3_pb": "Распределение параметров по категориям",
+    "contents_step3_cp": "QC кросс-плот по категориям",
+    "contents_step4": "Шаг 4 · Фильтрация скважин на кросс-плоте",
+})
+EN.update({
+    "sidebar_contents_title": "Contents",
+    "contents_data": "Data Loading",
+    "contents_data_pr": "Initial Review of the Data",
+    "contents_data_cat": "Categorical Features",
+    "contents_data_num": "Selected Parameter Analysis",
+    "contents_step1": "Step 1 · QC Relationship Analysis",
+    "contents_step1_cp": "QC Cross-Plot",
+    "contents_step1_hb": "Parameter Distribution",
+    "contents_step2": "Step 2 · Cross-Validation",
+    "contents_step2_bcv": "Best CV Selection",
+    "contents_step2_cp": "QC Cross-Plot of the Best CV",
+    "contents_step2_res": "CV Residuals",
+    "contents_step2_otl": "CV Residual Outlier Analysis",
+    "contents_step3": "Step 3 · Category Analysis",
+    "contents_step3_pb": "Parameter Distribution by Category",
+    "contents_step3_cp": "Category QC Cross-Plot",
+    "contents_step4": "Step 4 · Well Filtering on Cross-Plot",
+})
+
+RU.update({
+    "horizon_expander_title": "🪨 Выбор горизонта",
+    "all_horizons_label": "Все горизонты",
+    "horizons_label": "Горизонты",
+    "selected_horizons_label": "Выбрано горизонтов:",
+    "single_horizon_message": "Доступен только один горизонт или колонка horizon_id отсутствует.",
+})
+EN.update({
+    "horizon_expander_title": "🪨 Horizon Selection",
+    "all_horizons_label": "All Horizons",
+    "horizons_label": "Horizons",
+    "selected_horizons_label": "Selected horizons:",
+    "single_horizon_message": "Only one horizon is available or the horizon_id column is missing.",
+})
+
+RU.update({
+    "corr_pairplot_expander": "🧮 Матрица корреляции и Pairplot",
+    "corr_palette_label": "Палитра матрицы корреляции",
+    "pairplot_point_color_label": "Цвет точек Pairplot",
+    "pairplot_point_size_label": "Размер точек Pairplot",
+    "pairplot_point_opacity_label": "Прозрачность точек Pairplot",
+    "pairplot_hist_color_label": "Цвет гистограмм Seaborn Pairplot",
+    "pairplot_kde_color_label": "Цвет KDE-кривой Seaborn Pairplot",
+    "pairplot_category_label": "Категория для цвета точек (опционально)",
+    "pairplot_category_none": "— не использовать —",
+    "pairplot_category_colors_title": "Цвета категорий (Pairplot)",
+    "crossplot_expander": "📈 Кросс-плот",
+    "crossplot_point_color_label": "Точки на основных cross-plot",
+    "point_size_label": "Размер точек",
+    "point_opacity_label": "Прозрачность точек",
+    "approx_point_color_label": "Точки на графиках аппроксимаций",
+    "approx_point_size_label": "Размер точек аппроксимации",
+    "approx_point_opacity_label": "Прозрачность точек аппроксимации",
+    "regression_expander": "📈 Линия регрессии для кросс-плота",
+    "regression_color_label": "Линия регрессии для QC и CV",
+    "regression_width_label": "Толщина линии регрессии",
+    "regression_dash_label": "Тип линии регрессии",
+    "identity_line_expander": "📈 Линия Y = X для cross-plot",
+    "identity_line_color_label":  "Линия Y = X",
+    "identity_line_width_label": "Толщина линии Y = X",
+    "identity_line_dash_label": "Тип линии Y = X",
+    "histogram_expander": "📊 Гистограмма",
+    "hist_line_width_label": "Толщина линии",
+    "hist_fill_color_label": "Цвет заливки гистограмм",
+    "kde_curve_label": "Кривая KDE",
+    "mean_line_label": "Линия среднего значения (Mean)",
+    "median_line_label": "Линия медианы (Median)",
+    "sigma_line_label": "Линии ±σ",
+    "hist_opacity_label": "Прозрачность гистограммы",
+    "sigma_k_label": "Множитель σ",
+    "hist_outline_label": "Обводка столбцов",
+    "hist_outline_on_label": "Включить обводку",
+    "zone_hist_settings_expander": "📊 Настройки гистограмм по зонам",
+    "zone_hist_mode_label": "Режим отображения",
+    "zone_hist_mode_hist": "Гистограмма",
+    "zone_hist_mode_kde": "Только KDE",
+    "zone_hist_mode_both": "Гистограмма + KDE",
+    "zone_hist_opacity_label": "Прозрачность гистограмм по зонам",
+    "zone_histnorm_label": "Нормировка гистограмм по зонам",
+    "hist_line_style_label": "Тип линии",
+    "boxplot_expander": "📦 Boxplot",
+    "box_fill_color_label": "Цвет заливки boxplot",
+    "box_line_width_label": "Толщина линии",
+    "box_mean_label": "Линия среднего значения Mean на boxplot",
+    "box_median_label": "Линия медианы Median на boxplot",
+    "box_outline_label": "Контур боксплота",
+    "box_opacity_label": "Прозрачность боксплота",
+    "bar_orientation_label": "Направление",
+    "bar_orient_v": "Вертикальное",
+    "bar_orient_h": "Горизонтальное",
+    "residual_expander": "📉 График невязок",
+    "residual_color_label": "Цвет точек на графике невязок",
+    "residual_map_expander": "🗺️ Карта невязок",
+    "residual_map_palette_label": "Палетка для карты невязок Δ",
+    "residual_map_point_size_label": "Размер точек карты",
+    "residual_map_point_opacity_label": "Прозрачность точек карты",
+    "residual_map_category_label": "Категория на карте",
+    "residual_map_no_category": "Без категории",
+    "residual_map_highlight_label": "Подсветить значение",
+    "residual_map_no_highlight": "Без подсветки",
+    "residual_map_highlight_opacity_label": "Яркость подсвеченной категории",
+    "residual_map_dim_opacity_label": "Яркость остальных точек",
+    "bar_chart_expander": "📊 Столбчатая диаграмма",
+    "rmse_palette_label": "Палетка для Bar chart RMSE для CV",
+    "category_bar_palette_label": "Палетка для Bar chart по категориям",
+    "bar_outline_label": "Граница столбцов",
+    "bar_group_load_title": "Загрузка данных: категориальные признаки",
+    "bar_group_fold_title": "Шаг 2: RMSE по фолдам",
+    "bar_group_rmse_title": "Шаг 2: RMSE по схемам CV",
+    "bar_group_step3_title": "Шаг 3: количество скважин по категориям",
+    "pie_chart_expander": "🍩 Круговая диаграмма",
+    "pie_palette_label": "Палетка для диаграммы категорий",
+})
+EN.update({
+    "corr_pairplot_expander": "🧮 Correlation Matrix and Pairplot",
+    "corr_palette_label": "Correlation Matrix Palette",
+    "pairplot_point_color_label": "Pairplot Point Color",
+    "pairplot_point_size_label": "Pairplot Point Size",
+    "pairplot_point_opacity_label": "Pairplot Point Opacity",
+    "pairplot_hist_color_label": "Seaborn Pairplot Histogram Color",
+    "pairplot_kde_color_label": "Seaborn Pairplot KDE Curve Color",
+    "pairplot_category_label": "Category for point color (optional)",
+    "pairplot_category_none": "— not used —",
+    "pairplot_category_colors_title": "Category colors (Pairplot)",
+    "crossplot_expander": "📈 Cross-Plot",
+    "crossplot_point_color_label": "Main Cross-Plot Points",
+    "point_size_label": "Point Size",
+    "point_opacity_label": "Point Opacity",
+    "approx_point_color_label": "Approximation Plot Points",
+    "approx_point_size_label": "Approximation Point Size",
+    "approx_point_opacity_label": "Approximation Point Opacity",
+    "regression_expander": "📈 Regression Line for Cross-Plot",
+    "regression_color_label": "Regression Line for QC and CV",
+    "regression_width_label": "Regression Line Width",
+    "regression_dash_label": "Regression Line Style",
+    "identity_line_expander": "📈 Y = X Line for Cross-Plot",
+    "identity_line_color_label": "Y = X Line",
+    "identity_line_width_label": "Y = X Line Width",
+    "identity_line_dash_label": "Y = X Line Style",
+    "histogram_expander": "📊 Histogram",
+    "hist_line_width_label": "Line width",
+    "hist_fill_color_label": "Histogram Fill Color",
+    "kde_curve_label": "KDE Curve",
+    "mean_line_label": "Mean Line",
+    "median_line_label": "Median Line",
+    "sigma_line_label": "±σ Lines",
+    "hist_opacity_label": "Histogram opacity",
+    "sigma_k_label": "σ multiplier",
+    "hist_line_style_label": "Line style",
+    "hist_outline_label": "Bar outline",
+    "hist_outline_on_label": "Enable outline",
+    "zone_hist_settings_expander": "📊 Zone histogram settings",
+    "zone_hist_mode_label": "Display mode",
+    "zone_hist_mode_hist": "Histogram",
+    "zone_hist_mode_kde": "KDE only",
+    "zone_hist_mode_both": "Histogram + KDE",
+    "zone_hist_opacity_label": "Zone histogram opacity",
+    "zone_histnorm_label": "Zone histogram normalization",
+    "boxplot_expander": "📦 Boxplot",
+    "box_fill_color_label": "Boxplot Fill Color",
+    "box_line_width_label": "Line width",
+    "box_mean_label": "Mean Line on Boxplot",
+    "box_median_label": "Median Line on Boxplot",
+    "box_outline_label": "Box outline",
+    "box_opacity_label": "Boxplot opacity",
+    "bar_orientation_label": "Orientation",
+    "bar_orient_v": "Vertical",
+    "bar_orient_h": "Horizontal",
+    "residual_expander": "📉 Residual Plot",
+    "residual_color_label": "Residual Point Color",
+    "residual_map_expander": "🗺️ Residual Map",
+    "residual_map_palette_label": "Residual Map Palette Δ",
+    "residual_map_point_size_label": "Map Point Size",
+    "residual_map_point_opacity_label": "Map Point Opacity",
+    "residual_map_category_label": "Category on map",
+    "residual_map_no_category": "No category",
+    "residual_map_highlight_label": "Highlight value",
+    "residual_map_no_highlight": "No highlight",
+    "residual_map_highlight_opacity_label": "Highlighted category brightness",
+    "residual_map_dim_opacity_label": "Other points brightness",
+    "bar_chart_expander": "📊 Bar Chart",
+    "rmse_palette_label": "RMSE Bar Chart Palette",
+    "category_bar_palette_label": "Category Bar Chart Palette",
+    "bar_outline_label": "Bar outline",
+    "bar_group_load_title": "Data loading: categorical features",
+    "bar_group_fold_title": "Step 2: fold RMSE",
+    "bar_group_rmse_title": "Step 2: RMSE by CV scheme",
+    "bar_group_step3_title": "Step 3: well count by category",
+    "pie_chart_expander": "🍩 Pie Chart",
+    "pie_palette_label": "Category Pie Chart Palette",
+})
+
+RU.update({
+    "approx_group_title": "Типы аппроксимации",
+    "approx_expander": "📈 Выбор типов",
+    "all_approximations_label_step1": "Все линии аппроксимации (Шаг 1 и Шаг 4)",
+    "all_approximations_label_step2": "Все линии аппроксимации (Шаг 2)",
+    "all_approximations_label_step3": "Все линии аппроксимации (Шаг 3)",
+    "approx_types_step1_label": "Типы аппроксимации (Шаг 1 и Шаг 4)",
+    "approx_types_step2_label": "Типы аппроксимаций для графиков кросс-валидации (Шаг 2)",
+    "approx_types_step3_label": "Типы аппроксимаций по категориям (Шаг 3)",
+    "approx_colors_expander": "📈 Цвета линий аппроксимаций",
+    "quantile_regression_title": "Quantile Regression (τ = 0.1 / 0.5 / 0.9)",
+    "approx_line_width_label": "Толщина линии",
+})
+EN.update({
+    "approx_group_title": "Approximation Types",
+    "approx_expander": "📈 Select Types",
+    "all_approximations_label_step1": "All Approximation Curves (Step 1 and Step 4)",
+    "all_approximations_label_step2": "All Approximation Curves (Step 2)",
+    "all_approximations_label_step3": "All Approximation Curves (Step 3)",
+    "approx_types_step1_label": "Approximation Types (Step 1 and Step 4)",
+    "approx_types_step2_label": "Approximation Types for Cross-Validation Plots (Step 2)",
+    "approx_types_step3_label": "Approximation Types by Categories (Step 3)",
+    "approx_colors_expander": "📈 Approximation Line Colors",
+    "quantile_regression_title": "Quantile Regression (τ = 0.1 / 0.5 / 0.9)",
+    "approx_line_width_label": "Line width",
+})
+
+RU.update({
+    "correlation_expander": "🔗 Корреляционный анализ",
+    "all_parameters_label": "Все параметры",
+    "corr_parameters_label": "Параметры для анализа",
+    "corr_warning": "Рекомендуется выбирать не более 10 параметров. Большое количество параметров может значительно замедлить построение графика Pairplot.",
+    "pairplot_type_label": "Тип Pairplot",
+    "pairplot_diag_label": "Тип диагонали Seaborn Pairplot",
+    "pairplot_scale_label": "Масштаб Seaborn Pairplot",
+    "pairplot_size_label": "Размер Seaborn Pairplot",
+    "pairplot_corner_label": "Отображать только нижний треугольник (Corner)",
+    "corr_threshold_label": "Порог КК (|КК| ≥)",
+    "corr_pairs_title": "Пары параметров с коэффициентом корреляции больше или равно {threshold}",
+    "corr_pairs_empty": "Нет пар параметров с |КК| выше выбранного порога",
+    "corr_pairs_col_param1": "Параметр 1",
+    "corr_pairs_col_param2": "Параметр 2",
+    "corr_pairs_col_cc": "КК",
+})
+EN.update({
+    "correlation_expander": "🔗 Correlation Analysis",
+    "all_parameters_label": "All Parameters",
+    "corr_parameters_label": "Parameters for Analysis",
+    "corr_warning": "It is recommended to select no more than 10 parameters. A large number of parameters may significantly slow down Pairplot generation.",
+    "pairplot_type_label": "Pairplot Type",
+    "pairplot_diag_label": "Seaborn Pairplot Diagonal Type",
+    "pairplot_scale_label": "Seaborn Pairplot Scale",
+    "pairplot_size_label": "Seaborn Pairplot Size",
+    "pairplot_corner_label": "Show Lower Triangle Only (Corner)",
+    "corr_threshold_label": "CC threshold (|CC| ≥)",
+    "corr_pairs_title": "Pairs of parameters with a correlation coefficient greater than or equal to {threshold}",
+    "corr_pairs_empty": "No parameter pairs with |CC| above the selected threshold",
+    "corr_pairs_col_param1": "Parameter 1",
+    "corr_pairs_col_param2": "Parameter 2",
+    "corr_pairs_col_cc": "CC",
+})
+
+RU.update({
+    "outlier_expander": "🚨 Анализ выбросов по невязкам (Шаг 2)",
+    "sigma_threshold_label": "Порог выбросов по правилу σ",
+})
+EN.update({
+    "outlier_expander": "🚨 Residual Outlier Analysis (Step 2)",
+    "sigma_threshold_label": "Outlier Threshold (σ Rule)",
+})
+
+RU.update({
+    "category_expander": "📚 Анализ по категориям (Шаг 3)",
+    "category_parameter_label": "Категориальный параметр",
+    "category_point_color_label": "Цвет точек",
+    "category_line_color_label": "Цвет линии",
+    "category_point_size_label": "Размер точек",
+    "category_point_opacity_label": "Прозрачность точек",
+    "category_wells_suffix": "скв.",
+})
+EN.update({
+    "category_expander": "📚 Category Analysis (Step 3)",
+    "category_parameter_label": "Category Parameter",
+    "category_point_color_label": "Point Color",
+    "category_line_color_label": "Line Color",
+    "category_point_size_label": "Point Size",
+    "category_point_opacity_label": "Point Opacity",
+    "category_wells_suffix": "wells",
+})
+
+RU.update({
+    "well_filter_expander": "🔎 Фильтрация скважин (Шаг 4)",
+    "filter_mode_label": "Режим фильтрации",
+    "filter_mode_none": "Без фильтра",
+    "filter_mode_manual": "Ручное исключение",
+    "filter_mode_random": "Случайное исключение (%)",
+    "current_filter_mode": "Текущий режим:",
+    "exclude_wells_label": "Исключить скважины",
+    "excluded_wells_count": "Исключено скважин:",
+    "percent_exclude_label": "Процент исключаемых скважин",
+    "new_random_set_button": "🎲 Новый seed",
+    "random_exclusion_caption": "Случайное исключение заданного процента скважин.",
+    "current_random_set": "Текущий набор:",
+    "will_be_excluded": "Будет исключено:",
+    "wells_suffix": "скважин",
+})
+EN.update({
+    "well_filter_expander": "🔎 Well Filtering (Step 4)",
+    "filter_mode_label": "Filtering Mode",
+    "filter_mode_none": "No Filter",
+    "filter_mode_manual": "Manual Exclusion",
+    "filter_mode_random": "Random Exclusion (%)",
+    "current_filter_mode": "Current mode:",
+    "exclude_wells_label": "Exclude Wells",
+    "excluded_wells_count": "Excluded wells:",
+    "percent_exclude_label": "Percentage of Wells to Exclude",
+    "new_random_set_button": "🎲 New Sample",
+    "random_exclusion_caption": "Random exclusion of the specified percentage of wells.",
+    "current_random_set": "Current sample:",
+    "will_be_excluded": "Will be excluded:",
+    "wells_suffix": "wells",
+})
+
+RU.update({
+    "cv_validation_expander": "⚙️ Параметры валидации (Шаг 2)",
+    "cv_seed_title": "🎲 Random seed: Random K-Fold, Random K-Fold (buffered), Leave-P-Out, Spatial Leave-P-Out (Шаг 2)",
+    "cv_seed_current": "Текущий seed:",
+    "cv_seed_new_button": "🎲 Новый seed",
+    "cv_seed_caption": (
+        "Случайное разбиение заданного seed. "
+        "Влияет только на Random K-Fold, Leave-P-Out и Spatial Leave-P-Out. "
+        "Остальные схемы CV детерминированы и от seed не зависят."
+    ),
+    "cv_seed_reset_button": "♻️ Сбросить seed",
+    "step4_random_seed_reset_button": "♻️ Сбросить seed",
+    "random_kfold_title": "🎲 Random K-Fold / Random K-Fold (buffered)",
+    "recommended_k_text": "Рекомендуемое k",
+    "wells_count_text": "скважин",
+    "kfold_caption": "k влияет на стабильность и достоверность оценки модели.",
+    "kfold_slider_label": "k для Random K-Fold",
+    "block_cv_title": "🧱 Block / Buffered Cross Validation",
+    "recommended_grid_text": "Рекомендуемая сетка",
+    "median_distance_text": "медианное расстояние между скважинами",
+    "grid_caption": "Сетка должна соответствовать плотности скважин.",
+    "grid_slider_label": "Сетка для Block CV (N×N)",
+    "buffer_cv_title": "🧱 Buffered Cross Validation  / Random K-Fold (buffered)",
+    "recommended_buffer_text": "Рекомендуемый buffer",
+    "buffer_based_on_median": "основано на медианном расстоянии между скважинами",
+    "buffer_caption": "Buffer исключает точки рядом с тестовым блоком, снижая пространственную зависимость между обучением и тестом. Координаты X и Y — в метрах.",
+    "buffer_slider_label": "Буферная зона Buffer zone (м)",
+    "leave_p_sp_out_title": "🔁 Leave-P-Out / Spatial Leave-P-Out",
+    "recommended_repeats_text": "Рекомендуемое количество повторов",
+    "cv_repeats_label": "Число повторов CV",
+    "cv_repeats_caption": "Используется для Leave-P-Out и Spatial Leave-P-Out. Метрики усредняются по нескольким случайным разбиениям.",
+    "leave_p_out_title": "🔁 Leave-P-Out",
+    "leave_p_percent_label": "Leave-P-Out test size (%)",
+    "leave_p_percent_caption": "На каждом повторе случайно исключается P% скважин для проверки модели.",
+    "spatial_leave_p_out_title": "📍 Spatial Leave-P-Out",
+    "recommended_radius_text": "Рекомендуемый радиус пространственного исключения",
+    "spatial_radius_caption": "Скважины внутри радиуса вокруг тестовой точки исключаются из обучения. Координаты X и Y — в метрах.",
+    "spatial_radius_label": "Радиус пространственного исключения Spatial exclusion radius (м)",
+    "strat_zone_col_label": "📚 Колонка для Stratified by Zone (CV)",
+    "strat_zone_col_none_hint": "Схема Stratified будет отключена.",
+    "strat_zone_col_single_value_hint": "⚠️ В колонке «{col}» только {n} уникальное значение — схема Stratified будет отключена.",
+    "distance_cv_title": "📈 Distance-based exclusion CV",
+    "distance_factor_label": "Множитель медианного межскважинного расстояния (Distance-based exclusion CV)",
+"distance_factor_caption":""" 0.5 — мягкая пространственная фильтрация
+
+1.0 — рекомендуемое значение
+
+1.5 — строгая пространственная фильтрация
+
+2.0–3.0 — очень строгая проверка, почти независимые скважины""",
+    "excl_radius_mode_label": "Способ задания радиуса исключения",
+    "excl_radius_mode_median_factor": "Множитель медианного межскважинного расстояния",
+    "excl_radius_mode_absolute": "Абсолютный радиус (м)",
+    "excl_radius_abs_label": "Радиус исключения (м)",
+    "excl_radius_abs_caption": "Скважины ближе этого расстояния (м) к тестовой точке исключаются из обучения. Координаты X и Y — в метрах.",    
+})
+EN.update({
+    "cv_validation_expander": "⚙️ Validation Parameters (Step 2)",
+    "cv_seed_title": "🎲 Random seed: Random K-Fold, Random K-Fold (buffered), Leave-P-Out, Spatial Leave-P-Out (Step 2)",
+    "cv_seed_current": "Current seed:",
+    "cv_seed_new_button": "🎲 New seed",
+    "cv_seed_caption": (
+        "Random split controlled by the seed. "
+        "Affects only Random K-Fold, Leave-P-Out, and Spatial Leave-P-Out. "
+        "Other CV schemes are deterministic and do not depend on the seed."
+    ),
+    "cv_seed_reset_button": "♻️ Reset seed",
+    "step4_random_seed_reset_button": "♻️ Reset seed",
+    "random_kfold_title": "🎲 Random K-Fold / Random K-Fold (buffered)",
+    "recommended_k_text": "Recommended k",
+    "wells_count_text": "wells",
+    "kfold_caption": "k affects model stability and reliability.",
+    "kfold_slider_label": "k for Random K-Fold",
+    "block_cv_title": "🧱 Block / Buffered Cross Validation",
+    "recommended_grid_text": "Recommended Grid",
+    "median_distance_text": "median distance between wells",
+    "grid_caption": "Grid size should match well density.",
+    "grid_slider_label": "Grid for Block CV (N×N)",
+    "buffer_cv_title": "🧱 Buffered Cross Validation  / Random K-Fold (buffered)",
+    "recommended_buffer_text": "Recommended Buffer",
+    "buffer_based_on_median": "based on median distance between wells",
+    "buffer_caption": "Buffer removes points near the test block, reducing spatial dependence between training and testing. X and Y coordinates are in metres.",
+    "buffer_slider_label": "Buffer Zone (m)",
+    "leave_p_sp_out_title": "🔁 Leave-P-Out /Spatial Leave-P-Out",
+    "recommended_repeats_text": "Recommended Number of Repeats",
+    "cv_repeats_label": "Number of CV Repeats",
+    "cv_repeats_caption": "Used for Leave-P-Out and Spatial Leave-P-Out. Metrics are averaged across several random splits.",
+    "leave_p_out_title": "🔁 Leave-P-Out",
+    "leave_p_percent_label": "Leave-P-Out Test Size (%)",
+    "leave_p_percent_caption": "At each iteration, P% of wells are randomly excluded for validation.",
+    "spatial_leave_p_out_title": "📍 Spatial Leave-P-Out",
+    "recommended_radius_text": "Recommended Spatial Exclusion Radius",
+    "spatial_radius_caption": "Wells within the radius around the test point are excluded from training. X and Y coordinates are in metres.",
+    "spatial_radius_label": "Spatial Exclusion Radius (m)",
+    "strat_zone_col_label": "📚 Column for Stratified by Zone (CV)",
+    "strat_zone_col_none_hint": "The Stratified scheme will be disabled.",
+    "strat_zone_col_single_value_hint": "⚠️ Column '{col}' has only {n} unique value(s) — the Stratified scheme will be disabled.",
+    "distance_cv_title": "📈 Distance-Based Exclusion CV",
+    "distance_factor_label": "Median inter-well distance multiplier (Distance-based exclusion CV)",
+"distance_factor_caption": """0.5 — mild spatial filtering
+
+1.0 — recommended value
+
+1.5 — strict spatial filtering
+
+2.0–3.0 — very strict validation, nearly independent wells""",
+    "excl_radius_mode_label": "Exclusion radius mode",
+    "excl_radius_mode_median_factor": "Median inter-well distance multiplier",
+    "excl_radius_mode_absolute": "Absolute radius (m)",
+    "excl_radius_abs_label": "Exclusion radius (m)",
+    "excl_radius_abs_caption": "Wells within this distance (m) from the test point are excluded from training. X and Y coordinates are in metres.",
+})
+RU.update({
+    "outlier_iqr_k_label": "Множитель IQR (правило IQR)",
+    "outlier_pct_low_label": "Нижний перцентиль (правило перцентилей), %",
+    "outlier_pct_high_label": "Верхний перцентиль (правило перцентилей), %",
+})
+EN.update({
+    "outlier_iqr_k_label": "IQR multiplier (IQR rule)",
+    "outlier_pct_low_label": "Lower percentile (percentile rule), %",
+    "outlier_pct_high_label": "Upper percentile (percentile rule), %",
+})
+RU.update({
+    "best_scheme_criterion_label": "Критерий выбора лучшей схемы CV",
+    "best_scheme_criterion_rmse_plus_std": "RMSE + RMSE_fold_Std (по умолчанию)",
+    "best_scheme_criterion_rmse": "Минимальный RMSE",
+    "best_scheme_criterion_mae": "Минимальный MAE",
+    "best_scheme_criterion_r2": "Максимальный R² (Actual = Predicted)",
+    "best_scheme_criterion_rmse_plus_abs_bias": "RMSE + |Bias|",
+    "best_scheme_criterion_manual": "Выбрать вручную",
+    "best_scheme_manual_label": "Схема CV",
+    "best_scheme_score_caption": "Колонка `score` рассчитана по критерию: **{criterion}**",
+})
+EN.update({
+    "best_scheme_criterion_label": "Best CV scheme selection criterion",
+    "best_scheme_criterion_rmse_plus_std": "RMSE + RMSE_fold_Std (default)",
+    "best_scheme_criterion_rmse": "Min RMSE",
+    "best_scheme_criterion_mae": "Min MAE",
+    "best_scheme_criterion_r2": "Max R² (Actual = Predicted)",
+    "best_scheme_criterion_rmse_plus_abs_bias": "RMSE + |Bias|",
+    "best_scheme_criterion_manual": "Select manually",
+    "best_scheme_manual_label": "CV scheme",
+    "best_scheme_score_caption": "The `score` column is calculated by criterion: **{criterion}**",
+})
+RU.update({
+    "cv_r2_col_label": "R² (Actual = Predicted)",
+})
+EN.update({
+    "cv_r2_col_label": "R² (Actual = Predicted)",
+})
+RU.update({
+    "cv_npred_mismatch_warning": "Схемы CV покрывают разное число точек: {n_min}–{n_max}. Сравнивать их напрямую не совсем корректно.",
+})
+EN.update({
+    "cv_npred_mismatch_warning": "CV schemes cover different numbers of points: {n_min}–{n_max}. It's not entirely accurate to compare them directly.",
+})
+RU.update({
+    "cv_pearson_r2_col_label": "R² (Pearson, Predicted vs Actual)",
+})
+EN.update({
+    "cv_pearson_r2_col_label": "R² (Pearson, Predicted vs Actual)",
+})
+
+RU.update({
+    "step4_rand_series_title": "Распределение R² (Pearson) при случайном исключении скважин",
+    "step4_rand_series_title_in": "Распределение R² (Pearson), in-sample, при случайном исключении скважин",
+    "step4_rand_series_title_out": "Распределение R² (Pearson), out-of-sample, при случайном исключении скважин",
+    "step4_rand_series_box_title_in": "Boxplot: разброс R² (Pearson), in-sample, по уровням исключения",
+    "step4_rand_series_box_title_out": "Boxplot: разброс R² (Pearson), out-of-sample, по уровням исключения",
+    "step4_rand_series_caption": "Для каждого уровня (5–95 %) выбирается заданное в сайдбаре число случайных наборов скважин; каждая скважина исключается целиком. In-sample: r² считается по оставшимся скважинам, на которых обучалась линия. Out-of-sample: линия обучается на оставшихся скважинах, а r² считается по исключённым, которых модель не видела. Оба режима используют одни и те же наборы.",  
+    "step4_n_sets_label": "Число наборов на уровень",
+    "step4_n_sets_shown": "Число наборов",
+    "step4_rand_series_seed_label": "Текущий seed", 
+    "step4_rand_series_run": "Запустить расчёт",  
+    "step4_rand_series_spinner": "Расчёт серии исключений...",  
+    "step4_rand_series_not_run": "Нажмите «Запустить расчёт», чтобы получить распределение.",  
+    "step4_rand_series_seed_changed": "Seed или число наборов изменены после последнего расчёта. Нажмите «Запустить расчёт», чтобы обновить результат.",  
+    "step4_rand_series_status_ok": "OK",  
+    "step4_rand_series_status_skipped": "не считалось: осталось мало скважин", 
+    "step4_rand_series_status_no_valid": "нет валидных значений",  
+    "step4_rand_series_box_step": "Шаг уровней для boxplot",  
+    "step4_rand_series_zone_label": "Уровень исключения",  
+    "step4_rand_series_no_data": "Нет данных для выбранного шага уровней.",  
+})
+EN.update({
+    "step4_rand_series_title": "Pearson R² distribution under random well exclusion",
+    "step4_rand_series_title_in": "Pearson R² distribution, in-sample, under random well exclusion",
+    "step4_rand_series_title_out": "Pearson R² distribution, out-of-sample, under random well exclusion",
+    "step4_rand_series_box_title_in": "Boxplot: Pearson R² spread, in-sample, by exclusion level",
+    "step4_rand_series_box_title_out": "Boxplot: Pearson R² spread, out-of-sample, by exclusion level",
+    "step4_rand_series_caption": "For each level (5–95 %), the number of random well sets set in the sidebar is drawn; each well is excluded entirely. In-sample: r² is computed on the remaining wells, which the line was fitted on. Out-of-sample: the line is fitted on the remaining wells, and r² is computed on the excluded wells the model has not seen. Both modes use the same sets.",
+    "step4_n_sets_label": "Number of sets per level",
+    "step4_n_sets_shown": "Number of sets",
+    "step4_rand_series_seed_label": "Current seed",
+    "step4_rand_series_run": "Run calculation",
+    "step4_rand_series_spinner": "Computing exclusion series...",
+    "step4_rand_series_not_run": "Press «Run calculation» to get the distribution.",
+    "step4_rand_series_seed_changed": "Seed or number of sets changed since the last run. Press «Run calculation» to update the result.",
+    "step4_rand_series_status_ok": "OK",
+    "step4_rand_series_status_skipped": "not computed: too few wells left",
+    "step4_rand_series_status_no_valid": "no valid values",
+    "step4_rand_series_box_step": "Level step for boxplot",
+    "step4_rand_series_zone_label": "Exclusion level",
+    "step4_rand_series_no_data": "No data for the selected level step.",
+})
+
+
+# ================================================================
+# Обновление: выбор параметров в Шаге 1, блоки корреляции, H_eff/Phi
+# ================================================================
+RU.update({
+    "heff_col_label": "Колонка H_eff",
+    "phi_col_label": "Колонка Phi",
+    "heff_units_label": "Единицы H_eff",
+    "phi_units_label": "Единицы Phi",
+    "step1_select_title": "Выбор параметров",
+    "step1_no_attributes_msg": "В данных нет сейсмических атрибутов для анализа.",
+    "select_horizon_warning": "Выберите хотя бы один горизонт.",
+    "step0_corr_need_two_msg": "Для блока нужно минимум два параметра.",
+    "corr_pick_attrs_label": "Атрибуты для корреляции",
+    "corr_block_heffphi_title": "Корреляция и pairplot: H_eff и Phi",
+})
+
+EN.update({
+    "heff_col_label": "H_eff column",
+    "phi_col_label": "Phi column",
+    "heff_units_label": "H_eff units",
+    "phi_units_label": "Phi units",
+    "step1_select_title": "Parameter selection",
+    "step1_no_attributes_msg": "No seismic attributes in the data for analysis.",
+    "select_horizon_warning": "Select at least one horizon.",
+    "step0_corr_need_two_msg": "At least two parameters are needed for this block.",
+    "corr_pick_attrs_label": "Attributes for correlation",
+    "corr_block_heffphi_title": "Correlation and pairplot: H_eff and Phi",
+})
+
+
+# ================================================================
+# Обновление: общая матрица корреляции, таблица пар с группами, pairplot H_eff / Phi
+# ================================================================
+RU.update({
+    "corr_overview_title": "Матрица корреляции: атрибуты, H_eff, Phi",
+    "corr_group_label": "Группа",
+    "corr_group_attr_attr": "атрибут – атрибут",
+    "corr_group_heff_attr": "H_eff – атрибут",
+    "corr_group_phi_attr": "Phi – атрибут",
+    "corr_group_heff_phi": "H_eff – Phi",
+    "corr_spearman_col_label": "ρ (Спирмен)",
+    "corr_pairplot_heff_title": "Pairplot: атрибуты и H_eff",
+    "corr_pairplot_phi_title": "Pairplot: атрибуты и Phi",
+    "heff_phi_crossplot_title": "Кросс-плот: H_eff и Phi",
+})
+
+EN.update({
+    "corr_overview_title": "Correlation matrix: attributes, H_eff, Phi",
+    "corr_group_label": "Group",
+    "corr_group_attr_attr": "attribute – attribute",
+    "corr_group_heff_attr": "H_eff – attribute",
+    "corr_group_phi_attr": "Phi – attribute",
+    "corr_group_heff_phi": "H_eff – Phi",
+    "corr_spearman_col_label": "ρ (Spearman)",
+    "corr_pairplot_heff_title": "Pairplot: attributes and H_eff",
+    "corr_pairplot_phi_title": "Pairplot: attributes and Phi",
+    "heff_phi_crossplot_title": "Cross-plot: H_eff and Phi",
+})
+
+# Дополнение: ключи, добавленные ранее
+
+RU.update({
+    "corr_pairs_weak_title": "Пары параметров с коэффициентом корреляции меньше или равно {threshold}",
+    "corr_weak_threshold_label": "Порог КК (|КК| ≤)",
+    "step0_reservoir_params_title": "Параметры пласта: Нэф и Кп",
+    "contents_data_res": "Параметры пласта: Нэф и Кп",
+})
+EN.update({
+    "corr_pairs_weak_title": "Parameter pairs with correlation coefficient less than or equal to {threshold}",
+    "corr_weak_threshold_label": "CC threshold (|CC| ≤)",
+    "step0_reservoir_params_title": "Reservoir parameters: H_eff (net pay) and Phi (porosity)",
+    "contents_data_res": "Reservoir parameters: H_eff and Phi",
+})
+
+RU.update({
+    "delta_help_step1": "Δ на Шаге 1 = PARAM_1 − PARAM_2 (эталон минус атрибут): положительная Δ означает, что PARAM_1 выше PARAM_2.",
+    "delta_help_cv": "Δ в аппроксимациях и метриках CV = Predicted − Actual (предсказание минус факт). Положительный Bias означает, что модель завышает значение.",
+    "delta_help_residual": "Графики CV-невязок и карта невязок: Actual − Predicted (факт минус предсказание). Положительная невязка означает, что модель занижает значение.",
+})
+EN.update({
+    "delta_help_step1": "Δ at Step 1 = PARAM_1 − PARAM_2 (reference minus attribute): a positive Δ means PARAM_1 is above PARAM_2.",
+    "delta_help_cv": "Δ in fits and CV metrics = Predicted − Actual (prediction minus observed). A positive Bias means the model overestimates the value.",
+    "delta_help_residual": "CV residual plots and residual map: Actual − Predicted (observed minus prediction). A positive residual means the model underestimates the value.",
+})
+RU.update({
+    "hist_ylabel_count": "Количество",
+    "hist_ylabel_probability": "Доля",
+    "hist_ylabel_density": "Плотность",
+    "hist_ylabel_prob_density": "Плотность вероятности",
+    "hist_ylabel_percent": "Доля, %",
+})
+EN.update({
+    "hist_ylabel_count": "Count",
+    "hist_ylabel_probability": "Probability",
+    "hist_ylabel_density": "Density",
+    "hist_ylabel_prob_density": "Probability density",
+    "hist_ylabel_percent": "Percent, %",
+})
+
+RU.update({
+    "step5_title": "Шаг 5 · Многоатрибутная регрессия",
+    "step5_intro": "Отдельная линейная модель для H_eff и для Phi на нескольких сейсмических атрибутах. Перебираются все комбинации до k_max атрибутов, оценка по LOWO и K-fold по скважинам, критерий выбора — RMSE_cv.",
+    "step5_too_few_wells": "Для многоатрибутной регрессии нужно не меньше 3 скважин в данных.",
+    "step5_kinfo": "k_max = {kmax} (скважин: {n_wells}, атрибутов-кандидатов: {n_cand}, пар с |r| > 0.8 исключено: {excluded}). K-fold: K = {K} фолдов по скважинам.",
+    "step5_lowo_title": "Топ-5 моделей: Leave-One-Well-Out",
+    "step5_kfold_title": "Топ-5 моделей: K-fold по скважинам",
+    "step5_coef_expander": "Коэффициенты: {param}, ранг {rank}",
+    "step5_crossplot_title": "Cross-plot Predicted vs Actual: {param}, {scheme}",
+    "step5_contrib_title": "Вклад атрибутов (стандартизованные коэффициенты): {param}, {scheme}",
+    "step5_col_parameter": "Параметр",
+    "step5_col_rank": "Ранг",
+    "step5_col_attributes": "Атрибуты",
+    "step5_col_k": "k",
+    "step5_col_rmse": "RMSE_cv",
+    "step5_col_r2": "R²_cv (Pearson, Predicted vs Actual)",
+    "step5_col_wape": "WAPE_cv, %",
+    "step5_col_bias": "Bias_cv",
+    "step5_col_delta": "ΔRMSE к лучшей одноатрибутной",
+    "step5_col_accepted": "Принята",
+    "step5_acc_yes": "да",
+    "step5_acc_no": "нет",
+    "step5_acc_single": "одноатрибутная",
+    "step5_axis_actual": "Actual",
+    "step5_axis_predicted": "Predicted",
+    "step5_axis_contrib": "Стандартизованный коэффициент",
+    "step5_regression_label": "Регрессия (CV)",
+})
+EN.update({
+    "step5_title": "Step 5 · Multi-attribute regression",
+    "step5_intro": "A separate linear model for H_eff and for Phi on several seismic attributes. All combinations up to k_max attributes are tried, evaluated by LOWO and K-fold by wells, selection criterion RMSE_cv.",
+    "step5_too_few_wells": "Multi-attribute regression needs at least 3 wells in the data.",
+    "step5_kinfo": "k_max = {kmax} (wells: {n_wells}, candidate attributes: {n_cand}, pairs with |r| > 0.8 excluded: {excluded}). K-fold: K = {K} folds by wells.",
+    "step5_lowo_title": "Top-5 models: Leave-One-Well-Out",
+    "step5_kfold_title": "Top-5 models: K-fold by wells",
+    "step5_coef_expander": "Coefficients: {param}, rank {rank}",
+    "step5_crossplot_title": "Cross-plot Predicted vs Actual: {param}, {scheme}",
+    "step5_contrib_title": "Attribute contribution (standardized coefficients): {param}, {scheme}",
+    "step5_col_parameter": "Parameter",
+    "step5_col_rank": "Rank",
+    "step5_col_attributes": "Attributes",
+    "step5_col_k": "k",
+    "step5_col_rmse": "RMSE_cv",
+    "step5_col_r2": "R²_cv (Pearson, Predicted vs Actual)",
+    "step5_col_wape": "WAPE_cv, %",
+    "step5_col_bias": "Bias_cv",
+    "step5_col_delta": "ΔRMSE to best single-attribute",
+    "step5_col_accepted": "Accepted",
+    "step5_acc_yes": "yes",
+    "step5_acc_no": "no",
+    "step5_acc_single": "single-attribute",
+    "step5_axis_actual": "Actual",
+    "step5_axis_predicted": "Predicted",
+    "step5_axis_contrib": "Standardized coefficient",
+    "step5_regression_label": "Regression (CV)",
+})
+
+RU.update({
+    "contents_step5": "Шаг 5 · Многоатрибутная регрессия",
+    "contents_step5_lowo": "Топ-5 моделей: Leave-One-Well-Out",
+    "contents_step5_kfold": "Топ-5 моделей: K-fold по скважинам",
+    "step5_singles_caption": "Одноатрибутные модели — базовый уровень для сравнения (RMSE_cv, R²_cv):",
+    "step5_top_caption": "Топ-5 многоатрибутных и одноатрибутных моделей:",
+})
+EN.update({
+    "contents_step5": "Step 5 · Multi-attribute regression",
+    "contents_step5_lowo": "Top-5 models: Leave-One-Well-Out",
+    "contents_step5_kfold": "Top-5 models: K-fold by wells",
+    "step5_singles_caption": "Single-attribute models — baseline for comparison (RMSE_cv, R²_cv):",
+    "step5_top_caption": "Top-5 multi-attribute and single-attribute models:",
+})
+RU.update({
+    "cv_r_col_label": "r (Pearson, Predicted vs Actual)",
+    "step5_col_r": "r_cv (Pearson, Predicted vs Actual)",
+})
+EN.update({
+    "cv_r_col_label": "r (Pearson, Predicted vs Actual)",
+    "step5_col_r": "r_cv (Pearson, Predicted vs Actual)",
+})
+
+RU.update({"step5_col_equation": "Уравнение"})
+EN.update({"step5_col_equation": "Equation"})
+
+RU.update({"bar_group_step5_title": "Шаг 5: вклад атрибутов"})
+EN.update({"bar_group_step5_title": "Step 5: attribute contribution"})
+
+RU.update({
+    "step5_fit_crossplot_title": "Кросс-плот: параметр vs атрибуты лучшей модели (in-sample): {param}, {scheme}",
+    "step5_axis_fitted": "Fitted (in-sample), модель лучшего ранга",
+})
+EN.update({
+    "step5_fit_crossplot_title": "Cross-plot: parameter vs best-model attributes (in-sample): {param}, {scheme}",
+    "step5_axis_fitted": "Fitted (in-sample), best-rank model",
+})
+
+RU.update({"step5_single_crossplot_title": "Кросс-плот: {param} vs {attr} (лучший одноатрибутный): {scheme}"})
+EN.update({"step5_single_crossplot_title": "Cross-plot: {param} vs {attr} (best single-attribute): {scheme}"})
+
+RU.update({"step5_model_label": "Модель"})
+EN.update({"step5_model_label": "Model"})
+
+RU.update({
+    "step5_col_equation": "Equation",
+    "step5_single_crossplot_title": "Cross-plot: {param} vs {attr} (лучший одноатрибутный): {scheme}",
+    "step5_fit_crossplot_title": "Cross-plot: {param} vs атрибуты лучшей модели (in-sample): {scheme}",
+    "step5_equation_caption": "Equation: {eq}",
+})
+EN.update({
+    "step5_equation_caption": "Equation: {eq}",
+})
+
+RU.update({
+    "step5_col_rmse_in": "RMSE_in",
+    "step5_col_r2_in": "R²_in (Pearson)",
+    "step5_col_r_in": "r_in (Pearson, Predicted vs Actual)",
+    "step5_col_bias_in": "Bias_in",
+    "step5_col_cv_a": "CV a (Predicted = a + b·Actual)",
+    "step5_col_cv_b": "CV b",
+    "step5_insample_singles_caption": "In-sample: single-attribute models (RMSE_in, R²_in, r_in, Equation):",
+    "step5_insample_top_caption": "In-sample: top-5 models (RMSE_in, R²_in, r_in, Equation):",
+})
+EN.update({
+    "step5_col_rmse_in": "RMSE_in",
+    "step5_col_r2_in": "R²_in (Pearson)",
+    "step5_col_r_in": "r_in (Pearson, Predicted vs Actual)",
+    "step5_col_bias_in": "Bias_in",
+    "step5_col_cv_a": "CV a (Predicted = a + b·Actual)",
+    "step5_col_cv_b": "CV b",
+    "step5_insample_singles_caption": "In-sample: single-attribute models (RMSE_in, R²_in, r_in, Equation):",
+    "step5_insample_top_caption": "In-sample: top-5 models (RMSE_in, R²_in, r_in, Equation):",
+})
+
+RU.update({
+    "step5_tbl_singles_in_title": "Одноатрибутные модели — базовый уровень для сравнения In-sample (RMSE_in, R²_in)",
+    "step5_tbl_singles_cv_title": "Одноатрибутные модели — базовый уровень для сравнения Out-of-sample (RMSE_cv, R²_cv)",
+    "step5_tbl_top_in_title": "Топ-5 многоатрибутных моделей In-sample (RMSE_in, R²_in)",
+    "step5_tbl_top_cv_title": "Топ-5 многоатрибутных моделей Out-of-sample (RMSE_cv, R²_cv)",
+})
+EN.update({
+    "step5_tbl_singles_in_title": "Single-attribute models — baseline for comparison In-sample (RMSE_in, R²_in)",
+    "step5_tbl_singles_cv_title": "Single-attribute models — baseline for comparison Out-of-sample (RMSE_cv, R²_cv)",
+    "step5_tbl_top_in_title": "Top-5 multi-attribute models In-sample (RMSE_in, R²_in)",
+    "step5_tbl_top_cv_title": "Top-5 multi-attribute models Out-of-sample (RMSE_cv, R²_cv)",
+})
+
+RU.update({
+    "contents_step5_lowo": "Out-of-sample: Leave-One-Well-Out",
+    "contents_step5_kfold": "Out-of-sample: K-fold по скважинам",
+    "contents_step5_heff": "H_eff",
+    "contents_step5_phi": "Phi",
+})
+EN.update({
+    "contents_step5_lowo": "Out-of-sample: Leave-One-Well-Out",
+    "contents_step5_kfold": "Out-of-sample: K-fold by wells",
+    "contents_step5_heff": "H_eff",
+    "contents_step5_phi": "Phi",
+})
+
+RU.update({
+    "step5_cp_single_in_title": "Cross-plot In-sample: {param} vs {attr} (лучший одноатрибутный): {scheme}",
+    "step5_cp_single_oos_title": "Cross-plot Out-of-sample: {param} vs {attr} (лучший одноатрибутный): {scheme}",
+    "step5_cp_multi_in_title": "Cross-plot In-sample: {param} vs лучший многоатрибутный набор: {scheme}",
+    "step5_cp_multi_oos_title": "Cross-plot Out-of-sample: {param} vs лучший многоатрибутный набор: {scheme}",
+})
+EN.update({
+    "step5_cp_single_in_title": "Cross-plot In-sample: {param} vs {attr} (best single-attribute): {scheme}",
+    "step5_cp_single_oos_title": "Cross-plot Out-of-sample: {param} vs {attr} (best single-attribute): {scheme}",
+    "step5_cp_multi_in_title": "Cross-plot In-sample: {param} vs best multi-attribute set: {scheme}",
+    "step5_cp_multi_oos_title": "Cross-plot Out-of-sample: {param} vs best multi-attribute set: {scheme}",
+})
+
+# ---------- Шаг 5: выбор атрибутов для MLR (сайдбар) ----------
+RU.update({
+    "step5_sidebar_expander": "🔗 Выбор атрибутов для MLR",
+    "step5_mode_label": "Набор атрибутов",
+    "step5_mode_auto": "Авто: все числовые колонки (кроме идентификаторов, координат и H_eff / Phi)",
+    "step5_mode_manual": "Выбрать вручную",
+    "step5_manual_label": "Атрибуты для многоатрибутной регрессии",
+    "step5_manual_empty": "Выберите хотя бы один атрибут.",
+})
+EN.update({
+    "step5_sidebar_expander": "🔗 Attribute selection for MLR",
+    "step5_mode_label": "Attribute set",
+    "step5_mode_auto": "Auto: all numeric columns (except identifiers, coordinates and H_eff / Phi)",
+    "step5_mode_manual": "Select manually",
+    "step5_manual_label": "Attributes for multi-attribute regression",
+    "step5_manual_empty": "Select at least one attribute.",
+})
