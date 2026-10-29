@@ -1363,8 +1363,35 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
     """
     cands = [c for c in candidates if c in df.columns]
 
-    def _fmt4(v):
-        return "" if v is None or (isinstance(v, float) and not np.isfinite(v)) else f"{v:.4f}"
+    # Число знаков после запятой для каждой метрики Шага 5.
+    # Меняйте здесь — это единственное место, где задаётся точность по колонкам.
+    STEP5_FMT = {
+        "RMSE_cv": 4,
+        "R2_cv": 4,
+        "r_cv": 4,
+        "WAPE_cv": 4,
+        "Bias_cv": 5,
+        "DeltaRMSE": 4,
+        "RMSE_in": 4,
+        "R2_in": 4,
+        "r_in": 4,
+        "Bias_in": 4,
+        "Coefficient": 4,
+        "StdCoefficient": 4,
+    }
+
+    def _fmt(col, v):
+        """Форматирует v по числу знаков из STEP5_FMT[col]. Пусто, если NaN/None."""
+        nd = STEP5_FMT.get(col, 4)
+        if v is None:
+            return ""
+        try:
+            f = float(v)
+        except (TypeError, ValueError):
+            return v
+        if not np.isfinite(f):
+            return ""
+        return f"{f:.{nd}f}"
 
     out = {"ok": False, "n_wells": 0, "kmax": 0, "excluded_pairs": 0, "kfold_K": None, "schemes": {}}
     base = df.dropna(subset=["well_id"]).reset_index(drop=True)
@@ -1408,10 +1435,10 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
 
         singles_in_param = [
             {"Parameter": param, "Rank": r, "Attributes": e["attr"], "k": 1, "n": e["n"],
-             "RMSE_in": _fmt4(e["m"]["RMSE_in"]),
-             "R2_in": _fmt4(e["m"]["R2_in"]),
-             "r_in": _fmt4(e["m"]["r_in"]),
-             "Bias_in": _fmt4(e["m"]["Bias_in"]),
+             "RMSE_in": _fmt(e["m"]["RMSE_in"]),
+             "R2_in": _fmt(e["m"]["R2_in"]),
+             "r_in": _fmt(e["m"]["r_in"]),
+             "Bias_in": _fmt(e["m"]["Bias_in"]),
              "Equation": _step5_equation(param, e["beta"][0], [e["attr"]], e["beta"][1:])}
             for r, e in enumerate(ins, start=1)
         ]
@@ -1471,9 +1498,9 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
                 cv_a, cv_b = _step5_line(e["y"], e["oof"])
                 sc["singles_rows"].append({
                     "Parameter": param, "Rank": r, "Attributes": e["combo"][0], "k": 1, "n": e["n"],
-                    "RMSE_cv": _fmt4(e["rmse_cv"]), "R2_cv": _fmt4(e["r2_cv"]), "r_cv": _fmt4(e["r_cv"]),
-                    "WAPE_cv": _fmt4(e["wape_cv"]), "Bias_cv": _fmt4(e["bias_cv"]),
-                    "DeltaRMSE": _fmt4(e["rmse_cv"] - base_rmse), "Accepted": "single",
+                    "RMSE_cv": _fmt(e["rmse_cv"]), "R2_cv": _fmt(e["r2_cv"]), "r_cv": _fmt(e["r_cv"]),
+                    "WAPE_cv": _fmt(e["wape_cv"]), "Bias_cv": _fmt(e["bias_cv"]),
+                    "DeltaRMSE": _fmt(e["rmse_cv"] - base_rmse), "Accepted": "single",
                     "Equation": _step5_cv_equation(cv_a, cv_b),
                 })
             # топ-N (out-of-sample) и их in-sample
@@ -1488,9 +1515,9 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
                 attrs_txt = ", ".join(e["combo"])
                 sc["top_rows"].append({
                     "Parameter": param, "Rank": rank, "Attributes": attrs_txt, "k": e["k"], "n": e["n"],
-                    "RMSE_cv": _fmt4(e["rmse_cv"]), "R2_cv": _fmt4(e["r2_cv"]), "r_cv": _fmt4(e["r_cv"]),
-                    "WAPE_cv": _fmt4(e["wape_cv"]), "Bias_cv": _fmt4(e["bias_cv"]),
-                    "DeltaRMSE": _fmt4(delta), "Accepted": accepted,
+                    "RMSE_cv": _fmt(e["rmse_cv"]), "R2_cv": _fmt(e["r2_cv"]), "r_cv": _fmt(e["r_cv"]),
+                    "WAPE_cv": _fmt(e["wape_cv"]), "Bias_cv": _fmt(e["bias_cv"]),
+                    "DeltaRMSE": _fmt(delta), "Accepted": accepted,
                     "Equation": _step5_cv_equation(cv_a, cv_b),
                 })
                 # in-sample для той же модели (полная выборка модели)
@@ -1511,10 +1538,10 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
                 eq_in = _step5_equation(param, beta_in[0], e["combo"], beta_in[1:])
                 sc["top_in_rows"].append({
                     "Parameter": param, "Rank": rank, "Attributes": attrs_txt, "k": e["k"], "n": n_in,
-                    "RMSE_in": _fmt4(m_in["RMSE_in"]),
-                    "R2_in": _fmt4(m_in["R2_in"]),
-                    "r_in": _fmt4(m_in["r_in"]),
-                    "Bias_in": _fmt4(m_in["Bias_in"]),
+                    "RMSE_in": _fmt(m_in["RMSE_in"]),
+                    "R2_in": _fmt(m_in["R2_in"]),
+                    "r_in": _fmt(m_in["r_in"]),
+                    "Bias_in": _fmt(m_in["Bias_in"]),
                     "Equation": eq_in,
                 })
                 # коэффициенты (in-sample) и данные для графиков
@@ -1523,7 +1550,7 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
                 std_coef = beta_in[1:] * sx / sy if sy > 0 else np.full(len(e["combo"]), np.nan)
                 coef_df = pd.DataFrame({
                     "Term": ["intercept", *e["combo"]],
-                    "Coefficient": [_fmt4(v) for v in beta_in],
+                    "Coefficient": [_fmt(v) for v in beta_in],
                     "StdCoefficient": ["" if not np.isfinite(v) else f"{v:.4f}" for v in np.concatenate([[np.nan], std_coef])],
                 })
                 coef_rows_item = coef_df.copy()
