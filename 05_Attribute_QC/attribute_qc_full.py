@@ -1362,6 +1362,10 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
     top_in (модели top-N схемы). Out-of-sample (CV): singles, table; уравнение = среднее коэффициентов по фолдам.
     """
     cands = [c for c in candidates if c in df.columns]
+
+    def _fmt4(v):
+        return "" if v is None or (isinstance(v, float) and not np.isfinite(v)) else f"{v:.4f}"
+
     out = {"ok": False, "n_wells": 0, "kmax": 0, "excluded_pairs": 0, "kfold_K": None, "schemes": {}}
     base = df.dropna(subset=["well_id"]).reset_index(drop=True)
     n_wells = int(base["well_id"].nunique())
@@ -1401,8 +1405,13 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
             ins.append({"attr": a, "n": len(dd), "beta": beta, "m": m})
         ins.sort(key=lambda e: e["m"]["RMSE_in"])
         ins_by_attr = {e["attr"]: e for e in ins}
+
         singles_in_param = [
-            {"Parameter": param, "Rank": r, "Attributes": e["attr"], "k": 1, "n": e["n"], **e["m"],
+            {"Parameter": param, "Rank": r, "Attributes": e["attr"], "k": 1, "n": e["n"],
+             "RMSE_in": _fmt4(e["m"]["RMSE_in"]),
+             "R2_in": _fmt4(e["m"]["R2_in"]),
+             "r_in": _fmt4(e["m"]["r_in"]),
+             "Bias_in": _fmt4(e["m"]["Bias_in"]),
              "Equation": _step5_equation(param, e["beta"][0], [e["attr"]], e["beta"][1:])}
             for r, e in enumerate(ins, start=1)
         ]
@@ -1462,12 +1471,11 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
                 cv_a, cv_b = _step5_line(e["y"], e["oof"])
                 sc["singles_rows"].append({
                     "Parameter": param, "Rank": r, "Attributes": e["combo"][0], "k": 1, "n": e["n"],
-                    "RMSE_cv": e["rmse_cv"], "R2_cv": e["r2_cv"], "r_cv": e["r_cv"],
-                    "WAPE_cv": e["wape_cv"], "Bias_cv": e["bias_cv"],
-                    "DeltaRMSE": e["rmse_cv"] - base_rmse, "Accepted": "single",
+                    "RMSE_cv": _fmt4(e["rmse_cv"]), "R2_cv": _fmt4(e["r2_cv"]), "r_cv": _fmt4(e["r_cv"]),
+                    "WAPE_cv": _fmt4(e["wape_cv"]), "Bias_cv": _fmt4(e["bias_cv"]),
+                    "DeltaRMSE": _fmt4(e["rmse_cv"] - base_rmse), "Accepted": "single",
                     "Equation": _step5_cv_equation(cv_a, cv_b),
                 })
-
             # топ-N (out-of-sample) и их in-sample
             evaluated.sort(key=lambda e: e["rmse_cv"])
             for rank, e in enumerate(evaluated[:top_n], start=1):
@@ -1480,11 +1488,11 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
                 attrs_txt = ", ".join(e["combo"])
                 sc["top_rows"].append({
                     "Parameter": param, "Rank": rank, "Attributes": attrs_txt, "k": e["k"], "n": e["n"],
-                    "RMSE_cv": e["rmse_cv"], "R2_cv": e["r2_cv"], "r_cv": e["r_cv"], "WAPE_cv": e["wape_cv"],
-                    "Bias_cv": e["bias_cv"], "DeltaRMSE": delta, "Accepted": accepted,
+                    "RMSE_cv": _fmt4(e["rmse_cv"]), "R2_cv": _fmt4(e["r2_cv"]), "r_cv": _fmt4(e["r_cv"]),
+                    "WAPE_cv": _fmt4(e["wape_cv"]), "Bias_cv": _fmt4(e["bias_cv"]),
+                    "DeltaRMSE": _fmt4(delta), "Accepted": accepted,
                     "Equation": _step5_cv_equation(cv_a, cv_b),
                 })
-
                 # in-sample для той же модели (полная выборка модели)
                 if e["k"] == 1:
                     src = ins_by_attr[e["combo"][0]]
@@ -1503,17 +1511,20 @@ def step5_run(df, candidates, phi_upper=1.0, seed=S5_SEED, params=("H_eff", "Phi
                 eq_in = _step5_equation(param, beta_in[0], e["combo"], beta_in[1:])
                 sc["top_in_rows"].append({
                     "Parameter": param, "Rank": rank, "Attributes": attrs_txt, "k": e["k"], "n": n_in,
-                    **m_in, "Equation": eq_in,
+                    "RMSE_in": _fmt4(m_in["RMSE_in"]),
+                    "R2_in": _fmt4(m_in["R2_in"]),
+                    "r_in": _fmt4(m_in["r_in"]),
+                    "Bias_in": _fmt4(m_in["Bias_in"]),
+                    "Equation": eq_in,
                 })
-
                 # коэффициенты (in-sample) и данные для графиков
                 sx = X_in.std(axis=0)
                 sy = y_in.std()
                 std_coef = beta_in[1:] * sx / sy if sy > 0 else np.full(len(e["combo"]), np.nan)
                 coef_df = pd.DataFrame({
                     "Term": ["intercept", *e["combo"]],
-                    "Coefficient": beta_in,
-                    "StdCoefficient": np.concatenate([[np.nan], std_coef]),
+                    "Coefficient": [_fmt4(v) for v in beta_in],
+                    "StdCoefficient": ["" if not np.isfinite(v) else f"{v:.4f}" for v in np.concatenate([[np.nan], std_coef])],
                 })
                 coef_rows_item = coef_df.copy()
                 coef_rows_item.insert(0, "Rank", rank)
