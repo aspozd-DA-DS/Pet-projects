@@ -2999,6 +2999,11 @@ step1_data_hint = T["step1_data_hint"]
 
 st.markdown('<div id="step-1"></div>', unsafe_allow_html=True)
 st.markdown("---")
+st.markdown(
+    f"## {step1_title} "
+    f"{PARAM_1} vs {PARAM_2}"
+)
+
 # ---------------------------------------------------------------------- #
 # STEP 1.0
 # ---------------------------------------------------------------------- #
@@ -3014,12 +3019,6 @@ with col_s2:
     st.selectbox(param2_reference_label, ATTR_CANDIDATES, key="step1_param2")
 with col_s3:
     st.selectbox(param2_units_label, UNIT_OPTIONS, index=UNIT_OPTIONS.index("units"), key="step1_unit2")
-
-
-st.markdown(
-    f"## {step1_title} "
-    f"{PARAM_1} vs {PARAM_2}"
-)
 
 if len(df) < 2:
     st.warning(step1_not_enough_data)
