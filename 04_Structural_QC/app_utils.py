@@ -165,6 +165,7 @@ def compute_stats(data):
 def basicstats_to_dict(stats, equation):
     return {
         "R²_lin": f"{stats.r2:.4f}",
+        "r": f"{np.sign(stats.slope) * np.sqrt(max(stats.r2, 0.0)):.4f}",
         "RMSE": f"{stats.rmse:.4f}",
         "MSE": f"{stats.mse:.4f}",
         "MAE": f"{stats.mae:.4f}",
@@ -179,6 +180,7 @@ def basicstats_to_dict(stats, equation):
 def fitstats_to_dict(stats):
     return {
         "R²_fit": f"{stats.r2:.4f}",
+        "r": f"{stats.r:.4f}",
         "RMSE": f"{stats.rmse:.4f}",
         "MSE": f"{stats.mse:.4f}",
         "MAE": f"{stats.mae:.4f}",

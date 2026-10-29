@@ -70,6 +70,7 @@ class FitStats:
     std: float
     variance: float
     mape_pct: float
+    r: float = float("nan")
 
 # ================================================================================ #
 # Basic QC cross-plot — сравнение y vs x. Используется в Шаге 1 и Шаге 2
@@ -446,11 +447,12 @@ def compute_fit_stats(x: np.ndarray, y: np.ndarray, approx_type: str) -> FitStat
     mae = float(np.mean(np.abs(resid)))
     bias = float(np.mean(resid))
     r2 = float(r2_score(y, pred))
+    r_corr = float(np.corrcoef(y, pred)[0, 1]) if len(y) > 2 else float("nan")
     std = (float(np.std(resid, ddof=1)) if len(resid) > 1 else 0.0)
     variance = (float(np.var(resid, ddof=1)) if len(resid) > 1 else 0.0)
     mape_pct = float(np.mean(np.abs(resid)/ np.maximum(np.abs(y), 1e-9)) * 100)
     return FitStats(
-        r2=r2, rmse=rmse, mse=mse, mae=mae, bias=bias, residuals=resid, equation=eq,
+        r2=r2, r=r_corr, rmse=rmse, mse=mse, mae=mae, bias=bias, residuals=resid, equation=eq,
         std=std, variance=variance, mape_pct=mape_pct
     )
 
@@ -474,12 +476,13 @@ def compute_quantile_stats(x: np.ndarray, y: np.ndarray, tau: float) -> FitStats
     mae = float(np.mean(np.abs(resid)))
     bias = float(np.mean(resid))
     r2 = float(r2_score(y, pred))
+    r_corr = float(np.corrcoef(y, pred)[0, 1]) if len(y) > 2 else float("nan")
     std = (float(np.std(resid, ddof=1)) if len(resid) > 1 else 0.0)
     variance = (float(np.var(resid, ddof=1)) if len(resid) > 1 else 0.0)
     mape_pct = float(np.mean(np.abs(resid) / np.maximum(np.abs(y), 1e-9)) * 100)
 
     return FitStats(
-        r2=r2, rmse=rmse, mse=mse, mae=mae, bias=bias, residuals=resid, equation=eq,
+        r2=r2, r=r_corr, rmse=rmse, mse=mse, mae=mae, bias=bias, residuals=resid, equation=eq,
         std=std, variance=variance, mape_pct=mape_pct,
     )
 

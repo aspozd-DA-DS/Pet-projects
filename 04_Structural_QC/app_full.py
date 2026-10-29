@@ -4869,16 +4869,18 @@ if step4_ok:
     # --------------------------------------------------
     # STEP 4.4.: Таблица метрик до и после фильтрации
     # --------------------------------------------------
+    r_before = float(np.sign(basic.slope) * np.sqrt(max(basic.r2, 0.0)))
+    r_after = float(np.sign(basic_step4.slope) * np.sqrt(max(basic_step4.r2, 0.0)))
     comparison_df = pd.DataFrame({
-        "Metrics": ["Well", "R²_lin", "RMSE", "MSE", "MAE", "Bias", "Std", "Variance", "MAPE %"],
+        "Metrics": ["Well", "R²_lin", "r", "RMSE", "MSE", "MAE", "Bias", "Std", "Variance", "MAPE %"],
         "before filt": [
             f"{len(df)}",
-            basic.r2, basic.rmse, basic.mse, basic.mae,
+            basic.r2, r_before, basic.rmse, basic.mse, basic.mae,
             basic.bias, basic.std, basic.variance, basic.mape_pct,
         ],
         "after filt": [
             f"{len(df_step4)}",
-            basic_step4.r2, basic_step4.rmse, basic_step4.mse, basic_step4.mae,
+            basic_step4.r2, r_after, basic_step4.rmse, basic_step4.mse, basic_step4.mae,
             basic_step4.bias, basic_step4.std, basic_step4.variance, basic_step4.mape_pct,
         ]
     })
