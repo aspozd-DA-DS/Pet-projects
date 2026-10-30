@@ -2752,6 +2752,7 @@ for col in category_cols:
                 # число уникальных скважин в каждой категории
                 bar_series = df.groupby(col)["well_id"].nunique().sort_index()
                 bar_y_label = well_count_label
+                bar_title = f"{step0_well_count_title} : {display_name(col)}"
                 bar_show_percent = True
             else:
                 vals_local = pd.to_numeric(df[bar_load_value_col], errors="coerce")
@@ -2760,18 +2761,20 @@ for col in category_cols:
                     .dropna().sort_index()
                 )
                 bar_y_label = f"{T['crosstab_agg_' + bar_load_agg]}, {display_name(bar_load_value_col)}"
+                bar_title = f"{T['crosstab_agg_' + bar_load_agg]} {display_name(bar_load_value_col)} : {display_name(col)}"
                 bar_show_percent = False
             fig_bar = plot_bar_chart(
                 x=bar_series.index,
                 y=bar_series.values,
                 **style_load,
-                title=f"{step0_well_count_title} : {display_name(col)}",
+                title=bar_title,
                 yaxis_title=bar_y_label,
                 show_percent=bar_show_percent,
             )
             st.plotly_chart(fig_bar, use_container_width=True)
 
         # Таблица статистики по категории: число скважин, записей и доля скважин
+        st.markdown(f"**{crosstab_table_title}: {display_name(col)}**")
         cat_stats_table = category_stats_table(
             df, col,
             T["cat_stats_wells"], T["cat_stats_records"], T["cat_stats_share"],
@@ -2780,6 +2783,30 @@ for col in category_cols:
         st.dataframe(cat_stats_table, use_container_width=True, hide_index=True)
         excel_download_button(cat_stats_table, f"attribute_qc_category_{col}",
                               key=f"download_excel_cat_stats_{col}")
+
+        # ---- Таблица агрегаций по категории ----
+        well_counts = df.groupby(col)["well_id"].nunique().sort_index()
+
+        agg_table = well_counts.to_frame(name=well_count_label)
+
+        if bar_load_value_col is not None:
+            vals_all = pd.to_numeric(df[bar_load_value_col], errors="coerce")
+            agg_extra = (
+                vals_all.groupby(df[col])
+                        .agg(["min", "max", "median", "mean", "std"])
+                        .sort_index()
+            )
+            agg_table = agg_table.join(agg_extra)
+            table_title = f"{T['crosstab_table_title']}: {display_name(bar_load_value_col)}"
+        else:
+            table_title = f"{T['crosstab_table_title']}: {display_name(col)}"
+
+        agg_table = agg_table.rename_axis(display_name(col)).reset_index()
+
+        st.markdown(f"**{table_title}**")
+        st.dataframe(agg_table, use_container_width=True, hide_index=True)
+        excel_download_button(agg_table, f"attribute_qc_bar_aggs_{col}",
+                              key=f"download_excel_bar_aggs_{col}")
 
 # Круговые диаграммы по нескольким категориям (перед сгруппированной)
 # ------------------------------------------------- #
@@ -2878,7 +2905,39 @@ if category_cols:
         )
         st.plotly_chart(fig_crosstab, use_container_width=True)
 
+        # ---- Общий заголовок для обеих таблиц ----
         st.markdown(f"#### {crosstab_table_title}")
+
+        # ---- 1. Таблица к мульти-пирогам (не зависит от crosstab_agg) ----
+        st.markdown(
+            f"**{T['step0_multi_pie_title']}: "
+            f"{display_name(pies_x_col)} × {display_name(pies_group_col)}**"
+        )
+        table_pies = crosstab_stats_table(
+            df=df,
+            x_col=pies_x_col,
+            group_col=pies_group_col,
+            x_label=display_name(pies_x_col),
+            group_label=display_name(pies_group_col),
+            agg="count",
+            value_col=None,
+            total_label=crosstab_table_total,
+        )
+        st.dataframe(table_pies, use_container_width=True)
+        excel_download_button(table_pies, "attribute_qc_crosstab_pies",
+                              key="download_excel_crosstab_pies", index=True)
+
+        # ---- 2. Таблица к столбчатой диаграмме (зависит от crosstab_agg / crosstab_value_col) ----
+        if crosstab_agg == "count" or crosstab_value_col is None:
+            bar_agg_label = well_count_label
+        else:
+            bar_agg_label = f"{T['crosstab_agg_' + crosstab_agg]}, {display_name(crosstab_value_col)}"
+
+        st.markdown(
+            f"**{step0_crosstab_title}: "
+            f"{display_name(crosstab_x_col)} × {display_name(crosstab_group_col)} "
+            f"({bar_agg_label})**"
+        )
         table_crosstab = crosstab_stats_table(
             df=df,
             x_col=crosstab_x_col,
@@ -3437,13 +3496,18 @@ summary_df = pd.DataFrame({
     name: results[name]["summary"] for name in comparison.index
 }).T
 
+# r (Pearson, Predicted vs Actual) уже посчитан в summarize_cv (r_pooled)
+summary_df["r_pearson_pooled"] = summary_df["r_pooled"]
+
 r2_table_cols = [
-    "n_pred", "n_test_min", "n_test_max", "r2_pearson_pooled",
+    "n_pred", "n_test_min", "n_test_max",
+    "r2_pearson_pooled", "r_pearson_pooled",
     "r2_fold_min", "r2_fold_max", "r2_fold_std",
     "r2_fold_mean", "r2_fold_median",
 ]
 r2_table = summary_df[r2_table_cols].rename(columns={
-    "r2_pearson_pooled": "R² (Pearson, Predicted vs Actual)", 
+    "r2_pearson_pooled": "R² (Pearson, Predicted vs Actual)",
+    "r_pearson_pooled":  "r (Pearson, Predicted vs Actual)",
 })
 r2_table = r2_table.rename_axis("CV scheme").reset_index()
 
@@ -3458,6 +3522,7 @@ st.dataframe(
             "r2_fold_mean", "r2_fold_median",
         ]},
         "R² (Pearson, Predicted vs Actual)": "{:.4f}",
+        "r (Pearson, Predicted vs Actual)": "{:.4f}",
     }),
     use_container_width=True,
 )
@@ -3504,8 +3569,21 @@ else:
     st.info(step2_fold_boxplot_empty)
 
 st.markdown(f"#### {step2_cv_comparison_title}")
-comparison_display = comparison.rename(columns={"r2_actual_pred": cv_r2_col_label})
-comparison_display = comparison_display.reset_index()
+# r (Actual = Predicted): честный corr(Actual, Predicted) из summarize_cv
+comparison["r_actual_pred"] = comparison["r_pooled"]
+
+r_ap_col = "r (Actual = Predicted)"
+comparison_display = comparison.rename(columns={
+    "r2_actual_pred": cv_r2_col_label,
+    "r_actual_pred":  r_ap_col,
+}).reset_index()
+
+# порядок: вставить r сразу после R² (Actual = Predicted)
+cols_order = list(comparison_display.columns)
+if cv_r2_col_label in cols_order and r_ap_col in cols_order:
+    cols_order.remove(r_ap_col)
+    cols_order.insert(cols_order.index(cv_r2_col_label) + 1, r_ap_col)
+    comparison_display = comparison_display[cols_order]
 st.dataframe(
     comparison_display.style.format({
         "n_pred": "{:.0f}",
@@ -3513,6 +3591,7 @@ st.dataframe(
         "n_test_max": "{:.0f}",
 
         cv_r2_col_label: "{:.4f}",
+        r_ap_col: "{:.4f}",
         "rmse": "{:.2f}",
 
         "mae": "{:.2f}",
@@ -4010,6 +4089,7 @@ else:
     if step3_bar_agg == "count" or step3_bar_value_col is None:
         zone_series = df.groupby(category_col)["well_id"].nunique().sort_index()
         zone_y_label = well_count_label
+        zone_title = f"{step3_well_count_title} : {category_col}"
         zone_show_percent = True
     else:
         vals_s3 = pd.to_numeric(df[step3_bar_value_col], errors="coerce")
@@ -4018,19 +4098,26 @@ else:
             .dropna().sort_index()
         )
         zone_y_label = f"{T['crosstab_agg_' + step3_bar_agg]}, {display_name(step3_bar_value_col)}"
+        zone_title = f"{T['crosstab_agg_' + step3_bar_agg]} {display_name(step3_bar_value_col)} : {category_col}"
         zone_show_percent = False
+
     fig_zones = plot_bar_chart(
         x=zone_series.index,
         y=zone_series.values,
         **style_step3,
-        title=f"{step3_well_count_title} : {category_col}",
+        title=zone_title,
         yaxis_title=zone_y_label,
         show_percent=zone_show_percent,
     )
 
     st.plotly_chart(fig_zones, use_container_width=True)
 
+
+    # ---- Общий заголовок для обеих таблиц ----
     st.markdown(f"#### {step3_cat_stats_title}")
+
+    # ---- 1. Таблица по категориям: скважины / записи / доля ----
+    st.markdown(f"**{well_count_label}: {display_name(category_col)}**")
     cat_stats_step3 = category_stats_table(
         df, category_col,
         T["cat_stats_wells"], T["cat_stats_records"], T["cat_stats_share"],
@@ -4039,6 +4126,35 @@ else:
     st.dataframe(cat_stats_step3, use_container_width=True, hide_index=True)
     excel_download_button(cat_stats_step3, f"attribute_qc_step3_category_stats_{category_col}",
                           key=f"download_excel_step3_cat_stats_{category_col}")
+
+    # ---- 2. Таблица агрегаций по категориям (всегда полная) ----
+    agg_value_col_s3 = step3_bar_value_col     
+
+    well_counts_s3 = df.groupby(category_col)["well_id"].nunique().sort_index()
+    agg_table_s3 = well_counts_s3.to_frame(name=well_count_label)
+
+    if agg_value_col_s3 is not None:
+        vals_s3_all = pd.to_numeric(df[agg_value_col_s3], errors="coerce")
+        agg_extra_s3 = (
+            vals_s3_all.groupby(df[category_col])
+                        .agg(["min", "max", "median", "mean", "std"])
+                        .sort_index()
+        )
+        agg_table_s3 = agg_table_s3.join(agg_extra_s3)
+        table_title_s3 = f"{crosstab_table_title}: {display_name(agg_value_col_s3)}"
+    else:
+        table_title_s3 = f"{crosstab_table_title}: {display_name(category_col)}"
+
+    agg_table_s3 = agg_table_s3.rename_axis(display_name(category_col)).reset_index()
+
+    st.markdown(f"**{table_title_s3}**")
+    st.dataframe(agg_table_s3, use_container_width=True, hide_index=True)
+    excel_download_button(
+        agg_table_s3,
+        f"attribute_qc_step3_bar_aggs_{category_col}",
+        key=f"download_excel_step3_bar_aggs_{category_col}",
+    )
+
 
     # Цвета категорий из Sidebar
     zone_marker_colors = {zone: zone_point_colors.get(zone, "gray") for zone in zones}

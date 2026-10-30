@@ -438,7 +438,10 @@ def plot_category_pies(df, x_col, group_col, title, x_label, group_label,
 
         # проценты считаем от полного набора, до скрытия категорий в легенде
         full_total = float(row_counts.sum())
-        pct_texts = [f"{100 * v / full_total:.1f}%" for v in row_counts.values]
+        cell_texts = [
+            f"{label}<br>{int(v)}<br>{100 * v / full_total:.1f}%"
+            for label, v in zip(row_counts.index, row_counts.values)
+        ]
 
         fig.add_trace(go.Pie(
             labels=list(row_counts.index),
@@ -451,9 +454,9 @@ def plot_category_pies(df, x_col, group_col, title, x_label, group_label,
                 line=dict(color=outline_color, width=outline_width),
             ),
             opacity=opacity,
-            text=pct_texts,
+            text=cell_texts,
             textinfo="text",
-            customdata=pct_texts,
+            customdata=cell_texts,
             hovertemplate=(f"{group_label}: %{{label}}<br>"
                            "%{value} (%{customdata})<extra></extra>"),
             name=str(xv),
@@ -1907,13 +1910,9 @@ def build_zone_overview_plot(
                 if approx == "Quantile Regression (τ=0.1/0.5/0.9)":
                     dash_by_tau = {0.1: "dot", 0.5: "solid", 0.9: "dot"}
                     for tau, y_pred, _ in z_fit:
-                        try:
-                            eq_tau = cached_quantile_stats(xz, yz, tau).equation
-                        except Exception:
-                            eq_tau = f"τ={tau}"
                         fig.add_trace(go.Scatter(
                             x=x_line_z, y=y_pred, mode="lines",
-                            name=f"P{round(tau * 100)} — {zone}: {eq_tau}",
+                            name=f"P{round(tau * 100)} — {zone}",
                             line=dict(width=2, color=zone_curve_colors[zone], dash=dash_by_tau[tau]),
                         ))
 
@@ -1922,7 +1921,7 @@ def build_zone_overview_plot(
                     width_approx = approx_widths.get(approx, 2)
                     fig.add_trace(go.Scatter(
                         x=x_line_z, y=z_fit, mode="lines",
-                        name=f"{approx} — {zone}: {eq}",
+                        name=f"{approx} — {zone}",
                         line=dict(width=width_approx, color=zone_curve_colors[zone], dash=dash_approx),
                     ))
             except Exception:
