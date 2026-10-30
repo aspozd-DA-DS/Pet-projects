@@ -438,9 +438,12 @@ def plot_category_pies(df, x_col, group_col, title, x_label, group_label,
         row_counts = counts.loc[xv]
         row_counts = row_counts[row_counts > 0]
 
-        # проценты считаем от полного набора, до скрытия категорий в легенде
+        # подпись как в plot_zone_pie: категория + число + процент
         full_total = float(row_counts.sum())
-        pct_texts = [f"{100 * v / full_total:.1f}%" for v in row_counts.values]
+        cell_texts = [
+            f"{label}<br>{int(v)}<br>{100 * v / full_total:.1f}%"
+            for label, v in zip(row_counts.index, row_counts.values)
+        ]
 
         fig.add_trace(go.Pie(
             labels=list(row_counts.index),
@@ -453,9 +456,10 @@ def plot_category_pies(df, x_col, group_col, title, x_label, group_label,
                 line=dict(color=outline_color, width=outline_width),
             ),
             opacity=opacity,
-            text=pct_texts,
+            text=cell_texts,
             textinfo="text",
-            customdata=pct_texts,
+            textposition="inside",
+            customdata=cell_texts,
             hovertemplate=(f"{group_label}: %{{label}}<br>"
                            "%{value} (%{customdata})<extra></extra>"),
             name=str(xv),
@@ -785,6 +789,17 @@ def build_qc_crossplot(
         x_line=z_line_qc,
     )
 
+    # уравнение в имя линии регрессии (как в add_qc_line_to_zone_plot)
+    sign = "+" if coeffs_qc[1] >= 0 else "-"
+    eq_qc = (
+        f"{regression_name}: "
+        f"{y_label.split(',')[0]} = "
+        f"{coeffs_qc[0]:.5f}·{x_label.split(',')[0]} "
+        f"{sign} {abs(coeffs_qc[1]):.5f}"
+    )
+    if len(fig_qc.data) > 0:
+        fig_qc.data[-1].name = eq_qc
+
     # Настройка оформления cross-plot
     apply_crossplot_layout(fig_qc, x_label, y_label, title=title, height=height,)
 
@@ -863,12 +878,16 @@ def build_approximation_plot(
                 for tau, y_pred, col in curves:
                     dash_tau = quantile_dashes.get(tau, "solid")
                     width_tau = quantile_widths.get(tau, 3)
+                    try:
+                        eq_tau = cached_quantile_stats(x_ref, y_ref, tau).equation
+                    except Exception:
+                        eq_tau = f"τ={tau}"
                     fig_fit.add_trace(
                         go.Scatter(
                             x=z_line,
                             y=y_pred,
                             mode="lines",
-                            name=f"P{round(tau * 100)}",
+                            name=f"P{round(tau * 100)}: {eq_tau}",
                             line=dict(color=col, width=width_tau, dash=dash_tau),
                         )
                     )
@@ -894,17 +913,19 @@ def build_approximation_plot(
                 if z_fit is not None:
                     dash_approx = approx_dashes.get(approx, "solid")
                     width_approx = approx_widths.get(approx, 3)
+                    eq_line = get_equation(approx, x_ref, y_ref)
                     fig_fit.add_trace(
                         go.Scatter(
                             x=z_line,
                             y=z_fit,
                             mode="lines",
-                            name=approx,
+                            name=f"{approx}: {eq_line}",
                             line=dict(color=color, width=width_approx, dash=dash_approx),
                         )
                     )
                 stats_fit = cached_fit_stats(x_ref, y_ref, approx,)
                 fit_rows.append({"Approximation": approx, **fitstats_to_dict(stats_fit),})
+
         except Exception as e:
             fit_rows.append({"Approximation": approx, error_label: str(e),})
 
@@ -1876,7 +1897,7 @@ def build_zone_overview_plot(
                             x=x_line_z,
                             y=z_fit,
                             mode="lines",
-                            name=f"{approx} — {zone}",
+                            name=f"{approx} — {zone}", 
                             line=dict(width=width_approx, color=zone_curve_colors[zone], dash=dash_approx),
                         )
                     )

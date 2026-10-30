@@ -991,6 +991,7 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
             "rmse_fold_range": np.nan,
             "n_pred": 0,
             "r2_pearson_pooled": np.nan,
+            "r_pooled": np.nan,
             **_r2_fold_stats(None),
             **_n_test_stats(None),
         }
@@ -1056,6 +1057,7 @@ def summarize_cv(preds: np.ndarray, y_true: np.ndarray, fold_df: pd.DataFrame) -
         "rmse_fold_range": rmse_fold_range,
 
         "r2_pearson_pooled": r2_pearson_pooled,
+        "r_pooled": r_pooled if mask.sum() >= 3 else np.nan,
         **_r2_fold_stats(fold_df),
         **_n_test_stats(fold_df),
     }
@@ -1168,6 +1170,8 @@ def run_all_cv(df: pd.DataFrame, degree: int = 1, k: int = 5,
         "n_test_min",
         "n_test_max",
         "r2_lin",
+        "r2_pearson_pooled",
+        "r_pooled",
         "rmse",
         "mae",
         "bias",
